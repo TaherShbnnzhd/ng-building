@@ -1,0 +1,7 @@
+{
+  "customers": "'https://www.primefaces.org/data/customers'",
+  "customers-small": "assets/showcase/data/customers-small.json",
+  "customers-medium": "assets/showcase/data/customers-medium.json",
+  "customers-large": "assets/showcase/data/customers-large.json",
+  "customers-xlarge": "assets/showcase/data/customers-xlarge.json"
+}

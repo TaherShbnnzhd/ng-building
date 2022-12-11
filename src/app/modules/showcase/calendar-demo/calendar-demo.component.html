@@ -1,0 +1,232 @@
+<!-- بسم الله الرحمن الرحیم -->
+
+<section class="section">
+  <!-- بازشو -->
+  <div class="row justify-content-start">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">بازشو</h5>
+          <div class="card-text text-end">
+            <div class="row">
+              <div class="field col-4">
+                <p-persian-calendar
+                  [(ngModel)]="date3"
+                  [showIcon]="true"
+                  inputId="icon"
+                ></p-persian-calendar>
+
+                <label style="min-width: 3rem" class="mx-2" for="icon"
+                  >نمایه</label
+                >
+              </div>
+              <div class="field col-4">
+                <p-persian-calendar
+                  [(ngModel)]="date2"
+                  dateFormat="yy-mm-dd"
+                  inputId="dateformat"
+                ></p-persian-calendar>
+
+                <label style="min-width: 6rem" class="mx-2" for="dateformat"
+                  >قالب</label
+                >
+              </div>
+              <div class="field col-4">
+                <p-persian-calendar
+                  [(ngModel)]="date1"
+                  inputId="basic"
+                ></p-persian-calendar>
+
+                <label style="min-width: 6rem" class="mx-2" for="basic"
+                  >ساده</label
+                >
+              </div>
+            </div>
+            <!-- end row -->
+            <div class="row my-3">
+              <div class="field col-4">
+                <p-persian-calendar
+                  [(ngModel)]="dates"
+                  selectionMode="multiple"
+                  [readonlyInput]="true"
+                  inputId="multiple"
+                ></p-persian-calendar>
+
+                <label style="min-width: 6rem" class="mx-2" for="multiple"
+                  >چندگانه</label
+                >
+              </div>
+              <div class="field col-4">
+                <p-persian-calendar
+                  [(ngModel)]="date5"
+                  [disabledDates]="invalidDates"
+                  [disabledDays]="[0, 6]"
+                  [readonlyInput]="true"
+                  inputId="disabledays"
+                ></p-persian-calendar>
+
+                <label style="min-width: 6rem" class="mx-2" for="disabledays"
+                  >روز غیرفعال</label
+                >
+              </div>
+              <div class="field col-4">
+                <p-persian-calendar
+                  [(ngModel)]="date4"
+                  [minDate]="minDate"
+                  [maxDate]="maxDate"
+                  [readonlyInput]="true"
+                  inputId="min-max"
+                ></p-persian-calendar>
+
+                <label style="min-width: 6rem" class="mx-2" for="min-max"
+                  >حداکثر/حداقل</label
+                >
+              </div>
+            </div>
+            <!-- end row -->
+            <div class="row my-3">
+              <div class="field col-4">
+                <p-persian-calendar
+                  [(ngModel)]="date7"
+                  [showTime]="true"
+                  [showSeconds]="true"
+                  inputId="time"
+                ></p-persian-calendar>
+
+                <label style="min-width: 6rem" class="mx-2" for="time"
+                  >زمان 24</label
+                >
+              </div>
+              <div class="field col-4">
+                <p-persian-calendar
+                  [(ngModel)]="date6"
+                  [showButtonBar]="true"
+                  inputId="buttonbar"
+                ></p-persian-calendar>
+
+                <label style="min-width: 6rem" class="mx-2" for="buttonbar"
+                  >پاورقی</label
+                >
+              </div>
+              <div class="field col-4">
+                <p-persian-calendar
+                  [(ngModel)]="rangeDates"
+                  selectionMode="range"
+                  [readonlyInput]="true"
+                  inputId="range"
+                ></p-persian-calendar>
+
+                <label style="min-width: 6rem" class="mx-2" for="range"
+                  >محدوده</label
+                >
+              </div>
+            </div>
+            <!-- end row -->
+            <div class="row my-3">
+              <div class="field col-4">
+                <p-persian-calendar
+                  [(ngModel)]="date10"
+                  view="year"
+                  dateFormat="yy"
+                  inputId="yearpicker"
+                ></p-persian-calendar>
+
+                <label style="min-width: 6rem" class="mx-2" for="yearpicker"
+                  >سال</label
+                >
+              </div>
+              <div class="field col-4">
+                <p-persian-calendar
+                  [(ngModel)]="date9"
+                  view="month"
+                  dateFormat="yy/mm"
+                  [readonlyInput]="true"
+                  inputId="monthpicker"
+                ></p-persian-calendar>
+
+                <label style="min-width: 6rem" class="mx-2" for="monthpicker"
+                  >ماه</label
+                >
+              </div>
+              <div class="field col-4">
+                <p-persian-calendar
+                  [(ngModel)]="date8"
+                  [timeOnly]="true"
+                  hourFormat="12"
+                  inputId="timeonly"
+                ></p-persian-calendar>
+
+                <label style="min-width: 6rem" class="mx-2" for="timeonly"
+                  >زمان 12</label
+                >
+              </div>
+            </div>
+            <!-- end row -->
+            <div class="row my-3">
+              <div class="field col-4">
+                <p-persian-calendar
+                  [(ngModel)]="date11"
+                  [numberOfMonths]="3"
+                  inputId="multiplemonths"
+                ></p-persian-calendar>
+
+                <label style="min-width: 6rem" class="mx-2" for="multiplemonths"
+                  >چندماه</label
+                >
+              </div>
+              <div class="field col-4">
+                <p-persian-calendar [(ngModel)]="date12" inputId="template">
+                  <ng-template pTemplate="date" let-date>
+                    <span
+                      [ngStyle]="{
+                        textDecoration:
+                          date.day < 21 && date.day > 10
+                            ? 'line-through'
+                            : 'inherit'
+                      }"
+                      >{{ date.day | faNum }}</span
+                    >
+                  </ng-template>
+                </p-persian-calendar>
+
+                <label style="min-width: 6rem" class="mx-2" for="template"
+                  >طراحی</label
+                >
+              </div>
+              <div class="field col-4">
+                <p-persian-calendar
+                  [(ngModel)]="date13"
+                  [touchUI]="true"
+                  [readonlyInput]="true"
+                  inputId="touchui"
+                ></p-persian-calendar>
+
+                <label style="min-width: 6rem" class="mx-2" for="touchui"
+                  >لمسی</label
+                >
+              </div>
+            </div>
+            <!-- end row -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- تقویم -->
+  <div class="row justify-content-start">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">تقویم</h5>
+          <div class="card-text text-center">
+            <p-persian-calendar
+              [(ngModel)]="date14"
+              [inline]="true"
+              [showWeek]="true"
+            ></p-persian-calendar>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

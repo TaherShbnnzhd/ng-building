@@ -1,0 +1,197 @@
+<!-- بسم الله الرحمن الرحیم -->
+
+<!-- Start Sidebar-->
+<aside class="sidebar" [class.collapsed]="collapse">
+  <div class="control-panel p-2">
+    <!-- collapse mode -->
+    <div
+      [class.collapsed]="collapse"
+      class="menu-toggle"
+      (click)="collapse = !collapse"
+    >
+      <div [class.collapsed]="collapse">
+        <span class="bi bi-caret-right-fill"></span>
+      </div>
+    </div>
+
+    <div class="menu-toggle-mask"></div>
+
+    <!-- offcanvas mode -->
+    <div class="offcanvas-toggle">
+      <a
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasRight"
+        aria-controls="offcanvasRight"
+      >
+        <span class="bi bi-caret-left-fill"></span>
+      </a>
+    </div>
+
+    <div class="menu-toggle-mask"></div>
+  </div>
+
+  <div class="menu-panel">
+    <!-- Sidebar - Brand -->
+    <a
+      class="sidebar-brand d-flex align-items-center justify-content-center offcanvas-body"
+    >
+      <div class="sidebar-brand-icon rotate-n-15">
+        <!-- <i class="bi bi-chat-heart"></i> -->
+      </div>
+
+      <a
+        class="sidebar-brand-text mx-3"
+        routerLink="/home/dashboard"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+      >
+        بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+      </a>
+    </a>
+
+    <hr class="sidebar-divider my-0" />
+
+    <div
+      class="sidebar-nav justify-content-start"
+      id="sidebar-nav"
+      *ngFor="let menu of menuList; let i = index"
+    >
+      <ul>
+        <!-- Start Menu -->
+        <li class="nav-item" [class.collapsed]="collapse">
+          <a
+            class="nav-link collapsed"
+            [attr.data-bs-target]="'#components-nav-' + i"
+            data-bs-toggle="collapse"
+          >
+            <i
+              class="text-start bi"
+              [class]="menu.icon ? menu.icon : 'bi-question-circle'"
+            ></i>
+            <!-- <i class="bi bi-gear-fill text-start"></i> -->
+
+            <span class="p-2">
+              {{ menu.title }}
+            </span>
+
+            <i
+              *ngIf="menu.submenu && menu.submenu.length > 0"
+              class="p-2 bi bi-chevron-down"
+            ></i>
+          </a>
+
+          <!-- Start Sub Menu -->
+          <div *ngIf="menu.submenu && menu.submenu.length > 0">
+            <ul
+              [id]="'components-nav-' + i"
+              class="nav-content collapse"
+              data-bs-parent="#sidebar-nav"
+              *ngFor="let submenu of menu.submenu"
+            >
+              <li>
+                <a
+                  [routerLink]="'/' + menu.name + '/' + submenu.name"
+                  routerLinkActive="active"
+                  ariaCurrentWhenActive="page"
+                >
+                  <i class="p-1 bi bi-circle"></i>
+
+                  <span class="p-2">
+                    {{ submenu.title }}
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- End Sub Menu -->
+        </li>
+        <!-- End Components Nav -->
+      </ul>
+    </div>
+    <!-- End Menu -->
+  </div>
+
+  <div class="control-panel-buttom p-2"></div>
+
+  <!-- offcanvas mode -->
+  <div
+    class="offcanvas offcanvas-end"
+    tabindex="-1"
+    id="offcanvasRight"
+    aria-labelledby="offcanvasRightLabel"
+  >
+    <div class="offcanvas-body">
+      <div class="menu-panel">
+        <!-- Sidebar - Brand -->
+        <a
+          class="sidebar-brand d-flex align-items-center justify-content-center offcanvas-body"
+        >
+          <div class="sidebar-brand-icon rotate-n-15">
+            <!-- <i class="bi bi-chat-heart"></i> -->
+          </div>
+
+          <div class="sidebar-brand-text mx-3">
+            بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+          </div>
+        </a>
+
+        <hr class="sidebar-divider my-0" />
+
+        <ul
+          class="sidebar-nav justify-content-start"
+          id="sidebar-nav"
+          *ngFor="let menu of menuList; let i = index"
+        >
+          <!-- Start Menu -->
+          <li class="nav-item" [class.collapsed]="collapse">
+            <a
+              class="nav-link collapsed"
+              [attr.data-bs-target]="'#components-nav-' + i"
+              data-bs-toggle="collapse"
+            >
+              <!-- <i [class]="menu.icon ? menu.icon : 'bi bi-question-circle'"></i> -->
+              <i class="bi bi-arrow-left-short text-start"></i>
+
+              <span class="p-2">
+                {{ menu.title }}
+              </span>
+
+              <i
+                *ngIf="menu.submenu && menu.submenu.length > 0"
+                class="p-2 bi bi-chevron-down"
+              ></i>
+            </a>
+
+            <!-- Start Sub Menu -->
+            <div *ngIf="menu.submenu && menu.submenu.length > 0">
+              <ul
+                [id]="'components-nav-' + i"
+                class="nav-content collapse"
+                data-bs-parent="#sidebar-nav"
+                *ngFor="let submenu of menu.submenu"
+              >
+                <li>
+                  <a
+                    [routerLink]="'/' + menu.name + '/' + submenu.name"
+                    routerLinkActive="active"
+                    ariaCurrentWhenActive="page"
+                  >
+                    <i class="p-1 bi bi-circle-fill"></i>
+
+                    <span class="p-2">
+                      {{ submenu.title }}
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <!-- End Sub Menu -->
+          </li>
+          <!-- End Components Nav -->
+        </ul>
+        <!-- End Menu -->
+      </div>
+    </div>
+  </div>
+</aside>
+<!-- End Sidebar-->

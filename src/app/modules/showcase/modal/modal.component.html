@@ -1,0 +1,404 @@
+<!-- بسم الله الرحمن الرحیم -->
+
+<section class="section">
+  <!-- ساده و متمایز -->
+  <div class="row justify-content-start">
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">متمایز</h5>
+          <div class="card-text text-center">
+            <p-button
+              (click)="showModalDialog()"
+              icon="pi pi-external-link"
+              label="نمایش نمایه"
+              iconPos="right"
+            ></p-button>
+            <p-dialog
+              header="حکایتی از مثنوی معنوی"
+              [(visible)]="displayModal"
+              [modal]="true"
+              [style]="{ width: '50vw' }"
+              [draggable]="false"
+              [resizable]="false"
+            >
+              <p class="m-0">
+                موشی افسار شتری را گرفت و به راه افتاد. شتر بدلیل طبع آرامی که
+                داشت با وی همراه شد ولی در باطن منتظر فرصتی بود تا خطای موش رابه
+                وی گوش زد کند. این دو به راه ادامه دادند تا به کنار رودخانه اي
+                رسیدند. موش از حرکت باز ایستاد و شتر از او پرسید: «چرا ایستاده
+                اي تو رهبر و پیشاهنگ من هستی؟» موش گفت: «این رودخانه خیلی عمیق
+                است.» شتر پایش را در آب نهاد و رو به موش گفت: «عمق این آب فقط تا
+                زانوست.» موش گفت: «میان زانوی من و تو فرق بسیار است.» شتر پاسخ
+                داد: «تو نیز از این پس رهبری موشانی چون خودرا بر عهده گیر.»
+              </p>
+              <br />
+              <p>چون پیمبر نیستی پس رو براه</p>
+              <p>تا رسی از چاه روزی سوی جاه</p>
+              <p>تو رعیت باش گر پادشاه نیی</p>
+              <p>خود مران چون مرد کشتی بان نیی</p>
+              <ng-template pTemplate="footer">
+                <p-button
+                  icon="pi pi-check"
+                  (click)="displayModal = false"
+                  label="باشه"
+                  styleClass="p-button-text"
+                  iconPos="right"
+                ></p-button>
+              </ng-template>
+            </p-dialog>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">ساده</h5>
+          <div class="card-text text-center">
+            <!-- نمایه بلند -->
+            <p-button
+              (click)="showBasicDialog2()"
+              icon="pi pi-external-link"
+              label="نمایه بلند"
+              iconPos="right"
+              class="mx-3"
+            ></p-button>
+            <p-dialog
+              header="حکایت"
+              [(visible)]="displayBasic2"
+              [style]="{ width: '50vw' }"
+            >
+              <p>
+                در روزگاران قدیم دو همسایه بودند که همیشه با هم نزاع و دعوا
+                داشتند. یک روز با هم قرار گذاشتند که هر کدام دارویی بسازد و به
+                دیگری بدهد تا یکی بمیرد و دیگری که می‌ماند لااقل در آسایش زندگی
+                کند!
+              </p>
+              <br />
+              <p>
+                برای همین سکه‌ای به هوا انداختند و شیر و خط کردند که کدام یکی
+                اول سم را بخورد. قرعه به نام همسایه دوم افتاد. پس همسایه اول به
+                بازار رفت و از عطاری قوی‌ترین سمی که داشت را خرید و به همسایه‌اش
+                داد تا بخورد. همسایه دوم سم را سرکشید و به خانه‌اش رفت. قبلا به
+                خدمتکارانش گفته بود حوض را برایش از آب گرم پر کنند و یک ظرف دوغ
+                پر نمک هم آماده بگذارند کنار حوض.
+              </p>
+              <br />
+              <p>
+                او همینکه به خانه رسید، ظرف بزرگ دوغ را سر کشید و وارد حوض شد.
+                کمی دست و پا زد و شنا کرد و هر چه خورده بود را برگرداند و پس از
+                آنکه معده‌اش تخلیه و تمیز شد، به اتاق رفت و تخت خوابید. صبح روز
+                بعد سالم بیدار شد و به سراغ همسایه‌اش رفت و گفت: من جان سالم به
+                در بردم، حالا نوبت من است که سمی بسازم و طبق قرار تو آن را
+                بخوری.
+              </p>
+              <br />
+              <p>
+                او به بازار رفت و نمد بزرگی خرید و به خانه برد. خدمتکارانش را هم
+                صدا کرد و به آنها گفت که از حالا فقط کارتان این است که از صبح تا
+                غروب این نمد را با چوب بکوبید!
+              </p>
+              <br />
+              <p>
+                همسایه اول هر روز می‌شنید که مرد همسایه که در تدارک تهیه سم
+                است!!! از صبح تا شب مواد سم را می‌کوبد. با هر ضربه و هر صدا که
+                می‌شنید نگرانی و ترسش بیشتر می‌شد و پیش خودش به سم مهلکی که
+                داشتند برایش تهیه می‌کردند فکر می‌کرد!
+              </p>
+              <br />
+              <p>
+                کم کم نگرانی و ترس همه‌ی وجودش را گرفت و آسایشی برایش نماند.
+                شب‌ها ترس، خواب از چشمانش ربوده بود و روزها با هر صدایی که از
+                خانه‌ی همسایه می‌شنید دلهره‌اش بیشتر می‌شد و تشویش سراسر وجودش
+                را می‌گرفت. هر چوبی که بر نمد کوبیده می‌شد برای او ضربه‌ای بود
+                که در نظرش سم را مهلک‌تر می‌کرد.
+              </p>
+              <br />
+              <p>
+                روز سوم خبر رسید که او مرده است. او قبل از اینکه سمی بخورد، از
+                ترس مرده بود!!
+              </p>
+              <ng-template pTemplate="footer">
+                <p-button
+                  icon="pi pi-check"
+                  (click)="displayBasic2 = false"
+                  label="باشه"
+                  styleClass="p-button-text"
+                  iconPos="right"
+                ></p-button>
+              </ng-template>
+            </p-dialog>
+
+            <!-- نمایش نمایه -->
+            <p-button
+              (click)="showBasicDialog()"
+              icon="pi pi-external-link"
+              label="نمایش نمایه"
+              iconPos="right"
+              class="mx-3"
+            ></p-button>
+            <p-dialog
+              header="حکایت"
+              [(visible)]="displayBasic"
+              [style]="{ width: '50vw' }"
+            >
+              <p>
+                اﺳﺘﺎﺩﯼ ﺍﺯ ﺷﺎﮔﺮﺩﺍﻥ ﺧﻮﺩ ﭘﺮﺳﯿﺪ: به نظر ﺷﻤﺎ ﭼﻪ ﭼﯿﺰ ﺍﻧﺴﺎﻥ ﺭﺍ ﺯﯾﺒﺎ
+                ﻣﯽﮐﻨﺪ؟ ﻫﺮﯾﮏ ﺟﻮﺍﺑﯽ ﺩﺍﺩﻧﺪ؛ ﯾﮑﯽ ﮔﻔﺖ: ﭼﺸﻤﺎﻧﯽ ﺩﺭﺷﺖ. ﺩﻭﻣﯽ ﮔﻔﺖ: ﻗﺪﯼ
+                ﺑﻠﻨﺪ. ﺩﯾﮕﺮﯼ ﮔﻔﺖ: ﭘﻮﺳﺖ ﺷﻔﺎﻑ ﻭ ﺳﻔﯿﺪ. ﺩﺭ ﺍﯾﻦ ﻫﻨﮕﺎﻡ ﺍﺳﺘﺎﺩ، دو کاسه
+                کنار شاگردان گذاشت و گفت: به این دو کاسه نگاه کنید. اولی از طلا
+                درست شده است و درونش سم است و دومی کاسه‌ای گلی است و درونش آب
+                گوارا است، شما از کدام کاسه می‌نوشید؟ شاگردان یک‌صدا جواب دادند:
+                از کاسه گلی. استاد گفت: ﺯﻣﺎﻧﯽ ﮐﻪ ﺣﻘﯿﻘﺖ ﺩﺭﻭﻥ کاسه‌ها ﺭﺍ در نظر
+                گرفتید، ﻇﺎﻫﺮ آنها ﺑﺮﺍ‌یتاﻥ ﺑﯽﺍﻫﻤﯿﺖ ﺷﺪ. آدمی هم همچون این کاسه
+                است. آنچه که آدمی را زیبا می‌کند درونش و اخلاقش است. باید
+                سیرتمان را زیباکنیم نه صورتمان را.
+              </p>
+              <ng-template pTemplate="footer">
+                <p-button
+                  icon="pi pi-check"
+                  (click)="displayBasic = false"
+                  label="باشه"
+                  styleClass="p-button-text"
+                  iconPos="right"
+                ></p-button>
+              </ng-template>
+            </p-dialog>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- همراه پاسخ و همراه بزرگنمایی -->
+  <div class="row justify-content-start">
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">همراه بزرگنمایی</h5>
+          <div class="card-text text-center">
+            <p-button
+              (click)="showMaximizableDialog()"
+              icon="pi pi-external-link"
+              label="نمایش نمایه"
+              iconPos="right"
+              class="mx-3"
+            ></p-button>
+            <p-dialog
+              header="حکایت"
+              [(visible)]="displayMaximizable"
+              [modal]="true"
+              [style]="{ width: '50vw' }"
+              [maximizable]="true"
+              [draggable]="false"
+              [resizable]="false"
+            >
+              <p>
+                فردى هرروز در بازار گدایی می‌کرد و مردم حماقت وی را دست می
+                انداختند. دو سکه به او نشان می دادند که یکی شان طلا بودو دیگری
+                از نقره. اما او همیشه سکه نقره را انتخاب می‌کرد! داستان در تمام
+                منطقه پخش شد.
+              </p>
+              <br />
+              <p>
+                هرروز گروهی زن و مرد به دیدن این گدا می آمدند و دو سکه طلا به او
+                نشان می دادند و او همیشه نقره را انتخاب میکرد، مردم وی را دست می
+                انداختند و به حماقت او می خندیدند.
+              </p>
+              <br />
+              <p>
+                تا این‌که مرد مهربانی از راه رسید و از این‌که وی را ان طور دست
+                می انداختند، ناراحت شد. وی را به گوشه اي دنج از میدان کشید و
+                گفت: هر وقت دو سکه به تو نشان دادند، تو سکه طلا را بردار. این
+                طوری هم پول بیشتری گیرت می‌آید و همدیگر دستت نمی‌اندازند.
+              </p>
+              <br />
+              <p>
+                گدا پاسخ داد: ظاهراً حق با شماست، اما اگر سکه طلا را بردارم،
+                دیگر مردم به من پول نمیدهند تا ثابت کنند که من احمق تر از
+                آنهایم! شما نمی‌دانید تا حالا با این کلک چقدر پول گیر آورده ام!
+                اگر کاری می‌کنی که هوشمندانه است، هیچ اشکالی ندارد که تو را احمق
+                پندارند…!
+              </p>
+              <ng-template pTemplate="footer">
+                <p-button
+                  icon="pi pi-check"
+                  (click)="displayMaximizable = false"
+                  label="باشه"
+                  styleClass="p-button-text"
+                  iconPos="right"
+                ></p-button>
+              </ng-template>
+            </p-dialog>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">همراه پاسخ</h5>
+          <div class="card-text text-center">
+            <p-button
+              (click)="showResponsiveDialog()"
+              icon="pi pi-external-link"
+              label="نمایش نمایه"
+              iconPos="right"
+            ></p-button>
+            <p-dialog
+              header="حکایت"
+              [(visible)]="displayResponsive"
+              [breakpoints]="{ '960px': '75vw' }"
+              [style]="{ width: '50vw' }"
+              [draggable]="false"
+              [resizable]="false"
+            >
+              <p>
+                شبلی، عارف معروف به مسجدی رفت که دو رکعت نماز بخواند. در آن مسجد
+                کودکان درس می‌خواندند و وقت نان خوردن کودکان بود. دو کودک نزدیک
+                شبلی نشسته بودند؛ یکی پسر ثروتمندی بود و دیگری پسر فقیری. در
+                زنبیل پسر ثروتمند پاره‌ای حلوا بود و در زنبیل پسر فقیر نان خشک.
+                پسر فقیر از او حلوا می‌خواست. آن کودک می‌گفت: اگر خواهی که
+                پاره‌ای حلوا به تو دهم، سگ من باش و چون سگان بانگ کن. آن بیچاره
+                بانگ سگ کرد و پسر ثروتمند پاره‌ای حلوا بدو داد. باز دیگر باره
+                بانگ می‌کرد و پاره‌ای دیگر می‌گرفت. همچنان بانگ می‌کرد و حلوا
+                می‌گرفت. شبلی در آنان می‌نگریست و می‌گریست. کسی از او پرسید: ای
+                شیخ تو را چه رسیده است که گریان شده‌ای؟ شبلی گفت: نگاه کنید که
+                طمع‌کاری به مردم چه رساند؟ اگر آن کودک بدان نان تهی قناعت می‌کرد
+                و طمع از حلوای او برمی‌داشت، سگِ همچون خویشتنی نمی‌شد.
+              </p>
+              <ng-template pTemplate="footer">
+                <p-button
+                  (click)="displayResponsive = false"
+                  label="موافقم"
+                  styleClass="p-button-text"
+                  iconPos="right"
+                ></p-button>
+                <p-button
+                  (click)="displayResponsive = false"
+                  label="مخالفم"
+                  styleClass="p-button-text"
+                  iconPos="right"
+                ></p-button>
+              </ng-template>
+            </p-dialog>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- موقعیت -->
+  <div class="row justify-content-start">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">موقعیت</h5>
+          <div class="card-text text-center">
+            <div class="grid flex-column">
+              <div class="col mb-2">
+                <div class="col mb-2 mx-3">
+                  <p-button
+                    (click)="showPositionDialog('top-left')"
+                    icon="pi pi-arrow-up-left"
+                    label="شمال شرقی"
+                    styleClass="p-button-warning"
+                    class="mx-3"
+                    iconPos="right"
+                  ></p-button>
+                  <p-button
+                    (click)="showPositionDialog('top')"
+                    icon="pi pi-arrow-up"
+                    label="شمال"
+                    styleClass="p-button-warning"
+                    class="mx-3"
+                    iconPos="right"
+                  ></p-button>
+                  <p-button
+                    (click)="showPositionDialog('top-right')"
+                    icon="pi pi-arrow-up-right"
+                    label="شمال غربی"
+                    styleClass="p-button-warning"
+                    class="mx-3"
+                    iconPos="right"
+                  ></p-button>
+                </div>
+                <p-button
+                  (click)="showPositionDialog('left')"
+                  icon="pi pi-arrow-left"
+                  label="شرق"
+                  styleClass="p-button-warning"
+                  class="mx-5 px-2"
+                  iconPos="right"
+                ></p-button>
+                <p-button
+                  (click)="showPositionDialog('right')"
+                  icon="pi pi-arrow-right"
+                  label="غرب"
+                  styleClass="p-button-warning"
+                  class="mx-5"
+                  iconPos="right"
+                ></p-button>
+              </div>
+
+              <div class="col mb-2">
+                <p-button
+                  (click)="showPositionDialog('bottom-left')"
+                  icon="pi pi-arrow-down-left"
+                  label="جنوب شرقی"
+                  styleClass="p-button-warning"
+                  class="mx-3"
+                  iconPos="right"
+                ></p-button>
+                <p-button
+                  (click)="showPositionDialog('bottom')"
+                  icon="pi pi-arrow-down"
+                  label="جنوب"
+                  styleClass="p-button-warning"
+                  class="mx-3"
+                  iconPos="right"
+                ></p-button>
+                <p-button
+                  (click)="showPositionDialog('bottom-right')"
+                  icon="pi pi-arrow-down-right"
+                  label="جنوب غربی"
+                  styleClass="p-button-warning"
+                  class="mx-3"
+                  iconPos="right"
+                ></p-button>
+              </div>
+            </div>
+            <p-dialog
+              header="حکایت"
+              [(visible)]="displayPosition"
+              [position]="position"
+              [modal]="true"
+              [style]="{ width: '50vw' }"
+              [draggable]="false"
+              [resizable]="false"
+            >
+              <p>
+                سقراط از حکمای یونان، زنی بداخلاق داشت. روزی آن زن نشسته با
+                نهایت بدخویی مشغول لباس شستن بود و در حین کار به سقراط دشنام
+                می‌داد. حکیم از طریق حکمت، مروت و بردباری دم برنمی‌آورد و سکوت
+                اختیار کرده بود. آرامش سقراط خشم همسرش را بیشتر می‌کرد به حدی که
+                تشت را که پر از کف صابون بود بر سر و روی سقراط ریخت. ولی سقراط
+                همچنان خونسرد بود. حاضران به حکیم اعتراض کردند که این مقدار تحمل
+                بی‌موقع از شما پسندیده نیست. سقراط با لبخند گفت: حق با شماست.
+                اما اثر غرش رعد و جهیدن برق، آمدن برف و باران است.
+              </p>
+              <ng-template pTemplate="footer">
+                <p-button
+                  icon="pi pi-check"
+                  (click)="displayPosition = false"
+                  label="باشه"
+                  styleClass="p-button-text"
+                  iconPos="right"
+                ></p-button>
+              </ng-template>
+            </p-dialog>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

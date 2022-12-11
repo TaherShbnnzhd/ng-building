@@ -1,0 +1,392 @@
+/* بسم الله الرحمن الرحیم */
+
+a {
+  color: var(--sidebar-item-color);
+  text-decoration: none;
+  background-color: transparent;
+}
+
+/*--------------------------------------------------------------
+# Sidebar
+--------------------------------------------------------------*/
+.sidebar {
+  direction: rtl;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--z-index--sidemenu);
+  transition: all 0.2s linear;
+  overflow: hidden;
+
+  .menu-panel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .menu-panel {
+    top: 0;
+    float: right;
+    width: 300px;
+    height: 100vh;
+    background: var(--sidebar-main-bg-color);
+    box-shadow: var(--main-box-shadow);
+    overflow-y: scroll;
+    scrollbar-width: none;
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      height: 10px;
+      width: 80px;
+      bottom: 0;
+    }
+
+    &:before {
+      top: var(--header-height);
+      left: 0px;
+      height: 30px;
+      width: 30px;
+      border-bottom-left-radius: 50%;
+      background: transparent;
+      transform: rotate(180deg);
+      box-shadow: 0 13px 0 0 var(--sidebar-main-bg-color);
+    }
+
+    &:after {
+      bottom: var(--footer-height);
+      left: 0px;
+      height: 30px;
+      width: 30px;
+      border-bottom-left-radius: 50%;
+      background: transparent;
+      box-shadow: 0 13px 0 0 var(--sidebar-main-bg-color);
+      transform: rotate(270deg);
+    }
+  }
+
+  .control-panel {
+    position: relative;
+    text-align: center;
+    width: 30px;
+    height: var(--header-height);
+    float: left;
+    padding: 0;
+    font-size: 1.5rem;
+    transition: transform 0.2s linear;
+    background-color: var(--sidebar-main-bg-color);
+
+    .menu-toggle-mask {
+      cursor: pointer;
+      position: absolute;
+      height: 65px;
+      top: 85px;
+      background-color: var(--sidebar-main-bg-color);
+      left: 3px;
+      transition: all 0.2s linear;
+      width: 2rem;
+      border-bottom-left-radius: 8px;
+      border-top-left-radius: 8px;
+      z-index: -1;
+      box-shadow: rgba(1, 41, 112, 0.08) 0px 0px 14px 0px,
+        rgba(1, 41, 112, 0.08) 0px 0px 5px 0px;
+      background-color: var(--sidebar-main-bg-color);
+    }
+    .menu-toggle {
+      cursor: pointer;
+      position: absolute;
+      height: 65px;
+      top: 85px;
+      background-color: var(--sidebar-main-bg-color);
+      left: 3px;
+      transition: all 0.2s linear;
+      width: 2rem;
+      border-bottom-left-radius: 8px;
+      border-top-left-radius: 8px;
+      // box-shadow: rgba(1, 41, 112, 0.1) -6px 0px 3px 0px,
+      //   rgba(1, 41, 112, 0.1) -3px 0px 0px 0px;
+
+      div {
+        margin-top: 7px;
+        text-decoration: none;
+        position: relative;
+        transition: all 0.2s linear;
+        color: var(--main-hilight-color);
+        font-size: 2rem;
+        &.collapsed {
+          color: var(--main-hilight-color);
+          transform: rotate(180deg) translateY(-7.5%);
+          transition: all 0.2s linear;
+        }
+      }
+
+      &.collapsed {
+        background-color: var(--sidebar-main-bg-color);
+        left: 5px;
+        transition: all 0.2s linear;
+
+        &:hover {
+          width: 2rem;
+          left: 3px;
+          transition: all 0.1s linear;
+        }
+      }
+
+      &:hover {
+        left: 5px;
+        transition: all 0.1s linear;
+      }
+    }
+
+    .offcanvas-toggle {
+      cursor: pointer;
+      display: none;
+      text-decoration: none;
+      transition: all 0.2s linear;
+      position: absolute;
+      height: 65px;
+      top: 85px;
+      background-color: var(--sidebar-main-bg-color);
+      left: 5px;
+      transition: all 0.2s linear;
+      width: 2rem;
+      border-bottom-left-radius: 8px;
+      border-top-left-radius: 8px;
+
+      a {
+        display: flex;
+        text-decoration: none;
+        color: var(--main-hilight-color);
+        font-size: 2rem;
+        transition: all 0.2s linear;
+
+        span {
+          position: relative;
+          top: 8px;
+          color: var(--main-hilight-color);
+        }
+      }
+
+      &:hover {
+        left: 3px;
+        transition: all 0.1s linear;
+      }
+    }
+  }
+  .control-panel-buttom {
+    position: fixed;
+    text-align: center;
+    width: 320px;
+    height: var(--footer-height);
+    float: left;
+    padding: 0;
+    bottom: 0;
+    font-size: 1.5rem;
+    transition: transform 0.2s linear;
+    background-color: var(--sidebar-main-bg-color);
+  }
+}
+
+@media (max-width: 991px) {
+  .sidebar {
+    right: -292px;
+    transition: all 0.2s linear;
+
+    .control-panel {
+      .menu-toggle {
+        display: none;
+      }
+
+      :not(.menu-toggle) {
+        display: inline !important;
+        color: #5e6278;
+      }
+    }
+  }
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: #fff;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #aab7cf;
+}
+
+.sidebar .collapse-button {
+  left: 0;
+}
+
+/* sidebar brand */
+
+.sidebar .sidebar-brand {
+  height: 4.4rem;
+  font-weight: 800;
+}
+
+.sidebar .sidebar-brand .sidebar-brand-icon i {
+  font-size: 2rem;
+}
+
+.sidebar .sidebar-brand .sidebar-brand-text {
+  cursor: pointer;
+  color: var(--main-hilight-color);
+  font-size: 1.4rem;
+}
+
+.sidebar hr.sidebar-divider {
+  margin: 1rem 1rem 1rem 1rem;
+}
+
+.sidebar-nav {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  ul {
+    padding: 0;
+    margin-bottom: 0.5rem;
+
+    li {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+  }
+}
+
+.sidebar-nav .nav-item {
+  margin-bottom: 0px;
+}
+
+.sidebar-nav .nav-heading {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--sidebar-item-color);
+  margin: 10px 0 5px 15px;
+}
+
+.sidebar-nav .nav-link {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  color: var(--sidebar-item-color);
+  background-color: var(--sidebar-main-bg-color);
+  transition: 0.3;
+  margin: 8px 13px 0 13px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sidebar-nav .nav-link i {
+  display: flex;
+  padding: 0rem 0.5rem 0rem 0.5rem;
+  color: var(--sidebar-item-color);
+  font-size: 1.5rem;
+  transition: all 0.2s linear;
+}
+
+.sidebar-nav .nav-link span {
+  font-size: 1rem;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.2s linear;
+  width: 100vw;
+}
+
+/* Menu Items */
+.sidebar-nav .nav-link.collapsed {
+  color: var(--sidebar-item-color);
+  background-color: var(--sidebar-main-bg-color);
+}
+
+.sidebar-nav .nav-link.collapsed i {
+  color: var(--sidebar-item-icon-color);
+}
+
+.sidebar-nav .nav-link:hover {
+  color: var(--main-hilight-color);
+  background: var(--main-color);
+}
+
+.sidebar-nav .nav-link:hover i {
+  color: var(--sidebar-item-color);
+}
+
+.sidebar-nav .nav-link .bi-chevron-down {
+  margin-right: 0;
+  scale: 0.65;
+  transition: transform 0.2s linear;
+}
+
+.sidebar-nav .nav-link:not(.collapsed) .bi-chevron-down {
+  transform: rotate(180deg);
+}
+
+.sidebar-nav .nav-link .bi-arrow-left-short {
+  margin-right: 0;
+  transition: transform 0.2s linear;
+}
+
+.sidebar-nav .nav-link:not(.collapsed) .bi-arrow-left-short {
+  transform: rotate(-90deg);
+}
+
+.sidebar-nav .nav-content {
+  padding: 5px 0 0 0;
+  margin: 0 0 0 1rem;
+  list-style: none;
+  transition: all 0.2s linear;
+}
+
+.sidebar-nav .nav-content a {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: var(--sidebar-item-color);
+  transition: all 0.2s linear;
+  padding: 0rem 3rem 0.3rem 0rem;
+  transition: 0.2s linear;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.sidebar-nav .nav-content a i {
+  font-size: 6px;
+  margin-right: 8px;
+  line-height: 0;
+  border-radius: 50%;
+}
+
+.sidebar-nav .nav-content a:hover,
+.sidebar-nav .nav-content a.active {
+  color: var(--sidebar-hilight-color);
+}
+
+.sidebar-nav .nav-content a.active i {
+  background-color: var(--main-hilight-color);
+  scale: 0.6;
+}
+
+/* collapsed Mode */
+.sidebar.collapsed {
+  right: -292px;
+  transition: all 0.2s linear;
+}
+
+/* extra */
+.rotate-n-15 {
+  transform: rotate(-15deg);
+}
+
+.offcanvas {
+  width: 300.5px;
+
+  .offcanvas-body {
+    padding: 0;
+  }
+}

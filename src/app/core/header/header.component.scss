@@ -1,0 +1,19 @@
+/* بسم الله الرحمن الرحیم */
+
+.header {
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  grid-column: 1 / span 3;
+  transition: all 0.2s;
+  height: var(--header-height);
+  width: 120%;
+  background-color: var(--sidebar-main-bg-color);
+  box-shadow: var(--main-box-shadow);
+  z-index: var(--z-index--header);
+
+  .button-match-color {
+    color: var(--sidebar-item-color);
+  }
+}

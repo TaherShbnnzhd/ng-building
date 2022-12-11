@@ -1,0 +1,39 @@
+/* بسم الله الرحمن الرحیم */
+
+:host ::ng-deep .p-button {
+  margin-right: 0.5rem;
+}
+
+:host ::ng-deep .p-buttonset {
+  .p-button {
+    margin-right: 0;
+  }
+}
+
+:host ::ng-deep .sizes {
+  .button {
+    margin-bottom: 0.5rem;
+    display: block;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .p-button {
+    margin-bottom: 0.5rem;
+
+    &:not(.p-button-icon-only) {
+      display: flex;
+      width: 100%;
+    }
+  }
+
+  .p-buttonset {
+    .p-button {
+      margin-bottom: 0;
+    }
+  }
+}

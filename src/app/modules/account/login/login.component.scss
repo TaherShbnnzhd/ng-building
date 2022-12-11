@@ -1,0 +1,123 @@
+/* بسم الله الرحمن الرحیم */
+
+.section {
+    position: fixed;
+    display: flex;
+    direction: rtl;
+    background-color: var(--main-color) !important;
+    height: 100%;
+    width: 100vw;
+    justify-content: center;
+    justify-items: center;
+    overflow: auto;
+}
+
+.w-full {
+    width: 100% !important;
+}
+
+.surface-card {
+    position: absolute;
+    top: 10vh;
+    background-color: #fff;
+    width: 50% !important;
+    height: 500px !important;
+}
+
+.border-round {
+    border-radius: var(--border-radius) !important;
+}
+
+.shadow-2 {
+    box-shadow: 0 4px 10px #00000008, 0 0 2px #0000000f, 0 2px 6px #0000001f !important;
+}
+
+.p-4 {
+    padding: 1.5rem !important;
+}
+
+.mb-2 {
+    margin-bottom: .5rem !important;
+}
+
+.mb-3 {
+    margin-bottom: 1rem !important;
+}
+
+.mb-5 {
+    margin-bottom: 2rem !important;
+}
+
+.mb-6 {
+    margin-bottom: 3rem !important;
+}
+
+.ml-2 {
+    margin-left: .5rem !important;
+}
+
+.mr-2 {
+    margin-right: .5rem !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-3xl {
+    font-size: 1.75rem !important;
+}
+
+.text-blue-500 {
+    color: var(--blue-500) !important;
+}
+
+.font-medium {
+    font-weight: 500 !important;
+}
+
+.text-600 {
+    color: var(--surface-600) !important;
+}
+
+.text-900 {
+    color: var(--surface-900) !important;
+}
+
+
+.line-height-3 {
+    line-height: 1.5 !important;
+}
+
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+.no-underline {
+    text-decoration: none !important;
+}
+
+.block {
+    display: block !important;
+}
+
+.align-items-center {
+    align-items: center !important;
+}
+
+.justify-content-between {
+    justify-content: space-between !important;
+}
+
+.flex {
+    display: flex !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.p-ripple {
+    overflow: hidden;
+    position: relative;
+}

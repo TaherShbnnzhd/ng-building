@@ -1,0 +1,24 @@
+/* بسم الله الرحمن الرحیم */
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 0.3rem 0.3rem 0.3rem 1rem;
+  font-size: 14px;
+  width: 100vw;
+  height: var(--footer-height);
+  background-color: var(--sidebar-main-bg-color);
+  box-shadow: var(--main-box-shadow);
+  z-index: var(--z-index--footer);
+}
+
+.footer .credits {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--main-item-color);
+}

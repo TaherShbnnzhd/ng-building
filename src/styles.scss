@@ -1,0 +1,520 @@
+/* بسم الله الرحمن الرحیم */
+
+/* You can add global styles to this file, and also import other style files */
+
+/*--------------------------------------------------------------
+# Imports
+--------------------------------------------------------------*/
+@import "assets/showcase/styles/flags.css";
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+:root {
+  scroll-behavior: smooth;
+
+  --main-color: #f3f6fc;
+  --main-hilight-color: #4457f2;
+  --main-item-color: #475d5b;
+
+  --sidebar-main-bg-color: #fff;
+  --sidebar-item-color: #476497;
+  --sidebar-hilight-color: #4154f1;
+  --sidebar-danger-color: #fb7d79;
+
+  --main-box-shadow: rgba(1, 41, 112, 0.1) 0px -2px 14px 1px,
+    rgba(1, 41, 112, 0.1) 0px 2px 5px 1px;
+
+  --header-height: 60px;
+  --footer-height: 30px;
+
+  --z-index--footer: 95;
+  --z-index--header: 96;
+  --z-index--main-loading: 95;
+  --z-index--sidemenu: 103;
+}
+
+@font-face {
+  font-family: kharazmi;
+  src: url(assets/fonts/kharazmi.woff) format("opentype");
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", "kharazmi", "arial", sans-serif;
+}
+
+.customer-badge {
+  border-radius: 2px;
+  padding: 0.25em 0.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+
+  &.status-qualified {
+    background-color: #c8e6c9;
+    color: #256029;
+  }
+
+  &.status-unqualified {
+    background-color: #ffcdd2;
+    color: #c63737;
+  }
+
+  &.status-negotiation {
+    background-color: #feedaf;
+    color: #8a5340;
+  }
+
+  &.status-new {
+    background-color: #b3e5fc;
+    color: #23547b;
+  }
+
+  &.status-renewal {
+    background-color: #eccfff;
+    color: #694382;
+  }
+
+  &.status-proposal {
+    background-color: #ffd8b2;
+    color: #805b36;
+  }
+}
+
+.product-badge {
+  border-radius: 2px;
+  padding: 0.25em 0.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+
+  &.status-instock {
+    background: #c8e6c9;
+    color: #256029;
+  }
+
+  &.status-outofstock {
+    background: #ffcdd2;
+    color: #c63737;
+  }
+
+  &.status-lowstock {
+    background: #feedaf;
+    color: #8a5340;
+  }
+}
+
+.order-badge {
+  border-radius: 2px;
+  padding: 0.25em 0.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+
+  &.order-delivered {
+    background: #c8e6c9;
+    color: #256029;
+  }
+
+  &.order-cancelled {
+    background: #ffcdd2;
+    color: #c63737;
+  }
+
+  &.order-pending {
+    background: #feedaf;
+    color: #8a5340;
+  }
+
+  &.order-returned {
+    background: #eccfff;
+    color: #694382;
+  }
+}
+
+.true-icon {
+  color: #256029;
+}
+
+.false-icon {
+  color: #c63737;
+}
+
+.image-text {
+  vertical-align: middle;
+  margin-left: 0.5rem;
+}
+
+.p-multiselect-representative-option {
+  display: inline-block;
+  vertical-align: middle;
+
+  img {
+    vertical-align: middle;
+    width: 24px;
+  }
+
+  span {
+    margin-top: 0.125rem;
+  }
+}
+
+.country-item {
+  display: flex;
+  align-items: center;
+
+  img.flag {
+    width: 18px;
+    margin-right: 0.5rem;
+  }
+}
+/*--------------------------------------------------------------
+# Page Title
+--------------------------------------------------------------*/
+.pagetitle {
+  margin-bottom: 20px;
+  text-align: end;
+}
+
+.pagetitle h1 {
+  font-size: 24px;
+  margin-bottom: 0;
+  font-weight: 700;
+  color: var(--main-item-color);
+}
+/*--------------------------------------------------------------
+# Override some default PrimeNG stylings
+--------------------------------------------------------------*/
+/* overall */
+.p-component {
+  font-family: "kharazmi", "arial", sans-serif !important;
+}
+
+/* badge */
+.p-button {
+  .p-badge {
+    margin-left: 0.5rem;
+  }
+}
+
+.p-badge {
+  font-size: 1rem !important;
+  min-width: 1.5rem !important;
+  height: 1.5rem !important;
+  line-height: 1.75rem !important;
+}
+
+/* message */
+.p-message {
+  &.p-message-success,
+  &.p-message-info,
+  &.p-message-warn,
+  &.p-message-error,
+  &.p-message-custom {
+    font-weight: 100;
+    border-width: 0 6px 0 0 !important;
+
+    .p-message-icon {
+      margin-right: 0;
+      margin-left: 0.5rem;
+      -webkit-box-ordinal-group: 4;
+      -moz-box-ordinal-group: 4;
+      -ms-flex-order: 4;
+      -webkit-order: 4;
+      order: 4;
+    }
+    .p-message-summary {
+      direction: rtl;
+      -webkit-box-ordinal-group: 2;
+      -moz-box-ordinal-group: 2;
+      -ms-flex-order: 2;
+      -webkit-order: 2;
+      order: 2;
+    }
+    .p-message-detail {
+      direction: rtl;
+      -webkit-box-ordinal-group: 3;
+      -moz-box-ordinal-group: 3;
+      -ms-flex-order: 3;
+      -webkit-order: 3;
+      order: 3;
+    }
+    .p-message-close {
+      margin-right: auto;
+      margin-left: unset;
+      -webkit-box-ordinal-group: 1;
+      -moz-box-ordinal-group: 1;
+      -ms-flex-order: 1;
+      -webkit-order: 1;
+      order: 1;
+    }
+  }
+}
+
+.p-inline-message {
+  .p-inline-message-icon {
+    margin-right: 0;
+    margin-left: 0.5rem;
+    -webkit-box-ordinal-group: 2;
+    -moz-box-ordinal-group: 2;
+    -ms-flex-order: 2;
+    -webkit-order: 2;
+    order: 2;
+  }
+  .p-inline-message-text {
+    direction: rtl;
+    -webkit-box-ordinal-group: 1;
+    -moz-box-ordinal-group: 1;
+    -ms-flex-order: 1;
+    -webkit-order: 1;
+    order: 1;
+  }
+}
+
+/* inputtext*/
+.p-inputtext {
+  direction: rtl;
+  font-family: "kharazmi", "arial", sans-serif;
+}
+.p-fluid {
+  direction: rtl;
+  font-family: "kharazmi", "arial", sans-serif;
+}
+
+/* accordion */
+.p-accordion {
+  direction: rtl;
+
+  .p-accordion-content {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+  .p-accordion-toggle-icon {
+    margin-right: 0rem;
+    margin-left: 0.5rem;
+    transition: all 0.2s linear;
+  }
+}
+
+/* dialog */
+.p-dialog {
+  .p-dialog-header,
+  .p-dialog-content {
+    direction: rtl;
+  }
+  .p-dialog-footer {
+    text-align: start !important;
+  }
+}
+
+/* tabview */
+.p-tabview {
+  .p-tabview-nav-container,
+  .p-tabview-panels {
+    direction: rtl;
+  }
+
+  .p-tabview-nav-link {
+    .p-tabview-title {
+      -webkit-box-ordinal-group: 2;
+      -moz-box-ordinal-group: 2;
+      -ms-flex-order: 2;
+      -webkit-order: 2;
+      order: 2;
+    }
+    .p-tabview-close {
+      -webkit-box-ordinal-group: 1;
+      -moz-box-ordinal-group: 1;
+      -ms-flex-order: 1;
+      -webkit-order: 1;
+      order: 1;
+    }
+  }
+}
+
+/* datatable */
+.p-datatable {
+  direction: rtl;
+
+  .p-datatable-header {
+    padding: 0.5rem 1rem !important;
+    .table-header {
+      align-items: center;
+      font-size: 1.4rem;
+      font-style: revert-layer;
+      font-weight: normal;
+      color: var(--main-item-color);
+    }
+  }
+
+  .p-datatable-wrapper {
+    scrollbar-width: thin;
+    scrollbar-color: #aab7cf transparent;
+  }
+
+  .p-datatable-thead {
+    .p-sortable-column {
+      div {
+        display: flex !important;
+      }
+      p-sorticon {
+        flex-grow: 1;
+      }
+    }
+  }
+  .p-datatable-thead,
+  .p-datatable-tbody {
+    tr {
+      th,
+      td {
+        text-align: start !important;
+      }
+    }
+  }
+  .p-paginator-bottom {
+    .p-paginator-first,
+    .p-paginator-prev,
+    .p-paginator-next,
+    .p-paginator-last {
+      transform: rotate(180deg);
+    }
+
+    .p-dropdown-label {
+      padding-right: 1rem !important;
+    }
+  }
+}
+
+/* inputnumber */
+.p-inputnumber {
+  direction: ltr;
+}
+
+/* calendar */
+.p-datepicker {
+  direction: rtl;
+  .p-datepicker-next,
+  .p-datepicker-prev {
+    transform: rotate(180deg);
+  }
+}
+.p-datepicker-group {
+  border-left: 0px solid #dee2e6 !important;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.p-timepicker {
+  direction: ltr !important;
+}
+
+/* dropdown */
+.p-dropdown {
+  .p-dropdown-panel {
+    direction: rtl;
+    scrollbar-width: thin;
+    scrollbar-color: #aab7cf transparent;
+    .p-dropdown-header {
+      padding: 1.25rem 3rem 1.25rem 0rem !important;
+      .p-dropdown-filter-icon {
+        right: 7.2rem !important;
+      }
+    }
+  }
+}
+
+/* breadcrumb */
+.p-breadcrumb {
+  direction: rtl;
+
+  ul li.p-breadcrumb-chevron {
+    margin: 0 0.5rem 0 0.5rem;
+    color: #495057;
+    transform: rotate(180deg) !important;
+  }
+}
+
+/* toast-message */
+
+.p-toast {
+  .p-toast-message {
+    font-weight: 100;
+    border-width: 0 6px 0 0 !important;
+    .p-toast-message-content {
+      .p-toast-message-icon {
+        margin-right: 0;
+        margin-left: 0.5rem;
+        -webkit-box-ordinal-group: 4;
+        -moz-box-ordinal-group: 4;
+        -ms-flex-order: 4;
+        -webkit-order: 4;
+        order: 4;
+      }
+      .p-toast-message-text {
+        direction: rtl;
+        -webkit-box-ordinal-group: 2;
+        -moz-box-ordinal-group: 2;
+        -ms-flex-order: 2;
+        -webkit-order: 2;
+        order: 2;
+      }
+      .p-toast-icon-close {
+        margin-right: auto;
+        margin-left: unset;
+        -webkit-box-ordinal-group: 1;
+        -moz-box-ordinal-group: 1;
+        -ms-flex-order: 1;
+        -webkit-order: 1;
+        order: 1;
+      }
+    }
+  }
+}
+
+/*--------------------------------------------------------------
+# Override some default Bootstrap stylings
+--------------------------------------------------------------*/
+/* Card */
+.card {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  margin-right: 25px;
+  border: none !important;
+  border-radius: 3px !important;
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+
+  .card-header,
+  .card-footer {
+    border-color: #ebeef4;
+    background-color: #fff;
+    color: #798eb3;
+    padding: 15px;
+  }
+
+  .card-body {
+    padding: 0 20px 20px 20px;
+
+    .card-title {
+      padding: 20px 0 20px 0 !important;
+      text-align: end;
+      font-size: 20px;
+      font-weight: 350;
+      color: var(--bs-gray-600);
+      border-bottom: 1px solid var(--bs-gray-200);
+    }
+
+    .card-text {
+      padding-top: 0.5rem;
+    }
+  }
+
+  .card-img-overlay {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+}

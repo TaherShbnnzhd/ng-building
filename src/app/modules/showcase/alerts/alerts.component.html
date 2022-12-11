@@ -1,0 +1,156 @@
+<!-- بسم الله الرحمن الرحیم -->
+
+<section class="section">
+  <div class="row justify-content-end">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">حالت‌های نمایش پیغام</h5>
+          <div class="card-text">
+            <p-messages [(value)]="msgs1" [enableService]="false"></p-messages>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-end">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="">
+            <div class="row text-center">
+              <span class="col-lg-3 p-buttonset pt-2">
+                <button
+                  type="button"
+                  pButton
+                  pRipple
+                  (click)="clearMessages()"
+                  label="پنهان"
+                  class="p-button p-button-secondary"
+                  [style.width.rem]="7"
+                ></button>
+                <button
+                  type="button"
+                  pButton
+                  pRipple
+                  (click)="addMessages()"
+                  label="پیدا"
+                  class="p-button p-button-primary"
+                  [style.width.rem]="7"
+                ></button>
+              </span>
+              <div class="col-lg-9">
+                <h5 class="card-title">نمایش پیغام با رویداد</h5>
+              </div>
+            </div>
+          </div>
+          <div class="card-text">
+            <p-messages [(value)]="msgs2" [enableService]="false"></p-messages>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-end">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <div>
+            <div class="row text-center">
+              <div class="col-lg-1 pt-2">
+                <button
+                  type="button"
+                  pButton
+                  pRipple
+                  (click)="showViaService()"
+                  label="فراخوانی"
+                  class="p-button-primary"
+                  [style.width.rem]="7"
+                ></button>
+              </div>
+              <div class="col-lg-11">
+                <h5 class="card-title">نمایش پیغام با فراخوانی سرویس</h5>
+              </div>
+            </div>
+          </div>
+          <div class="card-text">
+            <p-messages></p-messages>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">پیغام اعلام وضعیت</h5>
+          <div class="card-text">
+            <div class="row text-center">
+              <p-message
+                severity="success"
+                text="اطلاعات صحیح"
+                class="col-lg-3"
+              ></p-message>
+              <p-message
+                severity="info"
+                text="راهنما اطلاعات"
+                class="col-lg-3"
+              ></p-message>
+              <p-message
+                severity="warn"
+                text="هشدار اطلاعات"
+                class="col-lg-3"
+              ></p-message>
+              <p-message
+                severity="error"
+                text="خطا اطلاعات"
+                class="col-lg-3"
+              ></p-message>
+            </div>
+            <div class="text-end">
+              <div class="row mt-4">
+                <div class="col-lg-6">
+                  <p-message severity="error"></p-message>
+                  <input
+                    type="text"
+                    pInputText
+                    placeholder="رایانامه"
+                    class="ng-dirty ng-invalid mr-2"
+                  />
+                </div>
+                <div class="col-lg-6">
+                  <p-message
+                    severity="error"
+                    text="این فیلد اجباری می‌باشد!"
+                  ></p-message>
+                  <input
+                    type="text"
+                    pInputText
+                    placeholder="نام کاربری"
+                    class="ng-dirty ng-invalid mr-2"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row text-end mt-4">
+              <div class="field p-fluid">
+                <label for="username">نام کاربری</label>
+                <input
+                  id="username"
+                  type="username"
+                  aria-describedby="username-help"
+                  class="ng-invalid ng-dirty"
+                  pInputText
+                />
+                <small id="username-help" class="p-error"
+                  >نام کاربری وارد شده معتبر نمی‌باشد!</small
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

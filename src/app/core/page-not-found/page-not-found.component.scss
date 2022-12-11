@@ -1,0 +1,39 @@
+/* بسم الله الرحمن الرحیم */
+
+
+/*--------------------------------------------------------------
+# Error 404
+--------------------------------------------------------------*/
+.error-404 {
+    padding: 30px;
+}
+
+.error-404 h1 {
+    font-size: 110px;
+    font-weight: 700;
+    color: #4154f1;
+    margin-bottom: 0;
+}
+
+.error-404 h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #012970;
+    margin-bottom: 30px;
+}
+
+.error-404 .btn {
+    background: #51678f;
+    color: #fff;
+    padding: 8px 30px;
+}
+
+.error-404 .btn:hover {
+    background: #3e4f6f;
+}
+
+@media (min-width: 992px) {
+    .error-404 img {
+        max-width: 50%;
+    }
+}

@@ -1,0 +1,158 @@
+<!-- بسم الله الرحمن الرحیم -->
+
+<section class="section">
+  <!-- پیش فرض -->
+  <div class="row justify-content-start">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">پیش فرض</h5>
+          <div class="card-text text-end">
+            <div class="row">
+              <div class="field col-lg-4 d-flex justify-content-end">
+                <p-dropdown
+                  [options]="groupedCities"
+                  [(ngModel)]="selectedICity3"
+                  placeholder="اتخابگر شهر"
+                  [group]="true"
+                  inputId="group"
+                >
+                  <ng-template let-group pTemplate="group">
+                    <div class="flex align-items-center">
+                      <img
+                        src="assets/showcase/images/demo/flag/flag_placeholder.png"
+                        [class]="'mr-2 flag flag-' + group.value"
+                        style="width: 20px"
+                      />
+                      <span> {{ group.label }}</span>
+                    </div>
+                  </ng-template>
+                </p-dropdown>
+                <label style="min-width: 3rem" class="mx-2" for="group"
+                  >گروه</label
+                >
+              </div>
+              <div class="field col-lg-4 d-flex justify-content-end">
+                <p-dropdown
+                  [options]="cities"
+                  [(ngModel)]="selectedICity2"
+                  [editable]="true"
+                  optionLabel="name"
+                  inputId="edit"
+                ></p-dropdown>
+                <label style="min-width: 6rem" class="mx-2" for="edit"
+                  >قابل ویرایش</label
+                >
+              </div>
+              <div class="field col-lg-4 d-flex justify-content-end">
+                <p-dropdown
+                  [options]="cities"
+                  [(ngModel)]="selectedICity1"
+                  placeholder="انتخابگر شهر"
+                  optionLabel="name"
+                  [showClear]="true"
+                  inputId="simple"
+                ></p-dropdown>
+
+                <label style="min-width: 3rem" class="mx-2" for="scrollh"
+                  >ساده</label
+                >
+              </div>
+            </div>
+            <!-- end row -->
+            <div class="row my-5">
+              <div class="field col-lg-4 d-flex justify-content-end">
+                <p-dropdown
+                  [options]="lazyItems"
+                  [(ngModel)]="selectedItem2"
+                  placeholder="انتخابگر"
+                  [virtualScroll]="true"
+                  [virtualScrollItemSize]="38"
+                  [lazy]="true"
+                  (onLazyLoad)="onLazyLoad($event)"
+                  [virtualScrollOptions]="{
+                    showLoader: true,
+                    loading: loading,
+                    delay: 250
+                  }"
+                  inputId="lazy"
+                >
+                  <ng-template pTemplate="loader" let-options="options">
+                    <div
+                      class="flex align-items-center py-2 px-3"
+                      style="height: 38px"
+                    >
+                      <p-skeleton
+                        [width]="options.even ? '60%' : '50%'"
+                        height="1rem"
+                      ></p-skeleton>
+                    </div>
+                  </ng-template>
+                </p-dropdown>
+
+                <label style="min-width: 3rem" class="mx-2" for="lazy"
+                  >بازیابی</label
+                >
+              </div>
+              <div class="field col-lg-4 d-flex justify-content-end">
+                <p-dropdown
+                  [options]="items"
+                  [(ngModel)]="selectedItem1"
+                  placeholder="انتخابگر"
+                  [virtualScroll]="true"
+                  [virtualScrollItemSize]="38"
+                  inputId="scrollv"
+                ></p-dropdown>
+
+                <label style="min-width: 3rem" class="mx-2" for="scrollv"
+                  >اسکرول عمودی</label
+                >
+              </div>
+              <div class="field col-lg-4 d-flex justify-content-end">
+                <p-dropdown
+                  [options]="countries"
+                  [(ngModel)]="selectedCountry"
+                  optionLabel="name"
+                  [filter]="true"
+                  filterBy="name"
+                  [showClear]="true"
+                  placeholder="انتخابگر کشور"
+                  inputId="scrollh"
+                >
+                  <ng-template pTemplate="selectedItem">
+                    <div
+                      class="country-item country-item-value"
+                      *ngIf="selectedCountry"
+                    >
+                      <img
+                        src="assets/showcase/images/demo/flag/flag_placeholder.png"
+                        [class]="
+                          'mx-2 flag flag-' + selectedCountry.code.toLowerCase()
+                        "
+                      />
+                      <div>{{ selectedCountry.name }}</div>
+                    </div>
+                  </ng-template>
+                  <ng-template let-country pTemplate="item">
+                    <div class="country-item">
+                      <img
+                        src="assets/showcase/images/demo/flag/flag_placeholder.png"
+                        [class]="'mx-2 flag flag-' + country.code.toLowerCase()"
+                      />
+                      <div>{{ country.name }}</div>
+                    </div>
+                  </ng-template>
+                </p-dropdown>
+
+                <label style="min-width: 3rem" class="mx-2" for="scrollh"
+                  >فیلتر</label
+                >
+              </div>
+              <!-- end row -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

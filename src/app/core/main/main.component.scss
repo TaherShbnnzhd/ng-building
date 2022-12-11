@@ -1,0 +1,108 @@
+/* بسم الله الرحمن الرحیم */
+
+body {
+  scroll-behavior: smooth;
+  background-color: var(--main-color);
+}
+
+.wrapper {
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+  background-color: var(--main-color);
+
+  .menu {
+    float: right;
+  }
+
+  .content {
+    height: 100vh;
+    transition: all 0.2s linear;
+    background-color: transparent;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+  }
+
+  .content::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.content-body {
+  transition: all 0.2s linear;
+
+  &.full {
+    padding: 1rem 1.7rem 1rem 1rem;
+  }
+
+  &.compact {
+    padding: 1rem 20rem 1rem 1rem;
+  }
+
+  .loading-content {
+    background-color: var(--sidebar-main-bg-color);
+    position: fixed;
+    z-index: var(--z-index--main-loading);
+    width: 100vw;
+    height: calc(95vh - var(--footer-height));
+    opacity: 0.95;
+    text-align: center;
+    justify-content: space-around;
+    display: flex;
+    justify-items: center;
+    flex-wrap: nowrap;
+    left: 0;
+    align-items: center;
+    top: var(--header-height);
+
+    .full {
+      padding: 1rem 2rem 1rem 1rem;
+      transition: all 0.2s linear;
+    }
+
+    .compact {
+      padding: 1rem 20rem 1rem 1rem;
+      transition: all 0.2s linear;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .content-body {
+    transition: all 0.2s linear;
+
+    &.full,
+    &.compact {
+      padding: 1rem 1.5rem 1rem 1rem;
+      transition: all 0.2s linear;
+    }
+  }
+
+  .loading-content {
+    .full,
+    .compact {
+      padding: 1rem 1.5rem 1rem 1rem !important;
+      transition: all 0.2s linear;
+    }
+  }
+}
+
+.content::-webkit-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  background-color: transparent;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.content::-webkit-scrollbar-thumb {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  background-color: transparent;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.offcanvas {
+  width: 380px;
+}

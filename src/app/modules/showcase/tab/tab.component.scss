@@ -1,0 +1,23 @@
+/* بسم الله الرحمن الرحیم */
+
+:host ::ng-deep .tabview-custom {
+  i,
+  span {
+    vertical-align: middle;
+  }
+
+  span {
+    margin: 0 0.5rem;
+  }
+}
+
+:host ::ng-deep .p-button {
+  margin-right: 0.25rem;
+}
+
+:host ::ng-deep .p-tabview p {
+  line-height: 1.5;
+  margin: 0;
+  text-align: justify;
+  text-justify: inter-word;
+}

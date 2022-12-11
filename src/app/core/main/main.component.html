@@ -1,0 +1,46 @@
+<!-- بسم الله الرحمن الرحیم -->
+
+<body>
+  <div class="">
+    <div class="wrapper col-lg-12">
+      <div class="menu" [class.col-0]="menuToggle" [class.col-2]="!menuToggle">
+        <block-sidemenu
+          #sidemenu
+          (onCollaps)="menuToggle = $event"
+        ></block-sidemenu>
+      </div>
+
+      <div class="content">
+        <block-header class="content-header"> </block-header>
+
+        <div
+          class="content-body col-12"
+          [class.full]="menuToggle"
+          [class.compact]="!menuToggle"
+        >
+          <!-- Page Title -->
+          <!-- <div class="pagetitle">
+            <h1>{{ pageTitle }}</h1>
+          </div> -->
+          <!-- End Page Title -->
+
+          <div class="loading-content" *ngIf="loading">
+            <p-progressSpinner
+              [class.full]="menuToggle"
+              [class.compact]="!menuToggle"
+              strokeWidth="7"
+            ></p-progressSpinner>
+          </div>
+
+          <div [@routeAnimations]="animationService.getRouteAnimationData()">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+
+        <div class="mt-2">
+          <block-footer></block-footer>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
