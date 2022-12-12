@@ -32,6 +32,8 @@
             ></p-progressSpinner>
           </div>
 
+          <p-toast key="httpErrorMessage" position="bottom-left"></p-toast>
+
           <div [@routeAnimations]="animationService.getRouteAnimationData()">
             <router-outlet></router-outlet>
           </div>

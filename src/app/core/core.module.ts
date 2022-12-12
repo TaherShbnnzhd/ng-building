@@ -17,7 +17,6 @@ import { FooterComponent } from './footer/footer.component';
 import { AuthGuard } from './guards/auth/auth.guard';
 import { HttpService } from './http/http.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { MessageService } from './services/message.service';
 import { AuthService } from './authentication/auth.service';
 import { HttpErrorHandlerService } from './http/http-error-handler/http-error-handler.service';
 import { SidemenuComponent } from './sidemenu/sidemenu.component';
@@ -28,6 +27,9 @@ import { AppRoutingModule } from '../app-routing.module';
 import { ButtonModule } from 'primeng/button';
 import { TooltipModule } from 'primeng/tooltip';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     ButtonModule,
     TooltipModule,
     ProgressSpinnerModule,
+    ToastModule,
   ],
   exports: [
     CommonModule,
@@ -56,8 +59,8 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     AuthService,
     AuthGuard,
     HttpService,
-    MessageService,
     HttpErrorHandlerService,
+    MessageService,
     { provide: RequestCache, useClass: RequestCacheWithMap },
     httpInterceptorProviders,
     {

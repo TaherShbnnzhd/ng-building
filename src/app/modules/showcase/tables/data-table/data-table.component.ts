@@ -29,16 +29,6 @@ export class DataTableComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.customerService.getCustomer().subscribe((customers) => {
-    //   this.customers = customers;
-
-    //   this.loading = false;
-
-    //   this.customers.forEach(
-    //     (customer) => (customer.date = new Date(customer.date as Date))
-    //   );
-    // });
-
     this.customerService
       .get<ICustomer[]>(this.config.getAddress('customers-small'), 2)
       .subscribe((customers) => {

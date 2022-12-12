@@ -9,11 +9,11 @@ import {
   HttpResponse,
 } from '@angular/common/http';
 import { finalize, Observable, tap } from 'rxjs';
-import { MessageService } from '../services/message.service';
+import { LogService } from '../services/log.service';
 
 @Injectable()
 export class LoggingInterceptor implements HttpInterceptor {
-  constructor(private messenger: MessageService) {}
+  constructor(private logger: LogService) {}
 
   intercept(
     request: HttpRequest<unknown>,
@@ -39,7 +39,7 @@ export class LoggingInterceptor implements HttpInterceptor {
         const message = `${request.method} "${request.urlWithParams}"
              ${ok} in ${elapsed} ms.`;
 
-        this.messenger.add(message);
+        this.logger.add(message);
       })
     );
   }

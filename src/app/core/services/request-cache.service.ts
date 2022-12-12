@@ -2,7 +2,7 @@
 
 import { HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MessageService } from './message.service';
+import { LogService } from './log.service';
 
 export interface RequestCacheEntry {
   url: string;
@@ -22,7 +22,7 @@ const maxAge: number = 30000;
 export class RequestCacheWithMap implements RequestCache {
   public cache = new Map<string, RequestCacheEntry>();
 
-  constructor(private messenger: MessageService) {}
+  constructor(private logger: LogService) {}
 
   public get(request: HttpRequest<any>): HttpResponse<any> | undefined {
     const url = request.urlWithParams;
@@ -34,14 +34,14 @@ export class RequestCacheWithMap implements RequestCache {
 
     const isExpired = cached.lastRead < Date.now() - maxAge;
     const expired = isExpired ? 'expired' : '';
-    this.messenger.add(`Found ${expired} cached response for "${url}".`);
+    this.logger.add(`Found ${expired} cached response for "${url}".`);
 
     return isExpired ? undefined : cached.response;
   }
 
   public put(request: HttpRequest<any>, response: HttpResponse<any>): void {
     const url = request.urlWithParams;
-    this.messenger.add(`Caching response from "${url}".`);
+    this.logger.add(`Caching response from "${url}".`);
 
     const newEntry = { url, response, lastRead: Date.now() };
     this.cache.set(url, newEntry);
@@ -54,6 +54,6 @@ export class RequestCacheWithMap implements RequestCache {
       }
     });
 
-    this.messenger.add(`Request cache size: ${this.cache.size}.`);
+    this.logger.add(`Request cache size: ${this.cache.size}.`);
   }
 }

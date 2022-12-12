@@ -13,7 +13,8 @@ import { RETRY_COUNT } from '../interceptors/retry.interceptor';
 
 @Injectable()
 export class HttpService {
-  private customersUrl: string;
+  private basesUrl: string = this.config.getAddress('baseUrl');
+  private customersUrl: string = this.config.getAddress('customers-small');
 
   private httpOptions: { headers: HttpHeaders };
 
@@ -24,8 +25,6 @@ export class HttpService {
     private config: AppConfigService,
     public httpErrorHandler: HttpErrorHandlerService
   ) {
-    this.customersUrl = this.config.getAddress('customers-small');
-
     this.httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
@@ -33,35 +32,29 @@ export class HttpService {
     this.handleError = httpErrorHandler.createHandleError('HttpService');
   }
 
-  /** GET: general. */
-  public get<T>(
+  /** POST: get data with empty body. */
+  public getByPost<T>(
+    type: { new (): T },
     url: string,
-    retryCount?: number,
+    retryCount: number = 1,
     params?: any
   ): Observable<T> {
+    return this.http
+      .post<T>(this.basesUrl + url, {
+        params: params,
+        context: new HttpContext().set(RETRY_COUNT, retryCount),
+      })
+      .pipe(catchError(this.handleError('getByPost', new type())));
+  }
+
+  /** GET: general. */
+  public get<T>(url: string, retryCount: number = 1, params?: any): Observable<T> {
     return this.http
       .get<ICustomer[]>(url, {
         params: params,
         context: new HttpContext().set(RETRY_COUNT, retryCount),
       })
       .pipe(
-        catchError(this.handleError('getCustomer', [])),
-        map((response: any) => response?.data)
-      );
-  }
-
-  /** GET: fetch Customer from User_Address in config. */
-  public getCustomer(
-    params?: any,
-    retryCount?: number
-  ): Observable<ICustomer[]> {
-    return this.http
-      .get<ICustomer[]>(this.customersUrl, {
-        params: params,
-        context: new HttpContext().set(RETRY_COUNT, retryCount),
-      })
-      .pipe(
-        retry(3),
         catchError(this.handleError('getCustomer', [])),
         map((response: any) => response?.data)
       );
