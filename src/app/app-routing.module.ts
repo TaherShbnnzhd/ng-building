@@ -43,6 +43,7 @@ const routes: Routes = [
           ),
         canLoad: [AuthGuard],
       },
+      { path: '', redirectTo: '/home/dashboard', pathMatch: 'full' },
     ],
   },
   { path: '', redirectTo: '/home/dashboard', pathMatch: 'full' },
