@@ -1,1 +1,15 @@
 /* بسم الله الرحمن الرحیم */
+
+.content {
+  color: var(--sidebar-item-color);
+  text-align: center;
+  height: 72vh;
+  position: relative;
+  display: flex;
+  font-size: 13rem;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: row;
+}
