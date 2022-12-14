@@ -29,7 +29,7 @@ a {
     width: 300px;
     height: 100vh;
     background: var(--sidebar-main-bg-color);
-    box-shadow: var(--main-box-shadow);
+    // box-shadow: var(--main-box-shadow);
     overflow-y: scroll;
     scrollbar-width: none;
 
@@ -88,7 +88,7 @@ a {
       border-bottom-left-radius: 8px;
       border-top-left-radius: 8px;
       z-index: -1;
-      box-shadow: rgba(1, 41, 112, 0.08) 0px 0px 14px 0px,
+      box-shadow: rgba(1, 41, 112, 0.08) 0px 0px 5px 0px,
         rgba(1, 41, 112, 0.08) 0px 0px 5px 0px;
       background-color: var(--sidebar-main-bg-color);
     }
