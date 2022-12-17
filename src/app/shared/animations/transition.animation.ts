@@ -45,7 +45,7 @@ export const slideInAnimation = trigger('routeAnimations', [
         [animate('130ms ease-out', style({ opacity: 0 }))],
         { optional: true }
       ),
-      query(':enter', [animate('250ms ease-out', style({ right: '0%' }))], {
+      query(':enter', [animate('200ms ease-out', style({ right: '0%' }))], {
         optional: true,
       }),
       query('@*', animateChild(), { optional: true }),
@@ -74,10 +74,10 @@ export const fadeInAnimation = trigger('routeAnimations', [
     }),
     query(':leave', animateChild(), { optional: true }),
     group([
-      query(':leave', [animate('260ms ease-in', style({ opacity: 0 }))], {
+      query(':leave', [animate('200ms ease-in', style({ opacity: 0 }))], {
         optional: true,
       }),
-      query(':enter', [animate('260ms ease-out', style({ opacity: 1 }))], {
+      query(':enter', [animate('200ms ease-out', style({ opacity: 1 }))], {
         optional: true,
       }),
       query('@*', animateChild(), { optional: true }),

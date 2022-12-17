@@ -1,49 +1,47 @@
 <!-- بسم الله الرحمن الرحیم -->
 
 <body>
-  <div class="">
-    <div class="wrapper col-lg-12">
-      <div class="menu" [class.col-0]="menuToggle" [class.col-2]="!menuToggle">
-        <block-sidemenu
-          #sidemenu
-          (onCollaps)="menuToggle = $event"
-        ></block-sidemenu>
-      </div>
+  <div class="container-fluid">
+    <div class="menu" [class.col-0]="menuToggle" [class.col-2]="!menuToggle">
+      <block-sidemenu
+        #sidemenu
+        (onCollaps)="menuToggle = $event"
+      ></block-sidemenu>
+    </div>
 
-      <div class="right-frame"></div>
+    <div class="right-frame"></div>
 
-      <div class="content">
-        <block-header class="content-header"> </block-header>
+    <div class="content">
+      <block-header class="content-header"> </block-header>
 
-        <div
-          class="content-body col-12"
-          [class.full]="menuToggle"
-          [class.compact]="!menuToggle"
-        >
-          <!-- Page Title -->
-          <!-- <div class="pagetitle">
+      <div
+        class="content-body col-12"
+        [class.full]="menuToggle"
+        [class.compact]="!menuToggle"
+      >
+        <!-- Page Title -->
+        <!-- <div class="pagetitle">
             <h1>{{ pageTitle }}</h1>
           </div> -->
-          <!-- End Page Title -->
+        <!-- End Page Title -->
 
-          <div class="loading-content" *ngIf="loading">
-            <p-progressSpinner
-              [class.full]="menuToggle"
-              [class.compact]="!menuToggle"
-              strokeWidth="7"
-            ></p-progressSpinner>
-          </div>
-
-          <p-toast key="httpErrorMessage" position="bottom-left"></p-toast>
-
-          <div [@routeAnimations]="animationService.getRouteAnimationData()">
-            <router-outlet></router-outlet>
-          </div>
+        <div class="loading-content" *ngIf="loading">
+          <p-progressSpinner
+            [class.full]="menuToggle"
+            [class.compact]="!menuToggle"
+            strokeWidth="7"
+          ></p-progressSpinner>
         </div>
 
-        <div class="mt-2">
-          <block-footer></block-footer>
+        <p-toast key="httpErrorMessage" position="bottom-left"></p-toast>
+
+        <div [@routeAnimations]="animationService.getRouteAnimationData()">
+          <router-outlet></router-outlet>
         </div>
+      </div>
+
+      <div class="mt-2">
+        <block-footer></block-footer>
       </div>
     </div>
   </div>
