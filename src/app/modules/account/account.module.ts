@@ -11,6 +11,7 @@ import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
 import { AccountComponent } from './account.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { AccountComponent } from './account.component';
   imports: [
     CommonModule,
     AccountRoutingModule,
+    FormsModule,
     ButtonModule,
     CheckboxModule,
     InputTextModule

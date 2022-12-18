@@ -58,6 +58,21 @@
   font-weight: 700;
   color: var(--main-item-color);
 }
+
+/*--------------------------------------------------------------
+# Extra styles.
+--------------------------------------------------------------*/
+/* country */
+.country-item {
+  display: flex;
+  align-items: center;
+
+  img.flag {
+    width: 18px;
+    margin-right: 0.5rem;
+  }
+}
+
 /*--------------------------------------------------------------
 # Override some default PrimeNG stylings
 --------------------------------------------------------------*/
@@ -288,16 +303,28 @@
 
 /* dropdown */
 .p-dropdown {
+  direction: rtl;
+  .p-inputtext {
+    text-align: start;
+  }
+
   .p-dropdown-panel {
-    direction: rtl;
     scrollbar-width: thin;
     scrollbar-color: #aab7cf transparent;
-    .p-dropdown-header {
-      padding: 1.25rem 3rem 1.25rem 0rem !important;
-      .p-dropdown-filter-icon {
-        right: 7.2rem !important;
-      }
+
+    .p-dropdown-items {
+      text-align: start;
     }
+  }
+
+  &.p-dropdown-clearable .p-dropdown-label {
+    padding-left: 1.75rem;
+    padding-right: 0.75rem !important;
+  }
+
+  .p-dropdown-clear-icon {
+    right: 0 !important;
+    margin-right: 160px;
   }
 }
 
@@ -313,7 +340,6 @@
 }
 
 /* toast-message */
-
 .p-toast {
   .p-toast-message {
     font-weight: 100;

@@ -12,6 +12,9 @@ import { AuthService } from 'src/app/core/authentication/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+  public email!: string;
+  public password!: string;
+
   public message: string;
 
   // store the URL so we can redirect after logging in

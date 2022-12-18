@@ -51,10 +51,12 @@
                   placeholder="انتخابگر شهر"
                   optionLabel="name"
                   [showClear]="true"
+                  [virtualScroll]="true"
+                  [virtualScrollItemSize]="38"
                   inputId="simple"
                 ></p-dropdown>
 
-                <label style="min-width: 3rem" class="mx-2" for="scrollh"
+                <label style="min-width: 3rem" class="mx-2" for="simple"
                   >ساده</label
                 >
               </div>
@@ -118,10 +120,12 @@
                   [showClear]="true"
                   placeholder="انتخابگر کشور"
                   inputId="scrollh"
+                  [virtualScroll]="true"
+                  [virtualScrollItemSize]="38"
                 >
                   <ng-template pTemplate="selectedItem">
                     <div
-                      class="country-item country-item-value"
+                      class="d-flex country-item country-item-value"
                       *ngIf="selectedCountry"
                     >
                       <img
@@ -130,11 +134,11 @@
                           'mx-2 flag flag-' + selectedCountry.code.toLowerCase()
                         "
                       />
-                      <div>{{ selectedCountry.name }}</div>
+                      <div class="flex-fill">{{ selectedCountry.name }}</div>
                     </div>
                   </ng-template>
                   <ng-template let-country pTemplate="item">
-                    <div class="country-item">
+                    <div class="d-flex country-item">
                       <img
                         src="assets/showcase/images/demo/flag/flag_placeholder.png"
                         [class]="'mx-2 flag flag-' + country.code.toLowerCase()"
