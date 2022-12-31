@@ -41,7 +41,7 @@ export class CachingInterceptor implements HttpInterceptor {
 }
 
 /** Is this request cacheable? */
-function isCacheable(request: HttpRequest<any>): boolean {
+function isCacheable(request: HttpRequest<unknown>): boolean {
   // Only GET requests are cacheable
   return (
     request.method === 'GET' &&
@@ -55,10 +55,10 @@ function isCacheable(request: HttpRequest<any>): boolean {
  * Will add the response to the cache on the way out.
  */
 function sendRequest(
-  request: HttpRequest<any>,
+  request: HttpRequest<unknown>,
   next: HttpHandler,
   cache: RequestCache
-): Observable<HttpEvent<any>> {
+): Observable<HttpEvent<unknown>> {
   return next.handle(request).pipe(
     tap((event) => {
       // There may be other events besides the response.

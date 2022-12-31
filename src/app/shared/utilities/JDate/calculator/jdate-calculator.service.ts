@@ -197,8 +197,9 @@ export class JDateCalculatorService {
     @returns number of years since the last leap year (0 to 4)
   */
   private jalCalLeap(jYear: number) {
-    let bl = this.breaks.length,
-      jp = this.breaks[0],
+    const bl = this.breaks.length;
+
+    let jp = this.breaks[0],
       jm,
       jump,
       leap,

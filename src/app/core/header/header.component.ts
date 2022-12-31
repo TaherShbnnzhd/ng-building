@@ -1,6 +1,6 @@
 /* بسم الله الرحمن الرحیم */
 
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../authentication/auth.service';
 
@@ -9,10 +9,8 @@ import { AuthService } from '../authentication/auth.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   constructor(private authService: AuthService, private router: Router) {}
-
-  ngOnInit(): void {}
 
   public signout(): void {
     this.authService.logOut();

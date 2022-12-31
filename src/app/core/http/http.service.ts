@@ -3,7 +3,7 @@
 import { HttpClient, HttpContext, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { catchError, map, Observable, retry } from 'rxjs';
+import { catchError, map, Observable } from 'rxjs';
 
 import { AppConfigService } from '../services/app-config.service';
 import { HttpErrorHandlerService } from './http-error-handler/http-error-handler.service';
@@ -36,8 +36,8 @@ export class HttpService {
   public getByPost<T>(
     type: { new (): T },
     url: string,
-    retryCount: number = 1,
-    params?: any
+    retryCount = 1,
+    params?: Record<string, string>
   ): Observable<T> {
     return this.http
       .post<T>(this.basesUrl + url, {
@@ -48,7 +48,7 @@ export class HttpService {
   }
 
   /** GET: general. */
-  public get<T>(url: string, retryCount: number = 1, params?: any): Observable<T> {
+  public get<T>(url: string, retryCount = 1, params?: Record<string, string>): Observable<T> {
     return this.http
       .get<ICustomer[]>(url, {
         params: params,
@@ -56,6 +56,7 @@ export class HttpService {
       })
       .pipe(
         catchError(this.handleError('getCustomer', [])),
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         map((response: any) => response?.data)
       );
   }
@@ -78,7 +79,7 @@ export class HttpService {
 
   /** DELETE: delete the User from the server */
   private deleteCustomer(id: number): Observable<unknown> {
-    const url: string = `${this.customersUrl}/${id}`;
+    const url = `${this.customersUrl}/${id}`;
 
     return this.http
       .delete(url, this.httpOptions)

@@ -15,7 +15,6 @@ export const ERROR_COUNT = new HttpContextToken(() => 0);
 
 @Injectable()
 export class RetryInterceptor implements HttpInterceptor {
-  constructor() {}
 
   intercept(
     request: HttpRequest<unknown>,

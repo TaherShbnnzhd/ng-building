@@ -24,11 +24,11 @@ import { AnimationService } from '@shared/services/animation.service';
   providers: [AnimationService],
 })
 export class MainComponent implements OnInit {
-  public menuToggle: boolean = false;
+  public menuToggle = false;
 
-  public pageTitle: string = '';
+  public pageTitle = '';
 
-  public loading: boolean = false;
+  public loading = false;
 
   constructor(
     private router: Router,
@@ -61,11 +61,11 @@ export class MainComponent implements OnInit {
         map(() => {
           let route: ActivatedRoute = this.router.routerState.root;
           let routeTitle = '';
-          while (route!.firstChild) {
+          while (route?.firstChild) {
             route = route.firstChild;
           }
           if (route.snapshot.data['title']) {
-            routeTitle = route!.snapshot.data['title'];
+            routeTitle = route?.snapshot.data['title'];
           }
           return routeTitle;
         })

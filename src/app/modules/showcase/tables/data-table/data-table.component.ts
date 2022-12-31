@@ -17,9 +17,9 @@ export class DataTableComponent implements OnInit {
 
   public representatives!: IRepresentative[];
 
-  public statuses!: any[];
+  public statuses!: Record<string, string>[];
 
-  public loading: boolean = true;
+  public loading = true;
 
   public activityValues: number[] = [0, 100];
 

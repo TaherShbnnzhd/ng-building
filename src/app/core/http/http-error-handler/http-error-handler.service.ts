@@ -47,7 +47,7 @@ export class HttpErrorHandlerService {
           : `server returned code ${error.status} with body "${error.error}"`;
 
       // transforming error for user consumption.
-      let userMessage: string = '';
+      let userMessage = '';
 
       switch (error.status) {
         case -1:

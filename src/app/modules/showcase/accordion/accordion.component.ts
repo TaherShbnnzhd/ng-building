@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MessageService } from 'primeng/api';
 
 @Component({
@@ -12,6 +12,7 @@ export class AccordionComponent {
 
   constructor(private messageService: MessageService) {}
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public onTabClose(event: any): void {
     this.messageService.add({
       severity: 'info',
@@ -20,6 +21,7 @@ export class AccordionComponent {
     });
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public onTabOpen(event: any): void {
     this.messageService.add({
       severity: 'info',

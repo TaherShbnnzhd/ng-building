@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { JDate } from '@shared/utilities/JDate/jdate';
 
 @Component({
@@ -6,7 +6,7 @@ import { JDate } from '@shared/utilities/JDate/jdate';
   templateUrl: './calendar-demo.component.html',
   styleUrls: ['./calendar-demo.component.scss'],
 })
-export class CalendarDemoComponent {
+export class CalendarDemoComponent implements OnInit {
   public date1!: JDate;
 
   public date2!: JDate;
@@ -46,19 +46,13 @@ export class CalendarDemoComponent {
   public invalidDates!: Array<JDate>;
 
   ngOnInit() {
-    let today = new JDate();
-
-    let month = today.getMonth();
-
-    let year = today.getFullYear();
-
-    let prevMonth = month === 0 ? 11 : month - 1;
-
-    let prevYear = prevMonth === 11 ? year - 1 : year;
-
-    let nextMonth = month === 11 ? 0 : month + 1;
-
-    let nextYear = nextMonth === 0 ? year + 1 : year;
+    const today = new JDate();
+    const month = today.getMonth();
+    const year = today.getFullYear();
+    const prevMonth = month === 0 ? 11 : month - 1;
+    const prevYear = prevMonth === 11 ? year - 1 : year;
+    const nextMonth = month === 11 ? 0 : month + 1;
+    const nextYear = nextMonth === 0 ? year + 1 : year;
 
     this.minDate = new JDate();
     this.minDate.setMonth(prevMonth);
@@ -68,7 +62,7 @@ export class CalendarDemoComponent {
     this.maxDate.setMonth(nextMonth);
     this.maxDate.setFullYear(nextYear);
 
-    let invalidDate = new JDate();
+    const invalidDate = new JDate();
     invalidDate.setDate(today.getDate() - 1);
     this.invalidDates = [today, invalidDate];
   }

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /*  بسم الله الرحمن الرحیم */
 
 import {
@@ -10,6 +11,8 @@ import {
 } from '@angular/animations';
 
 import {
+  AfterContentInit,
+  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -19,6 +22,8 @@ import {
   forwardRef,
   Input,
   NgZone,
+  OnDestroy,
+  OnInit,
   Output,
   QueryList,
   Renderer2,
@@ -62,7 +67,7 @@ export interface LocaleSettings {
 export type CalendarTypeView = 'date' | 'month' | 'year';
 
 @Component({
-  selector: 'p-persian-calendar',
+  selector: 'block-persian-calendar',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss'],
   animations: [
@@ -102,6 +107,7 @@ export type CalendarTypeView = 'date' | 'month' | 'year';
       ]),
     ]),
   ],
+  // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
     class: 'p-element p-inputwrapper',
     '[class.p-inputwrapper-filled]': 'filled',
@@ -112,12 +118,14 @@ export type CalendarTypeView = 'date' | 'month' | 'year';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class CalendarComponent {
-  @Input() style!: any;
+export class CalendarComponent
+  implements OnInit, AfterContentInit, AfterViewInit, OnDestroy
+{
+  @Input() style!:  any;
 
   @Input() styleClass!: string;
 
-  @Input() inputStyle: any;
+  @Input() inputStyle:  any;
 
   @Input() inputId!: string;
 
@@ -131,110 +139,123 @@ export class CalendarComponent {
 
   @Input() iconAriaLabel!: string;
 
-  @Input() disabled: any;
+  @Input() disabled!: boolean;
 
   @Input() dateFormat!: string;
 
-  @Input() multipleSeparator: string = ',';
+  @Input() multipleSeparator = ',';
 
-  @Input() rangeSeparator: string = '-';
+  @Input() rangeSeparator = '-';
 
-  @Input() inline: boolean = false;
+  @Input() inline = false;
 
-  @Input() showOtherMonths: boolean = true;
+  @Input() showOtherMonths = true;
 
   @Input() selectOtherMonths!: boolean;
 
   @Input() showIcon!: boolean;
 
-  @Input() icon: string = 'pi pi-calendar';
+  @Input() icon = 'pi pi-calendar';
 
-  @Input() appendTo: any;
+  @Input() appendTo:  any;
 
   @Input() readonlyInput!: boolean;
 
-  @Input() shortYearCutoff: any = '+10';
+  @Input() shortYearCutoff = '+10';
 
   @Input() monthNavigator!: boolean;
 
   @Input() yearNavigator!: boolean;
 
-  @Input() hourFormat: string = '24';
+  @Input() hourFormat = '24';
 
   @Input() timeOnly!: boolean;
 
-  @Input() stepHour: number = 1;
+  @Input() stepHour = 1;
 
-  @Input() stepMinute: number = 1;
+  @Input() stepMinute = 1;
 
-  @Input() stepSecond: number = 1;
+  @Input() stepSecond = 1;
 
-  @Input() showSeconds: boolean = false;
+  @Input() showSeconds = false;
 
   @Input() required!: boolean;
 
-  @Input() showOnFocus: boolean = true;
+  @Input() showOnFocus = true;
 
-  @Input() showWeek: boolean = false;
+  @Input() showWeek = false;
 
-  @Input() showClear: boolean = false;
+  @Input() showClear = false;
 
-  @Input() dataType: string = 'date';
+  @Input() dataType = 'date';
 
-  @Input() selectionMode: string = 'single';
+  @Input() selectionMode = 'single';
 
   @Input() maxDateCount!: number;
 
   @Input() showButtonBar!: boolean;
 
-  @Input() todayButtonStyleClass: string = 'p-button-text';
+  @Input() todayButtonStyleClass = 'p-button-text';
 
-  @Input() clearButtonStyleClass: string = 'p-button-text';
+  @Input() clearButtonStyleClass = 'p-button-text';
 
-  @Input() autoZIndex: boolean = true;
+  @Input() autoZIndex = true;
 
-  @Input() baseZIndex: number = 0;
+  @Input() baseZIndex = 0;
 
   @Input() panelStyleClass!: string;
 
-  @Input() panelStyle: any;
+  @Input() panelStyle:  any;
 
-  @Input() keepInvalid: boolean = false;
+  @Input() keepInvalid = false;
 
-  @Input() hideOnDateTimeSelect: boolean = true;
+  @Input() hideOnDateTimeSelect = true;
 
   @Input() touchUI!: boolean;
 
-  @Input() timeSeparator: string = ':';
+  @Input() timeSeparator = ':';
 
-  @Input() focusTrap: boolean = true;
+  @Input() focusTrap = true;
 
-  @Input() showTransitionOptions: string = '.12s cubic-bezier(0, 0, 0.2, 1)';
+  @Input() showTransitionOptions = '.12s cubic-bezier(0, 0, 0.2, 1)';
 
-  @Input() hideTransitionOptions: string = '.1s linear';
+  @Input() hideTransitionOptions = '.1s linear';
 
-  @Output() onFocus: EventEmitter<any> = new EventEmitter();
+  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
+  @Output() onFocus = new EventEmitter();
 
-  @Output() onBlur: EventEmitter<any> = new EventEmitter();
+  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
+  @Output() onBlur = new EventEmitter();
 
-  @Output() onClose: EventEmitter<any> = new EventEmitter();
+  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
+  @Output() onClose = new EventEmitter();
 
-  @Output() onSelect: EventEmitter<any> = new EventEmitter();
+  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
+  @Output() onSelect = new EventEmitter();
 
-  @Output() onClear: EventEmitter<any> = new EventEmitter();
+  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
+  @Output() onClear = new EventEmitter();
 
-  @Output() onInput: EventEmitter<any> = new EventEmitter();
+  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
+  @Output() onInput = new EventEmitter();
 
-  @Output() onTodayClick: EventEmitter<any> = new EventEmitter();
+  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
+  @Output() onTodayClick = new EventEmitter();
 
-  @Output() onClearClick: EventEmitter<any> = new EventEmitter();
+  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
+  @Output() onClearClick = new EventEmitter();
 
-  @Output() onMonthChange: EventEmitter<any> = new EventEmitter();
-  @Output() onYearChange: EventEmitter<any> = new EventEmitter();
+  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
+  @Output() onMonthChange = new EventEmitter();
 
-  @Output() onClickOutside: EventEmitter<any> = new EventEmitter();
+  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
+  @Output() onYearChange = new EventEmitter();
 
-  @Output() onShow: EventEmitter<any> = new EventEmitter();
+  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
+  @Output() onClickOutside = new EventEmitter();
+
+  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
+  @Output() onShow = new EventEmitter();
 
   @ContentChildren(PrimeTemplate) templates!: QueryList<any>;
 
@@ -285,6 +306,7 @@ export class CalendarComponent {
 
   mask!: HTMLDivElement | null;
 
+  // eslint-disable-next-line @typescript-eslint/ban-types
   maskClickListener!: Function | null;
 
   overlay!: HTMLDivElement | null;
@@ -293,8 +315,10 @@ export class CalendarComponent {
 
   overlayVisible!: boolean;
 
+  // eslint-disable-next-line @typescript-eslint/ban-types, @typescript-eslint/no-empty-function
   onModelChange: Function = () => {};
 
+  // eslint-disable-next-line @typescript-eslint/ban-types, @typescript-eslint/no-empty-function
   onModelTouched: Function = () => {};
 
   calendarElement: any;
@@ -315,7 +339,7 @@ export class CalendarComponent {
 
   filled!: boolean | '' | null;
 
-  inputFieldValue: string = '';
+  inputFieldValue = '';
 
   _minDate!: JDate;
 
@@ -327,15 +351,15 @@ export class CalendarComponent {
 
   preventDocumentListener!: boolean;
 
-  dateTemplate!: TemplateRef<any>;
+  dateTemplate!: TemplateRef< any>;
 
-  headerTemplate!: TemplateRef<any>;
+  headerTemplate!: TemplateRef< any>;
 
-  footerTemplate!: TemplateRef<any>;
+  footerTemplate!: TemplateRef< any>;
 
-  disabledDateTemplate!: TemplateRef<any>;
+  disabledDateTemplate!: TemplateRef< any>;
 
-  decadeTemplate!: TemplateRef<any>;
+  decadeTemplate!: TemplateRef< any>;
 
   _disabledDates!: Array<JDate>;
 
@@ -361,13 +385,13 @@ export class CalendarComponent {
 
   _locale!: LocaleSettings;
 
-  _responsiveOptions!: any[];
+  _responsiveOptions!:  any[];
 
   currentView!: string;
 
   attributeSelector!: string;
 
-  _numberOfMonths: number = 1;
+  _numberOfMonths = 1;
 
   _firstDayOfWeek!: number;
 
@@ -530,6 +554,7 @@ export class CalendarComponent {
     this.createWeekDays();
   }
 
+  // eslint-disable-next-line @typescript-eslint/adjacent-overload-signatures
   @Input()
   set locale(newLocale: LocaleSettings) {
     console.warn('Locale property has no effect, use new i18n API instead.');
@@ -643,7 +668,7 @@ export class CalendarComponent {
   createWeekDays() {
     this.weekDays = [];
     let dayIndex = this.getFirstDateOfWeek();
-    let dayLabels = this.getTranslation(TranslationKeys.DAY_NAMES_MIN);
+    const dayLabels = this.getTranslation(TranslationKeys.DAY_NAMES_MIN);
     for (let i = 0; i < 7; i++) {
       this.weekDays.push(dayLabels[dayIndex]);
       dayIndex = dayIndex == 6 ? 0 : ++dayIndex;
@@ -651,7 +676,7 @@ export class CalendarComponent {
   }
 
   monthPickerValues() {
-    let monthPickerValues = [];
+    const monthPickerValues = [];
     for (let i = 0; i <= 11; i++) {
       monthPickerValues.push(this.config.getTranslation('monthNamesShort')[i]);
     }
@@ -660,8 +685,8 @@ export class CalendarComponent {
   }
 
   yearPickerValues() {
-    let yearPickerValues = [];
-    let base = this.currentYear - (this.currentYear % 10);
+    const yearPickerValues = [];
+    const base = this.currentYear - (this.currentYear % 10);
     for (let i = 0; i < 10; i++) {
       yearPickerValues.push(base + i);
     }
@@ -684,9 +709,9 @@ export class CalendarComponent {
   }
 
   getWeekNumber(date: Date) {
-    let checkDate = new Date(date.getTime());
+    const checkDate = new Date(date.getTime());
     checkDate.setDate(checkDate.getDate() + 4 - (checkDate.getDay() || 7));
-    let time = checkDate.getTime();
+    const time = checkDate.getTime();
     checkDate.setMonth(0);
     checkDate.setDate(1);
     return (
@@ -695,17 +720,17 @@ export class CalendarComponent {
   }
 
   createMonth(month: number, year: number) {
-    let dates = [];
-    let firstDay = this.getFirstDayOfMonthIndex(month, year);
-    let daysLength = this.getDaysCountInMonth(month, year);
-    let prevMonthDaysLength = this.getDaysCountInPrevMonth(month, year);
+    const dates = [];
+    const firstDay = this.getFirstDayOfMonthIndex(month, year);
+    const daysLength = this.getDaysCountInMonth(month, year);
+    const prevMonthDaysLength = this.getDaysCountInPrevMonth(month, year);
     let dayNo = 1;
-    let today = new JDate();
-    let weekNumbers = [];
-    let monthRows = Math.ceil((daysLength + firstDay) / 7);
+    const today = new JDate();
+    const weekNumbers = [];
+    const monthRows = Math.ceil((daysLength + firstDay) / 7);
 
     for (let i = 0; i < monthRows; i++) {
-      let week = [];
+      const week = [];
 
       if (i == 0) {
         for (
@@ -713,7 +738,7 @@ export class CalendarComponent {
           j <= prevMonthDaysLength;
           j++
         ) {
-          let prev = this.getPreviousMonthAndYear(month, year);
+          const prev = this.getPreviousMonthAndYear(month, year);
           week.push({
             day: j,
             month: prev.month,
@@ -725,7 +750,7 @@ export class CalendarComponent {
           });
         }
 
-        let remainingDaysLength = 7 - week.length;
+        const remainingDaysLength = 7 - week.length;
         for (let j = 0; j < remainingDaysLength; j++) {
           week.push({
             day: dayNo,
@@ -740,7 +765,7 @@ export class CalendarComponent {
       } else {
         for (let j = 0; j < 7; j++) {
           if (dayNo > daysLength) {
-            let next = this.getNextMonthAndYear(month, year);
+            const next = this.getNextMonthAndYear(month, year);
             week.push({
               day: dayNo - daysLength,
               month: next.month,
@@ -878,7 +903,7 @@ export class CalendarComponent {
     this.currentYear--;
 
     if (this.yearNavigator && this.currentYear < this.yearOptions[0]) {
-      let difference =
+      const difference =
         this.yearOptions[this.yearOptions.length - 1] - this.yearOptions[0];
       this.populateYearOptions(
         this.yearOptions[0] - difference,
@@ -902,7 +927,7 @@ export class CalendarComponent {
       this.yearNavigator &&
       this.currentYear > this.yearOptions[this.yearOptions.length - 1]
     ) {
-      let difference =
+      const difference =
         this.yearOptions[this.yearOptions.length - 1] - this.yearOptions[0];
       this.populateYearOptions(
         this.yearOptions[0] + difference,
@@ -928,6 +953,7 @@ export class CalendarComponent {
     }
 
     if (this.isMultipleSelection() && this.isSelected(dateMeta)) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       this.value = this.value.filter((date: any, i: any) => {
         return !this.isDateEquals(date, dateMeta);
       });
@@ -958,6 +984,7 @@ export class CalendarComponent {
     event.preventDefault();
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   shouldSelectDate(dateMeta: any) {
     if (this.isMultipleSelection())
       return this.maxDateCount != null
@@ -985,7 +1012,7 @@ export class CalendarComponent {
     }
   }
 
-  onYearSelect(event: any, year: any) {
+  onYearSelect(event:  any, year: number) {
     if (this.view === 'year') {
       this.onDateSelect(event, {
         year: year,
@@ -1011,7 +1038,7 @@ export class CalendarComponent {
         formattedValue = this.formatDateTime(this.value);
       } else if (this.isMultipleSelection()) {
         for (let i = 0; i < this.value.length; i++) {
-          let dateAsString = this.formatDateTime(this.value[i]);
+          const dateAsString = this.formatDateTime(this.value[i]);
           formattedValue += dateAsString;
           if (i !== this.value.length - 1) {
             formattedValue += this.multipleSeparator + ' ';
@@ -1019,8 +1046,8 @@ export class CalendarComponent {
         }
       } else if (this.isRangeSelection()) {
         if (this.value && this.value.length) {
-          let startDate = this.value[0];
-          let endDate = this.value[1];
+          const startDate = this.value[0];
+          const endDate = this.value[1];
 
           formattedValue = this.formatDateTime(startDate);
           if (endDate) {
@@ -1128,7 +1155,7 @@ export class CalendarComponent {
     this.onSelect.emit(date);
   }
 
-  updateModel(value: any) {
+  updateModel(value:  any) {
     this.value = value;
 
     if (this.dataType == 'date') {
@@ -1139,7 +1166,7 @@ export class CalendarComponent {
       } else {
         let stringArrValue = null;
         if (this.value) {
-          stringArrValue = this.value.map((date: any) =>
+          stringArrValue = this.value.map((date:  any) =>
             this.formatDateTime(date)
           );
         }
@@ -1149,9 +1176,9 @@ export class CalendarComponent {
   }
 
   getFirstDayOfMonthIndex(month: number, year: number) {
-    let day = new JDate(year, month, 1);
+    const day = new JDate(year, month, 1);
 
-    let dayIndex = day.getDay();
+    const dayIndex = day.getDay();
 
     return dayIndex >= 7 ? dayIndex - 7 : dayIndex;
   }
@@ -1161,7 +1188,7 @@ export class CalendarComponent {
   }
 
   getDaysCountInPrevMonth(month: number, year: number) {
-    let prev = this.getPreviousMonthAndYear(month, year);
+    const prev = this.getPreviousMonthAndYear(month, year);
     return this.getDaysCountInMonth(prev.month, prev.year);
   }
 
@@ -1194,18 +1221,18 @@ export class CalendarComponent {
   }
 
   getSundayIndex() {
-    let firstDayOfWeek = this.getFirstDateOfWeek();
+    const firstDayOfWeek = this.getFirstDateOfWeek();
 
     return firstDayOfWeek > 0 ? 7 - firstDayOfWeek : 0;
   }
 
-  isSelected(dateMeta: any): boolean | any {
+  isSelected(dateMeta:  any): boolean | void {
     if (this.value) {
       if (this.isSingleSelection()) {
         return this.isDateEquals(this.value, dateMeta);
       } else if (this.isMultipleSelection()) {
         let selected = false;
-        for (let date of this.value) {
+        for (const date of this.value) {
           selected = this.isDateEquals(date, dateMeta);
           if (selected) {
             break;
@@ -1242,13 +1269,13 @@ export class CalendarComponent {
     return false;
   }
 
-  isMonthDisabled(month: any) {
+  isMonthDisabled(month:  any) {
     return !this.isSelectable(1, month, this.currentYear, false);
   }
 
-  isYearSelected(year: any) {
+  isYearSelected(year:  any) {
     if (this.isComparable()) {
-      let value = this.isRangeSelection() ? this.value[0] : this.value;
+      const value = this.isRangeSelection() ? this.value[0] : this.value;
 
       return !this.isMultipleSelection() ? value.getFullYear() === year : false;
     }
@@ -1267,9 +1294,9 @@ export class CalendarComponent {
   }
 
   isDateBetween(start: any, end: any, dateMeta: any) {
-    let between: boolean = false;
+    const between = false;
     if (start && end) {
-      let date: JDate = new JDate(dateMeta.year, dateMeta.month, dateMeta.day);
+      const date = new JDate(dateMeta.year, dateMeta.month, dateMeta.day);
       return (
         start.getTime() <= date.getTime() && end.getTime() >= date.getTime()
       );
@@ -1349,7 +1376,7 @@ export class CalendarComponent {
 
   isDateDisabled(day: number, month: number, year: number): boolean {
     if (this.disabledDates) {
-      for (let disabledDate of this.disabledDates) {
+      for (const disabledDate of this.disabledDates) {
         if (
           disabledDate.getFullYear() === year &&
           disabledDate.getMonth() === month &&
@@ -1365,8 +1392,8 @@ export class CalendarComponent {
 
   isDayDisabled(day: number, month: number, year: number): boolean {
     if (this.disabledDays) {
-      let weekday = new JDate(year, month, day);
-      let weekdayNumber = weekday.getDay();
+      const weekday = new JDate(year, month, day);
+      const weekdayNumber = weekday.getDay();
       return this.disabledDays.indexOf(weekdayNumber) !== -1;
     }
     return false;
@@ -1421,6 +1448,7 @@ export class CalendarComponent {
   getMonthName(index: any) {
     return this.config.getTranslation('monthNames')[index];
   }
+
   getMonthName_Jalali(index: any) {
     return JDate.getNameOfTheMonth(index);
   }
@@ -1496,10 +1524,10 @@ export class CalendarComponent {
       //down arrow
       case 40: {
         cellContent.tabIndex = '-1';
-        let cellIndex = DomHandler.index(cell);
-        let nextRow = cell.parentElement.nextElementSibling;
+        const cellIndex = DomHandler.index(cell);
+        const nextRow = cell.parentElement.nextElementSibling;
         if (nextRow) {
-          let focusCell = nextRow.children[cellIndex].children[0];
+          const focusCell = nextRow.children[cellIndex].children[0];
           if (DomHandler.hasClass(focusCell, 'p-disabled')) {
             this.navigationState = { backward: false };
             this.navForward(event);
@@ -1518,10 +1546,10 @@ export class CalendarComponent {
       //up arrow
       case 38: {
         cellContent.tabIndex = '-1';
-        let cellIndex = DomHandler.index(cell);
-        let prevRow = cell.parentElement.previousElementSibling;
+        const cellIndex = DomHandler.index(cell);
+        const prevRow = cell.parentElement.previousElementSibling;
         if (prevRow) {
-          let focusCell = prevRow.children[cellIndex].children[0];
+          const focusCell = prevRow.children[cellIndex].children[0];
           if (DomHandler.hasClass(focusCell, 'p-disabled')) {
             this.navigationState = { backward: true };
             this.navBackward(event);
@@ -1540,9 +1568,9 @@ export class CalendarComponent {
       //left arrow
       case 37: {
         cellContent.tabIndex = '-1';
-        let prevCell = cell.previousElementSibling;
+        const prevCell = cell.previousElementSibling;
         if (prevCell) {
-          let focusCell = prevCell.children[0];
+          const focusCell = prevCell.children[0];
           if (
             DomHandler.hasClass(focusCell, 'p-disabled') ||
             DomHandler.hasClass(
@@ -1565,9 +1593,9 @@ export class CalendarComponent {
       //right arrow
       case 39: {
         cellContent.tabIndex = '-1';
-        let nextCell = cell.nextElementSibling;
+        const nextCell = cell.nextElementSibling;
         if (nextCell) {
-          let focusCell = nextCell.children[0];
+          const focusCell = nextCell.children[0];
           if (DomHandler.hasClass(focusCell, 'p-disabled')) {
             this.navigateToMonth(false, groupIndex);
           } else {
@@ -1618,9 +1646,9 @@ export class CalendarComponent {
       case 38:
       case 40: {
         cell.tabIndex = '-1';
-        var cells = cell.parentElement.children;
-        var cellIndex = DomHandler.index(cell);
-        let nextCell =
+        const cells = cell.parentElement.children;
+        const cellIndex = DomHandler.index(cell);
+        const nextCell =
           cells[event.which === 40 ? cellIndex + 3 : cellIndex - 3];
         if (nextCell) {
           nextCell.tabIndex = '0';
@@ -1633,7 +1661,7 @@ export class CalendarComponent {
       //left arrow
       case 37: {
         cell.tabIndex = '-1';
-        let prevCell = cell.previousElementSibling;
+        const prevCell = cell.previousElementSibling;
         if (prevCell) {
           prevCell.tabIndex = '0';
           prevCell.focus();
@@ -1649,7 +1677,7 @@ export class CalendarComponent {
       //right arrow
       case 39: {
         cell.tabIndex = '-1';
-        let nextCell = cell.nextElementSibling;
+        const nextCell = cell.nextElementSibling;
         if (nextCell) {
           nextCell.tabIndex = '0';
           nextCell.focus();
@@ -1671,7 +1699,6 @@ export class CalendarComponent {
 
       //enter
       //space
-      case 13:
       case 32: {
         this.overlayVisible = false;
         event.preventDefault();
@@ -1707,9 +1734,9 @@ export class CalendarComponent {
       case 38:
       case 40: {
         cell.tabIndex = '-1';
-        var cells = cell.parentElement.children;
-        var cellIndex = DomHandler.index(cell);
-        let nextCell =
+        const cells = cell.parentElement.children;
+        const cellIndex = DomHandler.index(cell);
+        const nextCell =
           cells[event.which === 40 ? cellIndex + 2 : cellIndex - 2];
         if (nextCell) {
           nextCell.tabIndex = '0';
@@ -1722,7 +1749,7 @@ export class CalendarComponent {
       //left arrow
       case 37: {
         cell.tabIndex = '-1';
-        let prevCell = cell.previousElementSibling;
+        const prevCell = cell.previousElementSibling;
         if (prevCell) {
           prevCell.tabIndex = '0';
           prevCell.focus();
@@ -1738,7 +1765,7 @@ export class CalendarComponent {
       //right arrow
       case 39: {
         cell.tabIndex = '-1';
-        let nextCell = cell.nextElementSibling;
+        const nextCell = cell.nextElementSibling;
         if (nextCell) {
           nextCell.tabIndex = '0';
           nextCell.focus();
@@ -1785,13 +1812,13 @@ export class CalendarComponent {
         this.navigationState = { backward: true };
         this.navBackward(event);
       } else {
-        let prevMonthContainer =
+        const prevMonthContainer =
           this.contentViewChild.nativeElement.children[groupIndex - 1];
-        let cells = DomHandler.find(
+        const cells = DomHandler.find(
           prevMonthContainer,
           '.p-datepicker-calendar td span:not(.p-disabled):not(.p-ink)'
         );
-        let focusCell = cells[cells.length - 1];
+        const focusCell = cells[cells.length - 1];
         focusCell.tabIndex = '0';
         focusCell.focus();
       }
@@ -1800,9 +1827,9 @@ export class CalendarComponent {
         this.navigationState = { backward: false };
         this.navForward(event);
       } else {
-        let nextMonthContainer =
+        const nextMonthContainer =
           this.contentViewChild.nativeElement.children[groupIndex + 1];
-        let focusCell = DomHandler.findSingle(
+        const focusCell = DomHandler.findSingle(
           nextMonthContainer,
           '.p-datepicker-calendar td span:not(.p-disabled):not(.p-ink)'
         );
@@ -1886,14 +1913,15 @@ export class CalendarComponent {
 
   initFocusableCell() {
     const contentEl = this.contentViewChild?.nativeElement;
+
     let cell: any;
 
     if (this.currentView === 'month') {
-      let cells = DomHandler.find(
+      const cells = DomHandler.find(
         contentEl,
         '.p-monthpicker .p-monthpicker-month:not(.p-disabled)'
       );
-      let selectedCell = DomHandler.findSingle(
+      const selectedCell = DomHandler.findSingle(
         contentEl,
         '.p-monthpicker .p-monthpicker-month.p-highlight'
       );
@@ -1901,18 +1929,18 @@ export class CalendarComponent {
       cell = selectedCell || cells[0];
 
       if (cells.length === 0) {
-        let disabledCells = DomHandler.find(
+        const disabledCells = DomHandler.find(
           contentEl,
           '.p-monthpicker .p-monthpicker-month.p-disabled[tabindex = "0"]'
         );
         disabledCells.forEach((cell) => (cell.tabIndex = -1));
       }
     } else if (this.currentView === 'year') {
-      let cells = DomHandler.find(
+      const cells = DomHandler.find(
         contentEl,
         '.p-yearpicker .p-yearpicker-year:not(.p-disabled)'
       );
-      let selectedCell = DomHandler.findSingle(
+      const selectedCell = DomHandler.findSingle(
         contentEl,
         '.p-yearpicker .p-yearpicker-year.p-highlight'
       );
@@ -1920,7 +1948,7 @@ export class CalendarComponent {
       cell = selectedCell || cells[0];
 
       if (cells.length === 0) {
-        let disabledCells = DomHandler.find(
+        const disabledCells = DomHandler.find(
           contentEl,
           '.p-yearpicker .p-yearpicker-year.p-disabled[tabindex = "0"]'
         );
@@ -1929,7 +1957,7 @@ export class CalendarComponent {
     } else {
       cell = DomHandler.findSingle(contentEl, 'span.p-highlight');
       if (!cell) {
-        let todayCell = DomHandler.findSingle(
+        const todayCell = DomHandler.findSingle(
           contentEl,
           'td.p-datepicker-today span:not(.p-disabled):not(.p-ink)'
         );
@@ -1959,7 +1987,7 @@ export class CalendarComponent {
   }
 
   trapFocus(event: any) {
-    let focusableElements = DomHandler.getFocusableElements(
+    const focusableElements = DomHandler.getFocusableElements(
       this.contentViewChild.nativeElement
     );
 
@@ -1967,7 +1995,7 @@ export class CalendarComponent {
       if (!focusableElements[0].ownerDocument.activeElement) {
         focusableElements[0].focus();
       } else {
-        let focusedIndex = focusableElements.indexOf(
+        const focusedIndex = focusableElements.indexOf(
           focusableElements[0].ownerDocument.activeElement
         );
 
@@ -2112,6 +2140,7 @@ export class CalendarComponent {
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   onTimePickerElementMouseUp(event: Event) {
     if (!this.disabled) {
       this.clearTimePickerTimer();
@@ -2132,7 +2161,7 @@ export class CalendarComponent {
     type: number,
     direction: number
   ) {
-    let i = interval || 500;
+    const i = interval || 500;
 
     this.clearTimePickerTimer();
     this.timePickerTimer = setTimeout(() => {
@@ -2314,16 +2343,16 @@ export class CalendarComponent {
     }
     this.isKeydown = false;
 
-    let val = event.target.value;
+    const val = event.target.value;
     try {
-      let value = this.parseValueFromString(val);
+      const value = this.parseValueFromString(val);
       if (this.isValidSelection(value)) {
         this.updateModel(value);
         this.updateUI();
       }
     } catch (err) {
       //invalid date
-      let value = this.keepInvalid ? val : null;
+      const value = this.keepInvalid ? val : null;
       this.updateModel(value);
     }
 
@@ -2366,13 +2395,13 @@ export class CalendarComponent {
     if (this.isSingleSelection()) {
       value = this.parseDateTime(text);
     } else if (this.isMultipleSelection()) {
-      let tokens = text.split(this.multipleSeparator);
+      const tokens = text.split(this.multipleSeparator);
       value = [];
-      for (let token of tokens) {
+      for (const token of tokens) {
         value.push(this.parseDateTime(token.trim()));
       }
     } else if (this.isRangeSelection()) {
-      let tokens = text.split(' ' + this.rangeSeparator + ' ');
+      const tokens = text.split(' ' + this.rangeSeparator + ' ');
       value = [];
       for (let i = 0; i < tokens.length; i++) {
         value[i] = this.parseDateTime(tokens[i].trim());
@@ -2384,7 +2413,7 @@ export class CalendarComponent {
 
   parseDateTime(text: any): JDate {
     let date: JDate;
-    let parts: string[] = text.split(' ');
+    const parts: string[] = text.split(' ');
 
     if (this.timeOnly) {
       date = new JDate();
@@ -2392,8 +2421,8 @@ export class CalendarComponent {
     } else {
       const dateFormat = this.getDateFormat();
       if (this.showTime) {
-        let ampm = this.hourFormat == '12' ? parts.pop() : null;
-        let timeString = parts.pop();
+        const ampm = this.hourFormat == '12' ? parts.pop() : null;
+        const timeString = parts.pop();
 
         date = this.parseDate(parts.join(' '), dateFormat);
         this.populateTime(date, timeString, ampm);
@@ -2411,7 +2440,7 @@ export class CalendarComponent {
     }
 
     this.pm = ampm === 'PM' || ampm === 'pm';
-    let time = this.parseTime(timeString);
+    const time = this.parseTime(timeString);
     value.setHours(time.hour);
     value.setMinutes(time.minute);
     value.setSeconds(time.second);
@@ -2427,7 +2456,7 @@ export class CalendarComponent {
       propValue = propValue[0];
     }
 
-    let val: JDate =
+    const val: JDate =
       this.defaultDate && this.isValidDate(this.defaultDate) && !this.value
         ? this.defaultDate
         : propValue && this.isValidDate(propValue)
@@ -2585,17 +2614,13 @@ export class CalendarComponent {
     if (!this.mask && !this.touchUI) {
       this.mask = document.createElement('div');
       this.mask.style.zIndex = String(parseInt(element.style.zIndex) - 1);
-      let maskStyleClass =
+      const maskStyleClass =
         'p-component-overlay p-datepicker-mask p-datepicker-mask-scrollblocker p-component-overlay p-component-overlay-enter';
       DomHandler.addMultipleClasses(this.mask, maskStyleClass);
 
-      this.maskClickListener = this.renderer.listen(
-        this.mask,
-        'click',
-        (event: any) => {
-          this.disableModality();
-        }
-      );
+      this.maskClickListener = this.renderer.listen(this.mask, 'click', () => {
+        this.disableModality();
+      });
       document.body.appendChild(this.mask);
       DomHandler.addClass(document.body, 'p-overflow-hidden');
     }
@@ -2615,10 +2640,10 @@ export class CalendarComponent {
     }
 
     document.body.removeChild(this.mask);
-    let bodyChildren = document.body.children;
-    let hasBlockerMasks: boolean = false;
+    const bodyChildren = document.body.children;
+    let hasBlockerMasks = false;
     for (let i = 0; i < bodyChildren.length; i++) {
-      let bodyChild = bodyChildren[i];
+      const bodyChild = bodyChildren[i];
       if (DomHandler.hasClass(bodyChild, 'p-datepicker-mask-scrollblocker')) {
         hasBlockerMasks = true;
         break;
@@ -2665,10 +2690,12 @@ export class CalendarComponent {
     this.cd.markForCheck();
   }
 
+  // eslint-disable-next-line @typescript-eslint/ban-types
   registerOnChange(fn: Function): void {
     this.onModelChange = fn;
   }
 
+  // eslint-disable-next-line @typescript-eslint/ban-types
   registerOnTouched(fn: Function): void {
     this.onModelTouched = fn;
   }
@@ -2690,12 +2717,14 @@ export class CalendarComponent {
   }
 
   // Ported from jquery-ui datepicker formatDate
+
   formatDate(date: any, format: any) {
     if (!date) {
       return '';
     }
 
     let iFormat: any;
+
     const lookAhead = (match: any) => {
         const matches =
           iFormat + 1 < format.length && format.charAt(iFormat + 1) === match;
@@ -2806,8 +2835,8 @@ export class CalendarComponent {
 
     let output = '';
     let hours = date.getHours();
-    let minutes = date.getMinutes();
-    let seconds = date.getSeconds();
+    const minutes = date.getMinutes();
+    const seconds = date.getSeconds();
 
     if (this.hourFormat == '12' && hours > 11 && hours != 12) {
       hours -= 12;
@@ -2834,16 +2863,17 @@ export class CalendarComponent {
   }
 
   parseTime(value: any) {
-    let tokens: string[] = value.split(':');
-    let validTokenLength = this.showSeconds ? 3 : 2;
+    const tokens: string[] = value.split(':');
+    const validTokenLength = this.showSeconds ? 3 : 2;
 
     if (tokens.length !== validTokenLength) {
       throw 'Invalid time';
     }
 
     let h = parseInt(tokens[0]);
-    let m = parseInt(tokens[1]);
-    let s: any = this.showSeconds ? parseInt(tokens[2]) : null;
+    const m = parseInt(tokens[1]);
+
+    const s: any = this.showSeconds ? parseInt(tokens[2]) : null;
 
     if (
       isNaN(h) ||
@@ -2881,20 +2911,23 @@ export class CalendarComponent {
     let iFormat: any,
       dim,
       extra,
-      iValue = 0,
-      shortYearCutoff =
-        typeof this.shortYearCutoff !== 'string'
-          ? this.shortYearCutoff
-          : (new JDate().getFullYear() % 100) +
-            parseInt(this.shortYearCutoff, 10),
-      year = -1,
+      iValue = 0;
+
+    const shortYearCutoff =
+      typeof this.shortYearCutoff !== 'string'
+        ? this.shortYearCutoff
+        : (new JDate().getFullYear() % 100) +
+          parseInt(this.shortYearCutoff, 10);
+
+    let year = -1,
       month = -1,
       day = -1,
       doy = -1,
       literal = false,
-      date,
-      lookAhead = (match: any) => {
-        let matches =
+      date;
+
+    const lookAhead = (match: any) => {
+        const matches =
           iFormat + 1 < format.length && format.charAt(iFormat + 1) === match;
         if (matches) {
           iFormat++;
@@ -2902,7 +2935,7 @@ export class CalendarComponent {
         return matches;
       },
       getNumber = (match: any) => {
-        let isDoubled = lookAhead(match),
+        const isDoubled = lookAhead(match),
           size =
             match === '@'
               ? 14
@@ -2924,8 +2957,8 @@ export class CalendarComponent {
       },
       getName = (match: any, shortNames: any, longNames: any) => {
         let index = -1;
-        let arr = lookAhead(match) ? longNames : shortNames;
-        let names = [];
+        const arr = lookAhead(match) ? longNames : shortNames;
+        const names = [];
 
         for (let i = 0; i < arr.length; i++) {
           names.push([i, arr[i]]);
@@ -2935,7 +2968,7 @@ export class CalendarComponent {
         });
 
         for (let i = 0; i < names.length; i++) {
-          let name = names[i][1];
+          const name = names[i][1];
           if (
             value.substr(iValue, name.length).toLowerCase() ===
             name.toLowerCase()
@@ -2949,7 +2982,7 @@ export class CalendarComponent {
         if (index !== -1) {
           return index + 1;
         } else {
-          throw 'Unknown name at position ' + iValue;
+          throw ' any name at position ' + iValue;
         }
       },
       checkLiteral = () => {
@@ -3049,6 +3082,7 @@ export class CalendarComponent {
         }
         month++;
         day -= dim;
+        // eslint-disable-next-line no-constant-condition
       } while (true);
     }
 
@@ -3085,8 +3119,8 @@ export class CalendarComponent {
   }
 
   onTodayButtonClick(event: any) {
-    let date: JDate = new JDate();
-    let dateMeta = {
+    const date: JDate = new JDate();
+    const dateMeta = {
       day: date.getDate(),
       month: date.getMonth(),
       year: date.getFullYear(),
@@ -3118,7 +3152,7 @@ export class CalendarComponent {
 
       let innerHTML = '';
       if (this.responsiveOptions) {
-        let responsiveOptions = [...this.responsiveOptions]
+        const responsiveOptions = [...this.responsiveOptions]
           .filter((o) => !!(o.breakpoint && o.numMonths))
           .sort(
             (o1, o2) =>
@@ -3129,7 +3163,7 @@ export class CalendarComponent {
           );
 
         for (let i = 0; i < responsiveOptions.length; i++) {
-          let { breakpoint, numMonths } = responsiveOptions[i];
+          const { breakpoint, numMonths } = responsiveOptions[i];
           let styles = `
                       .p-datepicker[${this.attributeSelector}] .p-datepicker-group:nth-child(${numMonths}) .p-datepicker-next {
                           display: inline-flex !important;

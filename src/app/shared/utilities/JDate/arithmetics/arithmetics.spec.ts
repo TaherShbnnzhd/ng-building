@@ -13,6 +13,7 @@ describe('round', () => {
   });
 
   [
+    // eslint-disable-next-line @typescript-eslint/no-loss-of-precision
     [8654654684.25354545441, 8654654684],
     [0.0, 0],
     [1, 1],

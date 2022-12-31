@@ -10,7 +10,7 @@ import { MessageService } from 'primeng/api';
   providers: [MessageService],
 })
 export class ProgressComponent implements OnInit {
-  public value: number = 0;
+  public value = 0;
   constructor(private messageService: MessageService) {}
 
   ngOnInit(): void {

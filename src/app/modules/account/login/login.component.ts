@@ -1,6 +1,6 @@
 /* بسم الله الرحمن الرحیم */
 
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 
 import { tap } from 'rxjs';
@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/core/authentication/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   public email!: string;
   public password!: string;
 
@@ -20,13 +20,11 @@ export class LoginComponent implements OnInit {
   // store the URL so we can redirect after logging in
   public redirectUrl: string | null = null;
 
-  public loading: boolean = false;
+  public loading = false;
 
   constructor(public authService: AuthService, public router: Router) {
     this.message = this.getMessage();
   }
-
-  ngOnInit(): void {}
 
   /** Define message for logged state */
   public getMessage() {

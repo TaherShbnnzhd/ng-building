@@ -7,34 +7,28 @@ import { menu } from './sidemenu.interface';
 @Component({
   selector: 'block-sidemenu',
   templateUrl: './sidemenu.component.html',
-  styleUrls: ['./sidemenu.component.scss']
+  styleUrls: ['./sidemenu.component.scss'],
 })
 export class SidemenuComponent implements OnInit {
-
-  private _collapse: boolean = false;
+  private _collapse = false;
 
   public get collapse() {
-
     return this._collapse;
   }
 
   public set collapse(value: boolean) {
-
     this._collapse = value;
 
-    this.onCollaps.emit(value);
+    this.collaps.emit(value);
   }
 
-  public offcanvas: boolean = false;
+  public offcanvas = false;
 
   public menuList: menu[] = [];
 
-  @Output() onCollaps: EventEmitter<boolean> = new EventEmitter();
-
-  constructor() { }
+  @Output() collaps: EventEmitter<boolean> = new EventEmitter();
 
   ngOnInit(): void {
-
     this.menuList = [
       {
         name: 'showcase',
@@ -43,45 +37,45 @@ export class SidemenuComponent implements OnInit {
         submenu: [
           {
             name: 'alerts',
-            title: 'پیغام'
+            title: 'پیغام',
           },
           {
             name: 'accordion',
-            title: 'تاشو'
+            title: 'تاشو',
           },
           {
             name: 'buttons',
-            title: 'دکمه'
+            title: 'دکمه',
           },
           {
             name: 'modal',
-            title: 'اعلان'
+            title: 'اعلان',
           },
           {
             name: 'progress',
-            title: 'روند'
+            title: 'روند',
           },
           {
             name: 'tab',
-            title: 'قسمت'
+            title: 'قسمت',
           },
           {
             name: 'data-table',
-            title: 'جدول'
+            title: 'جدول',
           },
           {
             name: 'calendar',
-            title: 'تقویم'
+            title: 'تقویم',
           },
           {
             name: 'dropdown',
-            title: 'انتخابگر'
+            title: 'انتخابگر',
           },
           {
             name: 'upload',
-            title: 'بارگزاری'
+            title: 'بارگزاری',
           },
-        ]
+        ],
       },
       {
         name: 'showcase',
@@ -90,10 +84,10 @@ export class SidemenuComponent implements OnInit {
         submenu: [
           {
             name: 'bootstrapicon',
-            title: 'پیش فرض'
-          }
-        ]
-      }
+            title: 'پیش فرض',
+          },
+        ],
+      },
     ];
   }
 }

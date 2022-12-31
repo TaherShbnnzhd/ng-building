@@ -10,12 +10,14 @@ import { MessageService } from 'primeng/api';
   providers: [MessageService],
 })
 export class UploadComponent {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public uploadedFiles: any[] = [];
 
   constructor(private messageService: MessageService) {}
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public onUpload(event: any) {
-    for (let file of event.files) {
+    for (const file of event.files) {
       this.uploadedFiles.push(file);
     }
 

@@ -38,7 +38,7 @@
       [attr.aria-labelledby]="ariaLabelledBy"
     />
     <i
-      *ngIf="showClear && !disabled && value != null"
+      *ngIf="showClear && !disabled && value !== null"
       class="p-calendar-clear-icon pi pi-times"
       (click)="clear()"
     ></i>
@@ -379,7 +379,7 @@
           <span class="pi pi-chevron-down"></span>
         </button>
       </div>
-      <div class="p-ampm-picker" *ngIf="hourFormat == '12'">
+      <div class="p-ampm-picker" *ngIf="hourFormat === '12'">
         <button
           class="p-link"
           type="button"

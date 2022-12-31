@@ -1,7 +1,7 @@
 /* بسم الله الرحمن الرحیم */
 
-import { JDateCalculatorService } from "./calculator/jdate-calculator.service";
-import { JDateValidatorService } from "./validator/jdate-validator.service";
+import { JDateCalculatorService } from './calculator/jdate-calculator.service';
+import { JDateValidatorService } from './validator/jdate-validator.service';
 
 /**
  * This class represents a complete Date object for Jalali dates. It accepts jalali Dates, converts Georgian dates to jalali and implements
@@ -65,13 +65,14 @@ export class JDate implements Date {
   private static COMPLETE_AFTER_NOON = 'بعد از ظهر';
   private static SHORT_BEFORE_NOON = 'ق.ظ';
   private static SHORT_AFTER_NOON = 'ب.ظ';
-  getVarDate: (() => any) | undefined;
+  getVarDate: (() => unknown) | undefined;
   private _gregorianDate: Date | undefined;
   private _jalaliYear: number | undefined;
   private _jMonth?: number;
   private _jDay?: number;
-  private _calculator: JDateCalculatorService =
-    new JDateCalculatorService(new JDateValidatorService());
+  private _calculator: JDateCalculatorService = new JDateCalculatorService(
+    new JDateValidatorService()
+  );
   private _timezone: string | null;
 
   /**
@@ -112,10 +113,10 @@ export class JDate implements Date {
     jYear?: number | string | Date,
     jMonth?: number,
     jDay?: number,
-    hours: number = 0,
-    minutes: number = 0,
-    seconds: number = 0,
-    milliseconds: number = 0,
+    hours = 0,
+    minutes = 0,
+    seconds = 0,
+    milliseconds = 0,
     timezone: string | null = null
   ) {
     this._timezone = timezone;
@@ -205,9 +206,7 @@ export class JDate implements Date {
    * @return a Georgian Date object.
    */
   public static parse(dateString: string): number {
-    const calculator = new JDateCalculatorService(
-      new JDateValidatorService()
-    );
+    const calculator = new JDateCalculatorService(new JDateValidatorService());
     const dateArray = dateString.split(' ');
     if (dateArray.length < 3) {
       throw new Error('JDate: Invalid jalali date.');
@@ -251,10 +250,11 @@ export class JDate implements Date {
   }
 
   toLocaleString(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     locales?: string | string[],
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     options?: Intl.DateTimeFormatOptions
   ): string {
-    // eslint-disable-line no-unused-vars
     throw new Error('Method not implemented.');
   }
 
@@ -264,10 +264,7 @@ export class JDate implements Date {
 
   [Symbol.toPrimitive](hint: string): string | number;
 
-  [Symbol.toPrimitive](
-    hint: 'default' | 'string' | 'number' | string
-  ): string | number | undefined {
-    // eslint-disable-line no-unused-vars
+  [Symbol.toPrimitive](): string | number | undefined {
     return undefined;
   }
 
@@ -819,7 +816,7 @@ export class JDate implements Date {
    *        format like: بعد از ظهر
    * @return time marker for showing if time is before noon or after it
    */
-  getTimeMarker(shortVersion: boolean = false): string {
+  getTimeMarker(shortVersion = false): string {
     if (this.getHours() < 12) {
       return shortVersion
         ? JDate.SHORT_BEFORE_NOON
@@ -899,7 +896,8 @@ export class JDate implements Date {
    * @return a string representation of the Date object.
    * [see toString method]{@link toString}
    */
-  toJSON(_?: any): string {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  toJSON(_?: unknown): string {
     return this.toString();
   }
 

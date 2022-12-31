@@ -6,17 +6,22 @@ import { LogService } from './log.service';
 
 export interface RequestCacheEntry {
   url: string;
-  response: HttpResponse<any>;
+  response: HttpResponse<unknown>;
   lastRead: number;
 }
 
 export abstract class RequestCache {
-  abstract get(request: HttpRequest<any>): HttpResponse<any> | undefined;
-  abstract put(request: HttpRequest<any>, response: HttpResponse<any>): void;
+  abstract get(
+    request: HttpRequest<unknown>
+  ): HttpResponse<unknown> | undefined;
+  abstract put(
+    request: HttpRequest<unknown>,
+    response: HttpResponse<unknown>
+  ): void;
 }
 
 /** maximum cache age (ms) */
-const maxAge: number = 30000;
+const maxAge = 30000;
 
 @Injectable()
 export class RequestCacheWithMap implements RequestCache {
@@ -24,7 +29,7 @@ export class RequestCacheWithMap implements RequestCache {
 
   constructor(private logger: LogService) {}
 
-  public get(request: HttpRequest<any>): HttpResponse<any> | undefined {
+  public get(request: HttpRequest<unknown>): HttpResponse<unknown> | undefined {
     const url = request.urlWithParams;
     const cached = this.cache.get(url);
 
@@ -39,7 +44,10 @@ export class RequestCacheWithMap implements RequestCache {
     return isExpired ? undefined : cached.response;
   }
 
-  public put(request: HttpRequest<any>, response: HttpResponse<any>): void {
+  public put(
+    request: HttpRequest<unknown>,
+    response: HttpResponse<unknown>
+  ): void {
     const url = request.urlWithParams;
     this.logger.add(`Caching response from "${url}".`);
 

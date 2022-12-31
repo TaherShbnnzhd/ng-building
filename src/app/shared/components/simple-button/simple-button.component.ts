@@ -1,18 +1,12 @@
 /* بسم الله الرحمن الرحیم */
 
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'block-simple-button',
   templateUrl: './simple-button.component.html',
-  styleUrls: ['./simple-button.component.scss']
+  styleUrls: ['./simple-button.component.scss'],
 })
-export class SimpleButtonComponent implements OnInit {
-
+export class SimpleButtonComponent {
   @Input() title!: string | null;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 }

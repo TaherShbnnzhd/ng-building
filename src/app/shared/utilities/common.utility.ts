@@ -7,7 +7,7 @@ export class Utility {
      * @param data مقدار
      * @returns boolean
      */
-    public static isEmpty(data: any) {
+    public static isEmpty(data: number) {
         return data === null || data === undefined || isNaN(data);
     }
 }

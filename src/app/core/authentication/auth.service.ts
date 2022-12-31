@@ -8,12 +8,10 @@ import { delay, Observable, of, tap } from 'rxjs';
 })
 export class AuthService {
 
-  public isLoggedIn: boolean = false;
+  public isLoggedIn = false;
 
   // store the URL so we can redirect after logging in
   public redirectUrl: string | null = null;
-
-  constructor() { }
 
   /** Get Token If Exists */
   public getAuthorizationToken(): string {

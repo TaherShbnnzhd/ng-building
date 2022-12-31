@@ -75,11 +75,12 @@ export class JDatePipe implements PipeTransform {
      * @param value a Jalali Date object or an instance of `Date` object or any class implementing that interface
      * @param format format name or format pattern string
      */
-    transform(value: Date, format: string = 'STANDARD'): string {
+    transform(value: Date, format = 'STANDARD'): string {
         let inputValue = value;
         if (!(inputValue instanceof JDate)) {
             inputValue = new JDate(inputValue);
         }
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         return inputValue.format(JDatePipe.convertNameToFormat(format));
     }

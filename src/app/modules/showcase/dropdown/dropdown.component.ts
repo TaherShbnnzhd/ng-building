@@ -21,7 +21,7 @@ export class DropdownComponent {
 
   public selectedCountry!: ICity;
 
-  public countries: any[];
+  public countries: Record<string, string>[];
 
   public groupedCities: SelectItemGroup[];
 
@@ -33,9 +33,9 @@ export class DropdownComponent {
 
   public selectedItem2!: string;
 
-  public loading: boolean = false;
+  public loading = false;
 
-  public loadLazyTimeout: any;
+  public loadLazyTimeout: string | number | NodeJS.Timeout | undefined;
 
   constructor() {
     this.items = [];
@@ -100,6 +100,7 @@ export class DropdownComponent {
     this.lazyItems = Array.from({ length: 100000 });
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public onLazyLoad(event: any) {
     this.loading = true;
 

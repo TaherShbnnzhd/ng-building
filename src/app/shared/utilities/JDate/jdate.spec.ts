@@ -1,4 +1,6 @@
 /* بسم الله الرحمن الرحیم */
+
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { JDate } from './jdate';
 
 describe('JDate', () => {

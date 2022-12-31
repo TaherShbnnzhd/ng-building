@@ -7,8 +7,8 @@ import { div, mod } from '../arithmetics/arithmetics';
   providedIn: 'root',
 })
 export class JDateValidatorService {
-  private static _minAcceptableYear: number = -61;
-  private static _maxAcceptableYear: number = 3177;
+  private static _minAcceptableYear = -61;
+  private static _maxAcceptableYear = 3177;
 
   /**
    * Returns number of days in a given month counting from 1.
@@ -110,7 +110,7 @@ export class JDateValidatorService {
    * Checks if jalali month is in valid range or not. In default, jMonth should start from zero.
    * If you want to start month number from one instead of zero, you should make startFromZero parameter to false.
    */
-  public isValidJMonth(jMonth: number, startFromZero: boolean = true): boolean {
+  public isValidJMonth(jMonth: number, startFromZero = true): boolean {
     let minMonthNumber = 0;
 
     let maxMonthNumber = 11;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'block-tab',
@@ -6,11 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tab.component.scss'],
 })
 export class TabComponent {
-  public activeIndex1: number = 0;
+  public activeIndex1 = 0;
 
-  public activeIndex2: number = 0;
+  public activeIndex2 = 0;
 
-  public scrollableTabs: any[] = Array.from({ length: 50 }, (_, i) => ({
+  public scrollableTabs = Array.from({ length: 50 }, (_, i) => ({
     title: `قسمت ${i + 1}`,
     content: `قسمت ${i + 1} محتوا`,
   }));

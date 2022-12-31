@@ -55,7 +55,7 @@ export class AuthGuard implements CanActivate, CanLoad {
     | UrlTree
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
-    const url: string = `/${segments.toString().replace(',', '/')}`;
+    const url = `/${segments.toString().replace(',', '/')}`;
 
     return this.checkLogin(url);
   }

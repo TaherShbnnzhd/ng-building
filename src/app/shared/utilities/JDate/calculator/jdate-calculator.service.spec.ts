@@ -1,5 +1,7 @@
 /* بسم الله الرحمن الرحیم */
 
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+
 import { ISimpleDate } from '../simple-date.interface';
 import { JDateValidatorService } from '../validator/jdate-validator.service';
 import { JDateCalculatorService } from './jdate-calculator.service';
