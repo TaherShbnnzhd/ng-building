@@ -1,4 +1,4 @@
-/* بسم الله الرحمن الرحیم */
+/* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 

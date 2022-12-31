@@ -1,3 +1,5 @@
+/* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
+
 import { Pipe, PipeTransform } from '@angular/core';
 
 import { JDateCalculatorService } from '@shared/utilities/JDate/calculator/jdate-calculator.service';

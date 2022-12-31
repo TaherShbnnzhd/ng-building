@@ -1,4 +1,4 @@
-/* بسم الله الرحمن الرحیم */
+/* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';

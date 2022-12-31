@@ -1,4 +1,4 @@
-/* بسم الله الرحمن الرحیم */
+/* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 import { HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';

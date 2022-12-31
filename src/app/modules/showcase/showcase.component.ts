@@ -1,3 +1,5 @@
+/* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
+
 import { Component, OnInit } from '@angular/core';
 
 import { slideInAnimation } from '@shared/animations/transition.animation';

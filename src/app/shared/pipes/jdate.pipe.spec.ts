@@ -1,4 +1,4 @@
-/* بسم الله الرحمن الرحیم */
+/* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 import { JDate } from '@shared/utilities/JDate/jdate';
 import { JDatePipe } from './jdate.pipe';

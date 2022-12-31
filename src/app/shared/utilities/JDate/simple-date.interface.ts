@@ -1,4 +1,4 @@
-/* بسم الله الرحمن الرحیم */
+/* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 /**
  * A simple interface for grouping three important numbers of a date together: Year, month and day.

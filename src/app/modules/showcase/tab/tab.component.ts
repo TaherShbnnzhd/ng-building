@@ -1,3 +1,5 @@
+/* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
+
 import { Component } from '@angular/core';
 
 @Component({

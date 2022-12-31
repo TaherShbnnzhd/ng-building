@@ -1,4 +1,4 @@
-/* بسم الله الرحمن الرحیم */
+/* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 /**
  * This function removes fraction part of the number if exists. So, for example, it will turn -145,455 to -145 and

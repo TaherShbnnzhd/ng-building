@@ -1,3 +1,5 @@
+/* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
+
 import { TestBed } from '@angular/core/testing';
 
 import { LoggingInterceptor } from './logging.interceptor';

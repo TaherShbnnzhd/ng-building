@@ -1,3 +1,5 @@
+/* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
+
 import { Component, OnInit } from '@angular/core';
 import { JDate } from '@shared/utilities/JDate/jdate';
 

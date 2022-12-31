@@ -1,4 +1,4 @@
-/* بسم الله الرحمن الرحیم */
+/* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 import { JDateCalculatorService } from './calculator/jdate-calculator.service';
 import { JDateValidatorService } from './validator/jdate-validator.service';

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/*  بسم الله الرحمن الرحیم */
+/*  بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 import {
   animate,

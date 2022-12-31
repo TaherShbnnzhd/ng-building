@@ -1,3 +1,5 @@
+/* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CalendarDemoComponent } from './calendar-demo.component';
