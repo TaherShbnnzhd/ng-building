@@ -1,8 +1,8 @@
 # بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم
 
-# blockTemplate
+# Building
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4
 
 ## Development server
 
