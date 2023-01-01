@@ -20,8 +20,9 @@
     position: absolute;
     top: 10vh;
     background-color: #fff;
-    width: 50% !important;
-    height: 500px !important;
+    width: 40% !important;
+    min-width: 440px !important;
+    min-height: 440px !important;
 }
 
 .border-round {
@@ -60,16 +61,12 @@
     margin-right: .5rem !important;
 }
 
-.text-center {
-    text-align: center !important;
-}
-
 .text-3xl {
     font-size: 1.75rem !important;
 }
 
-.text-blue-500 {
-    color: var(--blue-500) !important;
+.text-hilight {
+    color: var(--main-hilight-color) !important;
 }
 
 .font-medium {

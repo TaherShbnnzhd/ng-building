@@ -1,29 +1,56 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
 
 import { tap } from 'rxjs';
 import { AuthService } from 'src/app/core/authentication/auth.service';
+
+class LoginModel {
+  mobile: number | null = null;
+  password: string | null = null;
+}
 
 @Component({
   selector: 'block-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
-  public email!: string;
-  public password!: string;
+export class LoginComponent implements OnInit {
+  public loginForm!: FormGroup;
+  public loginModel = new LoginModel();
 
+  /** store the URL so we can redirect after logging in. */
+  public redirectUrl: string | null = null;
+  public loading = false;
   public message: string;
 
-  // store the URL so we can redirect after logging in
-  public redirectUrl: string | null = null;
+  // Form controll fields:
+  get mobile() {
+    return this.loginForm.get('mobile');
+  }
 
-  public loading = false;
+  get password() {
+    return this.loginForm.get('password');
+  }
 
   constructor(public authService: AuthService, public router: Router) {
     this.message = this.getMessage();
+  }
+
+  ngOnInit(): void {
+    this.loginForm = new FormGroup({
+      mobile: new FormControl(this.loginModel.mobile, [
+        Validators.required,
+        Validators.minLength(11),
+        Validators.maxLength(11),
+      ]),
+      password: new FormControl(this.loginModel.password, [
+        Validators.required,
+        Validators.minLength(8),
+      ]),
+    });
   }
 
   /** Define message for logged state */
@@ -35,7 +62,7 @@ export class LoginComponent {
   public signin(): void {
     this.loading = true;
 
-    this.message = 'در حال ورود به حساب کاربری . . . ';
+    this.message = 'در حال ورود';
 
     this.authService
       .logIn()

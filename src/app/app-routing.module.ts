@@ -47,7 +47,7 @@ const routes: Routes = [
     ],
   },
   { path: '', redirectTo: '/home/dashboard', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent },
+  { path: '**', component: PageNotFoundComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
