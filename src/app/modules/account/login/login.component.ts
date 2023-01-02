@@ -8,8 +8,8 @@ import { tap } from 'rxjs';
 import { AuthService } from 'src/app/core/authentication/auth.service';
 
 class LoginModel {
-  mobile: number | null = null;
-  password: string | null = null;
+  mobile = '';
+  password = '';
 }
 
 @Component({
