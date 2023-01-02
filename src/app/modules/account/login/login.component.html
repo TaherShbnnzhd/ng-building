@@ -65,7 +65,7 @@
             id="mobile-help"
             class="p-error"
           >
-            {{ "گذرواژه حداقل شامل 8 کاراکتر می‌باشد!" | faNum }}
+            {{ "گذرواژه حداقل شامل 8 کاراکتر می‌باشد" | faNum }}
           </small>
         </div>
         <div class="flex align-items-center justify-content-between mb-6">
@@ -94,7 +94,6 @@
             [label]="loading ? message : 'ورود'"
             [loading]="loading"
             [disabled]="loginForm.invalid"
-            (click)="signin()"
           ></button>
         </div>
       </div>

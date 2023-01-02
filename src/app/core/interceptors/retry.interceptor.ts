@@ -10,7 +10,7 @@ import {
 } from '@angular/common/http';
 import { Observable, retry, tap } from 'rxjs';
 
-export const RETRY_COUNT = new HttpContextToken(() => 3);
+export const RETRY_COUNT = new HttpContextToken(() => 0);
 export const ERROR_COUNT = new HttpContextToken(() => 0);
 
 @Injectable()

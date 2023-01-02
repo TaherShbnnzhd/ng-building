@@ -13,11 +13,7 @@ import { RETRY_COUNT } from '../interceptors/retry.interceptor';
 
 @Injectable()
 export class HttpService {
-  private basesUrl: string = this.config.getAddress('baseUrl');
-  private customersUrl: string = this.config.getAddress('customers-small');
-
   private httpOptions: { headers: HttpHeaders };
-
   private handleError: HandleError;
 
   constructor(
@@ -32,26 +28,58 @@ export class HttpService {
     this.handleError = httpErrorHandler.createHandleError('HttpService');
   }
 
-  /** POST: get data with empty body. */
+
+  //////// Global Methods //////////
+
+  /** POST: get data with empty body */
   public getByPost<T>(
     type: { new (): T },
     url: string,
     retryCount = 1,
-    params?: Record<string, string>
+    params?: unknown
   ): Observable<T> {
     return this.http
-      .post<T>(this.basesUrl + url, {
+      .post<T>(this.config.getAddress('baseUrl') + url, {
         params: params,
         context: new HttpContext().set(RETRY_COUNT, retryCount),
       })
       .pipe(catchError(this.handleError('getByPost', new type())));
   }
 
-  /** GET: general. */
-  public get<T>(url: string, retryCount = 1, params?: Record<string, string>): Observable<T> {
+  /** GET: fetch data */
+  public get<T>(
+    type: { new (): T },
+    url: string,
+    retryCount = 1
+  ): Observable<T> {
+    return this.http
+      .get<T>(this.config.getAddress('baseUrl') + url, {
+        context: new HttpContext().set(RETRY_COUNT, retryCount),
+      })
+      .pipe(catchError(this.handleError('get', new type())));
+  }
+
+  /** GET: get file from assets */
+  public getAsset<T>(
+    type: { new (): T },
+    url: string,
+    retryCount = 1
+  ): Observable<T> {
+    return this.http
+      .get<T>('/assets/' + url, {
+        context: new HttpContext().set(RETRY_COUNT, retryCount),
+      })
+      .pipe(catchError(this.handleError('getAsset', new type())));
+  }
+
+  
+  //////// Customer CRUD Methods //////////
+
+  /** GET: fetch customers list from database */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  public getCustomers(url: string, retryCount = 1): Observable<ICustomer[]> {
     return this.http
       .get<ICustomer[]>(url, {
-        params: params,
         context: new HttpContext().set(RETRY_COUNT, retryCount),
       })
       .pipe(
@@ -61,25 +89,31 @@ export class HttpService {
       );
   }
 
-  //////// Save Methods //////////
-
   /** POST: add a new User to the database */
-  private addCustomer(user: ICustomer): Observable<ICustomer> {
+  public addCustomer(user: ICustomer): Observable<ICustomer> {
     return this.http
-      .post<ICustomer>(this.customersUrl, user, this.httpOptions)
+      .post<ICustomer>(
+        this.config.getAddress('customers-small'),
+        user,
+        this.httpOptions
+      )
       .pipe(catchError(this.handleError('addCustomer', user)));
   }
 
   /** PUT: update the user on the server. Returns the updated hero upon success. */
-  private updateCustomer(user: ICustomer): Observable<ICustomer> {
+  public updateCustomer(user: ICustomer): Observable<ICustomer> {
     return this.http
-      .put<ICustomer>(this.customersUrl, user, this.httpOptions)
+      .put<ICustomer>(
+        this.config.getAddress('customers-small'),
+        user,
+        this.httpOptions
+      )
       .pipe(catchError(this.handleError('updateCustomer', user)));
   }
 
   /** DELETE: delete the User from the server */
-  private deleteCustomer(id: number): Observable<unknown> {
-    const url = `${this.customersUrl}/${id}`;
+  public deleteCustomer(id: number): Observable<unknown> {
+    const url = `${this.config.getAddress('customers-small')}/${id}`;
 
     return this.http
       .delete(url, this.httpOptions)

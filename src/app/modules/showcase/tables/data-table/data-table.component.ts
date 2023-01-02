@@ -17,7 +17,7 @@ export class DataTableComponent implements OnInit {
 
   public representatives!: IRepresentative[];
 
-  public statuses!: Record<string, string>[];
+  public statuses!: { label: string; value: string }[];
 
   public loading = true;
 
@@ -30,7 +30,7 @@ export class DataTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.customerService
-      .get<ICustomer[]>(this.config.getAddress('customers-small'), 2)
+      .getCustomers(this.config.getAddress('customers-small'), 2)
       .subscribe((customers) => {
         this.customers = customers;
 

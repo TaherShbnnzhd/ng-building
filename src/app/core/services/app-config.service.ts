@@ -2,30 +2,37 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MessageService } from 'primeng/api';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class AppConfigService {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  private appConfig!: any;
+  private _appConfig!: any;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private messageService: MessageService
+  ) {}
 
   public loadAppConfig() {
     return this.http.get('/assets/configs/configuration.json');
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  public setConfig(config: any) {
-    this.appConfig = config;
+  public setConfig(config: object) {
+    this._appConfig = config;
   }
 
   public getAddress(item: string) {
-    if (!this.appConfig) {
-      throw Error('Config file not loaded!');
+    if (!this._appConfig) {
+      this.messageService.add({
+        key: 'httpErrorMessage',
+        life: 8000,
+        severity: 'error',
+        detail: `خطا`,
+        summary: 'فایل تنظیمات در دسترس نیست.',
+      });
     }
 
-    return this.appConfig[item];
+    return this._appConfig[item];
   }
 }
