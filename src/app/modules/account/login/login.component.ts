@@ -18,13 +18,14 @@ class LoginModel {
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+  /** store the URL so we can redirect after logging in. */
+  public redirectUrl: string | null = null;
+
   public loginForm!: FormGroup;
   public loginModel = new LoginModel();
 
-  /** store the URL so we can redirect after logging in. */
-  public redirectUrl: string | null = null;
   public loading = false;
-  public message: string;
+  public submitted = false;
 
   // Form controll fields:
   get mobile() {
@@ -35,9 +36,7 @@ export class LoginComponent implements OnInit {
     return this.loginForm.get('password');
   }
 
-  constructor(public authService: AuthService, public router: Router) {
-    this.message = this.getMessage();
-  }
+  constructor(public authService: AuthService, public router: Router) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -53,44 +52,34 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  /** Define message for logged state */
-  public getMessage() {
-    return 'Logged ' + (this.authService.isLoggedIn ? 'in' : 'out');
-  }
-
   /** Log in user */
   public signin(): void {
-    this.loading = true;
+    this.submitted = true;
 
-    this.message = 'در حال ورود';
+    if (this.loginForm.valid) {
+      const { mobile, password } = this.loginForm.value;
 
-    this.authService
-      .logIn()
-      .pipe(tap(() => (this.loading = false)))
-      .subscribe(() => {
-        this.message = this.getMessage();
+      this.loading = true;
 
-        if (this.authService.isLoggedIn) {
-          // Usually you would use the redirect URL from the auth service.
-          // However to keep the example simple, we will always redirect to `/admin`.
-          const redirectUrl = this.authService.redirectUrl || '';
+      this.authService
+        .logIn(mobile, password)
+        .pipe(tap(() => (this.loading = false)))
+        .subscribe(() => {
+          if (this.authService.isLoggedIn) {
+            // Use the redirect URL from the auth service.
+            const redirectUrl = this.authService.redirectUrl || '';
 
-          // Set our navigation extras object
-          // that passes on our global query params and fragment
-          const navigationExtras: NavigationExtras = {
-            queryParamsHandling: 'preserve',
-            preserveFragment: true,
-          };
+            // Set our navigation extras object
+            // that passes on our global query params and fragment
+            const navigationExtras: NavigationExtras = {
+              queryParamsHandling: 'preserve',
+              preserveFragment: true,
+            };
 
-          // Redirect the user
-          this.router.navigate([redirectUrl], navigationExtras);
-        }
-      });
-  }
-
-  /** Log out user */
-  public signout(): void {
-    this.authService.logOut();
-    this.message = this.getMessage();
+            // Redirect the user
+            this.router.navigate([redirectUrl], navigationExtras);
+          }
+        });
+    }
   }
 }

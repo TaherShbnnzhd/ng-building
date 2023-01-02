@@ -16,8 +16,8 @@ export class AuthService {
   }
 
   /** Try To Log In */
-  public logIn(): Observable<boolean> {
-    return of(true).pipe(
+  public logIn(username: string, password: string): Observable<boolean> {
+    return of(!!(username && password)).pipe(
       delay(1380),
       tap(() => (this.isLoggedIn = true))
     );
