@@ -118,18 +118,14 @@
   position: relative;
 }
 
-.active-link:hover {
-  text-decoration: underline !important;
-}
-
 /* Medium Devices, Desktops */
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 992px) {
   .bordered-box {
-    border-left: 1px solid var(--bluegray-100);
+    border-right: 1px solid var(--bluegray-100);
   }
 }
 /* Small Devices, Tablets */
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 992px) {
   .bordered-box {
     border-bottom: 1px solid var(--bluegray-100);
   }

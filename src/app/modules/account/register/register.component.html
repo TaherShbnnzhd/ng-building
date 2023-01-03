@@ -1,0 +1,181 @@
+<!-- بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم -->
+<section class="section">
+  <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6">
+    <div class="row">
+      <div class="col-md-12 col-lg-6 order-1 order-lg-2">
+        <div
+          class="d-flex justify-content-between align-items-center h-100 bordered-box"
+        >
+          <div class="row">
+            <div
+              class="col-lg-12 col-sm-6 text-center mb-5"
+              style="align-self: center"
+            >
+              <div
+                class="text-900 text-3xl font-medium mb-3"
+                style="white-space: nowrap"
+              >
+                ایجاد حساب کاربری
+              </div>
+            </div>
+            <img
+              src="assets/images/signup.svg"
+              class="col-lg-12 col-sm-6 img-fluid"
+              alt="SignUp Image"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-6 order-2 order-lg-1">
+        <form
+          class="mx-1 mx-md-4"
+          [formGroup]="registerForm"
+          #formDir="ngForm"
+          (ngSubmit)="signup()"
+        >
+          <div class="form-group my-4">
+            <div class="field pt-lg-0">
+              <label for="phoneNumber" class="block text-900 font-medium mb-2">
+                تلفن همراه
+              </label>
+              <p-inputMask
+                id="phoneNumber"
+                name="phoneNumber"
+                class="w-100"
+                [class.ng-invalid]="phoneNumber?.invalid"
+                [class.ng-dirty]="
+                  (submitted && phoneNumber?.pristine) ||
+                  phoneNumber?.dirty ||
+                  phoneNumber?.touched
+                "
+                styleClass="w-100 form-control"
+                formControlName="phoneNumber"
+                mask="09999999999"
+              ></p-inputMask>
+              <div id="phoneNumber-help">
+                <small
+                  *ngIf="(submitted && phoneNumber?.pristine) || 
+                  (phoneNumber?.errors?.['required'] && (phoneNumber?.dirty || phoneNumber?.touched))"
+                  class="p-error"
+                >
+                  لطفا تلفن همراه را خالی نگذارید
+                </small>
+                <small class="p-error" style="visibility: hidden">
+                  error
+                </small>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="name" class="block text-900 font-medium mb-2">
+                نام
+              </label>
+              <input
+                pInputText
+                id="name"
+                name="name"
+                formControlName="name"
+                class="w-100"
+                [class.ng-invalid]="name?.invalid"
+                [class.ng-dirty]="
+                  (submitted && name?.pristine) || name?.dirty || name?.touched
+                "
+                type="text"
+              />
+              <div id="name-help">
+                <small
+                  *ngIf="(submitted && name?.pristine) || 
+                  (name?.errors?.['required'] && (name?.dirty || name?.touched))"
+                  class="p-error"
+                >
+                  لطفا نام را خالی نگذارید
+                </small>
+                <small class="p-error" style="visibility: hidden">
+                  error
+                </small>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="family" class="block text-900 font-medium mb-2">
+                نام خانوادگی
+              </label>
+              <input
+                pInputText
+                id="family"
+                name="family"
+                formControlName="family"
+                class="w-100"
+                [class.ng-invalid]="family?.invalid"
+                [class.ng-dirty]="
+                  (submitted && family?.pristine) ||
+                  family?.dirty ||
+                  family?.touched
+                "
+                type="text"
+              />
+              <div>
+                <small
+                  *ngIf="(submitted && family?.pristine) || 
+                  (family?.errors?.['required'] && (family?.dirty || family?.touched))"
+                  id="family-help"
+                  class="p-error"
+                >
+                  لطفا نام خانوادگی را خالی نگذارید
+                </small>
+                <small class="p-error" style="visibility: hidden">
+                  error
+                </small>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="nationalId" class="block text-900 font-medium mb-2">
+                کد ملی
+              </label>
+              <input
+                pInputText
+                id="nationalId"
+                name="nationalId"
+                formControlName="nationalId"
+                class="w-100"
+                [class.ng-invalid]="nationalId?.invalid"
+                [class.ng-dirty]="
+                  (submitted && nationalId?.pristine) ||
+                  nationalId?.dirty ||
+                  nationalId?.touched
+                "
+                type="text"
+              />
+              <div>
+                <small
+                  *ngIf="(submitted && nationalId?.pristine) || 
+                  (nationalId?.errors?.['required'] && (nationalId?.dirty || nationalId?.touched))"
+                  id="nationalId-help"
+                  class="p-error"
+                >
+                  لطفا کد ملی را خالی نگذارید
+                </small>
+                <small class="p-error" style="visibility: hidden">
+                  error
+                </small>
+              </div>
+            </div>
+
+            <div class="w-100 text-end my-4">
+              <button
+                pButton
+                pRipple
+                class="submit-button w-100 shadow-2 p-button-primary"
+                icon="pi pi-user-plus"
+                type="submit"
+                label="ثبت نام"
+                [loading]="loading"
+              ></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

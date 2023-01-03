@@ -28,10 +28,9 @@ export class HttpService {
     this.handleError = httpErrorHandler.createHandleError('HttpService');
   }
 
-
   //////// Global Methods //////////
 
-  /** POST: get data with empty body */
+  /** POST: fetch data with empty body */
   public getByPost<T>(
     type: { new (): T },
     url: string,
@@ -59,7 +58,7 @@ export class HttpService {
       .pipe(catchError(this.handleError('get', new type())));
   }
 
-  /** GET: get file from assets */
+  /** GET: fetch file from assets */
   public getAsset<T>(
     type: { new (): T },
     url: string,
@@ -72,7 +71,6 @@ export class HttpService {
       .pipe(catchError(this.handleError('getAsset', new type())));
   }
 
-  
   //////// Customer CRUD Methods //////////
 
   /** GET: fetch customers list from database */

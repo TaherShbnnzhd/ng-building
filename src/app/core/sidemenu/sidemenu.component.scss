@@ -1,7 +1,7 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 a {
-  color: var(--sidebar-item-color);
+  color: var(--sidemenu-item-color);
   text-decoration: none;
   background-color: transparent;
 }
@@ -28,7 +28,7 @@ a {
     float: right;
     width: 300px;
     height: 100vh;
-    background: var(--sidebar-main-bg-color);
+    background: var(--sidemenu-main-bg-color);
     // box-shadow: var(--main-box-shadow);
     overflow-y: scroll;
     scrollbar-width: none;
@@ -50,7 +50,7 @@ a {
       border-bottom-left-radius: 50%;
       background: transparent;
       transform: rotate(180deg);
-      box-shadow: 0 13px 0 0 var(--sidebar-main-bg-color);
+      box-shadow: 0 13px 0 0 var(--sidemenu-main-bg-color);
     }
 
     &:after {
@@ -60,7 +60,7 @@ a {
       width: 30px;
       border-bottom-left-radius: 50%;
       background: transparent;
-      box-shadow: 0 13px 0 0 var(--sidebar-main-bg-color);
+      box-shadow: 0 13px 0 0 var(--sidemenu-main-bg-color);
       transform: rotate(270deg);
     }
   }
@@ -74,14 +74,14 @@ a {
     padding: 0;
     font-size: 1.5rem;
     transition: transform 0.2s linear;
-    background-color: var(--sidebar-main-bg-color);
+    background-color: var(--sidemenu-main-bg-color);
 
     .menu-toggle-mask {
       cursor: pointer;
       position: absolute;
       height: 65px;
       top: 85px;
-      background-color: var(--sidebar-main-bg-color);
+      background-color: var(--sidemenu-main-bg-color);
       left: 3px;
       transition: all 0.2s linear;
       width: 2rem;
@@ -90,14 +90,14 @@ a {
       z-index: -1;
       box-shadow: rgba(1, 41, 112, 0.08) 0px 0px 5px 0px,
         rgba(1, 41, 112, 0.08) 0px 0px 5px 0px;
-      background-color: var(--sidebar-main-bg-color);
+      background-color: var(--sidemenu-main-bg-color);
     }
     .menu-toggle {
       cursor: pointer;
       position: absolute;
       height: 65px;
       top: 85px;
-      background-color: var(--sidebar-main-bg-color);
+      background-color: var(--sidemenu-main-bg-color);
       left: 3px;
       transition: all 0.2s linear;
       width: 2rem;
@@ -121,7 +121,7 @@ a {
       }
 
       &.collapsed {
-        background-color: var(--sidebar-main-bg-color);
+        background-color: var(--sidemenu-main-bg-color);
         left: 5px;
         transition: all 0.2s linear;
 
@@ -146,7 +146,7 @@ a {
       position: absolute;
       height: 65px;
       top: 85px;
-      background-color: var(--sidebar-main-bg-color);
+      background-color: var(--sidemenu-main-bg-color);
       left: 5px;
       transition: all 0.2s linear;
       width: 2rem;
@@ -183,7 +183,7 @@ a {
     bottom: 0;
     font-size: 1.5rem;
     transition: transform 0.2s linear;
-    background-color: var(--sidebar-main-bg-color);
+    background-color: var(--sidemenu-main-bg-color);
   }
 }
 
@@ -232,7 +232,7 @@ a {
 
 .sidebar .sidebar-brand .sidebar-brand-text {
   cursor: pointer;
-  color: var(--main-hilight-color);
+  color: var(--sidemenu-item-color);
   font-size: 1.4rem;
 }
 
@@ -264,7 +264,7 @@ a {
 .sidebar-nav .nav-heading {
   font-size: 11px;
   text-transform: uppercase;
-  color: var(--sidebar-item-color);
+  color: var(--sidemenu-item-color);
   margin: 10px 0 5px 15px;
 }
 
@@ -272,8 +272,8 @@ a {
   display: flex;
   align-items: center;
   font-size: 15px;
-  color: var(--sidebar-item-color);
-  background-color: var(--sidebar-main-bg-color);
+  color: var(--sidemenu-item-color);
+  background-color: var(--sidemenu-main-bg-color);
   transition: 0.3;
   margin: 8px 13px 0 13px;
   border-radius: 4px;
@@ -283,7 +283,7 @@ a {
 .sidebar-nav .nav-link i {
   display: flex;
   padding: 0rem 0.5rem 0rem 0.5rem;
-  color: var(--sidebar-item-color);
+  color: var(--sidemenu-item-color);
   font-size: 1.5rem;
   transition: all 0.2s linear;
 }
@@ -300,21 +300,21 @@ a {
 
 /* Menu Items */
 .sidebar-nav .nav-link.collapsed {
-  color: var(--sidebar-item-color);
-  background-color: var(--sidebar-main-bg-color);
+  color: var(--sidemenu-item-color);
+  background-color: var(--sidemenu-main-bg-color);
 }
 
 .sidebar-nav .nav-link.collapsed i {
-  color: var(--sidebar-item-icon-color);
+  color: var(--sidemenu-item-icon-color);
 }
 
 .sidebar-nav .nav-link:hover {
-  color: var(--main-hilight-color);
+  color: var(--sidemenu-hilight-color);
   background: var(--main-color);
 }
 
 .sidebar-nav .nav-link:hover i {
-  color: var(--sidebar-item-color);
+  color: var(--sidemenu-item-color);
 }
 
 .sidebar-nav .nav-link .bi-chevron-down {
@@ -347,7 +347,7 @@ a {
   display: flex;
   align-items: center;
   font-size: 14px;
-  color: var(--sidebar-item-color);
+  color: var(--sidemenu-item-color);
   transition: all 0.2s linear;
   padding: 0rem 3rem 0.3rem 0rem;
   transition: 0.2s linear;
@@ -364,11 +364,11 @@ a {
 
 .sidebar-nav .nav-content a:hover,
 .sidebar-nav .nav-content a.active {
-  color: var(--sidebar-hilight-color);
+  color: var(--sidemenu-hilight-color);
 }
 
 .sidebar-nav .nav-content a.active i {
-  background-color: var(--main-hilight-color);
+  background-color: var(--sidemenu-hilight-color);
   scale: 0.6;
 }
 

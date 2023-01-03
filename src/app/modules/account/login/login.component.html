@@ -1,111 +1,149 @@
 <!-- بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم -->
-
 <section class="section">
   <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6">
-    <div class="text-center mb-5">
-      <div class="text-900 text-3xl font-medium mb-3">سلام</div>
-
-      <span class="text-600 font-medium line-height-3">
-        هنوز حساب کاربری نداری ؟
-      </span>
-
-      <a class="font-medium no-underline ml-2 text-hilight cursor-pointer">
-        از اینجا بساز!
-      </a>
-    </div>
-
-    <form [formGroup]="loginForm" #formDir="ngForm" (ngSubmit)="signin()">
-      <div class="form-group">
-        <div class="field">
-          <label for="mobile" class="block text-900 font-medium mb-2">
-            شماره تلفن همراه
-          </label>
-          <p-inputMask
-            id="mobile"
-            name="mobile"
-            class="w-100"
-            [class.ng-invalid]="mobile?.invalid"
-            [class.ng-dirty]="
-              (submitted && password?.pristine) ||
-              mobile?.dirty ||
-              mobile?.touched
-            "
-            styleClass="w-100 form-control"
-            mask="09999999999"
-            formControlName="mobile"
-          ></p-inputMask>
-          <small
-            *ngIf="(submitted && mobile?.pristine) || 
+    <div class="row">
+      <div class="col-md-12 col-xl-7 order-2 order-lg-1">
+        <form
+          class="mx-1 mx-md-4"
+          [formGroup]="loginForm"
+          #formDir="ngForm"
+          (ngSubmit)="signin()"
+        >
+          <div class="form-group mt-4">
+            <div class="field">
+              <label for="mobile" class="block text-900 font-medium mb-2">
+                تلفن همراه
+              </label>
+              <p-inputMask
+                id="mobile"
+                name="mobile"
+                class="w-100"
+                [class.ng-invalid]="mobile?.invalid"
+                [class.ng-dirty]="
+                  (submitted && password?.pristine) ||
+                  mobile?.dirty ||
+                  mobile?.touched
+                "
+                styleClass="w-100 form-control"
+                mask="09999999999"
+                formControlName="mobile"
+              ></p-inputMask>
+              <div id="mobile-help">
+                <small
+                  *ngIf="(submitted && mobile?.pristine) || 
             (mobile?.errors?.['required'] && (mobile?.dirty || mobile?.touched))"
-            id="mobile-help"
-            class="p-error"
-          >
-            لطفا شماره تلفن همراه را خالی نگذارید
-          </small>
-        </div>
+                  class="p-error"
+                >
+                  لطفا تلفن همراه را خالی نگذارید
+                </small>
 
-        <div class="field py-3">
-          <label for="password" class="block text-900 font-medium mb-2">
-            گذرواژه
-          </label>
-          <p-password
-            id="password"
-            styleClass="w-100"
-            inputStyleClass="w-100"
-            formControlName="password"
-            [class.ng-invalid]="password?.invalid"
-            [class.ng-dirty]="
-              (submitted && password?.pristine) ||
-              password?.dirty ||
-              password?.touched
-            "
-            [toggleMask]="true"
-            [feedback]="false"
-          ></p-password>
-          <small
-            *ngIf="(submitted && password?.pristine) || 
+                <small class="p-error" style="visibility: hidden">
+                  error
+                </small>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="password" class="block text-900 font-medium mb-2">
+                گذرواژه
+              </label>
+              <p-password
+                id="password"
+                styleClass="w-100"
+                inputStyleClass="w-100"
+                formControlName="password"
+                [class.ng-invalid]="password?.invalid"
+                [class.ng-dirty]="
+                  (submitted && password?.pristine) ||
+                  password?.dirty ||
+                  password?.touched
+                "
+                [toggleMask]="true"
+                [feedback]="false"
+              ></p-password>
+              <div id="password-help">
+                <small
+                  *ngIf="(submitted && password?.pristine) || 
             (password?.errors?.['required'] && (password?.dirty || password?.touched))"
-            id="mobile-help"
-            class="p-error"
-          >
-            لطفا گذرواژه را خالی نگذارید
-          </small>
-          <small
-            *ngIf="password?.errors?.['minlength'] && (password?.dirty || password?.touched)"
-            id="mobile-help"
-            class="p-error"
-          >
-            {{ "گذرواژه حداقل شامل 8 کاراکتر می‌باشد" | faNum }}
-          </small>
-        </div>
-        <div class="flex align-items-center justify-content-between mb-6">
-          <div class="flex align-items-center">
-            <!-- remember me -->
-            <p-checkbox id="rememberme" [binary]="true" class="ml-2">
-            </p-checkbox>
+                  class="p-error"
+                >
+                  لطفا گذرواژه را خالی نگذارید
+                </small>
+                <small
+                  *ngIf="password?.errors?.['minlength'] && (password?.dirty || password?.touched)"
+                  class="p-error"
+                >
+                  {{ "گذرواژه حداقل شامل 8 کاراکتر می‌باشد" | faNum }}
+                </small>
+                <small style="visibility: hidden" class="p-error">
+                  error
+                </small>
+              </div>
+            </div>
 
-            <label for="rememberme" class="text-900"> تورو یادمون بمونه </label>
+            <div class="flex align-items-center justify-content-between my-4">
+              <div class="flex align-items-center">
+                <!-- remember me -->
+                <p-checkbox id="rememberme" [binary]="true" class="ml-2">
+                </p-checkbox>
+
+                <label for="rememberme" class="text-900">
+                  تورو یادمون بمونه
+                </label>
+              </div>
+              <!-- forgot password -->
+              <a
+                class="active-link font-medium no-underline ml-2 text-hilight text-right cursor-pointer"
+              >
+                گذرواژتو فراموش کردی؟
+              </a>
+            </div>
+
+            <div class="w-100 text-end">
+              <button
+                pButton
+                pRipple
+                class="submit-button w-100 shadow-2 p-button-primary"
+                icon="pi pi-user"
+                type="submit"
+                label="ورود"
+                [loading]="loading"
+              ></button>
+            </div>
           </div>
-          <!-- forgot password -->
-          <a
-            class="font-medium no-underline ml-2 text-hilight text-right cursor-pointer"
-          >
-            گذرواژتو فراموش کردی؟
-          </a>
-        </div>
+        </form>
+      </div>
+      <div class="col-md-12 col-xl-5">
+        <div
+          class="d-flex justify-content-between align-items-center h-100 bordered-box"
+        >
+          <div class="row">
+            <div
+              class="col-xl-12 col-md-8 text-center mb-5"
+              style="align-self: center"
+            >
+              <div class="text-900 text-3xl font-medium mb-3">سلام</div>
 
-        <div class="w-100 text-center">
-          <button
-            pButton
-            pRipple
-            class="w-75 shadow-2 p-button-primary"
-            icon="pi pi-user"
-            type="submit"
-            label="ورود"
-            [loading]="loading"
-          ></button>
+              <span class="text-600 font-medium line-height-3">
+                هنوز حساب کاربری نداری؟
+              </span>
+
+              <a
+                class="active-link font-medium no-underline ml-2 text-hilight cursor-pointer"
+                routerLink="/account/register"
+                ariaCurrentWhenActive="page"
+              >
+                از اینجا بساز!
+              </a>
+            </div>
+            <img
+              src="assets/images/signin.svg"
+              class="col-xl-12 col-md-4 img-fluid"
+              alt="SignIn Image"
+            />
+          </div>
         </div>
       </div>
-    </form>
+    </div>
   </div>
 </section>
