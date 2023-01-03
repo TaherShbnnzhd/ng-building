@@ -44,6 +44,10 @@
   font-family: "Segoe UI", "kharazmi", "arial", sans-serif;
 }
 
+html {
+  direction: rtl;
+}
+
 /*--------------------------------------------------------------
 # Page Title
 --------------------------------------------------------------*/
@@ -406,6 +410,7 @@
     }
 
     .card-text {
+      direction: rtl;
       padding-top: 0.5rem;
     }
   }

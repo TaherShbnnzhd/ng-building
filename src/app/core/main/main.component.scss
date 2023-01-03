@@ -26,14 +26,13 @@ body {
     display: none;
   }
 
-  .right-frame {
+  .left-frame {
     background-color: var(--sidemenu-main-bg-color);
-    height: calc(100vh - (var(--header-height) + var(--footer-height)));
+    height: 100vh;
     width: 8px;
     float: left;
     z-index: 98;
-    position: absolute;
-    top: var(--header-height);
+    position: relative;
 
     &:before,
     &:after {
@@ -45,7 +44,7 @@ body {
     }
 
     &:before {
-      top: 0px;
+      top: var(--header-height);
       left: 8px;
       height: 30px;
       width: 30px;
@@ -56,7 +55,7 @@ body {
     }
 
     &:after {
-      bottom: 0px;
+      bottom: var(--footer-height);
       left: 7px;
       height: 30px;
       width: 30px;
