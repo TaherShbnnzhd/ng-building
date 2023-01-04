@@ -46,6 +46,58 @@
 
 html {
   direction: rtl;
+  background-color: var(--main-color);
+}
+
+/*--------------------------------------------------------------
+# Custome Global Class
+--------------------------------------------------------------*/
+.bg-main {
+  background-color: var(--main-color);
+}
+
+.h-full {
+  height: 100%;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-min-100 {
+  min-height: 100%;
+}
+
+.w-min-100 {
+  min-height: 100%;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+.ai-center {
+  align-items: center;
+}
+
+.m-6 {
+  margin: 4rem !important;
+}
+
+.m-7 {
+  margin: 5rem !important;
+}
+
+.m-8 {
+  margin: 6rem !important;
+}
+
+.m-9 {
+  margin: 9rem !important;
+}
+
+.m-10 {
+  margin: 10rem !important;
 }
 
 /*--------------------------------------------------------------

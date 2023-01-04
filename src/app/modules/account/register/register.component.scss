@@ -1,28 +1,14 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
-.section {
-  position: fixed;
-  display: flex;
-  direction: rtl;
-  background-color: var(--main-color) !important;
-  height: 100%;
-  width: 100vw;
-  justify-content: center;
-  justify-items: center;
-  align-items: center;
-  overflow: auto;
-}
+main {
+  position: relative;
 
-.w-full {
-  width: 100% !important;
-}
-
-.surface-card {
-  position: absolute;
-  top: 10vh;
-  background-color: #fff;
-  width: 68% !important;
-  min-width: 440px !important;
+  .card {
+    max-width: 1100px;
+  }
+  .card-body {
+    padding: 20px 20px 20px 20px !important;
+  }
 }
 
 .border-round {
@@ -31,38 +17,6 @@
 
 .shadow-2 {
   box-shadow: 0 4px 10px #00000008, 0 0 2px #0000000f, 0 2px 6px #0000001f !important;
-}
-
-.p-4 {
-  padding: 1.5rem !important;
-}
-
-.mb-2 {
-  margin-bottom: 0.5rem !important;
-}
-
-.mb-3 {
-  margin-bottom: 1rem !important;
-}
-
-.mb-5 {
-  margin-bottom: 2rem !important;
-}
-
-.mb-6 {
-  margin-bottom: 3rem !important;
-}
-
-.ml-2 {
-  margin-left: 0.5rem !important;
-}
-
-.mr-2 {
-  margin-right: 0.5rem !important;
-}
-
-.text-3xl {
-  font-size: 1.75rem !important;
 }
 
 .text-hilight {
@@ -77,10 +31,6 @@
   color: var(--surface-600) !important;
 }
 
-.text-900 {
-  color: var(--surface-900) !important;
-}
-
 .line-height-3 {
   line-height: 1.5 !important;
 }
@@ -93,40 +43,24 @@
   text-decoration: none !important;
 }
 
-.block {
-  display: block !important;
-}
-
-.align-items-center {
-  align-items: center !important;
-}
-
-.justify-content-between {
-  justify-content: space-between !important;
-}
-
-.flex {
-  display: flex !important;
-}
-
-.text-right {
-  text-align: right !important;
-}
-
 .p-ripple {
   overflow: hidden;
   position: relative;
 }
 
+.active-link:hover {
+  text-decoration: underline !important;
+}
+
 /* Medium Devices, Desktops */
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1200px) {
   .bordered-box {
-    border-right: 1px solid var(--bluegray-100);
+    border-left: 1px solid var(--bluegray-100);
   }
 }
 /* Small Devices, Tablets */
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1200px) {
   .bordered-box {
-    border-bottom: 1px solid var(--bluegray-100);
+    border-top: 1px solid var(--bluegray-100);
   }
 }
