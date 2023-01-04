@@ -2,14 +2,17 @@
 
 <section class="section">
   <!-- پیش فرض -->
-  <div class="row justify-content-start">
+  <div class="row">
     <div class="col-lg-12">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">پیش فرض</h5>
-          <div class="card-text text-end">
+          <div class="card-text">
             <div class="row">
-              <div class="field col-lg-4 d-flex justify-content-end">
+              <div class="field col-lg-4 d-flex">
+                <label style="min-width: 3rem" class="mx-2" for="group">
+                  گروه
+                </label>
                 <p-dropdown
                   [options]="groupedCities"
                   [(ngModel)]="selectedICity3"
@@ -28,11 +31,11 @@
                     </div>
                   </ng-template>
                 </p-dropdown>
-                <label style="min-width: 3rem" class="mx-2" for="group"
-                  >گروه</label
-                >
               </div>
-              <div class="field col-lg-4 d-flex justify-content-end">
+              <div class="field col-lg-4 d-flex">
+                <label style="min-width: 6rem" class="mx-2" for="edit">
+                  قابل ویرایش
+                </label>
                 <p-dropdown
                   [options]="cities"
                   [(ngModel)]="selectedICity2"
@@ -40,11 +43,11 @@
                   optionLabel="name"
                   inputId="edit"
                 ></p-dropdown>
-                <label style="min-width: 6rem" class="mx-2" for="edit"
-                  >قابل ویرایش</label
-                >
               </div>
-              <div class="field col-lg-4 d-flex justify-content-end">
+              <div class="field col-lg-4 d-flex">
+                <label style="min-width: 3rem" class="mx-2" for="simple">
+                  ساده
+                </label>
                 <p-dropdown
                   [options]="cities"
                   [(ngModel)]="selectedICity1"
@@ -55,15 +58,14 @@
                   [virtualScrollItemSize]="38"
                   inputId="simple"
                 ></p-dropdown>
-
-                <label style="min-width: 3rem" class="mx-2" for="simple"
-                  >ساده</label
-                >
               </div>
             </div>
             <!-- end row -->
             <div class="row my-5">
-              <div class="field col-lg-4 d-flex justify-content-end">
+              <div class="field col-lg-4 d-flex">
+                <label style="min-width: 3rem" class="mx-2" for="lazy">
+                  بازیابی
+                </label>
                 <p-dropdown
                   [options]="lazyItems"
                   [(ngModel)]="selectedItem2"
@@ -91,12 +93,11 @@
                     </div>
                   </ng-template>
                 </p-dropdown>
-
-                <label style="min-width: 3rem" class="mx-2" for="lazy"
-                  >بازیابی</label
-                >
               </div>
-              <div class="field col-lg-4 d-flex justify-content-end">
+              <div class="field col-lg-4 d-flex">
+                <label style="min-width: 3rem" class="mx-2" for="scrollv">
+                  اسکرول عمودی
+                </label>
                 <p-dropdown
                   [options]="items"
                   [(ngModel)]="selectedItem1"
@@ -105,12 +106,11 @@
                   [virtualScrollItemSize]="38"
                   inputId="scrollv"
                 ></p-dropdown>
-
-                <label style="min-width: 3rem" class="mx-2" for="scrollv"
-                  >اسکرول عمودی</label
-                >
               </div>
-              <div class="field col-lg-4 d-flex justify-content-end">
+              <div class="field col-lg-4 d-flex">
+                <label style="min-width: 3rem" class="mx-2" for="scrollh">
+                  فیلتر
+                </label>
                 <p-dropdown
                   [options]="countries"
                   [(ngModel)]="selectedCountry"
@@ -147,10 +147,6 @@
                     </div>
                   </ng-template>
                 </p-dropdown>
-
-                <label style="min-width: 3rem" class="mx-2" for="scrollh"
-                  >فیلتر</label
-                >
               </div>
               <!-- end row -->
             </div>
