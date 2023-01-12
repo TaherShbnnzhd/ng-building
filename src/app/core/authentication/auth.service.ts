@@ -20,8 +20,8 @@ export class AuthService {
   }
 
   /** Try to log in */
-  public logIn(username: string, password: string): Observable<unknown> {
-    return of(username && password).pipe(delay(1380));
+  public logIn(username: string, password: string): Observable<boolean> {
+    return of(!!(username && password)).pipe(delay(1380));
   }
 
   /** Try to log out */

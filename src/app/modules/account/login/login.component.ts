@@ -3,6 +3,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 
 import { tap } from 'rxjs';
 import { AuthService } from 'src/app/core/authentication/auth.service';
@@ -41,7 +42,11 @@ export class LoginComponent implements OnInit {
     return this.loginForm.get('rememberMe');
   }
 
-  constructor(public authService: AuthService, public router: Router) {}
+  constructor(
+    public authService: AuthService,
+    public router: Router,
+    private messageService: MessageService
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -70,25 +75,35 @@ export class LoginComponent implements OnInit {
       this.authService
         .logIn(mobile, password)
         .pipe(tap(() => (this.loading = false)))
-        .subscribe(() => {
-          // Use the redirect URL from the auth service.
-          const redirectUrl = this.authService.redirectUrl || '';
+        .subscribe((isValid) => {
+          if (isValid) {
+            // Use the redirect URL from the auth service.
+            const redirectUrl = this.authService.redirectUrl || '';
 
-          // Set our navigation extras object
-          // that passes on our global query params and fragment
-          const navigationExtras: NavigationExtras = {
-            queryParamsHandling: 'preserve',
-            preserveFragment: true,
-          };
+            // Set our navigation extras object
+            // that passes on our global query params and fragment
+            const navigationExtras: NavigationExtras = {
+              queryParamsHandling: 'preserve',
+              preserveFragment: true,
+            };
 
-          if (rememberMe) {
-            localStorage.setItem('Token', 'token');
+            if (rememberMe) {
+              localStorage.setItem('Token', 'token');
+            } else {
+              sessionStorage.setItem('Token', 'token');
+            }
+
+            // Redirect the user
+            this.router.navigate([redirectUrl], navigationExtras);
           } else {
-            sessionStorage.setItem('Token', 'token');
+            this.messageService.add({
+              key: 'httpErrorMessage',
+              life: 8000,
+              severity: 'error',
+              detail: `خطا`,
+              summary: 'اطلاعات وارد شده صحیح نمی‌باشد',
+            });
           }
-
-          // Redirect the user
-          this.router.navigate([redirectUrl], navigationExtras);
         });
     }
   }
