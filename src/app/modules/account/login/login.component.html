@@ -89,10 +89,16 @@
               >
                 <div class="d-flex align-items-center">
                   <!-- remember me -->
-                  <p-checkbox id="rememberme" [binary]="true" class="me-2">
+                  <p-checkbox
+                    id="rememberMe"
+                    name="rememberMe"
+                    [binary]="true"
+                    class="me-2"
+                    formControlName="rememberMe"
+                  >
                   </p-checkbox>
 
-                  <label for="rememberme" class="text-900">
+                  <label for="rememberMe" class="text-900">
                     تورو یادمون بمونه
                   </label>
                 </div>

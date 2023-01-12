@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/core/authentication/auth.service';
 class LoginModel {
   mobile = '';
   password = '';
+  rememberMe = false;
 }
 
 @Component({
@@ -20,12 +21,12 @@ class LoginModel {
 export class LoginComponent implements OnInit {
   /** store the URL so we can redirect after logging in. */
   public redirectUrl: string | null = null;
-
-  public loginForm!: FormGroup;
-  public loginModel = new LoginModel();
-
   public loading = false;
   public submitted = false;
+
+  // Form controll:
+  public loginForm!: FormGroup;
+  public loginModel = new LoginModel();
 
   // Form controll fields:
   get mobile() {
@@ -34,6 +35,10 @@ export class LoginComponent implements OnInit {
 
   get password() {
     return this.loginForm.get('password');
+  }
+
+  get rememberMe() {
+    return this.loginForm.get('rememberMe');
   }
 
   constructor(public authService: AuthService, public router: Router) {}
@@ -49,6 +54,7 @@ export class LoginComponent implements OnInit {
         Validators.required,
         Validators.minLength(8),
       ]),
+      rememberMe: new FormControl(this.loginModel.rememberMe),
     });
   }
 
@@ -57,7 +63,7 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
 
     if (this.loginForm.valid) {
-      const { mobile, password } = this.loginForm.value;
+      const { mobile, password, rememberMe } = this.loginForm.value;
 
       this.loading = true;
 
@@ -65,20 +71,24 @@ export class LoginComponent implements OnInit {
         .logIn(mobile, password)
         .pipe(tap(() => (this.loading = false)))
         .subscribe(() => {
-          if (this.authService.isLoggedIn) {
-            // Use the redirect URL from the auth service.
-            const redirectUrl = this.authService.redirectUrl || '';
+          // Use the redirect URL from the auth service.
+          const redirectUrl = this.authService.redirectUrl || '';
 
-            // Set our navigation extras object
-            // that passes on our global query params and fragment
-            const navigationExtras: NavigationExtras = {
-              queryParamsHandling: 'preserve',
-              preserveFragment: true,
-            };
+          // Set our navigation extras object
+          // that passes on our global query params and fragment
+          const navigationExtras: NavigationExtras = {
+            queryParamsHandling: 'preserve',
+            preserveFragment: true,
+          };
 
-            // Redirect the user
-            this.router.navigate([redirectUrl], navigationExtras);
+          if (rememberMe) {
+            localStorage.setItem('Token', 'token');
+          } else {
+            sessionStorage.setItem('Token', 'token');
           }
+
+          // Redirect the user
+          this.router.navigate([redirectUrl], navigationExtras);
         });
     }
   }

@@ -29,7 +29,7 @@ export class AuthGuard implements CanActivate, CanLoad {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    const url: string = state.url;
+    const url = state.url;
 
     return this.checkLogin(url);
   }
@@ -42,7 +42,7 @@ export class AuthGuard implements CanActivate, CanLoad {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    const url: string = state.url;
+    const url = state.url;
 
     return this.checkLogin(url);
   }
@@ -62,7 +62,7 @@ export class AuthGuard implements CanActivate, CanLoad {
 
   /** Check Login Status */
   private checkLogin(url: string): boolean {
-    if (this.authService.isLoggedIn) {
+    if (this.authService.getAuthorizationToken()) {
       return true;
     }
 
@@ -70,13 +70,13 @@ export class AuthGuard implements CanActivate, CanLoad {
     this.authService.redirectUrl = url;
 
     // Create a dummy session id
-    const sessionId = 138;
+    // const sessionId = 138;
 
     // Set our navigation extras object
     // that contains our global query params and fragment
     const navigationExtras: NavigationExtras = {
-      queryParams: { session_id: sessionId },
-      fragment: 'anchor',
+      // queryParams: { session_id: sessionId },
+      // fragment: 'anchor',
     };
 
     // Navigate to the login page with extras

@@ -1,30 +1,32 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 import { Injectable } from '@angular/core';
-import { delay, Observable, of, tap } from 'rxjs';
+import { delay, Observable, of } from 'rxjs';
+import { HttpService } from '../http/http.service';
 
 @Injectable()
 export class AuthService {
-  public isLoggedIn = false;
-
-  // store the URL so we can redirect after logging in
+  /** Store the URL so we can redirect after logging in */
   public redirectUrl: string | null = null;
 
-  /** Get Token If Exists */
+  constructor(private httpService: HttpService) {}
+
+  /** Return token if exists */
   public getAuthorizationToken(): string {
-    return 'some-auth-token';
+    const sessionStorageToken = sessionStorage.getItem('Token');
+    const localStorageToken = localStorage.getItem('Token');
+
+    return sessionStorageToken || localStorageToken || '';
   }
 
-  /** Try To Log In */
-  public logIn(username: string, password: string): Observable<boolean> {
-    return of(!!(username && password)).pipe(
-      delay(1380),
-      tap(() => (this.isLoggedIn = true))
-    );
+  /** Try to log in */
+  public logIn(username: string, password: string): Observable<unknown> {
+    return of(username && password).pipe(delay(1380));
   }
 
-  /** Try To Log Out */
+  /** Try to log out */
   public logOut(): void {
-    this.isLoggedIn = false;
+    sessionStorage.removeItem('Token');
+    localStorage.removeItem('Token');
   }
 }
