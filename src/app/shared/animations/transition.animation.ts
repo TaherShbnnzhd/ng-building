@@ -74,7 +74,7 @@ export const fadeInAnimation = trigger('routeAnimations', [
     }),
     query(':leave', animateChild(), { optional: true }),
     group([
-      query(':leave', [animate('200ms ease-in', style({ opacity: 0 }))], {
+      query(':leave', [animate('13ms ease-in', style({ opacity: 0 }))], {
         optional: true,
       }),
       query(':enter', [animate('200ms ease-out', style({ opacity: 1 }))], {
