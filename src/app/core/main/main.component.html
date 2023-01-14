@@ -24,11 +24,13 @@
           </div> -->
         <!-- End Page Title -->
 
+        <!-- page loading screen -->
         <div class="loading-content" *ngIf="loading">
           <p-progressSpinner
             [class.full]="menuToggle"
             [class.compact]="!menuToggle"
             strokeWidth="7"
+            animationDuration=".8s"
           ></p-progressSpinner>
         </div>
 

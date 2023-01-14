@@ -77,14 +77,13 @@ body {
   &.compact {
     padding: 1rem 20rem 1rem 1.3rem;
   }
-
+  
   .loading-content {
-    background-color: var(--sidemenu-main-bg-color);
+    background-color: var(--main-color);
     position: fixed;
     z-index: var(--z-index--main-loading);
     width: 100vw;
     height: calc(95vh - var(--footer-height));
-    opacity: 0.95;
     text-align: center;
     justify-content: space-around;
     display: flex;
