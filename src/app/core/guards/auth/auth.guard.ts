@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
-  CanLoad,
+  CanMatch,
   NavigationExtras,
   Route,
   Router,
@@ -18,8 +18,20 @@ import { Observable } from 'rxjs';
 import { AuthService } from '../../authentication/auth.service';
 
 @Injectable()
-export class AuthGuard implements CanActivate, CanLoad {
+export class AuthGuard implements CanActivate, CanMatch {
   constructor(private authService: AuthService, private router: Router) {}
+  canMatch(
+    route: Route,
+    segments: UrlSegment[]
+  ):
+    | boolean
+    | UrlTree
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree> {
+    const url = `/${segments.toString().replace(',', '/')}`;
+
+    return this.checkLogin(url);
+  }
 
   canActivate(
     route: ActivatedRouteSnapshot,

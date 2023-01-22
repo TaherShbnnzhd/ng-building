@@ -25,7 +25,7 @@ const routes: Routes = [
           import('../app/modules/home/home.module').then(
             (module) => module.HomeModule
           ),
-        canLoad: [AuthGuard],
+        canMatch: [AuthGuard],
       },
       {
         path: 'report',
@@ -33,7 +33,7 @@ const routes: Routes = [
           import('../app/modules/report/report.module').then(
             (module) => module.ReportModule
           ),
-        canLoad: [AuthGuard],
+        canMatch: [AuthGuard],
       },
       {
         path: 'showcase',
@@ -41,7 +41,7 @@ const routes: Routes = [
           import('../app/modules/showcase/showcase.module').then(
             (module) => module.ShowcaseModule
           ),
-        canLoad: [AuthGuard],
+        canMatch: [AuthGuard],
       },
       { path: '', redirectTo: '/home/dashboard', pathMatch: 'full' },
     ],
