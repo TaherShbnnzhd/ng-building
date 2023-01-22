@@ -35,13 +35,19 @@
 }
 
 @font-face {
-  font-family: kharazmi;
-  src: url(assets/fonts/kharazmi.woff) format("opentype");
+  font-family: "vazirmatn";
+  src: url("assets/fonts/vazirmatn/Vazirmatn[wght].woff2")
+      format("woff2 supports variations"),
+    url("assets/fonts/vazirmatn/Vazirmatn[wght].woff2")
+      format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 * {
   box-sizing: border-box;
-  font-family: "Segoe UI", "kharazmi", "arial", sans-serif;
+  font-family: "vazirmatn", "arial", sans-serif;
 }
 
 html {
@@ -133,7 +139,7 @@ html {
 --------------------------------------------------------------*/
 /* overall */
 .p-component {
-  font-family: "kharazmi", "arial", sans-serif !important;
+  font-family: "vazirmatn", "arial", sans-serif !important;
 }
 
 /* badge */
@@ -189,6 +195,7 @@ html {
       order: 2;
     }
     .p-message-detail {
+      font-weight: 300;
       -webkit-box-ordinal-group: 3;
       -moz-box-ordinal-group: 3;
       -ms-flex-order: 3;
@@ -228,10 +235,12 @@ html {
 
 /* inputtext*/
 .p-inputtext {
-  font-family: "kharazmi", "arial", sans-serif;
+  font-family: "vazirmatn", "arial", sans-serif !important;
+  font-weight: 620 !important;
 }
 .p-fluid {
-  font-family: "kharazmi", "arial", sans-serif;
+  font-family: "vazirmatn", "arial", sans-serif !important;
+  font-weight: 620 !important;
 }
 
 /* accordion */
@@ -325,13 +334,7 @@ html {
   }
 }
 
-/* inputnumber */
-.p-inputnumber {
-  direction: ltr;
-}
-
 /* p-calendar */
-
 .p-calendar-w-btn {
   .p-datepicker-trigger {
     border-top-left-radius: 6px !important;
@@ -371,8 +374,13 @@ html {
     }
   }
 }
+
 /* dropdown */
 .p-dropdown {
+  .p-dropdown-label.p-placeholder {
+    font-size: 14px;
+  }
+
   .p-inputtext {
     text-align: start;
   }
@@ -443,6 +451,9 @@ html {
         -ms-flex-order: 2;
         -webkit-order: 2;
         order: 2;
+        .p-toast-detail {
+          font-weight: 300;
+        }
       }
       .p-toast-icon-close {
         margin-right: auto;
@@ -475,6 +486,16 @@ html {
   }
 }
 
+/* p-confirm-dialog */
+.p-confirm-dialog {
+  .p-dialog-content {
+    .p-confirm-dialog-icon {
+      margin-left: 8px;
+      font-size: 1.4rem !important;
+    }
+  }
+}
+
 /*--------------------------------------------------------------
 # Override some default Bootstrap stylings
 --------------------------------------------------------------*/
@@ -499,9 +520,10 @@ html {
     padding: 0 20px 20px 20px;
 
     .card-title {
-      padding: 20px 0 20px 0 !important;
+      padding: 20px 0 13px 0 !important;
       color: var(--bs-gray-600);
       border-bottom: 1px solid var(--bs-gray-200);
+      font-weight: 500;
     }
 
     .card-text {
