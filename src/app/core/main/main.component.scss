@@ -81,7 +81,7 @@ body {
   .loading-content {
     background-color: var(--main-color);
     position: fixed;
-    z-index: var(--z-index--main-loading);
+    z-index: var(--z-index-main-loading);
     width: 100vw;
     height: calc(95vh - var(--footer-height));
     text-align: center;
