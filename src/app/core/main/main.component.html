@@ -5,7 +5,7 @@
     <div class="menu" [class.col-0]="menuToggle" [class.col-2]="!menuToggle">
       <block-sidemenu
         #sidemenu
-        (collaps)="menuToggle = $event"
+        (hasClosed)="menuToggle = $event"
       ></block-sidemenu>
     </div>
 

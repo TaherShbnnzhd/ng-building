@@ -1,23 +1,21 @@
 <!-- بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم -->
 
-<!-- Start Sidebar-->
-<aside class="sidebar" [class.collapsed]="collapse">
-  <div class="control-panel p-2">
-    <!-- collapse mode -->
-    <div
-      [class.collapsed]="collapse"
-      class="menu-toggle"
-      (click)="collapse = !collapse"
+<aside class="sidebar" [class.closed]="close">
+  <div class="toggle-panel p-2">
+    <!-- حالت جم شونده -->
+    <a
+      [class.closed]="close"
+      class="toggle-panel-button"
+      (click)="close = !close"
     >
-      <div [class.collapsed]="collapse">
+      <div [class.closed]="close">
         <span class="bi bi-caret-right-fill"></span>
       </div>
-    </div>
+    </a>
+    <!--/ حالت جم شونده -->
 
-    <div class="menu-toggle-mask"></div>
-
-    <!-- offcanvas mode -->
-    <div class="offcanvas-toggle">
+    <!-- حالت جانبی -->
+    <div class="toggle-panel-offcanvas">
       <a
         data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasRight"
@@ -26,19 +24,18 @@
         <span class="bi bi-caret-left-fill"></span>
       </a>
     </div>
+    <!--/ حالت جانبی -->
 
-    <div class="menu-toggle-mask"></div>
+    <!-- سایه دکمه فراخانی حالت جم شونده و جانبی -->
+    <div class="toggle-panel-buttom-shadow"></div>
   </div>
 
+  <!-- منو اصلی -->
   <div class="menu-panel">
-    <!-- Sidebar - Brand -->
+    <!-- متن اصلی -->
     <a
       class="sidebar-brand d-flex align-items-center justify-content-center offcanvas-body"
     >
-      <div class="sidebar-brand-icon rotate-n-15">
-        <!-- <i class="bi bi-chat-heart"></i> -->
-      </div>
-
       <a
         class="sidebar-brand-text mx-3"
         routerLink="/home/dashboard"
@@ -48,27 +45,28 @@
         بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
       </a>
     </a>
+    <!--/ متن اصلی -->
 
+    <!-- جدا کننده -->
     <hr class="sidebar-divider my-0" />
 
-    <div
-      class="sidebar-nav justify-content-start"
-      id="sidebar-nav"
-      *ngFor="let menu of menuList; let i = index"
-    >
-      <ul>
-        <!-- Start Menu -->
-        <li class="nav-item" [class.collapsed]="collapse">
+    <!-- ایجاد منو -->
+    <div class="sidebar-nav flex-shrink-0 p-2">
+      <ul
+        class="list-unstyled ps-0 pb-1 small"
+        *ngFor="let menu of menuList; let i = index"
+      >
+        <li class="nav-item">
           <a
             class="nav-link collapsed"
             [attr.data-bs-target]="'#components-nav-' + i"
             data-bs-toggle="collapse"
+            aria-expanded="false"
           >
             <i
               class="text-start bi"
               [class]="menu.icon ? menu.icon : 'bi-question-circle'"
             ></i>
-            <!-- <i class="bi bi-gear-fill text-start"></i> -->
 
             <span class="p-2">
               {{ menu.title }}
@@ -80,7 +78,7 @@
             ></i>
           </a>
 
-          <!-- Start Sub Menu -->
+          <!-- زیر منو -->
           <div *ngIf="menu.submenu && menu.submenu.length > 0">
             <ul
               [id]="'components-nav-' + i"
@@ -103,17 +101,17 @@
               </li>
             </ul>
           </div>
-          <!-- End Sub Menu -->
+          <!--/ زیر منو -->
         </li>
-        <!-- End Components Nav -->
+        <!--/ منو اصلی -->
       </ul>
     </div>
-    <!-- End Menu -->
+    <!--/ ایجاد منو -->
   </div>
 
-  <div class="control-panel-buttom p-2"></div>
+  <div class="toggle-panel-buttom p-2"></div>
 
-  <!-- offcanvas mode -->
+  <!-- ایجاد منو جانبی -->
   <div
     class="offcanvas offcanvas-start"
     tabindex="-1"
@@ -122,13 +120,11 @@
   >
     <div class="offcanvas-body">
       <div class="menu-panel">
-        <!-- Sidebar - Brand -->
+        <!-- متن اصلی -->
         <a
           class="sidebar-brand d-flex align-items-center justify-content-center offcanvas-body"
         >
-          <div class="sidebar-brand-icon rotate-n-15">
-            <!-- <i class="bi bi-chat-heart"></i> -->
-          </div>
+          <div class="sidebar-brand-icon rotate-n-15"></div>
 
           <a
             class="sidebar-brand-text mx-3"
@@ -139,64 +135,68 @@
             بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
           </a>
         </a>
+        <!--/ متن اصلی -->
 
+        <!-- جدا کننده -->
         <hr class="sidebar-divider my-0" />
 
-        <ul
-          class="sidebar-nav justify-content-start"
-          id="sidebar-nav"
-          *ngFor="let menu of menuList; let i = index"
-        >
-          <!-- Start Menu -->
-          <li class="nav-item" [class.collapsed]="collapse">
-            <a
-              class="nav-link collapsed"
-              [attr.data-bs-target]="'#components-nav-' + i"
-              data-bs-toggle="collapse"
-            >
-              <!-- <i [class]="menu.icon ? menu.icon : 'bi bi-question-circle'"></i> -->
-              <i class="bi bi-arrow-left-short text-start"></i>
-
-              <span class="p-2">
-                {{ menu.title }}
-              </span>
-
-              <i
-                *ngIf="menu.submenu && menu.submenu.length > 0"
-                class="p-2 bi bi-chevron-down"
-              ></i>
-            </a>
-
-            <!-- Start Sub Menu -->
-            <div *ngIf="menu.submenu && menu.submenu.length > 0">
-              <ul
-                [id]="'components-nav-' + i"
-                class="nav-content collapse"
-                data-bs-parent="#sidebar-nav"
-                *ngFor="let submenu of menu.submenu"
+        <!-- ایجاد منو -->
+        <div class="sidebar-nav flex-shrink-0 p-2">
+          <ul
+            class="list-unstyled ps-0 pb-1 small"
+            *ngFor="let menu of menuList; let i = index"
+          >
+            <li class="nav-item">
+              <a
+                class="nav-link collapsed"
+                [attr.data-bs-target]="'#components-nav-' + i"
+                data-bs-toggle="collapse"
+                aria-expanded="false"
               >
-                <li>
-                  <a
-                    [routerLink]="'/' + menu.name + '/' + submenu.name"
-                    routerLinkActive="active"
-                    ariaCurrentWhenActive="page"
-                  >
-                    <i class="p-1 bi bi-circle-fill"></i>
+                <i
+                  class="text-start bi"
+                  [class]="menu.icon ? menu.icon : 'bi-question-circle'"
+                ></i>
 
-                    <span class="p-2">
-                      {{ submenu.title }}
-                    </span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <!-- End Sub Menu -->
-          </li>
-          <!-- End Components Nav -->
-        </ul>
-        <!-- End Menu -->
+                <span class="p-2">
+                  {{ menu.title }}
+                </span>
+
+                <i
+                  *ngIf="menu.submenu && menu.submenu.length > 0"
+                  class="p-2 bi bi-chevron-down"
+                ></i>
+              </a>
+
+              <!-- زیر منو -->
+              <div *ngIf="menu.submenu && menu.submenu.length > 0">
+                <ul
+                  [id]="'components-nav-' + i"
+                  class="nav-content collapse"
+                  data-bs-parent="#sidebar-nav"
+                  *ngFor="let submenu of menu.submenu"
+                >
+                  <li>
+                    <a
+                      [routerLink]="'/' + menu.name + '/' + submenu.name"
+                      routerLinkActive="active"
+                      ariaCurrentWhenActive="page"
+                    >
+                      <i class="p-1 bi bi-circle"></i>
+
+                      <span class="p-2">
+                        {{ submenu.title }}
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!--/ زیر منو -->
+            </li>
+          </ul>
+        </div>
+        <!--/ ایجاد منو -->
       </div>
     </div>
   </div>
 </aside>
-<!-- End Sidebar-->

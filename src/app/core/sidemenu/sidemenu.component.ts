@@ -10,23 +10,23 @@ import { menu } from './sidemenu.interface';
   styleUrls: ['./sidemenu.component.scss'],
 })
 export class SidemenuComponent implements OnInit {
-  private _collapse = false;
+  private _close = false;
 
-  public get collapse() {
-    return this._collapse;
+  public get close() {
+    return this._close;
   }
 
-  public set collapse(value: boolean) {
-    this._collapse = value;
+  public set close(value: boolean) {
+    this._close = value;
 
-    this.collaps.emit(value);
+    this.hasClosed.emit(value);
   }
 
   public offcanvas = false;
 
   public menuList: menu[] = [];
 
-  @Output() collaps: EventEmitter<boolean> = new EventEmitter();
+  @Output() hasClosed: EventEmitter<boolean> = new EventEmitter();
 
   ngOnInit(): void {
     this.menuList = [
