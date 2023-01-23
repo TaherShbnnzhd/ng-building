@@ -33,7 +33,7 @@ export class SidemenuComponent implements OnInit {
       {
         name: 'showcase',
         title: 'پیش نمایش',
-        icon: 'bi-easel',
+        icon: 'mgc_palette_2_line',
         submenu: [
           {
             name: 'alerts',
@@ -80,7 +80,7 @@ export class SidemenuComponent implements OnInit {
       {
         name: 'showcase',
         title: 'نمایه',
-        icon: 'bi-rainbow',
+        icon: 'mgc_ghost_line',
         submenu: [
           {
             name: 'bootstrapicon',

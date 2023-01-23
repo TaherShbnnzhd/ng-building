@@ -9,7 +9,7 @@
       (click)="close = !close"
     >
       <div [class.closed]="close">
-        <span class="bi bi-caret-right-fill"></span>
+        <span class="toggle-panel-button-icon mgc_right_fill"></span>
       </div>
     </a>
     <!--/ حالت جم شونده -->
@@ -21,7 +21,7 @@
         data-bs-target="#offcanvasRight"
         aria-controls="offcanvasRight"
       >
-        <span class="bi bi-caret-left-fill"></span>
+        <span class="toggle-panel-button-icon mgc_left_fill"></span>
       </a>
     </div>
     <!--/ حالت جانبی -->
@@ -64,8 +64,8 @@
             aria-expanded="false"
           >
             <i
-              class="text-start bi"
-              [class]="menu.icon ? menu.icon : 'bi-question-circle'"
+              class="text-start"
+              [class]="menu.icon ? menu.icon : 'mgc_question_line'"
             ></i>
 
             <span class="p-2">
@@ -74,7 +74,7 @@
 
             <i
               *ngIf="menu.submenu && menu.submenu.length > 0"
-              class="p-2 bi bi-chevron-down"
+              class="p-2 mgc_down_line"
             ></i>
           </a>
 
@@ -92,8 +92,6 @@
                   routerLinkActive="active"
                   ariaCurrentWhenActive="page"
                 >
-                  <i class="p-1 bi bi-circle"></i>
-
                   <span class="p-2">
                     {{ submenu.title }}
                   </span>
@@ -140,7 +138,6 @@
         <!-- جدا کننده -->
         <hr class="sidebar-divider my-0" />
 
-        <!-- ایجاد منو -->
         <div class="sidebar-nav flex-shrink-0 p-2">
           <ul
             class="list-unstyled ps-0 pb-1 small"
@@ -154,8 +151,8 @@
                 aria-expanded="false"
               >
                 <i
-                  class="text-start bi"
-                  [class]="menu.icon ? menu.icon : 'bi-question-circle'"
+                  class="text-start"
+                  [class]="menu.icon ? menu.icon : 'mgc_question_line'"
                 ></i>
 
                 <span class="p-2">
@@ -164,7 +161,7 @@
 
                 <i
                   *ngIf="menu.submenu && menu.submenu.length > 0"
-                  class="p-2 bi bi-chevron-down"
+                  class="p-2 mgc_down_line"
                 ></i>
               </a>
 
@@ -182,8 +179,6 @@
                       routerLinkActive="active"
                       ariaCurrentWhenActive="page"
                     >
-                      <i class="p-1 bi bi-circle"></i>
-
                       <span class="p-2">
                         {{ submenu.title }}
                       </span>
@@ -193,6 +188,7 @@
               </div>
               <!--/ زیر منو -->
             </li>
+            <!--/ منو اصلی -->
           </ul>
         </div>
         <!--/ ایجاد منو -->

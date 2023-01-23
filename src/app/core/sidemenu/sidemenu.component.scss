@@ -106,15 +106,15 @@ a {
       //   rgba(1, 41, 112, 0.1) -3px 0px 0px 0px;
 
       div {
-        margin-top: 13px;
+        margin-top: 14px;
         text-decoration: none;
         position: relative;
         transition: all 0.2s linear;
-        color: var(--main-hilight-color);
         font-size: 2rem;
+
         &.closed {
           color: var(--main-hilight-color);
-          transform: rotate(180deg) translateY(16%);
+          transform: rotate(180deg) translateY(20%);
           transition: all 0.2s linear;
         }
       }
@@ -172,6 +172,7 @@ a {
       }
     }
   }
+
   .toggle-panel-buttom {
     position: fixed;
     text-align: center;
@@ -183,6 +184,10 @@ a {
     font-size: 1.5rem;
     transition: transform 0.2s linear;
     background-color: var(--sidemenu-main-bg-color);
+  }
+
+  .toggle-panel-button-icon::before {
+    color: var(--main-hilight-color) !important;
   }
 }
 
@@ -318,13 +323,12 @@ a {
   color: var(--sidemenu-item-color);
 }
 
-.sidebar-nav .nav-link .bi-chevron-down {
+.sidebar-nav .nav-link .mgc_down_line {
   margin-right: 0;
-  scale: 0.65;
   transition: transform 0.2s linear;
 }
 
-.sidebar-nav .nav-link:not(.collapsed) .bi-chevron-down {
+.sidebar-nav .nav-link:not(.collapsed) .mgc_down_line {
   transform: rotate(180deg);
 }
 
@@ -357,11 +361,15 @@ a {
   font-weight: 620;
 }
 
-.sidebar-nav .nav-content a i {
-  font-size: 6px;
-  margin-right: 8px;
-  line-height: 0;
-  border-radius: 50%;
+.sidebar-nav .nav-content a::before {
+  content: "\ece3";
+  font-family: "MingCute";
+  font-size: 12px;
+  margin-right: 13px;
+}
+
+.sidebar-nav .nav-content a.active::before {
+  content: "\ece2";
 }
 
 .sidebar-nav .nav-content a:hover,
@@ -369,11 +377,6 @@ a {
   color: var(--sidemenu-hilight-color);
   background-color: var(--main-color);
   border-radius: 4px;
-}
-
-.sidebar-nav .nav-content a.active i {
-  background-color: var(--sidemenu-hilight-color);
-  scale: 0.6;
 }
 
 /* closed Mode */
