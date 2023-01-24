@@ -7,7 +7,9 @@
     type="button"
     icon="mgc_power_fill"
     class="sign-out-button p-button-lg p-button-rounded p-button-text p-button-danger mx-1"
-    (click)="signout()"
+    (click)="confirmSignout()"
     pTooltip="خروج از حساب کاربری"
   ></button>
 </header>
+
+<p-confirmDialog [style]="{ width: '450px' }" [rtl]="true"></p-confirmDialog>

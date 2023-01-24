@@ -7,24 +7,25 @@ import { AppRoutingModule } from '../app-routing.module';
 
 import { tap } from 'rxjs';
 
-import { httpInterceptorProviders } from './interceptors';
-
 import {
   RequestCache,
   RequestCacheWithMap,
 } from './services/request-cache.service';
-import { AppConfigService } from './services/app-config.service';
-import { AuthService } from './authentication/auth.service';
-import { HttpService } from './http/http.service';
-import { HttpErrorHandlerService } from './http/http-error-handler/http-error-handler.service';
+
+import { httpInterceptorProviders } from './interceptors';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SidemenuComponent } from './sidemenu/sidemenu.component';
+import { MainComponent } from './main/main.component';
 
 import { AuthGuard } from './guards/auth/auth.guard';
 
-import { MainComponent } from './main/main.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { SidemenuComponent } from './sidemenu/sidemenu.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AppConfigService } from './services/app-config.service';
+import { AuthService } from './authentication/auth.service';
+import { HttpErrorHandlerService } from './http/http-error-handler/http-error-handler.service';
+import { LogService } from './services/log.service';
+import { HttpService } from './http/http.service';
 
 /* PrimeNG */
 import { ButtonModule } from 'primeng/button';
@@ -32,7 +33,7 @@ import { TooltipModule } from 'primeng/tooltip';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-import { LogService } from './services/log.service';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { LogService } from './services/log.service';
     TooltipModule,
     ProgressSpinnerModule,
     ToastModule,
+    ConfirmDialogModule,
   ],
   exports: [
     CommonModule,
@@ -62,9 +64,9 @@ import { LogService } from './services/log.service';
     AppConfigService,
     HttpService,
     HttpErrorHandlerService,
+    LogService,
     AuthService,
     AuthGuard,
-    LogService,
     MessageService,
     { provide: RequestCache, useClass: RequestCacheWithMap },
     httpInterceptorProviders,
