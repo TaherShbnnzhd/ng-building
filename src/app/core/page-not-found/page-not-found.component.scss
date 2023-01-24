@@ -1,39 +1,24 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
-
-/*--------------------------------------------------------------
-# Error 404
---------------------------------------------------------------*/
 .error-404 {
-    padding: 30px;
-}
-
-.error-404 h1 {
-    font-size: 110px;
-    font-weight: 700;
-    color: #4154f1;
-    margin-bottom: 0;
-}
-
-.error-404 h2 {
-    font-size: 24px;
-    font-weight: 700;
-    color: #012970;
-    margin-bottom: 30px;
-}
-
-.error-404 .btn {
-    background: #51678f;
-    color: #fff;
-    padding: 8px 30px;
-}
-
-.error-404 .btn:hover {
-    background: #3e4f6f;
-}
-
-@media (min-width: 992px) {
-    .error-404 img {
-        max-width: 50%;
+    background-color: var(--main-color);
+  
+    .card {
+      box-shadow: 0 4px 10px #00000008, 0 0 2px #0000000f, 0 2px 6px #0000001f !important;
+      margin-left: 25px;
+  
+      .card-body {
+        .card-title {
+          font-weight: 850;
+          color: var(--main-hilight-color);
+        }
+      }
+  
+      .card-text {
+        img {
+          max-width: 85%;
+        }
+      }
     }
-}
+  }
+  
