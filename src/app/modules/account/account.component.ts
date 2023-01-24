@@ -1,10 +1,9 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { fadeInAnimation } from '@shared/animations/transition.animation';
 
 import { AnimationService } from '@shared/services/animation.service';
-import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'block-account',
@@ -13,13 +12,6 @@ import { PrimeNGConfig } from 'primeng/api';
   animations: [fadeInAnimation],
   providers: [AnimationService],
 })
-export class AccountComponent implements OnInit {
-  constructor(
-    public animationService: AnimationService,
-    private primengConfig: PrimeNGConfig
-  ) {}
-
-  ngOnInit(): void {
-    this.primengConfig.ripple = true;
-  }
+export class AccountComponent {
+  constructor(public animationService: AnimationService) {}
 }
