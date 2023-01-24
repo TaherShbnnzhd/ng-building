@@ -1,8 +1,5 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
-/*--------------------------------------------------------------
-# Footer
---------------------------------------------------------------*/
 .footer {
   position: fixed;
   bottom: 0;
@@ -11,10 +8,11 @@
   background-color: var(--sidemenu-main-bg-color);
   box-shadow: var(--main-box-shadow);
   z-index: var(--z-index-footer);
-}
 
-.footer .credits {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--main-item-color);
+  .version {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--main-item-color);
+    user-select: none;
+  }
 }

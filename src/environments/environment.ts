@@ -5,7 +5,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  appVersion: require('../../package.json').version + '-version',
+  production: false,
 };
 
 /*

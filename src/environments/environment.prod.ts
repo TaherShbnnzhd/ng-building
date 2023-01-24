@@ -1,5 +1,7 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 export const environment = {
-  production: true
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  appVersion: require('../../package.json').version + '-version',
+  production: true,
 };
