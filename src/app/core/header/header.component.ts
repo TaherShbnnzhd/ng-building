@@ -20,7 +20,7 @@ export class HeaderComponent {
 
   public confirmSignout() {
     this.confirmationService.confirm({
-      message: 'آیا از خروج از حساب کاربری اطمینان دارید؟',
+      message: 'آیا برای خروج از حساب کاربری اطمینان دارید؟',
       header: 'هشدار خروج از حساب کاربری',
       icon: 'pi pi-user',
       acceptLabel: 'تایید و خروج',
