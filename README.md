@@ -2,7 +2,7 @@
 
 # Building
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4
+RTL angular block with primeng components and bootstrap classes,And also some suger.
 
 ## Special Thanks
 
