@@ -2,7 +2,7 @@
 
 # Building
 
-RTL angular block with primeng components and bootstrap classes,And also some suger.
+RTL angular block with primeng components and bootstrap classes, And also some suger.
 
 ## Special Thanks
 
