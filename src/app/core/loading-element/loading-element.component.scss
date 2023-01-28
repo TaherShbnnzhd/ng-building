@@ -1,0 +1,32 @@
+/* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
+
+/* From cssbuttons.io by @satyamchaudharydev */
+.loader {
+  width: 100vw;
+  overflow: hidden;
+  transition: 0.5s;
+  letter-spacing: 2px;
+}
+
+.loader span {
+  position: absolute;
+}
+
+.loader span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: var(--loading-element-size);
+  background: linear-gradient(90deg, transparent, var(--main-hilight-color));
+  animation: loader-anim1 1.3s linear infinite;
+}
+
+@keyframes loader-anim1 {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 200%;
+  }
+}

@@ -18,6 +18,7 @@ import { FooterComponent } from './footer/footer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SidemenuComponent } from './sidemenu/sidemenu.component';
 import { MainComponent } from './main/main.component';
+import { LoadingElementComponent } from './loading-element/loading-element.component';
 
 import { AuthGuard } from './guards/auth/auth.guard';
 
@@ -42,6 +43,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     PageNotFoundComponent,
     SidemenuComponent,
     MainComponent,
+    LoadingElementComponent,
   ],
   imports: [
     CommonModule,

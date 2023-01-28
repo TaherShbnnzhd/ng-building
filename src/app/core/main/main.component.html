@@ -26,12 +26,7 @@
 
         <!-- page loading screen -->
         <div class="loading-content" *ngIf="loading">
-          <p-progressSpinner
-            [class.full]="menuToggle"
-            [class.compact]="!menuToggle"
-            strokeWidth="7"
-            animationDuration=".8s"
-          ></p-progressSpinner>
+          <block-loading-element></block-loading-element>
         </div>
 
         <p-toast key="httpErrorMessage" position="bottom-left"></p-toast>
