@@ -112,7 +112,7 @@ a {
         font-size: 2rem;
 
         &.closed {
-          color: var(--main-hilight-color);
+          color: var(--main-item-color);
           transform: rotate(180deg) translateY(20%);
           transition: all 0.2s linear;
         }
@@ -154,14 +154,14 @@ a {
       a {
         display: flex;
         text-decoration: none;
-        color: var(--main-hilight-color);
+        color: var(--main-item-color);
         font-size: 2rem;
         transition: all 0.2s linear;
 
         span {
           position: relative;
           top: 13px;
-          color: var(--main-hilight-color);
+          color: var(--main-item-color);
         }
       }
 
@@ -186,7 +186,7 @@ a {
   }
 
   .toggle-panel-button-icon::before {
-    color: var(--main-hilight-color) !important;
+    color: var(--main-item-color) !important;
   }
 
   .sidebar-brand {
@@ -201,7 +201,7 @@ a {
 
     .sidebar-brand-text {
       cursor: pointer;
-      color: var(--sidemenu-item-color);
+      color: var(--sidemenu-brand-color);
       font-size: 1.4rem;
       font-weight: 900;
     }
