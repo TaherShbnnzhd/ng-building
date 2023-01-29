@@ -1,7 +1,7 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadingStrategy, RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from './core/guards/auth/auth.guard';
 import { MainComponent } from './core/main/main.component';
@@ -51,7 +51,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadingStrategy }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
