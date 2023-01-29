@@ -14,8 +14,8 @@
   scroll-behavior: smooth;
 
   --main-color: #f3f6fc;
-  --main-hilight-color: #fd4d00;
-  --main-item-color: #deddff;
+  --main-hilight-color: #ff426c;
+  --main-item-color: #ffdddf;
 
   --sidemenu-main-bg-color: #fff;
   --sidemenu-hilight-color: #0061fc;
@@ -303,7 +303,7 @@ html {
       font-size: 1.4rem;
       font-style: revert-layer;
       font-weight: normal;
-      // color: var(--sidemenu-item-color);
+      // color: var(--main-item-color);
     }
   }
 
