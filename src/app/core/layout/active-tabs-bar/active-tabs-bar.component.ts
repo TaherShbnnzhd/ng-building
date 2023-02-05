@@ -17,7 +17,7 @@ import {
 import { StoredRoutesService } from '../../services/route-reuse-strategy/stored-routes.service';
 
 @Component({
-  selector: 'block-active-tab-bar',
+  selector: 'block-active-tabs-bar',
   templateUrl: './active-tabs-bar.component.html',
   styleUrls: ['./active-tabs-bar.component.scss'],
 })
