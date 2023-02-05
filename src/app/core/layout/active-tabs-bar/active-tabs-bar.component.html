@@ -1,0 +1,27 @@
+<!-- بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم -->
+
+<section class="section">
+    <p-toolbar>
+      <div class="navigation-tab" *ngFor="let tab of activeTabs">
+        <span class="p-buttonset p-button-outlined navigation-tab-wrapper w-100">
+          <button
+            pButton
+            pRipple
+            class="p-button-text p-button-secondary pe-4 ps-3 w-75 text-start"
+            [class.p-button-info]="tab.name === activatedKey"
+            [label]="tab.storedRoute.snapshot.data['title']"
+            (click)="navigateRoute(tab.storedRoute.path)"
+          ></button>
+          <button
+            pButton
+            pRipple
+            class="p-button-text p-button-danger w-25"
+            icon="pi pi-times"
+            iconPos="left"
+            (click)="discardRoute(tab.name)"
+          ></button>
+        </span>
+      </div>
+    </p-toolbar>
+  </section>
+  

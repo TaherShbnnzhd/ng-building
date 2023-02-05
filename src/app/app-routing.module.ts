@@ -5,7 +5,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from './core/guards/auth/auth.guard';
 import { MainComponent } from './core/main/main.component';
-import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './core/layout/page-not-found/page-not-found.component';
 import { AccountModule } from './modules/account/account.module';
 
 const routes: Routes = [

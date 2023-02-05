@@ -3,7 +3,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfirmationService } from 'primeng/api';
-import { AuthService } from '../authentication/auth.service';
+import { AuthService } from '../../authentication/auth.service';
 
 @Component({
   selector: 'block-header',

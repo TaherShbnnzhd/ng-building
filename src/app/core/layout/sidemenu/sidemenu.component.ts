@@ -12,19 +12,19 @@ import { menu } from './sidemenu.interface';
 export class SidemenuComponent implements OnInit {
   private _close = false;
 
-  public get close() {
+  get close() {
     return this._close;
   }
 
-  public set close(value: boolean) {
+  set close(value: boolean) {
     this._close = value;
 
     this.hasClosed.emit(value);
   }
 
-  public offcanvas = false;
+  offcanvas = false;
 
-  public menuList: menu[] = [];
+  menuList: menu[] = [];
 
   @Output() hasClosed: EventEmitter<boolean> = new EventEmitter();
 

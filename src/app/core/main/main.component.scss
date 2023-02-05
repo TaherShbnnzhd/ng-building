@@ -71,11 +71,17 @@ body {
   transition: all 0.2s linear;
 
   &.full {
-    padding: 1rem 1.4rem 1rem 1.3rem;
+    padding: 0rem 0.75rem 1rem 0.25rem;
   }
 
   &.compact {
-    padding: 1rem 20rem 1rem 1.3rem;
+    padding: 0rem 19rem 1rem 0.25rem;
+  }
+
+  .tab-content {
+    position: sticky;
+    top: calc(var(--header-height) + 0.3rem);
+    z-index: var(--z-index-main-tab-bar);
   }
 
   .loading-content {
@@ -98,7 +104,7 @@ body {
 
     &.full,
     &.compact {
-      padding: 1rem 1.4rem 1rem 1.3rem;
+      padding: 0rem 0.75rem 1rem 0.25rem;
       transition: all 0.2s linear;
     }
   }

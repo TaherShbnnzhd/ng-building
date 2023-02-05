@@ -24,6 +24,9 @@
           </div> -->
         <!-- End Page Title -->
 
+        <!-- active routes tab -->
+        <block-active-tab-bar class="tab-content"></block-active-tab-bar>
+
         <!-- page loading screen -->
         <div class="loading-content" *ngIf="loading">
           <block-loading-element></block-loading-element>
@@ -31,7 +34,10 @@
 
         <p-toast key="httpErrorMessage" position="bottom-left"></p-toast>
 
-        <div [@routeAnimations]="animationService.getRouteAnimationData()">
+        <div
+          class="route-content pt-3 px-2"
+          [@routeAnimations]="animationService.getRouteAnimationData()"
+        >
           <router-outlet></router-outlet>
         </div>
       </div>

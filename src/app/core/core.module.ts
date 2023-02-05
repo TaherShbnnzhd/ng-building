@@ -4,6 +4,7 @@ import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from '../app-routing.module';
+import { RouteReuseStrategy } from '@angular/router';
 
 import { tap } from 'rxjs';
 
@@ -13,12 +14,13 @@ import {
 } from './services/request-cache.service';
 
 import { httpInterceptorProviders } from './interceptors';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { SidemenuComponent } from './sidemenu/sidemenu.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.component';
+import { SidemenuComponent } from './layout/sidemenu/sidemenu.component';
 import { MainComponent } from './main/main.component';
-import { LoadingElementComponent } from './loading-element/loading-element.component';
+import { LoadingElementComponent } from './layout/loading-element/loading-element.component';
+import { ActiveTabsBarComponent } from './layout/active-tabs-bar/active-tabs-bar.component';
 
 import { AuthGuard } from './guards/auth/auth.guard';
 
@@ -27,6 +29,8 @@ import { AuthService } from './authentication/auth.service';
 import { HttpErrorHandlerService } from './http/http-error-handler/http-error-handler.service';
 import { LogService } from './services/log.service';
 import { HttpService } from './http/http.service';
+import { StoredRoutesService } from './services/route-reuse-strategy/stored-routes.service';
+import { RouteReuseService } from './services/route-reuse-strategy/route-reuse.service';
 
 /* PrimeNG */
 import { ButtonModule } from 'primeng/button';
@@ -35,6 +39,8 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { TabViewModule } from 'primeng/tabview';
+import { ToolbarModule } from 'primeng/toolbar';
 
 @NgModule({
   declarations: [
@@ -44,6 +50,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     SidemenuComponent,
     MainComponent,
     LoadingElementComponent,
+    ActiveTabsBarComponent,
   ],
   imports: [
     CommonModule,
@@ -54,13 +61,8 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     ProgressSpinnerModule,
     ToastModule,
     ConfirmDialogModule,
-  ],
-  exports: [
-    CommonModule,
-    PageNotFoundComponent,
-    HeaderComponent,
-    FooterComponent,
-    SidemenuComponent,
+    TabViewModule,
+    ToolbarModule,
   ],
   providers: [
     AppConfigService,
@@ -70,6 +72,8 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     AuthService,
     AuthGuard,
     MessageService,
+    StoredRoutesService,
+    { provide: RouteReuseStrategy, useClass: RouteReuseService },
     { provide: RequestCache, useClass: RequestCacheWithMap },
     httpInterceptorProviders,
     {
