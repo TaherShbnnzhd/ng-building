@@ -27,7 +27,7 @@ body {
   }
 
   .left-frame {
-    background-color: var(--sidemenu-main-bg-color);
+    background-color: var(--sidemenu-main-color);
     height: 100vh;
     width: 8px;
     float: left;
@@ -51,7 +51,7 @@ body {
       border-bottom-left-radius: 50%;
       background: transparent;
       transform: rotate(90deg);
-      box-shadow: 0 13px 0 0 var(--sidemenu-main-bg-color);
+      box-shadow: 0 13px 0 0 var(--sidemenu-main-color);
     }
 
     &:after {
@@ -62,7 +62,7 @@ body {
       border-bottom-left-radius: 50%;
       background: transparent;
       transform: rotate(0deg);
-      box-shadow: 0 10px 0 0 var(--sidemenu-main-bg-color);
+      box-shadow: 0 10px 0 0 var(--sidemenu-main-color);
     }
   }
 }
@@ -71,16 +71,16 @@ body {
   transition: all 0.2s linear;
 
   &.full {
-    padding: 0rem 0.75rem 1rem 0.25rem;
+    padding: 0rem 0rem 1rem 0.7rem;
   }
 
   &.compact {
-    padding: 0rem 19rem 1rem 0.25rem;
+    padding: 0rem 18.3rem 1rem 0.7rem;
   }
 
   .tab-content {
     position: sticky;
-    top: calc(var(--header-height) + 0.3rem);
+    top: calc(var(--header-height) + 12px);
     z-index: var(--z-index-main-tab-bar);
   }
 
@@ -104,7 +104,7 @@ body {
 
     &.full,
     &.compact {
-      padding: 0rem 0.75rem 1rem 0.25rem;
+      padding: 0rem 0rem 0rem 0.7rem;
       transition: all 0.2s linear;
     }
   }

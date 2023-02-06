@@ -41,6 +41,7 @@ import { MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { TabViewModule } from 'primeng/tabview';
 import { ToolbarModule } from 'primeng/toolbar';
+import { RippleModule } from 'primeng/ripple';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { ToolbarModule } from 'primeng/toolbar';
     ConfirmDialogModule,
     TabViewModule,
     ToolbarModule,
+    RippleModule,
   ],
   providers: [
     AppConfigService,

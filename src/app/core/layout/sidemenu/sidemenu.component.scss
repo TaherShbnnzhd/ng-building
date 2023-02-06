@@ -27,7 +27,7 @@ a {
     float: right;
     width: 300px;
     height: 100vh;
-    background: var(--sidemenu-main-bg-color);
+    background: var(--sidemenu-main-color);
     overflow-y: scroll;
     scrollbar-width: none;
 
@@ -48,7 +48,7 @@ a {
       border-bottom-left-radius: 50%;
       background: transparent;
       transform: rotate(180deg);
-      box-shadow: 0 13px 0 0 var(--sidemenu-main-bg-color);
+      box-shadow: 0 13px 0 0 var(--sidemenu-main-color);
     }
 
     &:after {
@@ -59,7 +59,7 @@ a {
       border-bottom-left-radius: 50%;
       background: transparent;
       transform: rotate(270deg);
-      box-shadow: 0 13px 0 0 var(--sidemenu-main-bg-color);
+      box-shadow: 0 13px 0 0 var(--sidemenu-main-color);
     }
   }
 
@@ -72,30 +72,29 @@ a {
     padding: 0;
     font-size: 1.5rem;
     transition: transform 0.2s linear;
-    background-color: var(--sidemenu-main-bg-color);
+    background-color: var(--sidemenu-main-color);
 
     .toggle-panel-buttom-shadow {
       cursor: pointer;
       position: absolute;
-      height: 65px;
-      top: 138px;
-      background-color: var(--sidemenu-main-bg-color);
+      height: var(--toolbar-height);
+      top: 72px;
+      background-color: var(--sidemenu-main-color);
       left: 3px;
       transition: all 0.2s linear;
       width: 2rem;
       border-bottom-left-radius: 8px;
       border-top-left-radius: 8px;
       z-index: -1;
-      box-shadow: rgba(1, 41, 112, 0.08) 0px 0px 5px 0px,
-        rgba(1, 41, 112, 0.08) 0px 0px 5px 0px;
-      background-color: var(--sidemenu-main-bg-color);
+      box-shadow: var(--main-box-shadow);
+      background-color: var(--sidemenu-main-color);
     }
     .toggle-panel-button {
       cursor: pointer;
       position: absolute;
-      height: 65px;
-      top: 138px;
-      background-color: var(--sidemenu-main-bg-color);
+      height: var(--toolbar-height);
+      top: 72px;
+      background-color: var(--sidemenu-main-color);
       left: 3px;
       transition: all 0.2s linear;
       width: 2rem;
@@ -105,7 +104,7 @@ a {
       //   rgba(1, 41, 112, 0.1) -3px 0px 0px 0px;
 
       div {
-        margin-top: 14px;
+        margin-top: 18px;
         text-decoration: none;
         position: relative;
         transition: all 0.2s linear;
@@ -119,7 +118,7 @@ a {
       }
 
       &.closed {
-        background-color: var(--sidemenu-main-bg-color);
+        background-color: var(--sidemenu-main-color);
         left: 5px;
         transition: all 0.2s linear;
 
@@ -142,9 +141,9 @@ a {
       text-decoration: none;
       transition: all 0.2s linear;
       position: absolute;
-      height: 65px;
-      top: 138px;
-      background-color: var(--sidemenu-main-bg-color);
+      height: var(--toolbar-height);
+      top: 72px;
+      background-color: var(--sidemenu-main-color);
       left: 5px;
       transition: all 0.2s linear;
       width: 2rem;
@@ -160,7 +159,7 @@ a {
 
         span {
           position: relative;
-          top: 13px;
+          top: 18px;
           color: var(--main-item-color);
         }
       }
@@ -182,7 +181,7 @@ a {
     bottom: 0;
     font-size: 1.5rem;
     transition: transform 0.2s linear;
-    background-color: var(--sidemenu-main-bg-color);
+    background-color: var(--sidemenu-main-color);
   }
 
   .toggle-panel-button-icon::before {
@@ -194,7 +193,7 @@ a {
     height: 4.4rem;
     font-weight: 800;
     top: 0;
-    background-color: rgba(var(--sidemenu-main-bg-color), 0.5);
+    background-color: rgba(var(--sidemenu-main-color), 0.5);
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     z-index: var(--z-index-sidemenu-header);
@@ -271,7 +270,7 @@ a {
   align-items: center;
   font-size: 15px;
   color: var(--sidemenu-item-color);
-  background-color: var(--sidemenu-main-bg-color);
+  background-color: var(--sidemenu-main-color);
   transition: 0.3;
   margin: 8px 13px 0 13px;
   border-radius: 4px;
@@ -299,7 +298,7 @@ a {
 /* Menu Items */
 .sidebar-nav .nav-link.collapsed {
   color: var(--sidemenu-item-color);
-  background-color: var(--sidemenu-main-bg-color);
+  background-color: var(--sidemenu-main-color);
 }
 
 .sidebar-nav .nav-link.collapsed i {
