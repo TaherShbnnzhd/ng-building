@@ -3,7 +3,7 @@
 <section class="section">
   <p-toolbar>
     <div class="navigation-tab" *ngFor="let tab of activeTabs">
-      <span class="p-buttonset p-button-outlined navigation-tab-wrapper w-100">
+      <span class="p-buttonset navigation-tab-wrapper w-100">
         <button
           pButton
           pRipple
@@ -15,7 +15,8 @@
         <button
           pButton
           pRipple
-          class="p-button-text p-button-danger w-25"
+          class="p-button-text p-button-secondary w-25"
+          [class.p-button-danger]="tab.name === activatedKey"
           icon="pi pi-times"
           iconPos="left"
           (click)="discardRoute(tab.name)"

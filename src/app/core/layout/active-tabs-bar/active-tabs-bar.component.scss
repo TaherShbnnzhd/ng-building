@@ -6,7 +6,7 @@
   overflow: auto;
 
   height: var(--toolbar-height);
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
 
   border-top-left-radius: 13px;
   border-top-right-radius: 8px;
@@ -57,10 +57,26 @@
 }
 
 .navigation-tab {
-  border: 1px solid #64748b;
-  border-radius: 0px;
-  border-width: 0px 0 1px 0;
+  border-color: var(--sidemenu-brand-color);
+  border-style: solid;
+  border-width: 0 0 1px 0;
   width: 12.31rem;
+
+  .p-buttonset {
+    .p-button:first-of-type {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 2px !important;
+      border-bottom-right-radius: 2px !important;
+    }
+
+    .p-button:last-of-type {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-top-left-radius: 2px !important;
+      border-bottom-left-radius: 2px !important;
+    }
+  }
 
   .navigation-tab-wrapper {
     display: inline-flex;
