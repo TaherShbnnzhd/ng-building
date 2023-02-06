@@ -1,33 +1,38 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 :host ::ng-deep .p-toolbar {
-    justify-content: flex-start;
-  
-    min-height: 4rem;
-    padding: 0.5rem;
-  
-    box-shadow: 0px 13px 20px 0px rgba(1, 41, 112, 0.1);
-    background: var(--sidemenu-main-bg-color);
-  
-    border-top-left-radius: 13px;
-    border-top-right-radius: 13px;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
+  justify-content: flex-start;
+
+  min-height: 4rem;
+  padding: 0.5rem;
+
+  box-shadow: 0px 13px 20px 0px rgba(1, 41, 112, 0.1);
+  background: var(--sidemenu-main-bg-color);
+
+  border-top-left-radius: 13px;
+  border-top-right-radius: 13px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+:host ::ng-deep .p-button {
+  padding: 0.5rem 0.5rem;
+
+  .p-button-label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-  
-  :host ::ng-deep .p-button {
-    padding: 0.5rem 0.5rem;
+}
+
+.navigation-tab {
+  border: 1px solid #64748b;
+  border-radius: 0px;
+  border-width: 0px 0 1px 0;
+  width: 12.31rem;
+
+  .navigation-tab-wrapper {
+    display: inline-flex;
+    justify-content: space-between;
   }
-  
-  .navigation-tab {
-    border: 1px solid #64748b;
-    border-radius: 0px;
-    border-width: 0px 0 1px 0;
-    width: 12.31rem;
-  
-    .navigation-tab-wrapper {
-      display: inline-flex;
-      justify-content: space-between;
-    }
-  }
-  
+}
