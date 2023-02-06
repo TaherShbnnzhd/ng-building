@@ -3,7 +3,10 @@
 <section class="section">
   <p-toolbar>
     <div class="navigation-tab" *ngFor="let tab of activeTabs">
-      <span class="p-buttonset navigation-tab-wrapper w-100">
+      <span
+        class="p-buttonset navigation-tab-wrapper border-bottom w-100"
+        [class.border-primary]="tab.name === activatedKey"
+      >
         <button
           pButton
           pRipple
