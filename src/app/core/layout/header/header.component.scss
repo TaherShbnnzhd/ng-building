@@ -1,8 +1,7 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 .header {
-  position: sticky;
-  top: 0;
+  position: fixed;
   height: var(--header-height);
   background-color: var(--sidemenu-main-color);
   box-shadow: var(--main-box-shadow);

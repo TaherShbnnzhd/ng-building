@@ -2,7 +2,11 @@
 
 <body>
   <div class="container-fluid">
-    <div class="menu" [class.col-0]="menuToggle" [class.col-2]="!menuToggle">
+    <!-- Header -->
+    <block-header class="content-header"> </block-header>
+
+    <!-- Sidemenu -->
+    <div class="menu">
       <block-sidemenu
         #sidemenu
         (hasClosed)="menuToggle = $event"
@@ -12,28 +16,17 @@
     <div class="left-frame"></div>
 
     <div class="content">
-      <block-header class="content-header"> </block-header>
       <div
         class="content-body col-12"
         [class.full]="menuToggle"
         [class.compact]="!menuToggle"
       >
-        <!-- Page Title -->
-        <!-- <div class="pagetitle">
-            <h1>{{ pageTitle }}</h1>
-          </div> -->
-        <!-- End Page Title -->
-
-        <!-- active routes tab -->
-        <div class="tab-content ms-5">
-          <block-active-tabs-bar></block-active-tabs-bar>
-        </div>
-
         <!-- page loading screen -->
         <div class="loading-content" *ngIf="loading">
           <block-loading-element></block-loading-element>
         </div>
 
+        <!-- http error message -->
         <p-toast key="httpErrorMessage" position="bottom-left"></p-toast>
 
         <div

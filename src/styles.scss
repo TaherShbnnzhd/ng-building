@@ -25,6 +25,8 @@
   --main-box-shadow: rgba(1, 41, 112, 0.1) 0px -2px 14px 1px,
     rgba(1, 41, 112, 0.1) 0px 2px 5px 1px;
 
+  --main-transition: all 0.2s linear;
+
   --header-height: 60px;
   --footer-height: 30px;
   --toolbar-height: 72px;
@@ -265,7 +267,7 @@ html {
   .p-accordion-toggle-icon {
     margin-right: 0rem;
     margin-left: 0.5rem;
-    transition: all 0.2s linear;
+    transition: var(--main-transition);
   }
 }
 

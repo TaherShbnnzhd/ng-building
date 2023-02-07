@@ -3,6 +3,8 @@
 body {
   scroll-behavior: smooth;
   background-color: var(--main-color);
+
+  --content-height: calc(var(--header-height) + var(--toolbar-height));
 }
 
 .container-fluid {
@@ -27,12 +29,12 @@ body {
   }
 
   .left-frame {
-    background-color: var(--sidemenu-main-color);
-    height: 100vh;
+    position: fixed;
+    left: 0;
     width: 8px;
-    float: left;
+    height: 100vh;
+    background-color: var(--sidemenu-main-color);
     z-index: 98;
-    position: relative;
 
     &:before,
     &:after {
@@ -68,20 +70,14 @@ body {
 }
 
 .content-body {
-  transition: all 0.2s linear;
+  transition: var(--main-transition);
 
   &.full {
-    padding: 0rem 0rem 1rem 0.7rem;
+    padding: var(--content-height) 0rem 1rem 1rem;
   }
 
   &.compact {
-    padding: 0rem 18.3rem 1rem 0.7rem;
-  }
-
-  .tab-content {
-    position: sticky;
-    top: calc(var(--header-height) + 12px);
-    z-index: var(--z-index-main-tab-bar);
+    padding: var(--content-height) 18rem 1rem 1rem;
   }
 
   .loading-content {
@@ -100,12 +96,12 @@ body {
 
 @media (max-width: 991px) {
   .content-body {
-    transition: all 0.2s linear;
+    transition: var(--main-transition);
 
     &.full,
     &.compact {
-      padding: 0rem 0rem 0rem 0.7rem;
-      transition: all 0.2s linear;
+      padding: var(--content-height) 0rem 1rem 1rem;
+      transition: var(--main-transition);
     }
   }
 }

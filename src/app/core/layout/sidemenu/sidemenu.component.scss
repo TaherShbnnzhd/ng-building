@@ -15,8 +15,21 @@ a {
   right: 0;
   bottom: 0;
   z-index: var(--z-index-sidemenu);
-  transition: all 0.2s linear;
+  transition: var(--main-transition);
   overflow: hidden;
+
+  .toggle-panel-active-tabs {
+    position: fixed;
+    left: 0px;
+    width: calc(100% - 350px);
+    top: calc(var(--header-height) + 13px);
+    z-index: var(--z-index-main-tab-bar);
+    transition: var(--main-transition);
+  }
+
+  .tab-content-wide {
+    width: calc(100% - 3.65rem);
+  }
 
   .menu-panel::-webkit-scrollbar {
     display: none;
@@ -81,7 +94,7 @@ a {
       top: 72px;
       background-color: var(--sidemenu-main-color);
       left: 3px;
-      transition: all 0.2s linear;
+      transition: var(--main-transition);
       width: 2rem;
       border-bottom-left-radius: 8px;
       border-top-left-radius: 8px;
@@ -96,7 +109,7 @@ a {
       top: 72px;
       background-color: var(--sidemenu-main-color);
       left: 3px;
-      transition: all 0.2s linear;
+      transition: var(--main-transition);
       width: 2rem;
       border-bottom-left-radius: 8px;
       border-top-left-radius: 8px;
@@ -107,20 +120,20 @@ a {
         margin-top: 18px;
         text-decoration: none;
         position: relative;
-        transition: all 0.2s linear;
+        transition: var(--main-transition);
         font-size: 2rem;
 
         &.closed {
           color: var(--main-item-color);
           transform: rotate(180deg) translateY(20%);
-          transition: all 0.2s linear;
+          transition: var(--main-transition);
         }
       }
 
       &.closed {
         background-color: var(--sidemenu-main-color);
         left: 5px;
-        transition: all 0.2s linear;
+        transition: var(--main-transition);
 
         &:hover {
           width: 2rem;
@@ -139,13 +152,13 @@ a {
       cursor: pointer;
       display: none;
       text-decoration: none;
-      transition: all 0.2s linear;
+      transition: var(--main-transition);
       position: absolute;
       height: var(--toolbar-height);
       top: 72px;
       background-color: var(--sidemenu-main-color);
       left: 5px;
-      transition: all 0.2s linear;
+      transition: var(--main-transition);
       width: 2rem;
       border-bottom-left-radius: 8px;
       border-top-left-radius: 8px;
@@ -155,7 +168,7 @@ a {
         text-decoration: none;
         color: var(--main-item-color);
         font-size: 2rem;
-        transition: all 0.2s linear;
+        transition: var(--main-transition);
 
         span {
           position: relative;
@@ -224,24 +237,6 @@ a {
   background-color: #aab7cf;
 }
 
-@media (max-width: 991px) {
-  .sidebar {
-    right: -292px;
-    transition: all 0.2s linear;
-
-    .toggle-panel {
-      .toggle-panel-button {
-        display: none;
-      }
-
-      :not(.menu-toggle) {
-        display: inline !important;
-        color: #5e6278;
-      }
-    }
-  }
-}
-
 .sidebar-nav {
   position: relative;
   padding: 0;
@@ -282,7 +277,7 @@ a {
   padding: 0rem 0.5rem 0rem 0.5rem;
   color: var(--sidemenu-item-color);
   font-size: 1.5rem;
-  transition: all 0.2s linear;
+  transition: var(--main-transition);
 }
 
 .sidebar-nav .nav-link span {
@@ -291,7 +286,7 @@ a {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  transition: all 0.2s linear;
+  transition: var(--main-transition);
   width: 100vw;
 }
 
@@ -332,7 +327,7 @@ a {
   padding: 5px 0px 0px 20px;
   margin: 0 1.3rem 0 1rem;
   list-style: none;
-  transition: all 0.2s linear;
+  transition: var(--main-transition);
 }
 
 .sidebar-nav .nav-content a {
@@ -365,7 +360,7 @@ a {
 /* closed Mode */
 .sidebar.closed {
   right: -292px;
-  transition: all 0.2s linear;
+  transition: var(--main-transition);
 }
 
 /* extra */
@@ -378,5 +373,27 @@ a {
 
   .offcanvas-body {
     padding: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .sidebar {
+    right: -292px;
+    transition: var(--main-transition);
+
+    .toggle-panel {
+      .toggle-panel-button {
+        display: none;
+      }
+
+      :not(.menu-toggle) {
+        display: inline !important;
+        color: #5e6278;
+      }
+    }
+
+    .toggle-panel-active-tabs {
+      width: calc(100% - 3.65rem);
+    }
   }
 }
