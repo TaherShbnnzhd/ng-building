@@ -10,7 +10,7 @@ import {
   Scroll,
 } from '@angular/router';
 
-import { filter, map, tap } from 'rxjs';
+import { filter, map } from 'rxjs';
 
 import {
   RouteStorageObject,
@@ -36,9 +36,6 @@ export class ActiveTabsBarComponent implements OnInit {
     // Add active tab from ActivatedRoute
     this.router.events
       .pipe(
-        tap((event) => {
-          console.log(event);
-        }),
         filter(
           (event) =>
             // When navigation ends successfully.
