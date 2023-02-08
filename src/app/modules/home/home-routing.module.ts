@@ -2,10 +2,11 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { AuthGuard } from 'src/app/core/guards/auth/auth.guard';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -19,7 +20,7 @@ const routes: Routes = [
           {
             path: 'dashboard',
             component: DashboardComponent,
-            data: { title: 'داشبورد', animation: 'dashboardPage' },
+            data: { title: 'صفحه اصلی', animation: 'dashboardPage' },
           },
           { path: '', redirectTo: '/home/dashboard', pathMatch: 'full' },
         ],

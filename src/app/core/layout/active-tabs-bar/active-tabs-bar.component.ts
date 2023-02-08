@@ -5,10 +5,12 @@ import {
   ActivatedRoute,
   ActivatedRouteSnapshot,
   NavigationEnd,
+  RouteConfigLoadEnd,
   Router,
+  Scroll,
 } from '@angular/router';
 
-import { filter, map } from 'rxjs';
+import { filter, map, tap } from 'rxjs';
 
 import {
   RouteStorageObject,
@@ -34,7 +36,19 @@ export class ActiveTabsBarComponent implements OnInit {
     // Add active tab from ActivatedRoute
     this.router.events
       .pipe(
-        filter((event) => event instanceof NavigationEnd),
+        tap((event) => {
+          console.log(event);
+        }),
+        filter(
+          (event) =>
+            // When navigation ends successfully.
+            event instanceof NavigationEnd ||
+            // After a route has been lazy loaded.
+            event instanceof RouteConfigLoadEnd ||
+            // Detect redirectUrl.
+            // When the user scrolls.
+            event instanceof Scroll
+        ),
         map(() => {
           let route: ActivatedRoute = this.router.routerState.root;
 
