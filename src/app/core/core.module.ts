@@ -31,6 +31,7 @@ import { LogService } from './services/log.service';
 import { HttpService } from './http/http.service';
 import { StoredRoutesService } from './services/route-reuse-strategy/stored-routes.service';
 import { RouteReuseService } from './services/route-reuse-strategy/route-reuse.service';
+import { ThemeService } from './services/theme.service';
 
 /* PrimeNG */
 import { ButtonModule } from 'primeng/button';
@@ -75,6 +76,7 @@ import { RippleModule } from 'primeng/ripple';
     AuthGuard,
     MessageService,
     StoredRoutesService,
+    ThemeService,
     { provide: RouteReuseStrategy, useClass: RouteReuseService },
     { provide: RequestCache, useClass: RequestCacheWithMap },
     httpInterceptorProviders,
@@ -86,7 +88,7 @@ import { RippleModule } from 'primeng/ripple';
         return () =>
           appConfigService
             .loadAppConfig()
-            .pipe(tap((config) => appConfigService.setConfig(config)));
+            .pipe(tap((config) => appConfigService.setAppConfig(config)));
       },
     },
   ],

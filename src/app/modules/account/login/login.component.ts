@@ -7,6 +7,7 @@ import { MessageService } from 'primeng/api';
 
 import { tap } from 'rxjs';
 import { AuthService } from 'src/app/core/authentication/auth.service';
+import { ThemeService } from 'src/app/core/services/theme.service';
 
 class LoginModel {
   mobile = '';
@@ -45,6 +46,7 @@ export class LoginComponent implements OnInit {
   constructor(
     public authService: AuthService,
     public router: Router,
+    public themeService: ThemeService,
     private messageService: MessageService
   ) {}
 

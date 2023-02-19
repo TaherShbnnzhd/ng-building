@@ -2,6 +2,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ThemeService } from 'src/app/core/services/theme.service';
 
 class RegisterModel {
   userName = '';
@@ -43,6 +44,8 @@ export class RegisterComponent implements OnInit {
   get nationalId() {
     return this.registerForm.get('nationalId');
   }
+
+  constructor(public themeService: ThemeService) {}
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({

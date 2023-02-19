@@ -16,7 +16,7 @@
                 </div>
               </div>
               <img
-                src="assets/images/signup.svg"
+                [src]="'assets/images/' + themeService.theme + '/signup.svg'"
                 class="col-xl-12 col-md-2 d-xl-block d-md-block d-none rounded mb-xl-4"
                 alt="SignIn Image"
               />
@@ -145,7 +145,7 @@
                     phoneNumber?.dirty ||
                     phoneNumber?.touched
                   "
-                  styleClass="w-100 form-control"
+                  styleClass="w-100"
                   formControlName="phoneNumber"
                   mask="09999999999"
                 ></p-inputMask>

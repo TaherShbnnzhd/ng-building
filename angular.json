@@ -26,12 +26,20 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.rtl.min.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "node_modules/primeng/resources/primeng.min.css",
-              "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
               "node_modules/primeicons/primeicons.css",
-              "node_modules/mingcute_icon/font/Mingcute.css"
+              "node_modules/mingcute_icon/font/Mingcute.css",
+              {
+                "input": "src/themes/light.scss",
+                "bundleName": "light-theme",
+                "inject": false
+              },
+              {
+                "input": "src/themes/dark.scss",
+                "bundleName": "dark-theme",
+                "inject": false
+              }
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"

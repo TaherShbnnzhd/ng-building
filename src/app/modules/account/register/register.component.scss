@@ -16,7 +16,7 @@ main {
 }
 
 .shadow-2 {
-  box-shadow: 0 4px 10px #00000008, 0 0 2px #0000000f, 0 2px 6px #0000001f !important;
+  box-shadow: var(--main-card-shadow) !important;
 }
 
 .text-hilight {
@@ -25,6 +25,10 @@ main {
 
 .font-medium {
   font-weight: 500 !important;
+}
+
+.text-900 {
+  color: var(--sidemenu-item-color) !important;
 }
 
 .text-600 {

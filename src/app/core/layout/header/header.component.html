@@ -1,15 +1,31 @@
 <!-- بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم -->
 
-<header class="header py-1 d-flex align-items-center justify-content-end w-100">
+<header
+  class="header py-1 px-4 d-flex align-items-center justify-content-end w-100"
+>
+  <!-- light/dark mode switch -->
+  <div class="mx-2" [pTooltip]="darkmode ? 'حالت روشن' : 'حالت تاریک'">
+    <label class="switch">
+      <input
+        type="checkbox"
+        [checked]="darkmode"
+        (change)="darkmode = !darkmode"
+      />
+      <span class="slider"></span>
+    </label>
+  </div>
+  <!--/ light/dark mode switch -->
+  <!-- signout button -->
   <button
     pButton
     pRipple
+    pTooltip="خروج از حساب کاربری"
+    class="sign-out-button p-button-lg p-button-rounded p-button-text p-button-danger"
     type="button"
     icon="mgc_power_fill"
-    class="sign-out-button p-button-lg p-button-rounded p-button-text p-button-danger mx-1"
     (click)="confirmSignout()"
-    pTooltip="خروج از حساب کاربری"
-  ></button>
+  ></button
+  ><!--/ signout button -->
 </header>
 
 <p-confirmDialog [style]="{ width: '450px' }" [rtl]="true"></p-confirmDialog>

@@ -27,7 +27,7 @@
                     mobile?.dirty ||
                     mobile?.touched
                   "
-                  styleClass="w-100 form-control"
+                  styleClass="w-100"
                   mask="09999999999"
                   formControlName="mobile"
                 ></p-inputMask>
@@ -139,7 +139,7 @@
                 </span>
 
                 <a
-                  class="active-link font-medium no-underline me-2 text-hilight cursor-pointer"
+                  class="active-link font-medium no-underline text-hilight cursor-pointer"
                   routerLink="/account/register"
                   ariaCurrentWhenActive="page"
                 >
@@ -147,7 +147,7 @@
                 </a>
               </div>
               <img
-                src="assets/images/signin.svg"
+                [src]="'assets/images/' + themeService.theme + '/signin.svg'"
                 class="col-xl-12 col-md-2 d-xl-block d-md-block d-none rounded my-xl-4"
                 alt="SignIn Image"
               />

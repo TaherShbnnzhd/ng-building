@@ -13,18 +13,6 @@
 :root {
   scroll-behavior: smooth;
 
-  --main-color: #f3f6fc;
-  --main-hilight-color: #ff426c;
-  --main-item-color: #deddff;
-
-  --sidemenu-main-color: #fff;
-  --sidemenu-hilight-color: #0061fc;
-  --sidemenu-item-color: #001649;
-  --sidemenu-brand-color: #00328a;
-
-  --main-box-shadow: rgba(1, 41, 112, 0.1) 0px -2px 14px 1px,
-    rgba(1, 41, 112, 0.1) 0px 2px 5px 1px;
-
   --main-transition: all 0.2s linear;
 
   --header-height: 60px;
@@ -521,7 +509,7 @@ html {
   margin-right: 25px;
   border: none !important;
   border-radius: 3px !important;
-  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+  box-shadow: var(--main-card-shadow);
 
   .card-header,
   .card-footer {
@@ -536,7 +524,7 @@ html {
 
     .card-title {
       padding: 20px 0 13px 0 !important;
-      color: var(--bs-gray-600);
+      color: var(--main-item-color);
       border-bottom: 1px solid var(--bs-gray-200);
       font-weight: 500;
     }

@@ -1,0 +1,38 @@
+/* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
+
+/*--------------------------------------------------------------
+# PrimeNG Theme
+--------------------------------------------------------------*/
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+
+/*--------------------------------------------------------------
+# Boostrap Variables
+--------------------------------------------------------------*/
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/maps";
+@import "node_modules/bootstrap/scss/utilities";
+
+// Include any default variable overrides here (though functions won't be available)
+
+// Include remainder of required Bootstrap stylesheets
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/bootstrap/dist/css/bootstrap.rtl.min.css";
+
+/*--------------------------------------------------------------
+# Main color palette
+--------------------------------------------------------------*/
+:root {
+  --main-color: #f3f6fc;
+  --main-hilight-color: #ff426c;
+  --main-item-color: #deddff;
+
+  --sidemenu-main-color: #fff;
+  --sidemenu-hilight-color: #0061fc;
+  --sidemenu-item-color: #272d3c;
+
+  --main-box-shadow: rgba(1, 41, 112, 0.1) 0px -2px 14px 1px,
+    rgba(1, 41, 112, 0.1) 0px 2px 5px 1px;
+  --main-card-shadow: 0 4px 10px #00000008, 0 0 2px #0000000f,
+    0 2px 6px #0000001f;
+}

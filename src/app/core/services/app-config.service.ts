@@ -2,28 +2,39 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { MessageService } from 'primeng/api';
+
+/** Service addresses */
+export interface AppConfig {
+  [key: string]: string;
+}
 
 @Injectable()
 export class AppConfigService {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  private _appConfig!: any;
+  /** Service addresses */
+  private appConfig!: AppConfig;
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService
   ) {}
 
-  public loadAppConfig() {
-    return this.http.get('/assets/configs/configuration.json');
+  /** Load app config from assets */
+  loadAppConfig() {
+    return this.http.get<AppConfig>('/assets/configs/configuration.json');
   }
 
-  public setConfig(config: object) {
-    this._appConfig = config;
+  /**
+   * Set app config
+   * @param config
+   */
+  async setAppConfig(config: AppConfig) {
+    this.appConfig = config;
   }
 
-  public getAddress(item: string) {
-    if (!this._appConfig) {
+  getAddress(item: string) {
+    if (!this.appConfig) {
       this.messageService.add({
         key: 'httpErrorMessage',
         life: 8000,
@@ -33,6 +44,6 @@ export class AppConfigService {
       });
     }
 
-    return this._appConfig[item];
+    return this.appConfig[item];
   }
 }

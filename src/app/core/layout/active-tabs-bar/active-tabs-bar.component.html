@@ -10,7 +10,7 @@
         <button
           pButton
           pRipple
-          class="p-button-text p-button-secondary ps-3 w-75 text-start"
+          class="p-button-text p-button-secondary ps-3 w-75 text-end"
           [class.p-button-info]="tab.name === activatedKey"
           [label]="tab.storedRoute.snapshot.data['title']"
           (click)="navigateRoute(tab.storedRoute.path)"

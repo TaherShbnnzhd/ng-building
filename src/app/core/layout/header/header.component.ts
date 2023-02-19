@@ -1,9 +1,10 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfirmationService } from 'primeng/api';
 import { AuthService } from '../../authentication/auth.service';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'block-header',
@@ -11,14 +12,30 @@ import { AuthService } from '../../authentication/auth.service';
   styleUrls: ['./header.component.scss'],
   providers: [ConfirmationService],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+  _darkmode = false;
+  get darkmode() {
+    return this._darkmode;
+  }
+  set darkmode(value) {
+    this._darkmode = value;
+
+    this.toggleDarkMode(value);
+  }
+
   constructor(
     private authService: AuthService,
     private router: Router,
-    private confirmationService: ConfirmationService
+    private confirmationService: ConfirmationService,
+    private themeService: ThemeService
   ) {}
 
-  public confirmSignout() {
+  ngOnInit(): void {
+    this.darkmode = this.themeService.theme === 'light-theme' ? false : true;
+  }
+
+  /** Show sign out confirmation dialog */
+  confirmSignout() {
     this.confirmationService.confirm({
       message: 'آیا برای خروج از حساب کاربری اطمینان دارید؟',
       header: 'هشدار خروج از حساب کاربری',
@@ -33,8 +50,20 @@ export class HeaderComponent {
     });
   }
 
-  public signout() {
+  /** Sign out */
+  signout() {
     this.authService.logOut();
     this.router.navigate(['/account/login']);
+  }
+
+  /**
+   *  Switch theme between dark and light mode
+   * @param event event
+   * @param theme theme's name
+   * @param dark darkmode
+   */
+  private toggleDarkMode(darkmode: boolean) {
+    if (darkmode) this.themeService.switchTheme('dark-theme');
+    else this.themeService.switchTheme('light-theme');
   }
 }
