@@ -57,21 +57,25 @@ export class ActiveTabsBarComponent implements OnInit {
         })
       )
       .subscribe((route) => {
-        if (route.routeConfig?.path && route.snapshot.data['reuse']) {
-          const storedRoute: RouteStorageObject = {
-            snapshot: route.snapshot,
-            handle: null,
-            path: this.getResolvedUrl(route.snapshot),
-          };
+        if (route.routeConfig?.path) {
+          if (route.snapshot.data['reuse']) {
+            const storedRoute: RouteStorageObject = {
+              snapshot: route.snapshot,
+              handle: null,
+              path: this.getResolvedUrl(route.snapshot),
+            };
 
-          this.storedRoutesService.addStoredRoute(
-            route.routeConfig.path,
-            storedRoute
-          );
+            this.storedRoutesService.addStoredRoute(
+              route.routeConfig.path,
+              storedRoute
+            );
 
-          this.activeTabs = this.storedRoutesService.getAllStoredRoutes();
+            this.activeTabs = this.storedRoutesService.getAllStoredRoutes();
 
-          this.activatedKey = route.routeConfig?.path;
+            this.activatedKey = route.routeConfig?.path;
+          } else {
+            this.activatedKey = '';
+          }
         }
       });
   }
@@ -110,11 +114,12 @@ export class ActiveTabsBarComponent implements OnInit {
 
       this.storedRoutesService.deleteStoredRoute(route);
 
-      if (nextIndex < this.activeTabs.length)
-        this.router.navigate([this.activeTabs[nextIndex].storedRoute.path]);
-      else if (prevIndex > -1)
-        this.router.navigate([this.activeTabs[prevIndex].storedRoute.path]);
-      else this.router.navigate(['/home/dashboard']);
+      if (route === this.activatedKey)
+        if (nextIndex < this.activeTabs.length)
+          this.router.navigate([this.activeTabs[nextIndex].storedRoute.path]);
+        else if (prevIndex > -1)
+          this.router.navigate([this.activeTabs[prevIndex].storedRoute.path]);
+        else this.router.navigate(['/home/dashboard']);
     }
   }
 }
