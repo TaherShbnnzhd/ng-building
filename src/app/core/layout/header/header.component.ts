@@ -2,8 +2,11 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { ConfirmationService } from 'primeng/api';
+
 import { AuthService } from '../../authentication/auth.service';
+import { StoredRoutesService } from '../../services/route-reuse-strategy/stored-routes.service';
 import { ThemeService } from '../../services/theme.service';
 
 @Component({
@@ -27,7 +30,8 @@ export class HeaderComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private confirmationService: ConfirmationService,
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    private storedRoutesService: StoredRoutesService
   ) {}
 
   ngOnInit(): void {
@@ -54,6 +58,7 @@ export class HeaderComponent implements OnInit {
   signout() {
     this.authService.logOut();
     this.router.navigate(['/account/login']);
+    this.storedRoutesService.clearStoredRoutes();
   }
 
   /**
