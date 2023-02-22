@@ -1,38 +1,30 @@
 <!-- بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم -->
 
 <aside class="sidebar" [class.closed]="close">
-  <div class="toggle-panel p-2">
-    <!-- حالت جم شونده -->
-    <a
-      [class.closed]="close"
-      class="toggle-panel-button"
-      (click)="close = !close"
-    >
-      <div [class.closed]="close">
-        <span class="toggle-panel-button-icon mgc_right_fill"></span>
-      </div>
-    </a>
-    <!--/ حالت جم شونده -->
-
-    <!-- حالت جانبی -->
-    <div class="toggle-panel-offcanvas">
-      <a
-        data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasRight"
-        aria-controls="offcanvasRight"
-      >
-        <span class="toggle-panel-button-icon mgc_left_fill"></span>
-      </a>
-    </div>
-    <!--/ حالت جانبی -->
-
-    <!-- سایه دکمه فراخانی حالت جم شونده و جانبی -->
-    <div class="toggle-panel-buttom-shadow"></div>
-  </div>
-
   <!-- ردیف تب ها -->
   <div class="toggle-panel-active-tabs mx-3" [class.tab-content-wide]="close">
     <block-active-tabs-bar></block-active-tabs-bar>
+  </div>
+
+  <div class="toggle-panel p-2">
+    <!-- حالت جم شونده -->
+    <a
+      class="toggle-panel-button"
+      [attr.data-bs-toggle]="innerWidth < 991 && 'offcanvas'"
+      [attr.data-bs-target]="innerWidth < 991 && '#offcanvasRight'"
+      [attr.aria-controls]="innerWidth < 991 && 'offcanvasRight'"
+      [class.closed]="close"
+      (click)="close = !close"
+    >
+      <div [class.closed]="close">
+        <span
+          class="toggle-panel-button-icon"
+          [class.mgc_left_fill]="innerWidth < 991 || close"
+          [class.mgc_right_fill]="innerWidth > 991 && !close"
+        ></span>
+      </div>
+    </a>
+    <!--/ حالت جم شونده -->
   </div>
 
   <!-- منو اصلی -->
@@ -78,26 +70,26 @@
             </span>
 
             <i
-              *ngIf="menu.submenu && menu.submenu.length > 0"
+              *ngIf="menu.subMenu && menu.subMenu.length > 0"
               class="p-2 mgc_down_line"
             ></i>
           </a>
 
           <!-- زیر منو -->
-          <div *ngIf="menu.submenu && menu.submenu.length > 0">
+          <div *ngIf="menu.subMenu && menu.subMenu.length > 0">
             <ul
               [id]="'components-nav-' + i"
               class="nav-content collapse"
               data-bs-parent="#sidebar-nav"
             >
-              <li class="my-2" *ngFor="let submenu of menu.submenu">
+              <li class="my-2" *ngFor="let subMenu of menu.subMenu">
                 <a
-                  [routerLink]="'/' + menu.name + '/' + submenu.name"
+                  [routerLink]="'/' + menu.name + '/' + subMenu.name"
                   routerLinkActive="active"
                   ariaCurrentWhenActive="page"
                 >
                   <span class="p-2">
-                    {{ submenu.title }}
+                    {{ subMenu.title }}
                   </span>
                 </a>
               </li>
@@ -165,26 +157,26 @@
                 </span>
 
                 <i
-                  *ngIf="menu.submenu && menu.submenu.length > 0"
+                  *ngIf="menu.subMenu && menu.subMenu.length > 0"
                   class="p-2 mgc_down_line"
                 ></i>
               </a>
 
               <!-- زیر منو -->
-              <div *ngIf="menu.submenu && menu.submenu.length > 0">
+              <div *ngIf="menu.subMenu && menu.subMenu.length > 0">
                 <ul
                   [id]="'components-nav-' + i"
                   class="nav-content collapse"
                   data-bs-parent="#sidebar-nav"
                 >
-                  <li class="my-2" *ngFor="let submenu of menu.submenu">
+                  <li class="my-2" *ngFor="let subMenu of menu.subMenu">
                     <a
-                      [routerLink]="'/' + menu.name + '/' + submenu.name"
+                      [routerLink]="'/' + menu.name + '/' + subMenu.name"
                       routerLinkActive="active"
                       ariaCurrentWhenActive="page"
                     >
                       <span class="p-2">
-                        {{ submenu.title }}
+                        {{ subMenu.title }}
                       </span>
                     </a>
                   </li>

@@ -1,8 +1,14 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  OnInit,
+  Output,
+} from '@angular/core';
 
-import { menu } from './sidemenu.interface';
+import { Menu } from './sidemenu.interface';
 
 @Component({
   selector: 'block-sidemenu',
@@ -10,31 +16,39 @@ import { menu } from './sidemenu.interface';
   styleUrls: ['./sidemenu.component.scss'],
 })
 export class SidemenuComponent implements OnInit {
+  /** Width of the screen */
+  innerWidth!: number;
+
   private _close = false;
 
-  get close() {
+  /** Side menu close state */
+  public get close() {
     return this._close;
   }
 
-  set close(value: boolean) {
+  public set close(value: boolean) {
     this._close = value;
 
     this.hasClosed.emit(value);
   }
 
-  offcanvas = false;
+  /** Side menu offcanvas mode state */
+  public offcanvas = false;
 
-  menuList: menu[] = [];
+  /** List of menus */
+  public menuList: Menu[] = [];
 
   @Output() hasClosed: EventEmitter<boolean> = new EventEmitter();
 
   ngOnInit(): void {
+    this.innerWidth = window.innerWidth;
+
     this.menuList = [
       {
         name: 'showcase',
         title: 'پیش نمایش',
         icon: 'mgc_palette_2_line',
-        submenu: [
+        subMenu: [
           {
             name: 'alerts',
             title: 'پیغام',
@@ -81,7 +95,7 @@ export class SidemenuComponent implements OnInit {
         name: 'showcase',
         title: 'نمایه',
         icon: 'mgc_ghost_line',
-        submenu: [
+        subMenu: [
           {
             name: 'bootstrapicon',
             title: 'پیش فرض',
@@ -89,5 +103,11 @@ export class SidemenuComponent implements OnInit {
         ],
       },
     ];
+  }
+
+  /** Get width of the screen */
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.innerWidth = window.innerWidth;
   }
 }

@@ -513,6 +513,11 @@ html {
   background-color: var(--sidemenu-main-color) !important;
   color: var(--sidemenu-main-color) !important;
 
+  border-top-left-radius: 13px !important;
+  border-top-right-radius: 13px !important;
+  border-bottom-left-radius: 13px !important;
+  border-bottom-right-radius: 13px !important;
+
   .card-header,
   .card-footer {
     border-color: #ebeef4;

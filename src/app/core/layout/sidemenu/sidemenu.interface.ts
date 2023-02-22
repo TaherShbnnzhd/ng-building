@@ -1,8 +1,8 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
-export interface menu {
+export interface Menu {
     name: string;
     title: string;
     icon?: string;
-    submenu?: menu[];
+    subMenu?: Menu[];
 }

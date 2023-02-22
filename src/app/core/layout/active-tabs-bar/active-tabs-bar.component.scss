@@ -6,15 +6,11 @@
   overflow: auto;
 
   height: var(--toolbar-height);
-  padding: 0.5rem 1rem;
-
-  border-top-left-radius: 13px;
-  border-top-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  padding: 0.5rem 3rem 0.5rem 1rem;
 
   background-color: var(--sidemenu-main-color);
   box-shadow: var(--main-box-shadow);
+  border-radius: 13px;
   border-color: transparent;
 
   scrollbar-width: thin;

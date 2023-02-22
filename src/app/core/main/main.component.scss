@@ -73,11 +73,11 @@ body {
   transition: var(--main-transition);
 
   &.full {
-    padding: var(--content-height) 0rem 1rem 1rem;
+    padding: var(--content-height) 0rem 0.9rem 1.5rem;
   }
 
   &.compact {
-    padding: var(--content-height) 18rem 1rem 1rem;
+    padding: var(--content-height) 18.1rem 0.9rem 1.5rem;
   }
 
   .loading-content {
@@ -100,7 +100,7 @@ body {
 
     &.full,
     &.compact {
-      padding: var(--content-height) 0rem 1rem 1rem;
+      padding: var(--content-height) 0rem 0.9rem 1.5rem;
       transition: var(--main-transition);
     }
   }
