@@ -27,7 +27,7 @@ a {
   }
 
   .tab-content-wide {
-    width: calc(100% - 2rem);
+    width: calc(100% - 2.25rem);
   }
 
   .menu-panel::-webkit-scrollbar {
@@ -279,7 +279,7 @@ a {
     transition: var(--main-transition);
 
     .toggle-panel-active-tabs {
-      width: calc(100% - 2rem);
+      width: calc(100% - 2.25rem);
     }
   }
 }
