@@ -512,11 +512,7 @@ html {
   box-shadow: var(--main-card-shadow);
   background-color: var(--sidemenu-main-color) !important;
   color: var(--sidemenu-main-color) !important;
-
-  border-top-left-radius: 13px !important;
-  border-top-right-radius: 13px !important;
-  border-bottom-left-radius: 13px !important;
-  border-bottom-right-radius: 13px !important;
+  border-radius: 13px !important;
 
   .card-header,
   .card-footer {

@@ -16,12 +16,11 @@
       [class.closed]="close"
       (click)="close = !close"
     >
-      <div [class.closed]="close">
-        <span
-          class="toggle-panel-button-icon"
-          [class.mgc_left_fill]="innerWidth < 991 || close"
-          [class.mgc_right_fill]="innerWidth > 991 && !close"
-        ></span>
+      <div class="toggle-panel-button-icon" [class.closed]="close">
+        <i
+          [class.mgc_menu_fill]="innerWidth < 991 || close"
+          [class.mgc_more_2_fill]="innerWidth > 991 && !close"
+        ></i>
       </div>
     </a>
     <!--/ حالت جم شونده -->

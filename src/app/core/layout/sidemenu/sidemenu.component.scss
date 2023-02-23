@@ -20,9 +20,9 @@ a {
 
   .toggle-panel-active-tabs {
     position: fixed;
-    left: 0px;
-    width: calc(100% - 324px);
-    top: calc(var(--header-height) + 8.5px);
+    left: 2px;
+    width: calc(100% - 328px);
+    top: calc(var(--header-height) + 0.7rem);
     transition: var(--main-transition);
   }
 
@@ -73,15 +73,27 @@ a {
     height: var(--header-height);
     float: left;
     padding: 0;
+    left: -2px;
 
     .toggle-panel-button {
       cursor: pointer;
       position: relative;
-      top: calc(var(--header-height) + 16px);
+      top: calc(var(--header-height) + 0.95rem);
 
-      .toggle-panel-button-icon::before {
-        font-size: 2.5rem;
-        color: var(--main-item-color) !important;
+      .toggle-panel-button-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--sidemenu-main-color);
+        height: 3rem;
+        border-left: 2px solid var(--main-color);
+
+        i {
+          &::before {
+            font-size: 2rem;
+            color: var(--main-item-color) !important;
+          }
+        }
       }
     }
   }
