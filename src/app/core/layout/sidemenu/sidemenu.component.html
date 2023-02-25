@@ -48,16 +48,15 @@
 
     <!-- ایجاد منو -->
     <div class="sidebar-nav flex-shrink-0 p-2">
-      <ul
-        class="list-unstyled ps-0 pb-1 small"
-        *ngFor="let menu of menuList; let i = index"
-      >
+      <ul class="list-unstyled ps-0 pb-1 small" *ngFor="let menu of menuList">
         <li class="nav-item">
           <a
+            #menuItem
             class="nav-link collapsed"
-            [attr.data-bs-target]="'#components-nav-' + i"
             data-bs-toggle="collapse"
             aria-expanded="false"
+            [attr.id]="menu.name"
+            [attr.data-bs-target]="'#components-nav-' + menu.name"
           >
             <i
               class="text-start"
@@ -75,11 +74,12 @@
           </a>
 
           <!-- زیر منو -->
-          <div *ngIf="menu.subMenu && menu.subMenu.length > 0">
+          <div class="show" *ngIf="menu.subMenu && menu.subMenu.length > 0">
             <ul
-              [id]="'components-nav-' + i"
+              #subMenuItem
               class="nav-content collapse"
               data-bs-parent="#sidebar-nav"
+              [id]="'components-nav-' + menu.name"
             >
               <li class="my-2" *ngFor="let subMenu of menu.subMenu">
                 <a
@@ -137,14 +137,16 @@
         <div class="sidebar-nav flex-shrink-0 p-2">
           <ul
             class="list-unstyled ps-0 pb-1 small"
-            *ngFor="let menu of menuList; let i = index"
+            *ngFor="let menu of menuList"
           >
             <li class="nav-item">
               <a
+                #menuItemOffcanvas
                 class="nav-link collapsed"
-                [attr.data-bs-target]="'#components-nav-' + i"
                 data-bs-toggle="collapse"
                 aria-expanded="false"
+                [attr.id]="menu.name"
+                [attr.data-bs-target]="'#components-nav-' + menu.name"
               >
                 <i
                   class="text-start"
@@ -164,9 +166,10 @@
               <!-- زیر منو -->
               <div *ngIf="menu.subMenu && menu.subMenu.length > 0">
                 <ul
-                  [id]="'components-nav-' + i"
+                  #subMenuItemOffcanvas
                   class="nav-content collapse"
                   data-bs-parent="#sidebar-nav"
+                  [id]="'components-nav-' + menu.name"
                 >
                   <li class="my-2" *ngFor="let subMenu of menu.subMenu">
                     <a
