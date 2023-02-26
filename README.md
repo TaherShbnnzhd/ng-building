@@ -8,13 +8,13 @@ RTL angular block with primeng components and bootstrap classes, And also some s
 
 Everything: خدا
 
-Template:   https://bootstrapmade.com/
+Template: https://bootstrapmade.com/
 
 Components: https://www.primefaces.org/primeng/
 
-Icons:      https://www.mingcute.com/
+Icons: https://www.mingcute.com/
 
-Images:     https://themeisle.com/illustrations/
+Images: https://themeisle.com/illustrations/
 
 ## Development server
 
@@ -27,6 +27,8 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+* Install [IIS URL Rewrite](https://www.iis.net/downloads/microsoft/url-rewrite) Module.
 
 ## Running unit tests
 
