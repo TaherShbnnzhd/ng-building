@@ -10,9 +10,8 @@ describe('BootstrapiconComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BootstrapiconComponent ]
-    })
-    .compileComponents();
+      declarations: [BootstrapiconComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(BootstrapiconComponent);
     component = fixture.componentInstance;

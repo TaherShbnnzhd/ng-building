@@ -26,7 +26,7 @@ export class UploadComponent {
       summary: 'با موفقیت انجام شد.',
       detail: 'بارگزاری',
       closable: true,
-      life: 300000
+      life: 300000,
     });
   }
 }

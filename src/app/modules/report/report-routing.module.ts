@@ -16,16 +16,16 @@ const routes: Routes = [
         children: [
           {
             path: ':id',
-            component: ReportContainerComponent
-          }
-        ]
-      }
-    ]
-  }
+            component: ReportContainerComponent,
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class ReportRoutingModule { }
+export class ReportRoutingModule {}

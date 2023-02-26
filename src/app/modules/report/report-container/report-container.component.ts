@@ -6,21 +6,16 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 @Component({
   selector: 'block-report-container',
   templateUrl: './report-container.component.html',
-  styleUrls: ['./report-container.component.scss']
+  styleUrls: ['./report-container.component.scss'],
 })
 export class ReportContainerComponent implements OnInit {
-
   report_id!: string | null;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-
-    this.route.paramMap.subscribe(
-      (params: ParamMap) => {
-        this.report_id = params.get('id');
-      }
-    );
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.report_id = params.get('id');
+    });
   }
-
 }

@@ -11,15 +11,13 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class EnsureHttpsInterceptor implements HttpInterceptor {
-
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-
     // clone request and replace 'http://' with 'https://' at the same time.
     const secureRequest = request.clone({
-      url: request.url.replace('http://', 'https://')
+      url: request.url.replace('http://', 'https://'),
     });
 
     // send the cloned, "secure" request to the next handler.

@@ -1,22 +1,22 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
-import {Pipe, PipeTransform} from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 import { JDate } from '@shared/utilities/JDate/jdate';
 
 /**
  * Pre-defined formats date formats those can use for formatting JDate objects with jdate pipe.
  */
-enum JDateFormat {            // eslint-disable-line no-shadow
-    STANDARD = 'yyyy/mm/dd',
-    SHORT = 'yy/m/d h:M t',
-    SHORT_DATE = 'yy/m/d h:M t',
-    MEDIUM = 'd mmm yyyy، h:M t',
-    MEDIUM_DATE = 'd mmm yyyy، h:M t',
-    LONG = 'd mmm yyyy، h:M:S T',
-    LONG_DATE = 'd mmm yyyy، h:M:S T',
-    SHORT_TIME = 'h:M t',
-    MEDIUM_TIME = 'h:M:S t',
-    LONG_TIME = 'h:M:S.l T',
+enum JDateFormat { // eslint-disable-line no-shadow
+  STANDARD = 'yyyy/mm/dd',
+  SHORT = 'yy/m/d h:M t',
+  SHORT_DATE = 'yy/m/d h:M t',
+  MEDIUM = 'd mmm yyyy، h:M t',
+  MEDIUM_DATE = 'd mmm yyyy، h:M t',
+  LONG = 'd mmm yyyy، h:M:S T',
+  LONG_DATE = 'd mmm yyyy، h:M:S T',
+  SHORT_TIME = 'h:M t',
+  MEDIUM_TIME = 'h:M:S t',
+  LONG_TIME = 'h:M:S.l T',
 }
 
 /**
@@ -51,38 +51,38 @@ enum JDateFormat {            // eslint-disable-line no-shadow
  *  Default format is `medium`.
  */
 @Pipe({
-    name: 'jDate'
+  name: 'jDate',
 })
 export class JDatePipe implements PipeTransform {
-
-    /**
-     * Checks if `formatName` is in the `FormatNames` enum. If it is, returns related format string. Else returns `formatName` string
-     * without any change.
-     *
-     * @param formatName format name or format pattern string
-     * @return formatting pattern string
-     */
-    private static convertNameToFormat(formatName: keyof typeof JDateFormat): string {
-        if (!JDateFormat[formatName]) {
-            return formatName;
-        }
-        return JDateFormat[formatName];
+  /**
+   * Checks if `formatName` is in the `FormatNames` enum. If it is, returns related format string. Else returns `formatName` string
+   * without any change.
+   *
+   * @param formatName format name or format pattern string
+   * @return formatting pattern string
+   */
+  private static convertNameToFormat(
+    formatName: keyof typeof JDateFormat
+  ): string {
+    if (!JDateFormat[formatName]) {
+      return formatName;
     }
+    return JDateFormat[formatName];
+  }
 
-    /**
-     * Formatting the date using `format` method of it with proper formatting pattern created from `format`
-     *
-     * @param value a Jalali Date object or an instance of `Date` object or any class implementing that interface
-     * @param format format name or format pattern string
-     */
-    transform(value: Date, format = 'STANDARD'): string {
-        let inputValue = value;
-        if (!(inputValue instanceof JDate)) {
-            inputValue = new JDate(inputValue);
-        }
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        return inputValue.format(JDatePipe.convertNameToFormat(format));
+  /**
+   * Formatting the date using `format` method of it with proper formatting pattern created from `format`
+   *
+   * @param value a Jalali Date object or an instance of `Date` object or any class implementing that interface
+   * @param format format name or format pattern string
+   */
+  transform(value: Date, format = 'STANDARD'): string {
+    let inputValue = value;
+    if (!(inputValue instanceof JDate)) {
+      inputValue = new JDate(inputValue);
     }
-
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    return inputValue.format(JDatePipe.convertNameToFormat(format));
+  }
 }

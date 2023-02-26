@@ -16,9 +16,8 @@ export class FaNumPipe implements PipeTransform {
   constructor(private persianNumberService: PersianNumberService) {}
 
   transform(value: string | number): string {
-
     const strValue = String(value);
-    
+
     return this.persianNumberService.toPersian(strValue);
   }
 }

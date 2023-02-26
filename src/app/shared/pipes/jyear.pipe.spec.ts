@@ -6,7 +6,9 @@ import { JyearPipe } from './jyear.pipe';
 
 describe('JyearPipe', () => {
   it('create an instance', () => {
-    const pipe = new JyearPipe(new JDateCalculatorService(new JDateValidatorService()));
+    const pipe = new JyearPipe(
+      new JDateCalculatorService(new JDateValidatorService())
+    );
     expect(pipe).toBeTruthy();
   });
 });

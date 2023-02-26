@@ -121,11 +121,11 @@ export type CalendarTypeView = 'date' | 'month' | 'year';
 export class CalendarComponent
   implements OnInit, AfterContentInit, AfterViewInit, OnDestroy
 {
-  @Input() style!:  any;
+  @Input() style!: any;
 
   @Input() styleClass!: string;
 
-  @Input() inputStyle:  any;
+  @Input() inputStyle: any;
 
   @Input() inputId!: string;
 
@@ -157,7 +157,7 @@ export class CalendarComponent
 
   @Input() icon = 'pi pi-calendar';
 
-  @Input() appendTo:  any;
+  @Input() appendTo: any;
 
   @Input() readonlyInput!: boolean;
 
@@ -205,7 +205,7 @@ export class CalendarComponent
 
   @Input() panelStyleClass!: string;
 
-  @Input() panelStyle:  any;
+  @Input() panelStyle: any;
 
   @Input() keepInvalid = false;
 
@@ -351,15 +351,15 @@ export class CalendarComponent
 
   preventDocumentListener!: boolean;
 
-  dateTemplate!: TemplateRef< any>;
+  dateTemplate!: TemplateRef<any>;
 
-  headerTemplate!: TemplateRef< any>;
+  headerTemplate!: TemplateRef<any>;
 
-  footerTemplate!: TemplateRef< any>;
+  footerTemplate!: TemplateRef<any>;
 
-  disabledDateTemplate!: TemplateRef< any>;
+  disabledDateTemplate!: TemplateRef<any>;
 
-  decadeTemplate!: TemplateRef< any>;
+  decadeTemplate!: TemplateRef<any>;
 
   _disabledDates!: Array<JDate>;
 
@@ -385,7 +385,7 @@ export class CalendarComponent
 
   _locale!: LocaleSettings;
 
-  _responsiveOptions!:  any[];
+  _responsiveOptions!: any[];
 
   currentView!: string;
 
@@ -1012,7 +1012,7 @@ export class CalendarComponent
     }
   }
 
-  onYearSelect(event:  any, year: number) {
+  onYearSelect(event: any, year: number) {
     if (this.view === 'year') {
       this.onDateSelect(event, {
         year: year,
@@ -1155,7 +1155,7 @@ export class CalendarComponent
     this.onSelect.emit(date);
   }
 
-  updateModel(value:  any) {
+  updateModel(value: any) {
     this.value = value;
 
     if (this.dataType == 'date') {
@@ -1166,7 +1166,7 @@ export class CalendarComponent
       } else {
         let stringArrValue = null;
         if (this.value) {
-          stringArrValue = this.value.map((date:  any) =>
+          stringArrValue = this.value.map((date: any) =>
             this.formatDateTime(date)
           );
         }
@@ -1226,7 +1226,7 @@ export class CalendarComponent
     return firstDayOfWeek > 0 ? 7 - firstDayOfWeek : 0;
   }
 
-  isSelected(dateMeta:  any): boolean | void {
+  isSelected(dateMeta: any): boolean | void {
     if (this.value) {
       if (this.isSingleSelection()) {
         return this.isDateEquals(this.value, dateMeta);
@@ -1269,11 +1269,11 @@ export class CalendarComponent
     return false;
   }
 
-  isMonthDisabled(month:  any) {
+  isMonthDisabled(month: any) {
     return !this.isSelectable(1, month, this.currentYear, false);
   }
 
-  isYearSelected(year:  any) {
+  isYearSelected(year: any) {
     if (this.isComparable()) {
       const value = this.isRangeSelection() ? this.value[0] : this.value;
 

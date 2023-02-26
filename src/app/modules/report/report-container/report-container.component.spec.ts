@@ -10,9 +10,8 @@ describe('ReportContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReportContainerComponent ]
-    })
-    .compileComponents();
+      declarations: [ReportContainerComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ReportContainerComponent);
     component = fixture.componentInstance;

@@ -10,9 +10,8 @@ describe('ReportListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReportListComponent ]
-    })
-    .compileComponents();
+      declarations: [ReportListComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ReportListComponent);
     component = fixture.componentInstance;
