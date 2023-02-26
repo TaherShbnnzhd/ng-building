@@ -28,7 +28,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-* Install [IIS URL Rewrite](https://www.iis.net/downloads/microsoft/url-rewrite) Module.
+Install [IIS URL Rewrite](https://www.iis.net/downloads/microsoft/url-rewrite) Module.
 
 ## Running unit tests
 
