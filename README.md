@@ -6,15 +6,15 @@ RTL angular block with primeng components and bootstrap classes, And also some s
 
 ## Special Thanks
 
-Everything: خدا
+Everything: اللهِ
 
-Template: https://bootstrapmade.com/
+* Template: [bootstrapmade](https://bootstrapmade.com/).
 
-Components: https://www.primefaces.org/primeng/
+* Components: [primeng](https://www.primefaces.org/primeng/).
 
-Icons: https://www.mingcute.com/
+* Icons: [mingcute](https://www.mingcute.com/).
 
-Images: https://themeisle.com/illustrations/
+* Images: [themeisle illustrations](https://themeisle.com/illustrations/).
 
 ## Development server
 
