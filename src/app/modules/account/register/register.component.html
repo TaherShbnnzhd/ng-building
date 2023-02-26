@@ -8,17 +8,18 @@
         <div class="col-md-12 col-xl-5 order-xl-2 order-lg-1">
           <div class="d-flex jc-center ai-center mt-xl-3 h-100 w-100">
             <div class="row">
-              <div
-                class="col-xl-12 col-md-10 text-xl-center text-md-start mb-2 py-lg-3"
-              >
+              <div class="col-xl-12 text-xl-center text-md-start mb-2 py-lg-3">
                 <div class="text-900 display-6 font-medium mb-xl-4 mb-md-0">
                   <strong> ایجاد حساب کاربری </strong>
                 </div>
               </div>
               <img
-                [src]="'assets/images/' + themeService.theme + '/signup.svg'"
-                class="col-xl-12 col-md-2 d-xl-block d-md-block d-none rounded mb-xl-4"
+                [ngSrc]="'assets/images/' + themeService.theme + '/signup.svg'"
+                class="col-xl-12 col-md-2 d-xl-block d-none rounded mb-xl-4"
                 alt="SignIn Image"
+                width="300"
+                height="300"
+                priority
               />
             </div>
           </div>

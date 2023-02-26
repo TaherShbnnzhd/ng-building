@@ -20,6 +20,7 @@
                 <p-inputMask
                   id="mobile"
                   name="mobile"
+                  formControlName="mobile"
                   class="w-100"
                   [class.ng-invalid]="mobile?.invalid"
                   [class.ng-dirty]="
@@ -29,7 +30,6 @@
                   "
                   styleClass="w-100"
                   mask="09999999999"
-                  formControlName="mobile"
                 ></p-inputMask>
                 <div id="mobile-help">
                   <small
@@ -52,9 +52,10 @@
                 </label>
                 <p-password
                   id="password"
+                  name="password"
+                  formControlName="password"
                   styleClass="w-100"
                   inputStyleClass="w-100"
-                  formControlName="password"
                   [class.ng-invalid]="password?.invalid"
                   [class.ng-dirty]="
                     (submitted && password?.pristine) ||
@@ -87,20 +88,20 @@
               <div
                 class="d-flex align-items-center justify-content-between my-xl-4 my-lg-4 my-md-2"
               >
-                <div class="d-flex align-items-center">
+                <div class="d-flex flex-row-reverse align-items-center">
                   <!-- remember me -->
-                  <p-checkbox
-                    id="rememberMe"
-                    name="rememberMe"
-                    [binary]="true"
-                    class="me-2"
-                    formControlName="rememberMe"
-                  >
-                  </p-checkbox>
-
                   <label for="rememberMe" class="text-900">
                     <strong> تورو یادمون بمونه </strong>
                   </label>
+
+                  <p-checkbox
+                    id="rememberMe"
+                    name="rememberMe"
+                    formControlName="rememberMe"
+                    class="me-2"
+                    [binary]="true"
+                  >
+                  </p-checkbox>
                 </div>
                 <!-- forgot password -->
                 <a
@@ -127,9 +128,7 @@
         <div class="col-md-12 col-xl-4">
           <div class="d-flex jc-center ai-center mt-xl-3">
             <div class="row">
-              <div
-                class="col-xl-12 col-md-10 text-xl-center text-md-start mb-2"
-              >
+              <div class="col-xl-12 text-xl-center text-md-start mb-2">
                 <div class="text-900 display-5 font-medium mb-xl-4 mb-md-0">
                   <strong> سلام </strong>
                 </div>
@@ -147,9 +146,12 @@
                 </a>
               </div>
               <img
-                [src]="'assets/images/' + themeService.theme + '/signin.svg'"
-                class="col-xl-12 col-md-2 d-xl-block d-md-block d-none rounded my-xl-4"
+                [ngSrc]="'assets/images/' + themeService.theme + '/signin.svg'"
+                class="col-xl-12 d-xl-block d-none rounded my-xl-4"
                 alt="SignIn Image"
+                width="275"
+                height="275"
+                priority
               />
             </div>
           </div>
