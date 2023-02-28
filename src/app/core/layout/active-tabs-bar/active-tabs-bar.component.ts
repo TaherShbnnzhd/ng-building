@@ -10,6 +10,8 @@ import {
   Scroll,
 } from '@angular/router';
 
+import { ThemeService } from '@core/services/theme.service';
+
 import { filter, map } from 'rxjs';
 
 import {
@@ -29,7 +31,8 @@ export class ActiveTabsBarComponent implements OnInit {
 
   constructor(
     private router: Router,
-    public storedRoutesService: StoredRoutesService
+    public storedRoutesService: StoredRoutesService,
+    public themeService: ThemeService
   ) {}
 
   ngOnInit(): void {

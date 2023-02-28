@@ -5,13 +5,18 @@
     <div class="navigation-tab" *ngFor="let tab of activeTabs">
       <span
         class="p-buttonset navigation-tab-wrapper border-bottom w-100"
-        [class.border-primary]="tab.name === activatedKey"
+        [class.border-primary]="
+          themeService.theme === 'light-theme' && tab.name === activatedKey
+        "
+        [class.border-warning]="
+          themeService.theme === 'dark-theme' && tab.name === activatedKey
+        "
       >
         <button
           pButton
           pRipple
-          class="p-button-text p-button-secondary ps-3 w-75 text-start"
-          [class.p-button-info]="tab.name === activatedKey"
+          class="p-button-text p-button-primary ps-3 w-75 text-start"
+          [class.p-button-secondary]="tab.name !== activatedKey"
           [label]="tab.storedRoute.snapshot.data['title']"
           (click)="navigateRoute(tab.storedRoute.path)"
         ></button>

@@ -66,8 +66,8 @@
     left: calc(
       100% - (var(--size-of-icon, 1.4em) + var(--slider-offset, 0.3em))
     );
-    background: #303136;
+    background: #3e3e3e;
     /* change the value of second inset in box-shadow to change the angle and direction of the moon  */
-    box-shadow: inset -3px -2px 5px -2px #f9c5d1, inset -10px -4px 0 0 #9795ef;
+    box-shadow: inset -3px -2px 5px -2px #c5d4f9, inset -9px -3px 0 0 #fcfcfcfc;
   }
 }

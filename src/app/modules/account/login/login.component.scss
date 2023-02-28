@@ -5,6 +5,7 @@ main {
 
   .card {
     max-width: 1100px;
+    min-height: 450px;
   }
   .card-body {
     padding: 20px 20px 20px 20px !important;
@@ -20,7 +21,7 @@ main {
 }
 
 .text-hilight {
-  color: var(--main-hilight-color) !important;
+  color: var(--sidemenu-hilight-color) !important;
 }
 
 .font-medium {

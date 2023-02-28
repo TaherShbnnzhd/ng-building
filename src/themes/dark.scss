@@ -3,7 +3,7 @@
 /*--------------------------------------------------------------
 # PrimeNG Theme
 --------------------------------------------------------------*/
-@import "primeng/resources/themes/lara-dark-indigo/theme.css";
+@import "primeng/resources/themes/arya-orange/theme.css";
 
 /*--------------------------------------------------------------
 # Boostrap Variables
@@ -28,16 +28,17 @@
 # Main color palette
 --------------------------------------------------------------*/
 :root {
-  --main-color: #121629;
-  --main-hilight-color: #ffd803;
-  --main-item-color: #55559d;
+  --main-color: #222222;
+  --main-hilight-color: #ffe53e;
+  --main-item-color: #a5a5a5;
+  --main-card-color: #303030;
 
-  --sidemenu-main-color: #232946;
-  --sidemenu-hilight-color: #b8c1ec;
-  --sidemenu-item-color: #f2eef5;
+  --sidemenu-main-color: #3e3e3e;
+  --sidemenu-hilight-color: #fff9e5;
+  --sidemenu-item-color: #e2e2e2;
 
-  --main-box-shadow: rgba(0, 0, 0, 0.5) 0px -2px 14px 1px,
-    rgba(0, 2, 6, 0.3) 0px 2px 5px 1px;
+  --main-box-shadow: rgba(13, 13, 13, 0.8) 0px -2px 14px 1px,
+    rgba(20, 20, 20, 0.8) 0px 2px 5px 1px;
   --main-card-shadow: 0 4px 10px #0000001b, 0 0 2px #00000025,
     0 2px 6px #00000038;
 }

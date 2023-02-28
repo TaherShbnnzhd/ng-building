@@ -5,7 +5,7 @@
   <div class="card m-xl-4 m-lg-1 m-md-1 m-sm-1 m-0 border-round shadow-2">
     <div class="card-body">
       <div class="row">
-        <div class="col-md-12 col-xl-8 order-2 order-lg-1 bordered-box">
+        <div class="col-md-12 col-xl-7 order-2 order-lg-1 bordered-box">
           <form
             class="p-xl-5 p-lg-3 p-md-2 p-2"
             [formGroup]="loginForm"
@@ -125,35 +125,34 @@
             </div>
           </form>
         </div>
-        <div class="col-md-12 col-xl-4">
-          <div class="d-flex jc-center ai-center mt-xl-3">
-            <div class="row">
-              <div class="col-xl-12 text-xl-center text-md-start mb-2">
-                <div class="text-900 display-5 font-medium mb-xl-4 mb-md-0">
-                  <strong> سلام </strong>
-                </div>
-
-                <span class="text-600 font-medium line-height-3">
-                  هنوز حساب کاربری نداری؟
-                </span>
-
-                <a
-                  class="active-link font-medium no-underline text-hilight cursor-pointer"
-                  routerLink="/account/register"
-                  ariaCurrentWhenActive="page"
-                >
-                  <strong> از اینجا بساز! </strong>
-                </a>
+        <div class="col-md-12 col-xl-5">
+          <div class="row d-flex jc-center ai-center mt-xl-3">
+            <div class="col-xl-12 text-xl-center text-md-start mb-2">
+              <div class="text-900 display-5 font-medium mb-xl-4 mb-md-0">
+                <strong> سلام </strong>
               </div>
-              <img
-                [ngSrc]="'assets/images/' + themeService.theme + '/signin.svg'"
-                class="col-xl-12 d-xl-block d-none rounded my-xl-4"
-                alt="SignIn Image"
-                width="275"
-                height="275"
-                priority
-              />
+
+              <span class="text-600 font-medium line-height-3">
+                هنوز حساب کاربری نداری؟
+              </span>
+
+              <a
+                class="active-link font-medium no-underline text-hilight cursor-pointer"
+                routerLink="/account/register"
+                ariaCurrentWhenActive="page"
+              >
+                <strong> از اینجا بساز! </strong>
+              </a>
             </div>
+            <img
+              [ngSrc]="'assets/images/' + themeService.theme + '/signin.svg'"
+              class="col-xl-12 d-xl-block d-none rounded mt-3"
+              style="width: 375px; height: 250px"
+              alt="SignIn Image"
+              width="390"
+              height="260"
+              priority
+            />
           </div>
         </div>
       </div>
