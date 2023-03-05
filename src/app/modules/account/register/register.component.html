@@ -5,7 +5,7 @@
   <div class="card m-xl-4 m-lg-1 m-md-1 m-sm-1 m-0 border-round shadow-2">
     <div class="card-body">
       <div class="row">
-        <div class="col-md-12 col-xl-5 order-xl-2 order-lg-1">
+        <div class="col-md-12 col-xl-5 order-xl-2 order-lg-1 bordered-box">
           <div class="d-flex jc-center ai-center mt-xl-3 h-100 w-100">
             <div class="row">
               <div class="col-xl-12 text-xl-center text-md-start mb-2 py-lg-3">
@@ -24,11 +24,9 @@
             </div>
           </div>
         </div>
-        <div
-          class="col-md-12 col-xl-7 order-xl-1 order-lg-2 bordered-box mt-xl-4"
-        >
+        <div class="col-md-12 col-xl-7 order-xl-1 order-lg-2">
           <form
-            class="py-xl-4 py-lg-3 py-md-2 py-2 px-xl-5 px-lg-3 px-md-2 px-2"
+            class="py-xl-4 py-lg-3 py-md-2 py-2 px-xl-5 px-lg-3 px-md-2 px-2 mt-xl-1"
             [formGroup]="registerForm"
             #formDir="ngForm"
             (ngSubmit)="signup()"

@@ -4,8 +4,8 @@ main {
   position: relative;
 
   .card {
-    max-width: 1100px;
-    min-height: 500px;
+    max-width: 1010px;
+    min-height: 450px;
   }
   .card-body {
     padding: 20px 20px 20px 20px !important;
@@ -60,12 +60,12 @@ main {
 /* Medium Devices, Desktops */
 @media only screen and (min-width: 1200px) {
   .bordered-box {
-    border-left: 1px solid var(--bluegray-100);
+    border-right: 1px solid var(--bluegray-100);
   }
 }
 /* Small Devices, Tablets */
 @media only screen and (max-width: 1200px) {
   .bordered-box {
-    border-top: 1px solid var(--bluegray-100);
+    border-bottom: 1px solid var(--bluegray-100);
   }
 }
