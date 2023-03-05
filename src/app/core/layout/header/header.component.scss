@@ -14,12 +14,12 @@
 
   /* The switch - the box around the slider */
   .switch {
-    --width-of-switch: 3.5em;
-    --height-of-switch: 1.6em;
+    --width-of-switch: 3.2em;
+    --height-of-switch: 1.5em;
     /* size of sliding icon -- sun and moon */
-    --size-of-icon: 1.2em;
+    --size-of-icon: 1.1em;
     /* it is like a inline-padding of switch */
-    --slider-offset: 0.3em;
+    --slider-offset: 0.2em;
     position: relative;
     width: var(--width-of-switch);
     height: var(--height-of-switch);
