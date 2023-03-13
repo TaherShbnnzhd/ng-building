@@ -340,14 +340,14 @@ html {
 /* p-calendar */
 .p-calendar-w-btn {
   .p-datepicker-trigger {
-    border-top-left-radius: 6px !important;
-    border-bottom-left-radius: 6px !important;
+    border-top-left-radius: 3px !important;
+    border-bottom-left-radius: 3px !important;
     border-top-right-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
   }
   .p-inputtext {
-    border-top-right-radius: 6px !important;
-    border-bottom-right-radius: 6px !important;
+    border-top-right-radius: 3px !important;
+    border-bottom-right-radius: 3px !important;
     border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
   }
@@ -477,15 +477,15 @@ html {
   .p-button:first-of-type {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    border-top-right-radius: 6px !important;
-    border-bottom-right-radius: 6px !important;
+    border-top-right-radius: 3px !important;
+    border-bottom-right-radius: 3px !important;
   }
 
   .p-button:last-of-type {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    border-top-left-radius: 6px !important;
-    border-bottom-left-radius: 6px !important;
+    border-top-left-radius: 3px !important;
+    border-bottom-left-radius: 3px !important;
   }
 }
 
