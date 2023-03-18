@@ -28,7 +28,7 @@ describe('JDate', () => {
       });
     });
 
-    ['12:35:30', '11 Day 1348 00:12:00', '-12600000'].forEach((input) => {
+    ['12:35:30', '11 Day 1348 00:12:00', '-12600000'].forEach(input => {
       it(`should throw InvalidJalaliDate error when input value (${input}) does not follow the proper pattern`, () => {
         expect(() => {
           JDate.parse(input);

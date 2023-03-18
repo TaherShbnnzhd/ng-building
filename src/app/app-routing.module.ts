@@ -24,7 +24,7 @@ const routes: Routes = [
         path: 'home',
         loadChildren: () =>
           import('../app/modules/home/home.module').then(
-            (module) => module.HomeModule
+            module => module.HomeModule
           ),
         canMatch: [authGuard],
       },
@@ -32,7 +32,7 @@ const routes: Routes = [
         path: 'report',
         loadChildren: () =>
           import('../app/modules/report/report.module').then(
-            (module) => module.ReportModule
+            module => module.ReportModule
           ),
         canMatch: [authGuard],
       },
@@ -40,7 +40,7 @@ const routes: Routes = [
         path: 'showcase',
         loadChildren: () =>
           import('../app/modules/showcase/showcase.module').then(
-            (module) => module.ShowcaseModule
+            module => module.ShowcaseModule
           ),
         canMatch: [authGuard],
       },

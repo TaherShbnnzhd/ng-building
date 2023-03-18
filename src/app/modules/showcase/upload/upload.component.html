@@ -16,8 +16,7 @@
               [multiple]="true"
               accept="image/*"
               [maxFileSize]="1000000"
-              invalidFileSizeMessageDetail="حداکثر حجم بازگزاری {0} می‌باشد."
-            >
+              invalidFileSizeMessageDetail="حداکثر حجم بازگزاری {0} می‌باشد.">
               <ng-template pTemplate="content">
                 <ul *ngIf="uploadedFiles.length">
                   <li *ngFor="let file of uploadedFiles">

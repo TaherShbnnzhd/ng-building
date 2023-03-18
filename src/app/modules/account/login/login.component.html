@@ -1,7 +1,6 @@
 <!-- بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم -->
 <main
-  class="p-xl-5 p-lg-2 p-0 h-full w-full d-flex ai-center flex-column bg-main jc-center m-h-100"
->
+  class="p-xl-5 p-lg-2 p-0 h-full w-full d-flex ai-center flex-column bg-main jc-center m-h-100">
   <div class="card m-xl-4 m-lg-1 m-md-1 m-sm-1 m-0 border-round shadow-2">
     <div class="card-body">
       <div class="row">
@@ -10,8 +9,7 @@
             class="p-xl-5 p-lg-3 p-md-2 p-2"
             [formGroup]="loginForm"
             #formDir="ngForm"
-            (ngSubmit)="signin()"
-          >
+            (ngSubmit)="signin()">
             <div class="form-group">
               <div class="field">
                 <label for="mobile" class="text-600 font-medium mb-2 ms-1">
@@ -29,14 +27,12 @@
                     mobile?.touched
                   "
                   styleClass="w-100"
-                  mask="09999999999"
-                ></p-inputMask>
+                  mask="09999999999"></p-inputMask>
                 <div id="mobile-help">
                   <small
                     *ngIf="(submitted && mobile?.pristine) || 
           (mobile?.errors?.['required'] && (mobile?.dirty || mobile?.touched))"
-                    class="p-error"
-                  >
+                    class="p-error">
                     لطفا تلفن همراه را خالی نگذارید
                   </small>
 
@@ -63,21 +59,18 @@
                     password?.touched
                   "
                   [toggleMask]="true"
-                  [feedback]="false"
-                ></p-password>
+                  [feedback]="false"></p-password>
                 <div id="password-help">
                   <small
                     *ngIf="(submitted && password?.pristine) || 
           (password?.errors?.['required'] && (password?.dirty || password?.touched))"
-                    class="p-error"
-                  >
+                    class="p-error">
                     لطفا گذرواژه را خالی نگذارید
                   </small>
                   <small
                     *ngIf="password?.errors?.['minlength'] && (password?.dirty || password?.touched)"
-                    class="p-error"
-                  >
-                    {{ "گذرواژه حداقل شامل 8 کاراکتر می‌باشد" | faNum }}
+                    class="p-error">
+                    {{ 'گذرواژه حداقل شامل 8 کاراکتر می‌باشد' | faNum }}
                   </small>
                   <small style="visibility: hidden" class="p-error">
                     error
@@ -86,8 +79,7 @@
               </div>
 
               <div
-                class="d-flex align-items-center justify-content-between my-xl-4 my-lg-4 my-md-2"
-              >
+                class="d-flex align-items-center justify-content-between my-xl-4 my-lg-4 my-md-2">
                 <!-- remember me -->
                 <div class="d-flex flex-row-reverse align-items-center ms-1">
                   <label for="rememberMe" class="text-900">
@@ -99,14 +91,12 @@
                     name="rememberMe"
                     formControlName="rememberMe"
                     class="me-2"
-                    [binary]="true"
-                  >
+                    [binary]="true">
                   </p-checkbox>
                 </div>
                 <!-- forgot password -->
                 <a
-                  class="active-link font-medium no-underline me-1 text-hilight text-start cursor-pointer"
-                >
+                  class="active-link font-medium no-underline me-1 text-hilight text-start cursor-pointer">
                   <strong> گذرواژتو فراموش کردی؟ </strong>
                 </a>
               </div>
@@ -119,8 +109,7 @@
                   icon="pi pi-user"
                   type="submit"
                   label="ورود"
-                  [loading]="loading"
-                ></button>
+                  [loading]="loading"></button>
               </div>
             </div>
           </form>
@@ -139,8 +128,7 @@
               <a
                 class="active-link font-medium no-underline text-hilight cursor-pointer"
                 routerLink="/account/register"
-                ariaCurrentWhenActive="page"
-              >
+                ariaCurrentWhenActive="page">
                 <strong> از اینجا بساز! </strong>
               </a>
             </div>
@@ -151,8 +139,7 @@
               alt="SignIn Image"
               width="390"
               height="260"
-              priority
-            />
+              priority />
           </div>
         </div>
       </div>

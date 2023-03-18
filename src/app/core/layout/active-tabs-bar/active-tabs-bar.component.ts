@@ -40,7 +40,7 @@ export class ActiveTabsBarComponent implements OnInit {
     this.router.events
       .pipe(
         filter(
-          (event) =>
+          event =>
             // When navigation ends successfully.
             event instanceof NavigationEnd ||
             // After a route has been lazy loaded.
@@ -59,7 +59,7 @@ export class ActiveTabsBarComponent implements OnInit {
           return route;
         })
       )
-      .subscribe((route) => {
+      .subscribe(route => {
         if (route.routeConfig?.path) {
           if (route.snapshot.data['reuse']) {
             const storedRoute: RouteStorageObject = {
@@ -90,7 +90,7 @@ export class ActiveTabsBarComponent implements OnInit {
    */
   private getResolvedUrl(route: ActivatedRouteSnapshot): string {
     return route.pathFromRoot
-      .map((v) => v.url.map((segment) => segment.toString()).join('/'))
+      .map(v => v.url.map(segment => segment.toString()).join('/'))
       .join('/');
   }
 
@@ -109,10 +109,10 @@ export class ActiveTabsBarComponent implements OnInit {
   discardRoute(route: string) {
     if (route) {
       const prevIndex =
-        this.activeTabs.findIndex((activeTab) => activeTab.name === route) - 1;
+        this.activeTabs.findIndex(activeTab => activeTab.name === route) - 1;
 
       const nextIndex = this.activeTabs.findIndex(
-        (activeTab) => activeTab.name === route
+        activeTab => activeTab.name === route
       );
 
       this.storedRoutesService.deleteStoredRoute(route);

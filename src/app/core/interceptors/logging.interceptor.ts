@@ -25,8 +25,7 @@ export class LoggingInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       tap({
         // Succeeds when there is a response; ignore other events.
-        next: (event) =>
-          (ok = event instanceof HttpResponse ? 'succeeded' : ''),
+        next: event => (ok = event instanceof HttpResponse ? 'succeeded' : ''),
 
         // Operation failed; error is an HttpErrorResponse.
         error: () => (ok = 'failed'),

@@ -85,7 +85,7 @@ import { RippleModule } from 'primeng/ripple';
         return () =>
           appConfigService
             .loadAppConfig()
-            .pipe(tap((config) => appConfigService.setAppConfig(config)));
+            .pipe(tap(config => appConfigService.setAppConfig(config)));
       },
     },
   ],

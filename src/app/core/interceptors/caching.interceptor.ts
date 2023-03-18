@@ -60,7 +60,7 @@ function sendRequest(
   cache: RequestCache
 ): Observable<HttpEvent<unknown>> {
   return next.handle(request).pipe(
-    tap((event) => {
+    tap(event => {
       // There may be other events besides the response.
       if (event instanceof HttpResponse) {
         cache.put(request, event); // Update the cache.

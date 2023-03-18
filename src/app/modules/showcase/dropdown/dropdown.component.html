@@ -18,15 +18,13 @@
                   [(ngModel)]="selectedICity3"
                   placeholder="اتخابگر شهر"
                   [group]="true"
-                  inputId="group"
-                >
+                  inputId="group">
                   <ng-template let-group pTemplate="group">
                     <div class="flex align-items-center">
                       <img
                         src="assets/showcase/images/demo/flag/flag_placeholder.png"
                         [class]="'mr-2 flag flag-' + group.value"
-                        style="width: 20px"
-                      />
+                        style="width: 20px" />
                       <span> {{ group.label }}</span>
                     </div>
                   </ng-template>
@@ -41,8 +39,7 @@
                   [(ngModel)]="selectedICity2"
                   [editable]="true"
                   optionLabel="name"
-                  inputId="edit"
-                ></p-dropdown>
+                  inputId="edit"></p-dropdown>
               </div>
               <div class="field col-lg-4 d-flex">
                 <label style="min-width: 3rem" class="mx-2" for="simple">
@@ -56,8 +53,7 @@
                   [showClear]="true"
                   [virtualScroll]="true"
                   [virtualScrollItemSize]="38"
-                  inputId="simple"
-                ></p-dropdown>
+                  inputId="simple"></p-dropdown>
               </div>
             </div>
             <!-- end row -->
@@ -79,17 +75,14 @@
                     loading: loading,
                     delay: 250
                   }"
-                  inputId="lazy"
-                >
+                  inputId="lazy">
                   <ng-template pTemplate="loader" let-options="options">
                     <div
                       class="flex align-items-center py-2 px-3"
-                      style="height: 38px"
-                    >
+                      style="height: 38px">
                       <p-skeleton
                         [width]="options.even ? '60%' : '50%'"
-                        height="1rem"
-                      ></p-skeleton>
+                        height="1rem"></p-skeleton>
                     </div>
                   </ng-template>
                 </p-dropdown>
@@ -104,8 +97,7 @@
                   placeholder="انتخابگر"
                   [virtualScroll]="true"
                   [virtualScrollItemSize]="38"
-                  inputId="scrollv"
-                ></p-dropdown>
+                  inputId="scrollv"></p-dropdown>
               </div>
               <div class="field col-lg-4 d-flex">
                 <label style="min-width: 3rem" class="mx-2" for="scrollh">
@@ -121,19 +113,16 @@
                   placeholder="انتخابگر کشور"
                   inputId="scrollh"
                   [virtualScroll]="true"
-                  [virtualScrollItemSize]="38"
-                >
+                  [virtualScrollItemSize]="38">
                   <ng-template pTemplate="selectedItem">
                     <div
                       class="d-flex country-item country-item-value"
-                      *ngIf="selectedCountry"
-                    >
+                      *ngIf="selectedCountry">
                       <img
                         src="assets/showcase/images/demo/flag/flag_placeholder.png"
                         [class]="
                           'mx-2 flag flag-' + selectedCountry.code.toLowerCase()
-                        "
-                      />
+                        " />
                       <div class="flex-fill">{{ selectedCountry.name }}</div>
                     </div>
                   </ng-template>
@@ -141,8 +130,9 @@
                     <div class="d-flex country-item">
                       <img
                         src="assets/showcase/images/demo/flag/flag_placeholder.png"
-                        [class]="'mx-2 flag flag-' + country.code.toLowerCase()"
-                      />
+                        [class]="
+                          'mx-2 flag flag-' + country.code.toLowerCase()
+                        " />
                       <div>{{ country.name }}</div>
                     </div>
                   </ng-template>

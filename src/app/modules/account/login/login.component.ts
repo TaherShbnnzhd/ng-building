@@ -77,7 +77,7 @@ export class LoginComponent implements OnInit {
       this.authService
         .logIn(mobile, password)
         .pipe(tap(() => (this.loading = false)))
-        .subscribe((isValid) => {
+        .subscribe(isValid => {
           if (isValid) {
             // Use the redirect URL from the auth service.
             const redirectUrl = this.authService.redirectUrl || '';

@@ -9,8 +9,7 @@
     <div class="menu">
       <block-sidemenu
         #sidemenu
-        (hasClosed)="menuToggle = $event"
-      ></block-sidemenu>
+        (hasClosed)="menuToggle = $event"></block-sidemenu>
     </div>
 
     <div class="left-frame"></div>
@@ -19,8 +18,7 @@
       <div
         class="content-body col-12"
         [class.full]="menuToggle"
-        [class.compact]="!menuToggle"
-      >
+        [class.compact]="!menuToggle">
         <!-- page loading screen -->
         <div class="loading-content" *ngIf="loading">
           <block-loading-element></block-loading-element>
@@ -31,16 +29,16 @@
 
         <div
           class="route-content mt-3"
-          [@routeAnimations]="animationService.getRouteAnimationData()"
-        >
+          [@routeAnimations]="animationService.getRouteAnimationData()">
           <router-outlet></router-outlet>
         </div>
       </div>
 
       <div class="mt-2">
         <block-footer
-          [currentApplicationVersion]="currentApplicationVersion"
-        ></block-footer>
+          [currentApplicationVersion]="
+            currentApplicationVersion
+          "></block-footer>
       </div>
     </div>
   </div>

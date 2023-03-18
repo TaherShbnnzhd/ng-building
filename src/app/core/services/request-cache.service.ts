@@ -56,7 +56,7 @@ export class RequestCacheWithMap implements RequestCache {
 
     // remove expired cache entries
     const expired = Date.now() - maxAge;
-    this.cache.forEach((entry) => {
+    this.cache.forEach(entry => {
       if (entry.lastRead < expired) {
         this.cache.delete(entry.url);
       }

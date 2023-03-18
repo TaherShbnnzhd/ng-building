@@ -31,13 +31,13 @@ export class DataTableComponent implements OnInit {
   ngOnInit(): void {
     this.customerService
       .getCustomers(this.config.getAddress('customers-small'), 2)
-      .subscribe((customers) => {
+      .subscribe(customers => {
         this.customers = customers;
 
         this.loading = false;
 
         this.customers.forEach(
-          (customer) => (customer.date = new Date(customer.date as Date))
+          customer => (customer.date = new Date(customer.date as Date))
         );
       });
 

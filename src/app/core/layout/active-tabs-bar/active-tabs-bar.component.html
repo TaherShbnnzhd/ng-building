@@ -10,16 +10,14 @@
         "
         [class.border-warning]="
           themeService.theme === 'dark-theme' && tab.name === activatedKey
-        "
-      >
+        ">
         <button
           pButton
           pRipple
           class="p-button-text p-button-primary ps-3 w-75 text-start"
           [class.p-button-secondary]="tab.name !== activatedKey"
           [label]="tab.storedRoute.snapshot.data['title']"
-          (click)="navigateRoute(tab.storedRoute.path)"
-        ></button>
+          (click)="navigateRoute(tab.storedRoute.path)"></button>
         <button
           pButton
           pRipple
@@ -27,8 +25,7 @@
           [class.p-button-danger]="tab.name === activatedKey"
           icon="pi pi-times"
           iconPos="left"
-          (click)="discardRoute(tab.name)"
-        ></button>
+          (click)="discardRoute(tab.name)"></button>
       </span>
     </div>
   </p-toolbar>

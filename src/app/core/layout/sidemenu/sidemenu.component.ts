@@ -145,10 +145,10 @@ export class SidemenuComponent implements OnInit, AfterViewInit {
   private expandActiveRouteMenu() {
     /* Normal Mode */
     const menuElement = this.menuItems.find(
-      (menuItem) => menuItem.nativeElement['id'] === this.activeRouteMenuName
+      menuItem => menuItem.nativeElement['id'] === this.activeRouteMenuName
     );
     const subMenuElement = this.subMenuItems.find(
-      (menuItem) =>
+      menuItem =>
         menuItem.nativeElement['id'].split('-')[2] === this.activeRouteMenuName
     );
 
@@ -162,10 +162,10 @@ export class SidemenuComponent implements OnInit, AfterViewInit {
 
     /* Offcanvas Mode */
     const menuElementOffcanvas = this.menuItemsOffcanvas.find(
-      (menuItem) => menuItem.nativeElement['id'] === this.activeRouteMenuName
+      menuItem => menuItem.nativeElement['id'] === this.activeRouteMenuName
     );
     const subMenuElementOffcanvas = this.subMenuItemsOffcanvas.find(
-      (menuItem) =>
+      menuItem =>
         menuItem.nativeElement['id'].split('-')[2] === this.activeRouteMenuName
     );
 

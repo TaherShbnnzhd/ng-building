@@ -79,7 +79,7 @@ export class StoredRoutesService {
    */
   private getStoredRouteIndex(name: string) {
     const index = this.storedRoutes.findIndex(
-      (storedRoute) => storedRoute.name === name
+      storedRoute => storedRoute.name === name
     );
 
     return index;

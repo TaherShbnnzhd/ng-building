@@ -605,7 +605,7 @@ export class CalendarComponent
   }
 
   ngAfterContentInit() {
-    this.templates.forEach((item) => {
+    this.templates.forEach(item => {
       switch (item.getType()) {
         case 'date':
           this.dateTemplate = item.template;
@@ -1509,7 +1509,7 @@ export class CalendarComponent
     } else if (event.keyCode === 9 && this.contentViewChild) {
       DomHandler.getFocusableElements(
         this.contentViewChild.nativeElement
-      ).forEach((el) => (el.tabIndex = '-1'));
+      ).forEach(el => (el.tabIndex = '-1'));
       if (this.overlayVisible) {
         this.overlayVisible = false;
       }
@@ -1925,7 +1925,7 @@ export class CalendarComponent
         contentEl,
         '.p-monthpicker .p-monthpicker-month.p-highlight'
       );
-      cells.forEach((cell) => (cell.tabIndex = -1));
+      cells.forEach(cell => (cell.tabIndex = -1));
       cell = selectedCell || cells[0];
 
       if (cells.length === 0) {
@@ -1933,7 +1933,7 @@ export class CalendarComponent
           contentEl,
           '.p-monthpicker .p-monthpicker-month.p-disabled[tabindex = "0"]'
         );
-        disabledCells.forEach((cell) => (cell.tabIndex = -1));
+        disabledCells.forEach(cell => (cell.tabIndex = -1));
       }
     } else if (this.currentView === 'year') {
       const cells = DomHandler.find(
@@ -1944,7 +1944,7 @@ export class CalendarComponent
         contentEl,
         '.p-yearpicker .p-yearpicker-year.p-highlight'
       );
-      cells.forEach((cell) => (cell.tabIndex = -1));
+      cells.forEach(cell => (cell.tabIndex = -1));
       cell = selectedCell || cells[0];
 
       if (cells.length === 0) {
@@ -1952,7 +1952,7 @@ export class CalendarComponent
           contentEl,
           '.p-yearpicker .p-yearpicker-year.p-disabled[tabindex = "0"]'
         );
-        disabledCells.forEach((cell) => (cell.tabIndex = -1));
+        disabledCells.forEach(cell => (cell.tabIndex = -1));
       }
     } else {
       cell = DomHandler.findSingle(contentEl, 'span.p-highlight');
@@ -3153,7 +3153,7 @@ export class CalendarComponent
       let innerHTML = '';
       if (this.responsiveOptions) {
         const responsiveOptions = [...this.responsiveOptions]
-          .filter((o) => !!(o.breakpoint && o.numMonths))
+          .filter(o => !!(o.breakpoint && o.numMonths))
           .sort(
             (o1, o2) =>
               -1 *
@@ -3209,7 +3209,7 @@ export class CalendarComponent
         this.documentClickListener = this.renderer.listen(
           documentTarget,
           'mousedown',
-          (event) => {
+          event => {
             if (this.isOutsideClicked(event) && this.overlayVisible) {
               this.zone.run(() => {
                 this.hideOverlay();

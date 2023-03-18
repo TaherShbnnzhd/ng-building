@@ -1,14 +1,12 @@
 <!-- بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم -->
 <main
-  class="p-xl-5 p-lg-1 p-0 h-full w-full d-flex ai-center flex-column bg-main jc-center m-h-100"
->
+  class="p-xl-5 p-lg-1 p-0 h-full w-full d-flex ai-center flex-column bg-main jc-center m-h-100">
   <div class="card m-xl-4 m-lg-1 m-md-1 m-sm-1 m-0 border-round shadow-2">
     <div class="card-body">
       <div class="row">
         <div class="col-md-12 col-xl-5 order-xl-2 order-lg-1 bordered-box">
           <div
-            class="d-flex flex-column jc-center ai-center mt-xl-3 h-100 w-100"
-          >
+            class="d-flex flex-column jc-center ai-center mt-xl-3 h-100 w-100">
             <div class="col-xl-12 text-xl-center text-md-start mb-2 py-lg-3">
               <div class="text-900 display-6 font-medium mb-xl-4 mb-md-0">
                 <strong> ساخت حساب کاربری </strong>
@@ -21,8 +19,7 @@
               alt="SignIn Image"
               width="315"
               height="210"
-              priority
-            />
+              priority />
           </div>
         </div>
         <div class="col-md-12 col-xl-7 order-xl-1 order-lg-2">
@@ -30,8 +27,7 @@
             class="py-xl-4 py-lg-3 py-md-2 py-2 px-xl-5 px-lg-3 px-md-2 px-2 mt-xl-1"
             [formGroup]="registerForm"
             #formDir="ngForm"
-            (ngSubmit)="signup()"
-          >
+            (ngSubmit)="signup()">
             <div class="row">
               <div class="field col-5">
                 <label for="name" class="text-600 font-medium mb-2 ms-1">
@@ -49,14 +45,12 @@
                     name?.dirty ||
                     name?.touched
                   "
-                  type="text"
-                />
+                  type="text" />
                 <div id="name-help">
                   <small
                     *ngIf="(submitted && name?.pristine) || 
                 (name?.errors?.['required'] && (name?.dirty || name?.touched))"
-                    class="p-error"
-                  >
+                    class="p-error">
                     لطفا نام را خالی نگذارید
                   </small>
                   <small class="p-error" style="visibility: hidden">
@@ -81,15 +75,13 @@
                     family?.dirty ||
                     family?.touched
                   "
-                  type="text"
-                />
+                  type="text" />
                 <div>
                   <small
                     *ngIf="(submitted && family?.pristine) || 
                 (family?.errors?.['required'] && (family?.dirty || family?.touched))"
                     id="family-help"
-                    class="p-error"
-                  >
+                    class="p-error">
                     لطفا نام خانوادگی را خالی نگذارید
                   </small>
                   <small class="p-error" style="visibility: hidden">
@@ -115,15 +107,13 @@
                   nationalId?.dirty ||
                   nationalId?.touched
                 "
-                type="text"
-              />
+                type="text" />
               <div>
                 <small
                   *ngIf="(submitted && nationalId?.pristine) || 
               (nationalId?.errors?.['required'] && (nationalId?.dirty || nationalId?.touched))"
                   id="nationalId-help"
-                  class="p-error"
-                >
+                  class="p-error">
                   لطفا کد ملی را خالی نگذارید
                 </small>
                 <small class="p-error" style="visibility: hidden">
@@ -149,14 +139,12 @@
                   "
                   styleClass="w-100"
                   formControlName="phoneNumber"
-                  mask="09999999999"
-                ></p-inputMask>
+                  mask="09999999999"></p-inputMask>
                 <div id="phoneNumber-help">
                   <small
                     *ngIf="(submitted && phoneNumber?.pristine) || 
                   (phoneNumber?.errors?.['required'] && (phoneNumber?.dirty || phoneNumber?.touched))"
-                    class="p-error"
-                  >
+                    class="p-error">
                     لطفا تلفن همراه را خالی نگذارید
                   </small>
                   <small class="p-error" style="visibility: hidden">
@@ -173,8 +161,7 @@
                   icon="pi pi-user-plus"
                   type="submit"
                   label="ثبت نام"
-                  [loading]="loading"
-                ></button>
+                  [loading]="loading"></button>
               </div>
             </div>
           </form>

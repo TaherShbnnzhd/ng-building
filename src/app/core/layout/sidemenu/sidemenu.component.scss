@@ -45,7 +45,7 @@ a {
 
     &:before,
     &:after {
-      content: "";
+      content: '';
       position: absolute;
       left: 35px;
       height: 30px;
@@ -237,14 +237,14 @@ a {
 }
 
 .sidebar-nav .nav-content a::before {
-  content: "\ee05";
-  font-family: "MingCute";
+  content: '\ee05';
+  font-family: 'MingCute';
   font-size: 12px;
   margin-right: 13px;
 }
 
 .sidebar-nav .nav-content a.active::before {
-  content: "\ee04";
+  content: '\ee04';
 }
 
 .sidebar-nav .nav-content a:hover,

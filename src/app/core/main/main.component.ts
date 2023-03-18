@@ -60,7 +60,7 @@ export class MainComponent implements OnInit {
 
     this.router.events
       .pipe(
-        filter((event) => event instanceof NavigationEnd),
+        filter(event => event instanceof NavigationEnd),
         map(() => {
           let route: ActivatedRoute = this.router.routerState.root;
           let routeTitle = '';

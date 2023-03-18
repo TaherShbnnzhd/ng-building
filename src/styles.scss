@@ -5,7 +5,7 @@
 /*--------------------------------------------------------------
 # Imports
 --------------------------------------------------------------*/
-@import "assets/showcase/styles/flags.css";
+@import 'assets/showcase/styles/flags.css';
 
 /*--------------------------------------------------------------
 # General
@@ -30,11 +30,11 @@
 }
 
 @font-face {
-  font-family: "vazirmatn";
-  src: url("assets/fonts/vazirmatn/Vazirmatn[wght].woff2")
-      format("woff2 supports variations"),
-    url("assets/fonts/vazirmatn/Vazirmatn[wght].woff2")
-      format("woff2-variations");
+  font-family: 'vazirmatn';
+  src: url('assets/fonts/vazirmatn/Vazirmatn[wght].woff2')
+      format('woff2 supports variations'),
+    url('assets/fonts/vazirmatn/Vazirmatn[wght].woff2')
+      format('woff2-variations');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -42,7 +42,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: "vazirmatn", "arial", sans-serif;
+  font-family: 'vazirmatn', 'arial', sans-serif;
 }
 
 html {
@@ -53,8 +53,8 @@ html {
 /*--------------------------------------------------------------
 # MingCute Icon
 --------------------------------------------------------------*/
-[class^="mgc_"],
-[class*=" mgc_"]:before {
+[class^='mgc_'],
+[class*=' mgc_']:before {
   color: unset !important;
 }
 
@@ -142,7 +142,7 @@ html {
 --------------------------------------------------------------*/
 /* overall */
 .p-component {
-  font-family: "vazirmatn", "arial", sans-serif !important;
+  font-family: 'vazirmatn', 'arial', sans-serif !important;
 }
 
 /* badge */
@@ -238,11 +238,11 @@ html {
 
 /* inputtext*/
 .p-inputtext {
-  font-family: "vazirmatn", "arial", sans-serif !important;
+  font-family: 'vazirmatn', 'arial', sans-serif !important;
   font-weight: 620 !important;
 }
 .p-fluid {
-  font-family: "vazirmatn", "arial", sans-serif !important;
+  font-family: 'vazirmatn', 'arial', sans-serif !important;
   font-weight: 620 !important;
 }
 

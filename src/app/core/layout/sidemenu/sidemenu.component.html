@@ -14,13 +14,11 @@
       [attr.data-bs-target]="innerWidth < 991 && '#offcanvasRight'"
       [attr.aria-controls]="innerWidth < 991 && 'offcanvasRight'"
       [class.closed]="close"
-      (click)="close = !close"
-    >
+      (click)="close = !close">
       <div class="toggle-panel-button-icon" [class.closed]="close">
         <i
           [class.mgc_menu_fill]="innerWidth < 991 || close"
-          [class.mgc_more_2_fill]="innerWidth > 991 && !close"
-        ></i>
+          [class.mgc_more_2_fill]="innerWidth > 991 && !close"></i>
       </div>
     </a>
     <!--/ حالت جم شونده -->
@@ -30,14 +28,12 @@
   <div class="menu-panel">
     <!-- متن اصلی -->
     <div
-      class="sidebar-brand d-flex align-items-center justify-content-center offcanvas-body"
-    >
+      class="sidebar-brand d-flex align-items-center justify-content-center offcanvas-body">
       <a
         class="sidebar-brand-text mx-3"
         routerLink="/home/dashboard"
         routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-      >
+        ariaCurrentWhenActive="page">
         بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
       </a>
     </div>
@@ -56,12 +52,10 @@
             data-bs-toggle="collapse"
             aria-expanded="false"
             [attr.id]="menu.name"
-            [attr.data-bs-target]="'#components-nav-' + menu.name"
-          >
+            [attr.data-bs-target]="'#components-nav-' + menu.name">
             <i
               class="text-start"
-              [class]="menu.icon ? menu.icon : 'mgc_question_line'"
-            ></i>
+              [class]="menu.icon ? menu.icon : 'mgc_question_line'"></i>
 
             <span class="p-2">
               {{ menu.title }}
@@ -69,8 +63,7 @@
 
             <i
               *ngIf="menu.subMenu && menu.subMenu.length > 0"
-              class="p-2 mgc_down_line"
-            ></i>
+              class="p-2 mgc_down_line"></i>
           </a>
 
           <!-- زیر منو -->
@@ -79,14 +72,12 @@
               #subMenuItem
               class="nav-content collapse"
               data-bs-parent="#sidebar-nav"
-              [id]="'components-nav-' + menu.name"
-            >
+              [id]="'components-nav-' + menu.name">
               <li class="my-2" *ngFor="let subMenu of menu.subMenu">
                 <a
                   [routerLink]="'/' + menu.name + '/' + subMenu.name"
                   routerLinkActive="active"
-                  ariaCurrentWhenActive="page"
-                >
+                  ariaCurrentWhenActive="page">
                   <span class="p-2">
                     {{ subMenu.title }}
                   </span>
@@ -109,22 +100,19 @@
     class="offcanvas offcanvas-start"
     tabindex="-1"
     id="offcanvasRight"
-    aria-labelledby="offcanvasRightLabel"
-  >
+    aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-body">
       <div class="menu-panel">
         <!-- متن اصلی -->
         <a
-          class="sidebar-brand d-flex align-items-center justify-content-center offcanvas-body"
-        >
+          class="sidebar-brand d-flex align-items-center justify-content-center offcanvas-body">
           <div class="sidebar-brand-icon rotate-n-15"></div>
 
           <a
             class="sidebar-brand-text mx-3"
             routerLink="/home/dashboard"
             routerLinkActive="active"
-            ariaCurrentWhenActive="page"
-          >
+            ariaCurrentWhenActive="page">
             بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
           </a>
         </a>
@@ -137,8 +125,7 @@
         <div class="sidebar-nav flex-shrink-0 p-2">
           <ul
             class="list-unstyled ps-0 pb-1 small"
-            *ngFor="let menu of menuList"
-          >
+            *ngFor="let menu of menuList">
             <li class="nav-item">
               <a
                 #menuItemOffcanvas
@@ -146,12 +133,10 @@
                 data-bs-toggle="collapse"
                 aria-expanded="false"
                 [attr.id]="menu.name"
-                [attr.data-bs-target]="'#components-nav-' + menu.name"
-              >
+                [attr.data-bs-target]="'#components-nav-' + menu.name">
                 <i
                   class="text-start"
-                  [class]="menu.icon ? menu.icon : 'mgc_question_line'"
-                ></i>
+                  [class]="menu.icon ? menu.icon : 'mgc_question_line'"></i>
 
                 <span class="p-2">
                   {{ menu.title }}
@@ -159,8 +144,7 @@
 
                 <i
                   *ngIf="menu.subMenu && menu.subMenu.length > 0"
-                  class="p-2 mgc_down_line"
-                ></i>
+                  class="p-2 mgc_down_line"></i>
               </a>
 
               <!-- زیر منو -->
@@ -169,14 +153,12 @@
                   #subMenuItemOffcanvas
                   class="nav-content collapse"
                   data-bs-parent="#sidebar-nav"
-                  [id]="'components-nav-' + menu.name"
-                >
+                  [id]="'components-nav-' + menu.name">
                   <li class="my-2" *ngFor="let subMenu of menu.subMenu">
                     <a
                       [routerLink]="'/' + menu.name + '/' + subMenu.name"
                       routerLinkActive="active"
-                      ariaCurrentWhenActive="page"
-                    >
+                      ariaCurrentWhenActive="page">
                       <span class="p-2">
                         {{ subMenu.title }}
                       </span>
