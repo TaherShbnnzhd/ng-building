@@ -11,23 +11,23 @@
 # General
 --------------------------------------------------------------*/
 :root {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: "Open Sans", sans-serif;
-    background: var(--main-color);
-    color: #444444;
+  font-family: "Open Sans", sans-serif;
+  background: var(--main-color);
+  color: #444444;
 }
 
 a {
-    color: #4154f1;
-    text-decoration: none;
+  color: #4154f1;
+  text-decoration: none;
 }
 
 a:hover {
-    color: #717ff5;
-    text-decoration: none;
+  color: #717ff5;
+  text-decoration: none;
 }
 
 h1,
@@ -36,34 +36,34 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Nunito", sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 /*--------------------------------------------------------------
   # Main
   --------------------------------------------------------------*/
 #main {
-    margin-top: 60px;
-    padding: 20px 30px;
-    transition: all 0.2s;
+  margin-top: 60px;
+  padding: 20px 30px;
+  transition: all 0.2s;
 }
 
 @media (max-width: 1199px) {
-    #main {
-        padding: 20px;
-    }
+  #main {
+    padding: 20px;
+  }
 }
 
 /*--------------------------------------------------------------
   # Page Title
   --------------------------------------------------------------*/
 .pagetitle {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .pagetitle h1 {
-    font-size: 24px;
-    margin-bottom: 0;
-    font-weight: 600;
-    color: #012970;
+  font-size: 24px;
+  margin-bottom: 0;
+  font-weight: 600;
+  color: #012970;
 }

@@ -1,24 +1,23 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 .error-404 {
-    background-color: var(--main-color);
-  
-    .card {
-      box-shadow: 0 4px 10px #00000008, 0 0 2px #0000000f, 0 2px 6px #0000001f !important;
-      margin-left: 25px;
-  
-      .card-body {
-        .card-title {
-          font-weight: 850;
-          color: var(--main-hilight-color);
-        }
+  background-color: var(--main-color);
+
+  .card {
+    box-shadow: 0 4px 10px #00000008, 0 0 2px #0000000f, 0 2px 6px #0000001f !important;
+    margin-left: 25px;
+
+    .card-body {
+      .card-title {
+        font-weight: 850;
+        color: var(--main-hilight-color);
       }
-  
-      .card-text {
-        img {
-          max-width: 85%;
-        }
+    }
+
+    .card-text {
+      img {
+        max-width: 85%;
       }
     }
   }
-  
+}
