@@ -3,7 +3,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-import { AuthGuard } from './core/guards/auth/auth.guard';
+import { authGuard } from './core/guards/auth/auth.guard';
+
 import { MainComponent } from './core/main/main.component';
 import { PageNotFoundComponent } from './core/layout/page-not-found/page-not-found.component';
 import { AccountModule } from './modules/account/account.module';
@@ -17,7 +18,7 @@ const routes: Routes = [
     path: '',
     component: MainComponent,
     data: { animation: 'mainPage' },
-    canActivate: [AuthGuard],
+    canMatch: [authGuard],
     children: [
       {
         path: 'home',
@@ -25,7 +26,7 @@ const routes: Routes = [
           import('../app/modules/home/home.module').then(
             (module) => module.HomeModule
           ),
-        canMatch: [AuthGuard],
+        canMatch: [authGuard],
       },
       {
         path: 'report',
@@ -33,7 +34,7 @@ const routes: Routes = [
           import('../app/modules/report/report.module').then(
             (module) => module.ReportModule
           ),
-        canMatch: [AuthGuard],
+        canMatch: [authGuard],
       },
       {
         path: 'showcase',
@@ -41,13 +42,13 @@ const routes: Routes = [
           import('../app/modules/showcase/showcase.module').then(
             (module) => module.ShowcaseModule
           ),
-        canMatch: [AuthGuard],
+        canMatch: [authGuard],
       },
       { path: '', redirectTo: '/home/dashboard', pathMatch: 'full' },
     ],
   },
   { path: '', redirectTo: '/home/dashboard', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent, canActivate: [AuthGuard] },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({

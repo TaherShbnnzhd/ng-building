@@ -1,99 +1,19 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
-import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  CanMatch,
-  NavigationExtras,
-  Route,
-  Router,
-  RouterStateSnapshot,
-  UrlSegment,
-  UrlTree,
-} from '@angular/router';
-
-import { Observable } from 'rxjs';
+import { inject } from '@angular/core';
+import { Route, Router, UrlSegment } from '@angular/router';
 
 import { AuthService } from '../../authentication/auth.service';
 
-@Injectable()
-export class AuthGuard implements CanActivate, CanMatch {
-  constructor(private authService: AuthService, private router: Router) {}
-  canMatch(
-    route: Route,
-    segments: UrlSegment[]
-  ):
-    | boolean
-    | UrlTree
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree> {
-    const url = `/${segments.toString().replace(',', '/')}`;
+export const authGuard = (route: Route, path: UrlSegment[]) => {
+  const router = inject(Router);
+  const authService = inject(AuthService);
 
-    return this.checkLogin(url);
+  const isAuthorized = !!authService.getAuthorizationToken();
+
+  if (isAuthorized) return true;
+  else {
+    authService.redirectUrl = `/${path.toString().replace(',', '/')}`;
+    return router.createUrlTree(['/account/login']);
   }
-
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ):
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
-    const url = state.url;
-
-    return this.checkLogin(url);
-  }
-
-  canActivateChild(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ):
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
-    const url = state.url;
-
-    return this.checkLogin(url);
-  }
-
-  canLoad(
-    route: Route,
-    segments: UrlSegment[]
-  ):
-    | boolean
-    | UrlTree
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree> {
-    const url = `/${segments.toString().replace(',', '/')}`;
-
-    return this.checkLogin(url);
-  }
-
-  /** Check Login Status */
-  private checkLogin(url: string): boolean {
-    if (this.authService.getAuthorizationToken()) {
-      return true;
-    }
-
-    // Store the attempted URL for redirecting
-    this.authService.redirectUrl = url;
-
-    // Create a dummy session id
-    // const sessionId = 138;
-
-    // Set our navigation extras object
-    // that contains our global query params and fragment
-    const navigationExtras: NavigationExtras = {
-      // queryParams: { session_id: sessionId },
-      // fragment: 'anchor',
-    };
-
-    // Navigate to the login page with extras
-    this.router.navigate(['/account/login'], navigationExtras);
-
-    return false;
-  }
-}
+};

@@ -10,8 +10,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "analyze": "ng build --stats-json && webpack-bundle-analyzer dist/block-template/stats.json",
-    "format": "prettier --write \"**/*.{ts,d.ts,html,css}\"",
-    "format:check": "prettier --check \"**/*.{ts,d.ts,html,css}\""
+    "format": "prettier --write \"**/*.{ts,d.ts,html,css,scss}\"",
+    "format:check": "prettier --check \"**/*.{ts,d.ts,html,css,scss}\""
   },
   "private": true,
   "dependencies": {

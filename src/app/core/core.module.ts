@@ -22,8 +22,6 @@ import { MainComponent } from './main/main.component';
 import { LoadingElementComponent } from './layout/loading-element/loading-element.component';
 import { ActiveTabsBarComponent } from './layout/active-tabs-bar/active-tabs-bar.component';
 
-import { AuthGuard } from './guards/auth/auth.guard';
-
 import { AppConfigService } from './services/app-config.service';
 import { AuthService } from './authentication/auth.service';
 import { HttpErrorHandlerService } from './http/http-error-handler/http-error-handler.service';
@@ -73,7 +71,6 @@ import { RippleModule } from 'primeng/ripple';
     HttpErrorHandlerService,
     LogService,
     AuthService,
-    AuthGuard,
     MessageService,
     StoredRoutesService,
     ThemeService,

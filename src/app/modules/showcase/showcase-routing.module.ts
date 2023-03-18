@@ -2,7 +2,9 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from 'src/app/core/guards/auth/auth.guard';
+
+import { authGuard } from 'src/app/core/guards/auth/auth.guard';
+
 import { AccordionComponent } from './accordion/accordion.component';
 import { AlertsComponent } from './alerts/alerts.component';
 import { BootstrapiconComponent } from './bootstrapicon/bootstrapicon.component';
@@ -23,7 +25,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        canActivateChild: [AuthGuard],
+        canMatch: [authGuard],
         children: [
           {
             path: 'alerts',
