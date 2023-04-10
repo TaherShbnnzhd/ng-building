@@ -73,11 +73,11 @@ body {
   transition: var(--main-transition);
 
   &.full {
-    padding: var(--content-height) 0.5rem 1rem 2rem;
+    margin: calc(var(--content-height) + 1rem) 3rem 1rem 3rem;
   }
 
   &.compact {
-    padding: var(--content-height) 18.8rem 1rem 2rem;
+    margin: calc(var(--content-height) + 1rem) var(--sidemenu-width) 1rem 1.8rem;
   }
 
   .loading-content {
@@ -100,7 +100,7 @@ body {
 
     &.full,
     &.compact {
-      padding: var(--content-height) 0.5rem 1rem 2rem;
+      margin: calc(var(--content-height) + 1rem) 3rem 1rem 3rem;
       transition: var(--main-transition);
     }
   }

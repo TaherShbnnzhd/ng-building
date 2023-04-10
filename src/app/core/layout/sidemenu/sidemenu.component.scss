@@ -21,7 +21,7 @@ a {
   .toggle-panel-active-tabs {
     position: fixed;
     left: 2px;
-    width: calc(100% - 328px);
+    width: calc(100% - (var(--sidemenu-width) + 28px));
     top: calc(var(--header-height) + 0.7rem);
     transition: var(--main-transition);
   }
@@ -37,7 +37,7 @@ a {
   .menu-panel {
     top: 0;
     float: right;
-    width: 300px;
+    width: var(--sidemenu-width);
     height: 100vh;
     background: var(--sidemenu-main-color);
     overflow-y: scroll;
@@ -256,7 +256,10 @@ a {
 
 /* closed Mode */
 .sidebar.closed {
-  right: -292px;
+  right: calc(
+    var(--sidemenu-width) - (var(--sidemenu-width) + var(--sidemenu-width)) +
+      8px
+  );
   transition: var(--main-transition);
 }
 
@@ -266,7 +269,7 @@ a {
 }
 
 .offcanvas {
-  width: 300.5px;
+  width: calc(var(--sidemenu-width) + 0.5px);
 
   .offcanvas-body {
     padding: 0;
@@ -275,7 +278,10 @@ a {
 
 @media (max-width: 991px) {
   .sidebar {
-    right: -292px;
+    right: calc(
+      var(--sidemenu-width) - (var(--sidemenu-width) + var(--sidemenu-width)) +
+        8px
+    );
     transition: var(--main-transition);
 
     .toggle-panel-active-tabs {

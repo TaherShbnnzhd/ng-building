@@ -16,19 +16,20 @@
 
     <div class="content">
       <div
-        class="content-body col-12"
+        class="content-body"
         [class.full]="menuToggle"
         [class.compact]="!menuToggle">
         <!-- page loading screen -->
-        <div class="loading-content" *ngIf="loading">
-          <block-loading-element></block-loading-element>
+        <div class="loading-content">
+          <block-loading-element [visible]="loading"></block-loading-element>
         </div>
 
         <!-- http error message -->
         <p-toast key="httpErrorMessage" position="bottom-left"></p-toast>
 
+        <!-- route content viewbox -->
         <div
-          class="route-content mt-3"
+          class="route-content container"
           [@routeAnimations]="animationService.getRouteAnimationData()">
           <router-outlet></router-outlet>
         </div>

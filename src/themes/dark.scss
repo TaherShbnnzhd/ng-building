@@ -33,12 +33,15 @@
   --main-item-color: #a5a5a5;
   --main-card-color: #303030;
 
+  --loading-element-color: #00FFE4;
+
   --sidemenu-main-color: #3e3e3e;
   --sidemenu-hilight-color: #fff9e5;
   --sidemenu-item-color: #e2e2e2;
 
-  --main-box-shadow: rgba(13, 13, 13, 0.8) 0px -2px 14px 1px,
-    rgba(20, 20, 20, 0.8) 0px 2px 5px 1px;
+  --main-box-shadow: rgba(13, 13, 13, 0.3) 0px -2px 14px 1px,
+  rgba(20, 20, 20, 0.2) 0px 2px 5px 1px;
+
   --main-card-shadow: 0 4px 10px #0000001b, 0 0 2px #00000025,
     0 2px 6px #00000038;
 }
