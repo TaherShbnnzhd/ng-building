@@ -30,15 +30,17 @@
 
   --loading-element-color: #FF426C;
 
+  --main-card-background: #fff;
+  --main-card-color: #575757;
+  --main-card-border-color: #fff;
+  --main-card-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
   --sidemenu-main-color: #fff;
   --sidemenu-hilight-color: #008fdb;
   --sidemenu-item-color: #222222;
 
   --main-box-shadow: rgba(72, 72, 72, 0.2) 0px -2px 14px 1px,
-    rgba(40, 40, 40, 0.2) 0px 2px 5px 1px;
-
-  --main-card-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
-    rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    rgba(40, 40, 40, 0.13) 0px 2px 5px 1px;
 }
 
 label {

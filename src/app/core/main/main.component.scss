@@ -77,7 +77,8 @@ body {
   }
 
   &.compact {
-    margin: calc(var(--content-height) + 1rem) var(--sidemenu-width) 1rem 1.8rem;
+    margin: calc(var(--content-height) + 1rem)
+      calc(var(--sidemenu-width) + 1rem) 1rem 1.43rem;
   }
 
   .loading-content {
