@@ -290,20 +290,25 @@ html {
 
 /* datatable */
 .p-datatable {
-  .p-datatable-header {
-    padding: 0.5rem 1rem !important;
-    .table-header {
-      align-items: center;
-      font-size: 1.4rem;
-      font-style: revert-layer;
-      font-weight: normal;
-      // color: var(--main-item-color);
-    }
-  }
-
   .p-datatable-wrapper {
     scrollbar-width: thin;
     scrollbar-color: #8b8b8b transparent;
+
+    &::-webkit-scrollbar {
+      height: 7px;
+      width: 7px;
+      background-color: var(--main-color);
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background-color: var(--main-color);
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--main-item-color);
+    }
   }
 
   .p-datatable-thead {
@@ -316,15 +321,17 @@ html {
       }
     }
   }
+
   .p-datatable-thead,
   .p-datatable-tbody {
     tr {
       th,
       td {
-        text-align: start !important;
+        text-align: center !important;
       }
     }
   }
+
   .p-paginator-bottom {
     .p-paginator-first,
     .p-paginator-prev,
