@@ -1,28 +1,45 @@
 <!-- بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم -->
 
 <header
-  class="header py-1 px-4 d-flex align-items-center justify-content-end w-100">
-  <!-- light/dark mode switch -->
-  <div class="mx-2" [pTooltip]="darkmode ? 'حالت روشن' : 'حالت تاریک'">
-    <label class="switch">
-      <input
-        type="checkbox"
-        [checked]="darkmode"
-        (change)="darkmode = !darkmode" />
-      <span class="slider"></span>
-    </label>
+  class="header py-1 px-4 d-flex align-items-center justify-content-between">
+  <!-- mega menu -->
+  <div class="menubar px-3">
+    <a
+      pButton
+      pRipple
+      class="home-botton fs-5 p-button-text p-button-rounded"
+      routerLink=""
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page">
+      <sub class="pb-1 sub-brand"></sub>
+      <strong class="brand">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</strong>
+    </a>
   </div>
-  <!--/ light/dark mode switch -->
-  <!-- signout button -->
-  <button
-    pButton
-    pRipple
-    pTooltip="خروج از حساب کاربری"
-    class="sign-out-button p-button-lg p-button-rounded p-button-text p-button-danger"
-    type="button"
-    icon="mgc_power_fill"
-    (click)="confirmSignout()"></button
-  ><!--/ signout button -->
+  <!-- / mega menu -->
+  <div class="d-flex align-items-center justify-content-center me-1">
+    <!-- light | dark mode switch -->
+    <div class="me-3">
+      <label class="switch">
+        <input
+          type="checkbox"
+          [checked]="darkmode"
+          (change)="darkmode = !darkmode" />
+        <span class="slider"></span>
+      </label>
+    </div>
+    <!-- / light | dark mode switch -->
+    <!-- signout button -->
+    <button
+      *ngIf="authService.getAuthorizationToken()"
+      pButton
+      pRipple
+      pTooltip="خروج از حساب کاربری"
+      class="sign-out-button p-button-lg p-button-rounded p-button-text p-button-danger"
+      type="button"
+      icon="mgc_power_fill"
+      (click)="confirmSignout()"></button
+    ><!--/ signout button -->
+  </div>
 </header>
 
 <p-confirmDialog [style]="{ width: '450px' }" [rtl]="true"></p-confirmDialog>

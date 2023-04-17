@@ -11,23 +11,30 @@ a {
 --------------------------------------------------------------*/
 .sidebar {
   position: fixed;
-  top: 0;
+  top: var(--header-height);
   right: 0;
-  bottom: 0;
   z-index: var(--z-index-sidemenu);
-  transition: var(--main-transition);
   overflow: hidden;
+  transition: var(--main-transition);
 
   .toggle-panel-active-tabs {
     position: fixed;
     left: 2px;
-    width: calc(100% - (var(--sidemenu-width) + 28px));
     top: calc(var(--header-height) + 0.7rem);
     transition: var(--main-transition);
-  }
 
-  .tab-content-wide {
-    width: calc(100% - 2.25rem);
+    &.tab-content-wide {
+      width: calc(100% - 2.25rem);
+    }
+
+    &.tab-content-compact {
+      width: calc(100% - (var(--sidemenu-width) + 28px));
+    }
+
+    &.tab-content-close {
+      width: 13%;
+      opacity: 0;
+    }
   }
 
   .menu-panel::-webkit-scrollbar {
@@ -35,10 +42,8 @@ a {
   }
 
   .menu-panel {
-    top: 0;
-    float: right;
     width: var(--sidemenu-width);
-    height: 100vh;
+    height: calc(100vh - var(--footer-height) - var(--header-height));
     background: var(--sidemenu-main-color);
     overflow-y: scroll;
     scrollbar-width: none;
@@ -56,12 +61,12 @@ a {
     }
 
     &:before {
-      top: var(--header-height);
+      top: 0;
       transform: rotate(180deg);
     }
 
     &:after {
-      bottom: var(--footer-height);
+      bottom: 15px;
       transform: rotate(270deg);
     }
   }
@@ -78,7 +83,7 @@ a {
     .toggle-panel-button {
       cursor: pointer;
       position: relative;
-      top: calc(var(--header-height) + 0.95rem);
+      top: 0.95rem;
 
       .toggle-panel-button-icon {
         display: flex;
@@ -87,6 +92,11 @@ a {
         background-color: var(--sidemenu-main-color);
         height: 3rem;
         border-left: 2px solid var(--main-color);
+
+        &.no-icon {
+          display: none;
+          opacity: 0;
+        }
 
         i {
           &::before {
@@ -119,7 +129,7 @@ a {
   hr.sidebar-divider {
     position: sticky;
     top: 4.4rem;
-    margin: 1rem 1rem 1rem 1rem;
+    margin: 0.8rem 1rem 0 1rem;
     z-index: var(--z-index-sidemenu-header);
   }
 }
@@ -258,7 +268,7 @@ a {
 .sidebar.closed {
   right: calc(
     var(--sidemenu-width) - (var(--sidemenu-width) + var(--sidemenu-width)) +
-      8px
+      7px
   );
   transition: var(--main-transition);
 }

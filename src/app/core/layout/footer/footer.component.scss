@@ -3,15 +3,18 @@
 .footer {
   position: fixed;
   bottom: 0;
+  left: 0;
+  width: 100vw;
   font-size: 14px;
   height: var(--footer-height);
   background-color: var(--sidemenu-main-color);
   box-shadow: var(--main-box-shadow);
   z-index: var(--z-index-footer);
 
-  .version {
+  div {
     font-size: 14px;
     font-weight: 500;
-    color: var(--main-item-color);
+    color: var(--main-card-color);
+    transition: var(--main-transition);
   }
 }

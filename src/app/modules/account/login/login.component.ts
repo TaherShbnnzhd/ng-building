@@ -3,14 +3,19 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
-import { MessageService } from 'primeng/api';
 
 import { tap } from 'rxjs';
+
+import { SidemenuService } from '@core/layout/sidemenu/sidemenu.service';
+import { PersianNumberService } from '@shared/services/persian-number.service';
+
 import { AuthService } from 'src/app/core/authentication/auth.service';
 import { ThemeService } from 'src/app/core/services/theme.service';
 
+import { MessageService } from 'primeng/api';
+
 class LoginModel {
-  mobile = '';
+  username = '';
   password = '';
   rememberMe = false;
 }
@@ -26,13 +31,13 @@ export class LoginComponent implements OnInit {
   public loading = false;
   public submitted = false;
 
-  // Form controll:
+  // Form group:
   public loginForm!: FormGroup;
   public loginModel = new LoginModel();
 
-  // Form controll fields:
-  get mobile() {
-    return this.loginForm.get('mobile');
+  // Form group fields:
+  get username() {
+    return this.loginForm.get('username');
   }
 
   get password() {
@@ -47,16 +52,13 @@ export class LoginComponent implements OnInit {
     public authService: AuthService,
     public router: Router,
     public themeService: ThemeService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private sidemenuService: SidemenuService
   ) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      mobile: new FormControl(this.loginModel.mobile, [
-        Validators.required,
-        Validators.minLength(11),
-        Validators.maxLength(11),
-      ]),
+      username: new FormControl(this.loginModel.username, Validators.required),
       password: new FormControl(this.loginModel.password, [
         Validators.required,
         Validators.minLength(8),
@@ -70,12 +72,12 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
 
     if (this.loginForm.valid) {
-      const { mobile, password, rememberMe } = this.loginForm.value;
+      const { username, password, rememberMe } = this.loginForm.value;
 
       this.loading = true;
 
       this.authService
-        .logIn(mobile, password)
+        .logIn(PersianNumberService.toEnglish(username), password)
         .pipe(tap(() => (this.loading = false)))
         .subscribe(isValid => {
           if (isValid) {
@@ -97,6 +99,7 @@ export class LoginComponent implements OnInit {
 
             // Redirect the user
             this.router.navigate([redirectUrl], navigationExtras);
+            this.sidemenuService.open();
           } else {
             this.messageService.add({
               key: 'httpErrorMessage',

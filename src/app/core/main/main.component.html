@@ -1,31 +1,35 @@
 <!-- بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم -->
 
-<body>
+<main>
   <div class="container-fluid">
     <!-- Header -->
-    <block-header class="content-header"> </block-header>
+    <block-header></block-header>
+    <!-- / Header -->
 
     <!-- Sidemenu -->
-    <div class="menu">
-      <block-sidemenu
-        #sidemenu
-        (hasClosed)="menuToggle = $event"></block-sidemenu>
-    </div>
+    <block-sidemenu [innerWidth]="innerWidth"></block-sidemenu>
+    <!-- / Sidemenu -->
 
+    <!-- / Left frame -->
     <div class="left-frame"></div>
+    <!-- / Left frame -->
 
+    <!-- Main content -->
     <div class="content">
+      <!-- Main content body -->
       <div
         class="content-body"
-        [class.full]="menuToggle"
-        [class.compact]="!menuToggle">
+        [class.full]="innerWidth < 991 || sidemenuService.isClose()"
+        [class.compact]="innerWidth > 991 && !sidemenuService.isClose()">
         <!-- page loading screen -->
         <div class="loading-content">
           <block-loading-element [visible]="loading"></block-loading-element>
         </div>
+        <!-- / Page loading screen -->
 
         <!-- http error message -->
         <p-toast key="httpErrorMessage" position="bottom-left"></p-toast>
+        <!-- / Http error message -->
 
         <!-- route content viewbox -->
         <div
@@ -33,14 +37,17 @@
           [@routeAnimations]="animationService.getRouteAnimationData()">
           <router-outlet></router-outlet>
         </div>
+        <!-- / Route content viewbox -->
       </div>
-
-      <div class="mt-2">
-        <block-footer
-          [currentApplicationVersion]="
-            currentApplicationVersion
-          "></block-footer>
-      </div>
+      <!-- / Main content body -->
     </div>
+    <!-- / Main content -->
+
+    <!-- Footer -->
+    <div class="mt-2">
+      <block-footer [currentApplicationVersion]="currentApplicationVersion">
+      </block-footer>
+    </div>
+    <!-- / Footer -->
   </div>
-</body>
+</main>

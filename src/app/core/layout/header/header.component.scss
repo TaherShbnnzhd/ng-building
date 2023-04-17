@@ -2,16 +2,32 @@
 
 .header {
   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
   height: var(--header-height);
   background-color: var(--sidemenu-main-color);
   box-shadow: var(--main-box-shadow);
-  transition: all 0.2s;
   z-index: var(--z-index-header);
 
-  .sign-out-button {
-    color: var(--main-item-color);
-  }
+  .home-botton {
+    text-decoration: none;
+    color: var(--main-hilight-color);
+    transition: var(--main-transition);
 
+    &:focus {
+      box-shadow: 0 0 0 0.2rem transparent;
+    }
+
+    .brand {
+      letter-spacing: 1.3px;
+    }
+
+    .sub-brand {
+      letter-spacing: 2px;
+      padding-left: 2px;
+    }
+  }
   /* The switch - the box around the slider */
   .switch {
     --width-of-switch: 3.2em;
@@ -23,6 +39,7 @@
     position: relative;
     width: var(--width-of-switch);
     height: var(--height-of-switch);
+    transition: var(--main-transition);
   }
 
   /* Hide default HTML checkbox */
@@ -40,7 +57,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--main-item-color);
+    background-color: var(--main-color);
     transition: 0.4s;
     border-radius: 13px;
   }
@@ -59,7 +76,7 @@
   }
 
   input:checked + .slider {
-    background-color: var(--main-item-color);
+    background-color: var(--main-color);
   }
 
   input:checked + .slider:before {

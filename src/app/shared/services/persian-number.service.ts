@@ -97,11 +97,7 @@ export class PersianNumberService {
    * @param value
    */
   public toPersian(value: string | number): string {
-    if (value === undefined || value === null) {
-      throw new Error(
-        'PersianNumberService: Invalid value has been passed to the service.'
-      );
-    }
+    if (value === undefined || value === null) return '';
 
     let persianValue: string = value.toString();
 
@@ -130,6 +126,35 @@ export class PersianNumberService {
    * @param value
    */
   public toEnglish(value: string): string {
+    if (value === undefined || value === null) return '';
+
+    let englishValue: string = value;
+
+    let regex: RegExp;
+
+    for (let i = 0; i < PersianNumberService.englishNumbersTable.length; i++) {
+      // Language=JSRegexp
+      regex = new RegExp(
+        `[${PersianNumberService.persianNumbersTable[i]}]`,
+        'g'
+      );
+
+      englishValue = englishValue.replace(
+        regex,
+        PersianNumberService.englishNumbersTable[i]
+      );
+    }
+
+    return englishValue;
+  }
+  /**
+   * Convert persian numbers in input value to the english numbers.
+   *
+   * @param value
+   */
+  static toEnglish(value: string): string {
+    if (value === undefined || value === null) return '';
+
     let englishValue: string = value;
 
     let regex: RegExp;

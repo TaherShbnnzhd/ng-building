@@ -69,7 +69,7 @@ export class StoredRoutesService {
    * Remove all routes with thier data form route storage objects holder
    */
   clearStoredRoutes() {
-    this.storedRoutes = [];
+    this.storedRoutes.splice(0, this.storedRoutes.length);
   }
 
   /**

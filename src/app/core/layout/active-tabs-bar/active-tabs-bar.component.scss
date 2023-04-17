@@ -1,4 +1,32 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
+.section {
+  transition: var(--main-transition);
+
+  .navigation-tab {
+    width: 14.2rem;
+
+    .p-buttonset {
+      .p-button:first-of-type {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 2px !important;
+        border-bottom-right-radius: 2px !important;
+      }
+
+      .p-button:last-of-type {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 2px !important;
+        border-bottom-left-radius: 2px !important;
+      }
+    }
+
+    .navigation-tab-wrapper {
+      display: inline-flex;
+      justify-content: space-between;
+    }
+  }
+}
 
 :host ::ng-deep .p-toolbar {
   justify-content: flex-start;
@@ -49,30 +77,5 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-}
-
-.navigation-tab {
-  width: 14.2rem;
-
-  .p-buttonset {
-    .p-button:first-of-type {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-      border-top-right-radius: 2px !important;
-      border-bottom-right-radius: 2px !important;
-    }
-
-    .p-button:last-of-type {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-      border-top-left-radius: 2px !important;
-      border-bottom-left-radius: 2px !important;
-    }
-  }
-
-  .navigation-tab-wrapper {
-    display: inline-flex;
-    justify-content: space-between;
   }
 }

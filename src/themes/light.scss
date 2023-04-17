@@ -3,7 +3,7 @@
 /*--------------------------------------------------------------
 # PrimeNG Theme
 --------------------------------------------------------------*/
-@import 'primeng/resources/themes/saga-blue/theme.css';
+@import 'primeng/resources/themes/viva-light/theme.css';
 
 /*--------------------------------------------------------------
 # Boostrap Variables
@@ -23,24 +23,27 @@
 # Main color palette
 --------------------------------------------------------------*/
 :root {
-  --main-color: #f6f6f6;
-  --main-hilight-color: #0071af;
-  --main-item-color: #8b8b8b;
-  --main-card-color: #fdfdfd;
+  --main-color: #f4f7ff;
+  --main-hilight-color: #2e3192;
+  --main-item-color: #bbc5e2;
 
-  --loading-element-color: #FF426C;
+  --loading-element-color: #003ef8;
 
   --main-card-background: #fff;
   --main-card-color: #575757;
-  --main-card-border-color: #fff;
-  --main-card-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --main-card-border-color: #e1e1f7;
+  --main-card-shadow: rgba(1, 7, 114, 0.1) 0px 25px 20px -20px;
+  --main-card-hover-shadow: 0 0 0 1px #4a4a4a, 0 0 0 4px transparent,
+    0 2px 12px 0 rgba(96, 101, 105, 0.2);
 
-  --sidemenu-main-color: #fff;
-  --sidemenu-hilight-color: #008fdb;
+  --sidemenu-main-color: #fcfdff;
+  --sidemenu-hilight-color: #003ef8;
   --sidemenu-item-color: #222222;
 
-  --main-box-shadow: rgba(72, 72, 72, 0.2) 0px -2px 14px 1px,
-    rgba(40, 40, 40, 0.13) 0px 2px 5px 1px;
+  --main-gradiant: linear-gradient(25deg, #dae4ff, #fff 85%);
+
+  --main-box-shadow: rgba(1, 7, 114, 0.05) 0px -2px 14px 1px,
+    rgba(1, 7, 114, 0.05) 0px 2px 5px 1px;
 }
 
 label {

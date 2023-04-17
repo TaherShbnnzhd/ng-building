@@ -30,6 +30,7 @@ import { HttpService } from './http/http.service';
 import { StoredRoutesService } from './services/route-reuse-strategy/stored-routes.service';
 import { RouteReuseService } from './services/route-reuse-strategy/route-reuse.service';
 import { ThemeService } from './services/theme.service';
+import { SidemenuService } from './layout/sidemenu/sidemenu.service';
 
 /* PrimeNG */
 import { ButtonModule } from 'primeng/button';
@@ -74,6 +75,7 @@ import { RippleModule } from 'primeng/ripple';
     MessageService,
     StoredRoutesService,
     ThemeService,
+    SidemenuService,
     { provide: RouteReuseStrategy, useClass: RouteReuseService },
     { provide: RequestCache, useClass: RequestCacheWithMap },
     httpInterceptorProviders,

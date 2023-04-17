@@ -12,16 +12,12 @@ main {
   }
 }
 
-.border-round {
-  border-radius: var(--border-radius) !important;
-}
-
 .shadow-2 {
   box-shadow: var(--main-card-shadow) !important;
 }
 
 .text-hilight {
-  color: var(--sidemenu-hilight-color) !important;
+  color: var(--main-hilight-color) !important;
 }
 
 .font-medium {

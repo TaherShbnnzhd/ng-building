@@ -1,18 +1,21 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import {
-  ActivatedRoute,
-  NavigationCancel,
   NavigationEnd,
-  NavigationError,
-  NavigationStart,
   Router,
+  NavigationStart,
+  NavigationCancel,
+  NavigationError,
   Event,
+  RouterEvent,
 } from '@angular/router';
+
+import { SidemenuService } from '@core/layout/sidemenu/sidemenu.service';
+
 import { fadeInAnimation } from '@shared/animations/transition.animation';
 import { AnimationService } from '@shared/services/animation.service';
-import { filter, map } from 'rxjs';
+
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -23,17 +26,19 @@ import { environment } from 'src/environments/environment';
   providers: [AnimationService],
 })
 export class MainComponent implements OnInit {
-  public menuToggle = false;
+  /** Components loading. */
+  loading = false;
 
-  public pageTitle = '';
+  /** Current application version. */
+  currentApplicationVersion!: string;
 
-  public loading = false;
-
-  public currentApplicationVersion!: string;
+  /** Width of the screen. */
+  innerWidth!: number;
 
   constructor(
     private router: Router,
-    public animationService: AnimationService
+    public animationService: AnimationService,
+    public sidemenuService: SidemenuService
   ) {
     this.router.events.subscribe((event: Event) => {
       switch (true) {
@@ -45,6 +50,9 @@ export class MainComponent implements OnInit {
         case event instanceof NavigationEnd:
         case event instanceof NavigationCancel:
         case event instanceof NavigationError: {
+          this.sidemenuService.menu.next(
+            (event as RouterEvent).url.split('/')[1]
+          );
           this.loading = false;
           break;
         }
@@ -57,26 +65,23 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentApplicationVersion = environment.appVersion;
+    this.innerWidth = window.innerWidth;
+    this.offcanvasModeDetection(window.innerWidth);
+  }
 
-    this.router.events
-      .pipe(
-        filter(event => event instanceof NavigationEnd),
-        map(() => {
-          let route: ActivatedRoute = this.router.routerState.root;
-          let routeTitle = '';
-          while (route?.firstChild) {
-            route = route.firstChild;
-          }
-          if (route.snapshot.data['title']) {
-            routeTitle = route?.snapshot.data['title'];
-          }
-          return routeTitle;
-        })
-      )
-      .subscribe((title: string) => {
-        if (title) {
-          this.pageTitle = title;
-        }
-      });
+  /** Get width of the screen */
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.innerWidth = window.innerWidth;
+    this.offcanvasModeDetection(window.innerWidth);
+  }
+
+  /**
+   * Detect sidemenu offcanvas mode.
+   * @param innerWidth windows width
+   */
+  private offcanvasModeDetection(innerWidth: number) {
+    if (innerWidth < 991) this.sidemenuService.offcanvasMode = true;
+    else this.sidemenuService.offcanvasMode = false;
   }
 }

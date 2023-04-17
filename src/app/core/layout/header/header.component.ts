@@ -3,11 +3,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ConfirmationService } from 'primeng/api';
-
 import { AuthService } from '../../authentication/auth.service';
 import { StoredRoutesService } from '../../services/route-reuse-strategy/stored-routes.service';
 import { ThemeService } from '../../services/theme.service';
+import { SidemenuService } from '../sidemenu/sidemenu.service';
+
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'block-header',
@@ -27,7 +28,8 @@ export class HeaderComponent implements OnInit {
   }
 
   constructor(
-    private authService: AuthService,
+    public authService: AuthService,
+    private sidemenuService: SidemenuService,
     private router: Router,
     private confirmationService: ConfirmationService,
     private themeService: ThemeService,
@@ -56,9 +58,10 @@ export class HeaderComponent implements OnInit {
 
   /** Sign out */
   signout() {
+    this.storedRoutesService.clearStoredRoutes();
+    this.sidemenuService.close();
     this.authService.logOut();
     this.router.navigate(['/account/login']);
-    this.storedRoutesService.clearStoredRoutes();
   }
 
   /**

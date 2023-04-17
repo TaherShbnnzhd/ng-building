@@ -1,5 +1,23 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
+/** حالت پیش فرض جواب  */
+export class BaseResponse<type> {
+  /** وضعیت انجام عملیات */
+  success!: boolean;
+
+  /** متن خظا در صورت انجام نشدن عمیات */
+  errorMessage!: string;
+
+  /** فهرست فیلدها */
+  data?: type;
+
+  /** توکن*/
+  token?: string;
+
+  /** تعداد کل اطلاعات */
+  totalCount?: number;
+}
+
 export interface IUser {
   id: number;
   name: string;

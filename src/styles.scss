@@ -515,13 +515,11 @@ html {
 .card {
   margin-top: 10px;
   margin-bottom: 30px;
-
+  border-radius: 20px !important;
   box-shadow: var(--main-card-shadow);
   background-color: var(--main-card-background) !important;
   color: var(--sidemenu-main-color) !important;
-
   border-color: var(--main-card-border-color) !important;
-  border-radius: 1rem !important;
 
   .card-header,
   .card-footer {
@@ -543,6 +541,7 @@ html {
 
     .card-text {
       padding-top: 0.5rem;
+      color: var(--main-card-color);
     }
   }
 

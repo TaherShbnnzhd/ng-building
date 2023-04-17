@@ -5,10 +5,12 @@ import { Injectable } from '@angular/core';
 
 import { catchError, map, Observable } from 'rxjs';
 
+import { ICustomer } from '@shared/models/customer.model';
+import { BaseResponse } from '@shared/models/response.model';
+
 import { AppConfigService } from '../services/app-config.service';
 import { HttpErrorHandlerService } from './http-error-handler/http-error-handler.service';
 import { HandleError } from './http-error-handler/http-error-handler.type';
-import { ICustomer } from '@shared/models/customer.model';
 import { RETRY_COUNT } from '../interceptors/retry.interceptor';
 
 @Injectable()
@@ -56,6 +58,35 @@ export class HttpService {
         context: new HttpContext().set(RETRY_COUNT, retryCount),
       })
       .pipe(catchError(this.handleError('get', new type())));
+  }
+
+  /**
+   * POST: pass params and fetch data
+   * @param type Api response type
+   * @param url Api address
+   * @param params Api paramiters
+   * @param retryCount Api retry count
+   * @returns Observable of response type
+   */
+  post<T>(
+    url: string,
+    params: unknown,
+    retryCount = 1
+  ): Observable<BaseResponse<T>> {
+    return this.http
+      .post<BaseResponse<T>>(this.config.getAddress('baseUrl') + url, params, {
+        context: new HttpContext().set(RETRY_COUNT, retryCount),
+      })
+      .pipe(
+        catchError(this.handleError('post', new BaseResponse<T>())),
+        map(response => {
+          if (response && response.data && typeof response.data === 'string') {
+            response.data = JSON.parse(response.data);
+            return response;
+          }
+          return response;
+        })
+      );
   }
 
   /** GET: fetch file from assets */
