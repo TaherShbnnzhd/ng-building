@@ -69,6 +69,7 @@ main {
 
         .loading-content {
           position: fixed;
+          top: var(--header-height);
           z-index: var(--z-index-main-loading);
           height: var(--loading-element-size);
           text-align: center;
