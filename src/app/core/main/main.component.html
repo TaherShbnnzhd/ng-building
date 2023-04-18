@@ -19,8 +19,12 @@
       <!-- Main content body -->
       <div
         class="content-body"
-        [class.full]="innerWidth < 991 || sidemenuService.isClose()"
-        [class.compact]="innerWidth > 991 && !sidemenuService.isClose()">
+        [class.full]="
+          sidemenuService.offcanvasMode || sidemenuService.isClose()
+        "
+        [class.compact]="
+          !sidemenuService.offcanvasMode && !sidemenuService.isClose()
+        ">
         <!-- page loading screen -->
         <div class="loading-content">
           <block-loading-element [visible]="loading"></block-loading-element>
