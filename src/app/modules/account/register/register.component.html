@@ -5,17 +5,27 @@
     <div class="card-body">
       <div class="row">
         <div class="col-md-12 col-xl-5 order-xl-2 order-lg-1 bordered-box">
-          <div
-            class="d-flex flex-column jc-center ai-center mt-xl-3 h-100 w-100">
-            <div class="col-xl-12 text-xl-center text-md-start mb-2 py-lg-3">
+          <div class="row d-flex jc-center ai-center mt-xl-4">
+            <div class="col-xl-12 text-xl-center text-md-start mb-2">
               <div class="text-900 display-6 font-medium mb-xl-4 mb-md-0">
-                <strong> ساخت حساب کاربری </strong>
+                <strong> ثبت نام </strong>
               </div>
+
+              <span class="text-600 font-medium line-height-3">
+                ثبت نام انجام شد؟
+              </span>
+
+              <a
+                class="active-link font-medium no-underline text-hilight cursor-pointer"
+                routerLink="/account/login"
+                ariaCurrentWhenActive="page">
+                <strong> از اینجا وارد شو! </strong>
+              </a>
             </div>
             <!-- light theme sign in -->
             <svg
               *ngIf="themeService.theme === 'light-theme'"
-              class="col-xl-12 col-md-2 d-xl-block d-none rounded mb-xl-4"
+              class="col-xl-12 d-xl-block d-none rounded mt-4"
               width="315"
               height="210"
               viewBox="0 0 900 600"
@@ -108,7 +118,7 @@
             <!-- dark theme sign in -->
             <svg
               *ngIf="themeService.theme === 'dark-theme'"
-              class="col-xl-12 col-md-2 d-xl-block d-none rounded mb-xl-4"
+              class="col-xl-12 d-xl-block d-none rounded mt-4"
               width="315"
               height="210"
               viewBox="0 0 900 600"
