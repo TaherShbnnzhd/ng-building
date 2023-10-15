@@ -15,7 +15,11 @@
       left: -100%;
       width: 100%;
       height: var(--loading-element-size);
-      background: linear-gradient(90deg, transparent, var(--loading-element-color));
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--loading-element-color)
+      );
       animation: progress-animation 1.3s linear infinite;
     }
   }
