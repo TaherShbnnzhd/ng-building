@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { SharedModule } from '@shared/shared.module';
+import { FaNumPipe } from '@shared/pipes';
 
 import { AccountRoutingModule } from './account-routing.module';
 import { AccountComponent } from './account.component';
@@ -28,7 +28,6 @@ import { InputTextModule } from 'primeng/inputtext';
     FormsModule,
     ReactiveFormsModule,
     NgOptimizedImage,
-    SharedModule,
     ButtonModule,
     CheckboxModule,
     InputMaskModule,
@@ -36,6 +35,7 @@ import { InputTextModule } from 'primeng/inputtext';
     ToastModule,
     RippleModule,
     InputTextModule,
+    FaNumPipe,
   ],
 })
 export class AccountModule {}

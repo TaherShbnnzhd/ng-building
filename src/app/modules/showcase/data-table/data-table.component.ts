@@ -1,9 +1,12 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 import { Component, OnInit } from '@angular/core';
-import { ICustomer, IRepresentative } from '@shared/models/customer.model';
-import { HttpService } from 'src/app/core/http/http.service';
-import { AppConfigService } from 'src/app/core/services/app-config.service';
+
+import { HttpService } from '@core/http';
+import { AppConfigService } from '@core/services';
+import { Customer, IRepresentative } from '@shared/models';
+
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'block-data-table',
@@ -11,9 +14,9 @@ import { AppConfigService } from 'src/app/core/services/app-config.service';
   styleUrls: ['./data-table.component.scss'],
 })
 export class DataTableComponent implements OnInit {
-  public customers!: ICustomer[];
+  public customers!: Customer[];
 
-  public selectedCustomers!: ICustomer[];
+  public selectedCustomers!: Customer[];
 
   public representatives!: IRepresentative[];
 
@@ -24,21 +27,21 @@ export class DataTableComponent implements OnInit {
   public activityValues: number[] = [0, 100];
 
   constructor(
-    private customerService: HttpService,
+    private httpService: HttpService,
     private config: AppConfigService
   ) {}
 
   ngOnInit(): void {
-    this.customerService
-      .getCustomers(this.config.getAddress('customers-small'), 2)
-      .subscribe(customers => {
-        this.customers = customers;
-
-        this.loading = false;
-
-        this.customers.forEach(
-          customer => (customer.date = new Date(customer.date as Date))
-        );
+    this.httpService
+      .get<Customer>(this.config.getAddress('customers'), 2)
+      .pipe(tap(() => (this.loading = false)))
+      .subscribe(response => {
+        if (response?.data) {
+          response.data.forEach(customer => {
+            customer.date = new Date(customer.date as Date);
+            this.customers.push(customer);
+          });
+        }
       });
 
     this.representatives = [

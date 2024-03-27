@@ -1,7 +1,8 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 import { Component, OnInit } from '@angular/core';
-import { JDate } from '@shared/utilities/JDate/jdate';
+
+import { JDate } from '@shared/utilities';
 
 @Component({
   selector: 'block-calendar-demo',

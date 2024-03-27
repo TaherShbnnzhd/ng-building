@@ -7,3 +7,4 @@ export * from './loading-element/loading-element.component';
 export * from './sidemenu/sidemenu.component';
 export * from './sidemenu/sidemenu.interface';
 export * from './sidemenu/sidemenu.service';
+export * from './page-not-found/page-not-found.component';

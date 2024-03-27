@@ -1,8 +1,10 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 import { Component, OnInit } from '@angular/core';
+
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ThemeService } from 'src/app/core/services/theme.service';
+
+import { ThemeService } from '@core/services';
 
 class RegisterModel {
   userName = '';

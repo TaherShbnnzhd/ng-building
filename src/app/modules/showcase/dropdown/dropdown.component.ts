@@ -2,7 +2,8 @@
 
 import { Component } from '@angular/core';
 
-import { ICity } from '@shared/models/catalog.model';
+import { ICity } from '@shared/models';
+
 import { SelectItem, SelectItemGroup } from 'primeng/api';
 
 @Component({

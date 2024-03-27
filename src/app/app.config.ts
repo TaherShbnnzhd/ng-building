@@ -7,6 +7,8 @@ import {
   provideRouter,
   withPreloading,
 } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 import {
   AppConfigService,
@@ -29,32 +31,33 @@ import { tap } from 'rxjs';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes, withPreloading(PreloadAllModules))],
-};
-
-export const appProviders = [
-  AppConfigService,
-  HttpService,
-  HttpErrorHandlerService,
-  LogService,
-  AuthService,
-  MessageService,
-  StoredRoutesService,
-  ThemeService,
-  AnimationService,
-  SidemenuService,
-  { provide: RouteReuseStrategy, useClass: RouteReuseService },
-  { provide: RequestCache, useClass: RequestCacheWithMap },
-  httpInterceptorProviders,
-  {
-    provide: APP_INITIALIZER,
-    deps: [AppConfigService],
-    multi: true,
-    useFactory: (appConfigService: AppConfigService) => {
-      return () =>
-        appConfigService
-          .loadAppConfig()
-          .pipe(tap(config => appConfigService.setAppConfig(config)));
+  providers: [
+    provideRouter(routes, withPreloading(PreloadAllModules)),
+    provideHttpClient(),
+    provideAnimations(),
+    AppConfigService,
+    HttpService,
+    HttpErrorHandlerService,
+    LogService,
+    AuthService,
+    MessageService,
+    StoredRoutesService,
+    ThemeService,
+    AnimationService,
+    SidemenuService,
+    { provide: RouteReuseStrategy, useClass: RouteReuseService },
+    { provide: RequestCache, useClass: RequestCacheWithMap },
+    httpInterceptorProviders,
+    {
+      provide: APP_INITIALIZER,
+      deps: [AppConfigService],
+      multi: true,
+      useFactory: (appConfigService: AppConfigService) => {
+        return () =>
+          appConfigService
+            .loadAppConfig()
+            .pipe(tap(config => appConfigService.setAppConfig(config)));
+      },
     },
-  },
-];
+  ],
+};

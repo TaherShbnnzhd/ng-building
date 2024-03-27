@@ -3,8 +3,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { CalendarComponent } from '@shared/components';
+
 import { ShowcaseRoutingModule } from './showcase-routing.module';
-import { SharedModule } from '@shared/shared.module';
 
 import { AlertsComponent } from './alerts/alerts.component';
 import { AccordionComponent } from './accordion/accordion.component';
@@ -13,7 +15,7 @@ import { ModalComponent } from './modal/modal.component';
 import { TabComponent } from './tab/tab.component';
 import { ProgressComponent } from './progress/progress.component';
 import { ShowcaseComponent } from './showcase.component';
-import { DataTableComponent } from './tables/data-table/data-table.component';
+import { DataTableComponent } from './data-table/data-table.component';
 import { BootstrapiconComponent } from './bootstrapicon/bootstrapicon.component';
 import { CalendarDemoComponent } from './calendar-demo/calendar-demo.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
@@ -37,6 +39,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { SkeletonModule } from 'primeng/skeleton';
 import { FileUploadModule } from 'primeng/fileupload';
 import { ToastModule } from 'primeng/toast';
+import { FaNumPipe, IRCurrencyPipe, JDatePipe } from '@shared/pipes';
 
 @NgModule({
   declarations: [
@@ -58,7 +61,6 @@ import { ToastModule } from 'primeng/toast';
     ReactiveFormsModule,
     ShowcaseRoutingModule,
     FormsModule,
-    SharedModule,
     MessagesModule,
     MessageModule,
     ButtonModule,
@@ -76,6 +78,10 @@ import { ToastModule } from 'primeng/toast';
     SkeletonModule,
     FileUploadModule,
     ToastModule,
+    CalendarComponent,
+    FaNumPipe,
+    JDatePipe,
+    IRCurrencyPipe,
   ],
 })
 export class ShowcaseModule {}

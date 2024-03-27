@@ -3,7 +3,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { authGuard } from 'src/app/core/guards/auth/auth.guard';
+import { authGuard } from '@core/authentication';
 
 import { AccordionComponent } from './accordion/accordion.component';
 import { AlertsComponent } from './alerts/alerts.component';
@@ -15,7 +15,7 @@ import { ModalComponent } from './modal/modal.component';
 import { ProgressComponent } from './progress/progress.component';
 import { ShowcaseComponent } from './showcase.component';
 import { TabComponent } from './tab/tab.component';
-import { DataTableComponent } from './tables/data-table/data-table.component';
+import { DataTableComponent } from './data-table/data-table.component';
 import { UploadComponent } from './upload/upload.component';
 
 const routes: Routes = [

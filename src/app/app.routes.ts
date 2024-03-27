@@ -2,9 +2,9 @@
 
 import { Routes } from '@angular/router';
 
-import { authGuard } from '@core/guards/auth/auth.guard';
-import { PageNotFoundComponent } from '@core/layout/page-not-found/page-not-found.component';
-import { MainComponent } from '@core/main/main.component';
+import { MainComponent } from '@core/main';
+import { authGuard } from '@core/authentication';
+import { PageNotFoundComponent } from '@core/layout';
 
 import { AccountModule } from './modules/account/account.module';
 

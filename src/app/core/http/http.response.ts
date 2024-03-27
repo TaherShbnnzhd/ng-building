@@ -9,7 +9,7 @@ export class BaseResponse<type> {
   errorMessage!: string;
 
   /** فهرست فیلدها */
-  data?: type;
+  data?: type[];
 
   /** توکن*/
   token?: string;

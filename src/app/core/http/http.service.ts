@@ -3,7 +3,7 @@
 import { HttpClient, HttpContext } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { catchError, map, Observable } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 
 import { BaseResponse } from './http.response';
 import { HttpErrorHandlerService } from './http-error-handler/http-error-handler.service';
@@ -30,16 +30,12 @@ export class HttpService {
    * @param retryCount Api retry count
    * @returns Observable of response type
    */
-  public get<T>(
-    type: { new (): T },
-    url: string,
-    retryCount = 1
-  ): Observable<T> {
+  public get<T>(url: string, retryCount = 1): Observable<BaseResponse<T>> {
     return this.http
-      .get<T>(this.config.getAddress('baseUrl') + url, {
+      .get<BaseResponse<T>>(this.config.getAddress('baseUrl') + url, {
         context: new HttpContext().set(RETRY_COUNT, retryCount),
       })
-      .pipe(catchError(this.handleError('get', new type())));
+      .pipe(catchError(this.handleError('get', new BaseResponse<T>())));
   }
 
   /**
@@ -59,16 +55,7 @@ export class HttpService {
       .post<BaseResponse<T>>(this.config.getAddress('baseUrl') + url, params, {
         context: new HttpContext().set(RETRY_COUNT, retryCount),
       })
-      .pipe(
-        catchError(this.handleError('post', new BaseResponse<T>())),
-        map(response => {
-          if (response && response.data && typeof response.data === 'string') {
-            response.data = JSON.parse(response.data);
-            return response;
-          }
-          return response;
-        })
-      );
+      .pipe(catchError(this.handleError('post', new BaseResponse<T>())));
   }
 
   /**

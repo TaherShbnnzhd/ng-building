@@ -4,14 +4,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
 
+import { AuthService } from '@core/authentication';
+import { SidemenuService } from '@core/layout';
+import { ThemeService } from '@core/services';
+import { PersianNumberService } from '@shared/services';
+
 import { tap } from 'rxjs';
-
-import { SidemenuService } from '@core/layout/sidemenu/sidemenu.service';
-import { PersianNumberService } from '@shared/services/persian-number.service';
-
-import { AuthService } from 'src/app/core/authentication/auth.service';
-import { ThemeService } from 'src/app/core/services/theme.service';
-
 import { MessageService } from 'primeng/api';
 
 class LoginModel {

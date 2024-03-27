@@ -2,8 +2,7 @@
 
 import { Component } from '@angular/core';
 
-import { fadeInAnimation } from '@shared/animations/animation.transition';
-import { AnimationService } from '@shared/services/animation.service';
+import { AnimationService, fadeInAnimation } from '@shared/animations';
 
 @Component({
   selector: 'block-home',

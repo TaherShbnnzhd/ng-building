@@ -2,8 +2,7 @@
 
 import { Component } from '@angular/core';
 
-import { slideInAnimation } from '@shared/animations/animation.transition';
-import { AnimationService } from '@shared/services/animation.service';
+import { AnimationService, slideInAnimation } from '@shared/animations';
 
 @Component({
   selector: 'block-showcase',

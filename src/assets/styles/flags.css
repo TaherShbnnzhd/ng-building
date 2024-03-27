@@ -1,4 +1,5 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
+
 span.flag {
   width: 44px;
   height: 30px;
@@ -8,7 +9,7 @@ img.flag {
   width: 30px;
 }
 .flag {
-  background: url('../images/demo/flag/flags_responsive.png') no-repeat;
+  background: url('../images/flags/flags_responsive.png') no-repeat;
   background-size: 100%;
   vertical-align: middle;
 }

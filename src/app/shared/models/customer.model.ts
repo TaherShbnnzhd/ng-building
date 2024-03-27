@@ -10,7 +10,7 @@ export interface IRepresentative {
   image?: string;
 }
 
-export interface ICustomer {
+export class Customer {
   id?: number;
   name?: string;
   country?: ICountry;
