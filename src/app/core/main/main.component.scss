@@ -12,17 +12,17 @@ main {
 
     .compact-header {
       ::ng-deep {
-      .home-botton {
-        padding-right: var(--sidemenu-width);
-      }
+        .home-botton {
+          padding-right: var(--sidemenu-width);
+        }
       }
     }
 
     .compact-footer {
       ::ng-deep {
-      .copy-right {
-        padding-right: var(--sidemenu-width);
-      }
+        .copy-right {
+          padding-right: var(--sidemenu-width);
+        }
       }
     }
 
@@ -63,7 +63,8 @@ main {
         }
 
         &.compact {
-          margin: calc(var(--content-height) + 1rem) calc(var(--sidemenu-width) + 1rem) 1rem 1.43rem;
+          margin: calc(var(--content-height) + 1rem)
+            calc(var(--sidemenu-width) + 1rem) 1rem 1.43rem;
         }
 
         .loading-content {

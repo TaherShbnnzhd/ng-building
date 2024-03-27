@@ -16,6 +16,7 @@
     </a>
   </div>
   <!-- / mega menu -->
+
   <div class="d-flex align-items-center justify-content-center me-1">
     <!-- light | dark mode switch -->
     <div class="me-3">
@@ -28,17 +29,18 @@
       </label>
     </div>
     <!-- / light | dark mode switch -->
+
     <!-- signout button -->
+    @if (authService.getAuthorizationToken()) {
     <button
-      *ngIf="authService.getAuthorizationToken()"
       pButton
       pRipple
       pTooltip="خروج از حساب کاربری"
       class="sign-out-button p-button-lg p-button-rounded p-button-text p-button-danger"
       type="button"
       icon="mgc_power_fill"
-      (click)="confirmSignout()"></button
-    ><!--/ signout button -->
+      (click)="confirmSignout()"></button>
+    }<!--/ signout button -->
   </div>
 </header>
 
