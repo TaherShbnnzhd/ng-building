@@ -3,10 +3,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { HttpService } from '@core/http';
-import { AppConfigService } from '@core/services';
 import { Customer, IRepresentative } from '@shared/models';
 
-import { tap } from 'rxjs';
+import { map, tap } from 'rxjs';
 
 @Component({
   selector: 'block-data-table',
@@ -14,33 +13,36 @@ import { tap } from 'rxjs';
   styleUrls: ['./data-table.component.scss'],
 })
 export class DataTableComponent implements OnInit {
-  public customers!: Customer[];
+  customers: Customer[] = [];
+  selectedCustomers!: Customer[];
+  representatives!: IRepresentative[];
+  statuses!: { label: string; value: string }[];
+  loading = true;
+  activityValues: number[] = [0, 100];
 
-  public selectedCustomers!: Customer[];
-
-  public representatives!: IRepresentative[];
-
-  public statuses!: { label: string; value: string }[];
-
-  public loading = true;
-
-  public activityValues: number[] = [0, 100];
-
-  constructor(
-    private httpService: HttpService,
-    private config: AppConfigService
-  ) {}
+  constructor(private httpService: HttpService) {}
 
   ngOnInit(): void {
     this.httpService
-      .get<Customer>(this.config.getAddress('customers'), 2)
-      .pipe(tap(() => (this.loading = false)))
-      .subscribe(response => {
-        if (response?.data) {
-          response.data.forEach(customer => {
+      .get<Customer>('customers', 2)
+      .pipe(
+        tap(() => (this.loading = false)),
+        map(response => {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          if ((response as any)['customers']) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            return (response as any)['customers'];
+          } else [];
+        })
+      )
+      .subscribe((response: Customer[]) => {
+        if (response) {
+          response.forEach(customer => {
             customer.date = new Date(customer.date as Date);
             this.customers.push(customer);
           });
+
+          console.log(this.customers);
         }
       });
 

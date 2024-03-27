@@ -10,13 +10,13 @@
           <div class="card-text text-center">
             <p-table
               #dt
-              [value]="customers"
-              [(selection)]="selectedCustomers"
+              paginatorLocale="fa-IR"
               dataKey="id"
+              [(selection)]="selectedCustomers"
               [rowHover]="true"
-              [rows]="5"
+              [rows]="8"
               [showCurrentPageReport]="true"
-              [rowsPerPageOptions]="[5, 10]"
+              [rowsPerPageOptions]="[8, 13, 20]"
               [loading]="loading"
               [paginator]="true"
               currentPageReportTemplate="نمایش {first} تا {last} از {totalRecords} ردیف"
@@ -26,7 +26,8 @@
                 'country.name',
                 'representative.name',
                 'status'
-              ]">
+              ]"
+              [value]="customers">
               <ng-template pTemplate="caption">
                 <div class="table-header">
                   فهرست مشتریان
@@ -221,7 +222,7 @@
                   <td>
                     <span class="p-column-title">Country</span>
                     <img
-                      src="assets/showcase/images/demo/flag/flag_placeholder.png"
+                      src="assets/images/flags/flag_placeholder.png"
                       [class]="'flag flag-' + customer.country.code"
                       width="30" />
                     <span class="image-text mx-2">{{
@@ -253,7 +254,7 @@
                     <span class="p-column-title">Status</span>
                     <span
                       [class]="'customer-badge status-' + customer.status"
-                      >{{ customer.statuslabel }}</span
+                      >{{ customer.status }}</span
                     >
                   </td>
                   <td>
