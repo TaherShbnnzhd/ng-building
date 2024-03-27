@@ -11,46 +11,44 @@
   }"
   [ngStyle]="style"
   [class]="styleClass">
-  <ng-template [ngIf]="!inline">
-    <input
-      #inputfield
-      type="text"
-      [attr.id]="inputId"
-      [attr.name]="name"
-      [attr.required]="required"
-      [attr.aria-required]="required"
-      [value]="inputFieldValue"
-      (focus)="onInputFocus($event)"
-      (keydown)="onInputKeydown($event)"
-      (click)="onInputClick()"
-      (blur)="onInputBlur($event)"
-      [readonly]="readonlyInput"
-      (input)="onUserInput($event)"
-      [ngStyle]="inputStyle"
-      [class]="inputStyleClass"
-      [placeholder]="placeholder || ''"
-      [disabled]="disabled"
-      [attr.tabindex]="tabindex"
-      [attr.inputmode]="touchUI ? 'off' : null"
-      [ngClass]="'p-inputtext p-component'"
-      autocomplete="off"
-      [attr.aria-labelledby]="ariaLabelledBy" />
-    <i
-      *ngIf="showClear && !disabled && value !== null"
-      class="p-calendar-clear-icon pi pi-times"
-      (click)="clear()"></i>
-    <button
-      type="button"
-      [attr.aria-label]="iconAriaLabel"
-      [icon]="icon"
-      pButton
-      pRipple
-      *ngIf="showIcon"
-      (click)="onButtonClick($event, inputfield)"
-      class="p-datepicker-trigger"
-      [disabled]="disabled"
-      tabindex="0"></button>
-  </ng-template>
+  @if (!inline) {
+  <input
+    #inputfield
+    type="text"
+    [attr.id]="inputId"
+    [attr.name]="name"
+    [attr.required]="required"
+    [attr.aria-required]="required"
+    [value]="inputFieldValue"
+    (focus)="onInputFocus($event)"
+    (keydown)="onInputKeydown($event)"
+    (click)="onInputClick()"
+    (blur)="onInputBlur($event)"
+    [readonly]="readonlyInput"
+    (input)="onUserInput($event)"
+    [ngStyle]="inputStyle"
+    [class]="inputStyleClass"
+    [placeholder]="placeholder || ''"
+    [disabled]="disabled"
+    [attr.tabindex]="tabindex"
+    [attr.inputmode]="touchUI ? 'off' : null"
+    [ngClass]="'p-inputtext p-component'"
+    autocomplete="off"
+    [attr.aria-labelledby]="ariaLabelledBy" />
+  @if (showClear && !disabled && value !== null) {
+  <i class="p-calendar-clear-icon pi pi-times" (click)="clear()"></i>
+  } @if (showIcon) {
+  <button
+    type="button"
+    [attr.aria-label]="iconAriaLabel"
+    [icon]="icon"
+    pButton
+    pRipple
+    (click)="onButtonClick($event, inputfield)"
+    class="p-datepicker-trigger"
+    [disabled]="disabled"
+    tabindex="0"></button>
+  } } @if (inline || overlayVisible) {
   <div
     #contentWrapper
     [class]="panelStyleClass"
@@ -84,166 +82,167 @@
     [@.disabled]="inline === true"
     (@overlayAnimation.start)="onOverlayAnimationStart($event)"
     (@overlayAnimation.done)="onOverlayAnimationDone($event)"
-    (click)="onOverlayClick($event)"
-    *ngIf="inline || overlayVisible">
+    (click)="onOverlayClick($event)">
     <ng-content select="p-header"></ng-content>
     <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
-    <ng-container *ngIf="!timeOnly">
-      <div class="p-datepicker-group-container">
-        <div
-          class="p-datepicker-group"
-          *ngFor="let month of months; let i = index">
-          <div class="p-datepicker-header">
+    @if (!timeOnly) {
+    <div class="p-datepicker-group-container">
+      @for (month of months; track month; let i = $index) {
+      <div class="p-datepicker-group">
+        <div class="p-datepicker-header">
+          @if (i === 0) {
+          <button
+            (keydown)="onContainerButtonKeydown($event)"
+            class="p-datepicker-prev p-link"
+            (click)="onPrevButtonClick($event)"
+            type="button"
+            pRipple>
+            <span class="p-datepicker-prev-icon pi pi-chevron-left"></span>
+          </button>
+          }
+          <div class="p-datepicker-title">
+            @if (currentView === 'date') {
             <button
-              (keydown)="onContainerButtonKeydown($event)"
-              class="p-datepicker-prev p-link"
-              (click)="onPrevButtonClick($event)"
-              *ngIf="i === 0"
               type="button"
-              pRipple>
-              <span class="p-datepicker-prev-icon pi pi-chevron-left"></span>
+              (click)="switchToMonthView($event)"
+              (keydown)="onContainerButtonKeydown($event)"
+              class="p-datepicker-month p-link"
+              [disabled]="switchViewButtonDisabled()">
+              {{ getMonthName_Jalali(month.month) }}
             </button>
-            <div class="p-datepicker-title">
-              <button
-                type="button"
-                (click)="switchToMonthView($event)"
-                (keydown)="onContainerButtonKeydown($event)"
-                *ngIf="currentView === 'date'"
-                class="p-datepicker-month p-link"
-                [disabled]="switchViewButtonDisabled()">
-                {{ getMonthName_Jalali(month.month) }}
-              </button>
-              <button
-                type="button"
-                (click)="switchToYearView($event)"
-                (keydown)="onContainerButtonKeydown($event)"
-                *ngIf="currentView !== 'year'"
-                class="p-datepicker-year p-link"
-                [disabled]="switchViewButtonDisabled()">
-                {{ getYear(month) | faNum }}
-              </button>
-              <span class="p-datepicker-decade" *ngIf="currentView === 'year'">
-                <ng-container *ngIf="!decadeTemplate"
-                  >{{ yearPickerValues()[0] | faNum }} -
-                  {{
-                    yearPickerValues()[yearPickerValues().length - 1] | faNum
-                  }}</ng-container
-                >
-                <ng-container
-                  *ngTemplateOutlet="
-                    decadeTemplate;
-                    context: { $implicit: yearPickerValues }
-                  "></ng-container>
-              </span>
-            </div>
+            } @if (currentView !== 'year') {
             <button
-              (keydown)="onContainerButtonKeydown($event)"
-              class="p-datepicker-next p-link"
-              (click)="onNextButtonClick($event)"
-              [style.display]="
-                numberOfMonths === 1
-                  ? 'inline-flex'
-                  : i === numberOfMonths - 1
-                  ? 'inline-flex'
-                  : 'none'
-              "
               type="button"
-              pRipple>
-              <span class="p-datepicker-next-icon pi pi-chevron-right"></span>
+              (click)="switchToYearView($event)"
+              (keydown)="onContainerButtonKeydown($event)"
+              class="p-datepicker-year p-link"
+              [disabled]="switchViewButtonDisabled()">
+              {{ getYear(month) | faNum }}
             </button>
+            } @if (currentView === 'year') {
+            <span class="p-datepicker-decade">
+              @if (!decadeTemplate) {
+              {{ yearPickerValues()[0] | faNum }} -
+              {{ yearPickerValues()[yearPickerValues().length - 1] | faNum }}
+              }
+              <ng-container
+                *ngTemplateOutlet="
+                  decadeTemplate;
+                  context: { $implicit: yearPickerValues }
+                "></ng-container>
+            </span>
+            }
           </div>
-          <div
-            class="p-datepicker-calendar-container"
-            *ngIf="currentView === 'date'">
-            <table class="p-datepicker-calendar">
-              <thead>
-                <tr>
-                  <th
-                    *ngIf="showWeek"
-                    class="p-datepicker-weekheader p-disabled">
-                    <span>{{ getTranslation('weekHeader') }}</span>
-                  </th>
-                  <th
-                    scope="col"
-                    *ngFor="
-                      let weekDay of weekDays;
-                      let begin = first;
-                      let end = last
-                    ">
-                    <span>{{ weekDay }}</span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let week of month.dates; let j = index">
-                  <td *ngIf="showWeek" class="p-datepicker-weeknumber">
-                    <span class="p-disabled">
-                      {{ month.weekNumbers[j] | faNum }}
-                    </span>
-                  </td>
-                  <td
-                    *ngFor="let date of week"
-                    [ngClass]="{
-                      'p-datepicker-other-month': date.otherMonth,
-                      'p-datepicker-today': date.today
-                    }">
-                    <ng-container
-                      *ngIf="date.otherMonth ? showOtherMonths : true">
-                      <span
-                        [ngClass]="{
-                          'p-highlight': isSelected(date),
-                          'p-disabled': !date.selectable
-                        }"
-                        (click)="onDateSelect($event, date)"
-                        draggable="false"
-                        (keydown)="onDateCellKeydown($event, date, i)"
-                        pRipple>
-                        <ng-container *ngIf="!dateTemplate">{{
-                          date.day | faNum
-                        }}</ng-container>
-                        <ng-container
-                          *ngTemplateOutlet="
-                            dateTemplate;
-                            context: { $implicit: date }
-                          "></ng-container>
-                      </span>
-                    </ng-container>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <button
+            (keydown)="onContainerButtonKeydown($event)"
+            class="p-datepicker-next p-link"
+            (click)="onNextButtonClick($event)"
+            [style.display]="
+              numberOfMonths === 1
+                ? 'inline-flex'
+                : i === numberOfMonths - 1
+                ? 'inline-flex'
+                : 'none'
+            "
+            type="button"
+            pRipple>
+            <span class="p-datepicker-next-icon pi pi-chevron-right"></span>
+          </button>
         </div>
+        @if (currentView === 'date') {
+        <div class="p-datepicker-calendar-container">
+          <table class="p-datepicker-calendar">
+            <thead>
+              <tr>
+                @if (showWeek) {
+                <th class="p-datepicker-weekheader p-disabled">
+                  <span>{{ getTranslation('weekHeader') }}</span>
+                </th>
+                } @for ( weekDay of weekDays; track weekDay; let begin = $first;
+                let end = $last) {
+                <th scope="col">
+                  <span>{{ weekDay }}</span>
+                </th>
+                }
+              </tr>
+            </thead>
+            <tbody>
+              @for (week of month.dates; track week; let j = $index) {
+              <tr>
+                @if (showWeek) {
+                <td class="p-datepicker-weeknumber">
+                  <span class="p-disabled">
+                    {{ month.weekNumbers[j] | faNum }}
+                  </span>
+                </td>
+                } @for (date of week; track date) {
+                <td
+                  [ngClass]="{
+                    'p-datepicker-other-month': date.otherMonth,
+                    'p-datepicker-today': date.today
+                  }">
+                  @if (date.otherMonth ? showOtherMonths : true) {
+                  <span
+                    [ngClass]="{
+                      'p-highlight': isSelected(date),
+                      'p-disabled': !date.selectable
+                    }"
+                    (click)="onDateSelect($event, date)"
+                    draggable="false"
+                    (keydown)="onDateCellKeydown($event, date, i)"
+                    pRipple>
+                    @if (!dateTemplate) {
+                    {{ date.day | faNum }}
+                    }
+                    <ng-container
+                      *ngTemplateOutlet="
+                        dateTemplate;
+                        context: { $implicit: date }
+                      "></ng-container>
+                  </span>
+                  }
+                </td>
+                }
+              </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+        }
       </div>
-      <div class="p-monthpicker" *ngIf="currentView === 'month'">
-        <span
-          *ngFor="let m of monthPickerValues(); let i = index"
-          (click)="onMonthSelect($event, i)"
-          (keydown)="onMonthCellKeydown($event, i)"
-          class="p-monthpicker-month"
-          [ngClass]="{
-            'p-highlight': isMonthSelected(i),
-            'p-disabled': isMonthDisabled(i)
-          }"
-          pRipple>
-          {{ m }}
-        </span>
-      </div>
-      <div class="p-yearpicker" *ngIf="currentView === 'year'">
-        <span
-          *ngFor="let y of yearPickerValues()"
-          (click)="onYearSelect($event, y)"
-          (keydown)="onYearCellKeydown($event, y)"
-          class="p-yearpicker-year"
-          [ngClass]="{ 'p-highlight': isYearSelected(y) }"
-          pRipple>
-          {{ y | faNum }}
-        </span>
-      </div>
-    </ng-container>
-    <div
-      class="p-timepicker"
-      *ngIf="(showTime || timeOnly) && currentView === 'date'">
+      }
+    </div>
+    @if (currentView === 'month') {
+    <div class="p-monthpicker">
+      @for (m of monthPickerValues(); track m; let i = $index) {
+      <span
+        (click)="onMonthSelect($event, i)"
+        (keydown)="onMonthCellKeydown($event, i)"
+        class="p-monthpicker-month"
+        [ngClass]="{
+          'p-highlight': isMonthSelected(i),
+          'p-disabled': isMonthDisabled(i)
+        }"
+        pRipple>
+        {{ m }}
+      </span>
+      }
+    </div>
+    } @if (currentView === 'year') {
+    <div class="p-yearpicker">
+      @for (y of yearPickerValues(); track y) {
+      <span
+        (click)="onYearSelect($event, y)"
+        (keydown)="onYearCellKeydown($event, y)"
+        class="p-yearpicker-year"
+        [ngClass]="{ 'p-highlight': isYearSelected(y) }"
+        pRipple>
+        {{ y | faNum }}
+      </span>
+      }
+    </div>
+    } } @if ((showTime || timeOnly) && currentView === 'date') {
+    <div class="p-timepicker">
       <div class="p-hour-picker">
         <button
           class="p-link"
@@ -259,10 +258,7 @@
           pRipple>
           <span class="pi pi-chevron-up"></span>
         </button>
-        <span
-          ><ng-container *ngIf="currentHour < 10">0</ng-container
-          >{{ currentHour | faNum }}</span
-        >
+        <span>@if (currentHour < 10) { 0 }{{ currentHour | faNum }}</span>
         <button
           class="p-link"
           type="button"
@@ -296,10 +292,7 @@
           pRipple>
           <span class="pi pi-chevron-up"></span>
         </button>
-        <span
-          ><ng-container *ngIf="currentMinute < 10">0</ng-container
-          >{{ currentMinute | faNum }}</span
-        >
+        <span>@if (currentMinute < 10) { 0 }{{ currentMinute | faNum }}</span>
         <button
           class="p-link"
           type="button"
@@ -315,10 +308,12 @@
           <span class="pi pi-chevron-down"></span>
         </button>
       </div>
-      <div class="p-separator" *ngIf="showSeconds">
+      @if (showSeconds) {
+      <div class="p-separator">
         <span>{{ timeSeparator }}</span>
       </div>
-      <div class="p-second-picker" *ngIf="showSeconds">
+      } @if (showSeconds) {
+      <div class="p-second-picker">
         <button
           class="p-link"
           type="button"
@@ -333,10 +328,7 @@
           pRipple>
           <span class="pi pi-chevron-up"></span>
         </button>
-        <span
-          ><ng-container *ngIf="currentSecond < 10">0</ng-container
-          >{{ currentSecond | faNum }}</span
-        >
+        <span>@if (currentSecond < 10) { 0 }{{ currentSecond | faNum }}</span>
         <button
           class="p-link"
           type="button"
@@ -352,7 +344,8 @@
           <span class="pi pi-chevron-down"></span>
         </button>
       </div>
-      <div class="p-ampm-picker" *ngIf="hourFormat === '12'">
+      } @if (hourFormat === '12') {
+      <div class="p-ampm-picker">
         <button
           class="p-link"
           type="button"
@@ -373,8 +366,10 @@
           <span class="pi pi-chevron-down"></span>
         </button>
       </div>
+      }
     </div>
-    <div class="p-datepicker-buttonbar" *ngIf="showButtonBar">
+    } @if (showButtonBar) {
+    <div class="p-datepicker-buttonbar">
       <button
         type="button"
         [label]="getTranslation('today')"
@@ -392,7 +387,9 @@
         pRipple
         [ngClass]="[clearButtonStyleClass]"></button>
     </div>
+    }
     <ng-content select="p-footer"></ng-content>
     <ng-container *ngTemplateOutlet="footerTemplate"></ng-container>
   </div>
+  }
 </span>

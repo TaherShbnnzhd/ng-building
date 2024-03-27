@@ -30,12 +30,13 @@
                   "
                   type="text" />
                 <div id="username-help">
-                  <small
-                    *ngIf="(submitted && username?.pristine) || 
-          (username?.errors?.['required'] && (username?.dirty || username?.touched))"
-                    class="p-error">
+                  @if ((submitted && username?.pristine) ||
+                  (username?.errors?.['required'] && (username?.dirty ||
+                  username?.touched))) {
+                  <small class="p-error">
                     لطفا نام کاربری را خالی نگذارید
                   </small>
+                  }
 
                   <small class="p-error" style="visibility: hidden">
                     error
@@ -62,17 +63,16 @@
                   [toggleMask]="true"
                   [feedback]="false"></p-password>
                 <div id="password-help">
-                  <small
-                    *ngIf="(submitted && password?.pristine) || 
-          (password?.errors?.['required'] && (password?.dirty || password?.touched))"
-                    class="p-error">
-                    لطفا گذرواژه را خالی نگذارید
-                  </small>
-                  <small
-                    *ngIf="password?.errors?.['minlength'] && (password?.dirty || password?.touched)"
-                    class="p-error">
+                  @if ((submitted && password?.pristine) ||
+                  (password?.errors?.['required'] && (password?.dirty ||
+                  password?.touched))) {
+                  <small class="p-error"> لطفا گذرواژه را خالی نگذارید </small>
+                  } @if (password?.errors?.['minlength'] && (password?.dirty ||
+                  password?.touched)) {
+                  <small class="p-error">
                     {{ 'گذرواژه حداقل شامل 8 کاراکتر می‌باشد' | faNum }}
                   </small>
+                  }
                   <small style="visibility: hidden" class="p-error">
                     error
                   </small>
@@ -134,8 +134,8 @@
               </a>
             </div>
             <!-- light theme sign in -->
+            @if (themeService.theme === 'light-theme') {
             <svg
-              *ngIf="themeService.theme === 'light-theme'"
               class="col-xl-12 d-xl-block d-none rounded mt-3"
               width="375"
               height="250"
@@ -259,10 +259,11 @@
                 </linearGradient>
               </defs>
             </svg>
+            }
             <!-- / light theme sign in -->
             <!-- dark theme sign in -->
+            @if (themeService.theme === 'dark-theme') {
             <svg
-              *ngIf="themeService.theme === 'dark-theme'"
               class="col-xl-12 d-xl-block d-none rounded mt-3"
               width="375"
               height="250"
@@ -386,6 +387,7 @@
                 </linearGradient>
               </defs>
             </svg>
+            }
             <!-- / dark theme sign in -->
           </div>
         </div>
