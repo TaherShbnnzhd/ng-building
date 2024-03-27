@@ -6,25 +6,6 @@
 @import 'primeng/resources/themes/viva-dark/theme.css';
 
 /*--------------------------------------------------------------
-# Boostrap Variables
---------------------------------------------------------------*/
-// @import "node_modules/bootstrap/scss/functions";
-// @import "node_modules/bootstrap/scss/variables";
-// @import "node_modules/bootstrap/scss/maps";
-// @import "node_modules/bootstrap/scss/utilities";
-
-// Include any default variable overrides here (though functions won't be available)
-// $body-bg: #000;
-// $body-color: #111;
-// $primary: #55559d;
-// $card-bg: #232946;
-// $card-color: #232946;
-
-// Include remainder of required Bootstrap stylesheets
-// @import "node_modules/bootstrap/scss/bootstrap";
-// @import "node_modules/bootstrap/dist/css/bootstrap.rtl.min.css";
-
-/*--------------------------------------------------------------
 # Main color palette
 --------------------------------------------------------------*/
 :root {
@@ -47,8 +28,7 @@
 
   --main-gradiant: linear-gradient(25deg, #000f3c, #3e3e3e 85%);
 
-  --main-box-shadow: rgba(13, 13, 13, 0.2) 0px -2px 14px 1px,
-    rgba(20, 20, 20, 0.05) 0px 2px 5px 1px;
+  --main-box-shadow: rgba(13, 13, 13, 0.2) 0px -2px 14px 1px, rgba(20, 20, 20, 0.05) 0px 2px 5px 1px;
 }
 
 label {

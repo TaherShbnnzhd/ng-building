@@ -21,6 +21,7 @@
 
     .brand {
       letter-spacing: 1.3px;
+      cursor: pointer;
     }
 
     .sub-brand {
@@ -80,11 +81,11 @@
   }
 
   input:checked + .slider:before {
-    left: calc(
-      100% - (var(--size-of-icon, 1.4em) + var(--slider-offset, 0.3em))
-    );
+    left: calc(100% - (var(--size-of-icon, 1.4em) + var(--slider-offset, 0.3em)));
     background: #3e3e3e;
     /* change the value of second inset in box-shadow to change the angle and direction of the moon  */
-    box-shadow: inset -3px -2px 5px -2px #c5d4f9, inset -9px -3px 0 0 #fcfcfcfc;
+    box-shadow:
+      inset -3px -2px 5px -2px #c5d4f9,
+      inset -9px -3px 0 0 #fcfcfcfc;
   }
 }
