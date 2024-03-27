@@ -1,15 +1,14 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
-import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 
-import { authGuard } from './core/guards/auth/auth.guard';
+import { authGuard } from '@core/guards/auth/auth.guard';
+import { PageNotFoundComponent } from '@core/layout/page-not-found/page-not-found.component';
+import { MainComponent } from '@core/main/main.component';
+
 import { AccountModule } from './modules/account/account.module';
 
-import { MainComponent } from './core/main/main.component';
-import { PageNotFoundComponent } from './core/layout/page-not-found/page-not-found.component';
-
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     component: MainComponent,
@@ -53,11 +52,3 @@ const routes: Routes = [
   },
   { path: '**', component: PageNotFoundComponent },
 ];
-
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
-  ],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}
