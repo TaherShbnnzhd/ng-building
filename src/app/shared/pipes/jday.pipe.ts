@@ -2,8 +2,7 @@
 
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { JDateCalculatorService } from '@shared/utilities/JDate/calculator/jdate-calculator.service';
-import { ISimpleDate } from '@shared/utilities/JDate/simple-date.interface';
+import { ISimpleDate, JDateCalculatorService } from '@shared/utilities';
 
 interface ICalendarDate {
   day: number;
@@ -16,6 +15,7 @@ interface ICalendarDate {
 
 @Pipe({
   name: 'jday',
+  standalone: true,
 })
 export class JdayPipe implements PipeTransform {
   constructor(private jDateCalculatorService: JDateCalculatorService) {}

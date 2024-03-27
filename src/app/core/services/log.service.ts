@@ -13,7 +13,6 @@ export class LogService {
 
   /**
    * Add message to message pool
-   *
    * @param message = string message
    */
   public add(message: string): void {

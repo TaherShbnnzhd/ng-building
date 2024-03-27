@@ -3,9 +3,9 @@
 import { inject } from '@angular/core';
 import { Route, Router, UrlSegment } from '@angular/router';
 
-import { AuthService } from '../../authentication/auth.service';
+import { AuthService } from './auth.service';
 
-export const authGuard = (route: Route, path: UrlSegment[]) => {
+export const authGuard = (_: Route, path: UrlSegment[]) => {
   const router = inject(Router);
   const authService = inject(AuthService);
 

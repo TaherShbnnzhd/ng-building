@@ -1,7 +1,10 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
+/* eslint-disable @typescript-eslint/no-duplicate-enum-values */
+
 import { Pipe, PipeTransform } from '@angular/core';
-import { JDate } from '@shared/utilities/JDate/jdate';
+
+import { JDate } from '@shared/utilities';
 
 /**
  * Pre-defined formats date formats those can use for formatting JDate objects with jdate pipe.
@@ -52,6 +55,7 @@ enum JDateFormat { // eslint-disable-line no-shadow
  */
 @Pipe({
   name: 'jDate',
+  standalone: true,
 })
 export class JDatePipe implements PipeTransform {
   /**

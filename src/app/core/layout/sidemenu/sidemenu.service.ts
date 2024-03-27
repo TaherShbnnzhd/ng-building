@@ -1,7 +1,9 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 import { Injectable } from '@angular/core';
-import { AuthService } from '@core/authentication/auth.service';
+
+import { AuthService } from '@core/authentication';
+
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable()

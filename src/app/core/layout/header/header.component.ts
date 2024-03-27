@@ -3,15 +3,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { ConfirmationService } from 'primeng/api';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+
+import { SidemenuService } from '../sidemenu/sidemenu.service';
 import { AuthService } from '../../authentication/auth.service';
 import { StoredRoutesService } from '../../services/route-reuse-strategy/stored-routes.service';
 import { ThemeService } from '../../services/theme.service';
-import { SidemenuService } from '../sidemenu/sidemenu.service';
-
-import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'block-header',
+  standalone: true,
+  imports: [ConfirmDialogModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   providers: [ConfirmationService],

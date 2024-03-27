@@ -9,13 +9,18 @@ import {
   QueryList,
   ViewChildren,
 } from '@angular/core';
+import { RouterLink } from '@angular/router';
+
+import { AuthService } from '@core/authentication';
 
 import { Menu } from './sidemenu.interface';
-import { AuthService } from '@core/authentication/auth.service';
 import { SidemenuService } from './sidemenu.service';
+import { ActiveTabsBarComponent } from '../active-tabs-bar/active-tabs-bar.component';
 
 @Component({
   selector: 'block-sidemenu',
+  standalone: true,
+  imports: [RouterLink, ActiveTabsBarComponent],
   templateUrl: './sidemenu.component.html',
   styleUrls: ['./sidemenu.component.scss'],
 })

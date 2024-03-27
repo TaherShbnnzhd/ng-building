@@ -3,10 +3,10 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { fadeInAnimation } from '@shared/animations/transition.animation';
-import { AnimationService } from '@shared/services/animation.service';
-
 import { PrimeNGConfig } from 'primeng/api';
+import { AnimationService, fadeInAnimation } from '@shared/animations';
+
+import { appProviders } from './app.config';
 
 @Component({
   selector: 'block-root',
@@ -15,7 +15,7 @@ import { PrimeNGConfig } from 'primeng/api';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [fadeInAnimation],
-  providers: [AnimationService],
+  providers: [appProviders],
 })
 export class AppComponent implements OnInit {
   constructor(

@@ -2,7 +2,7 @@
 
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { PersianNumberService } from '@shared/services/persian-number.service';
+import { PersianNumberService } from '@shared/services';
 
 /**
  * Replaces all arabic and english numbers with persian numbers.
@@ -11,6 +11,7 @@ import { PersianNumberService } from '@shared/services/persian-number.service';
  */
 @Pipe({
   name: 'faNum',
+  standalone: true,
 })
 export class FaNumPipe implements PipeTransform {
   constructor(private persianNumberService: PersianNumberService) {}

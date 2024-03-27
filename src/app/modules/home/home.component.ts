@@ -2,7 +2,7 @@
 
 import { Component } from '@angular/core';
 
-import { fadeInAnimation } from '@shared/animations/transition.animation';
+import { fadeInAnimation } from '@shared/animations/animation.transition';
 import { AnimationService } from '@shared/services/animation.service';
 
 @Component({

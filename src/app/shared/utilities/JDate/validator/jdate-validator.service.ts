@@ -1,6 +1,7 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 import { Injectable } from '@angular/core';
+
 import { div, mod } from '../arithmetics/arithmetics';
 
 @Injectable({

@@ -2,6 +2,7 @@
 
 import { Injectable } from '@angular/core';
 import { DetachedRouteHandle } from '@angular/router';
+
 import {
   RouteStorageObject,
   RouteStorageObjectHolder,
@@ -78,10 +79,8 @@ export class StoredRoutesService {
    * @returns index
    */
   private getStoredRouteIndex(name: string) {
-    const index = this.storedRoutes.findIndex(
+    return this.storedRoutes.findIndex(
       storedRoute => storedRoute.name === name
     );
-
-    return index;
   }
 }
