@@ -2,9 +2,9 @@
 
 import { Injectable } from '@angular/core';
 
-import { AuthService } from '@core/authentication';
-
 import { BehaviorSubject } from 'rxjs';
+
+import { AuthService } from '@core/authentication';
 
 @Injectable()
 export class SidemenuService {

@@ -32,7 +32,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { JDate, JDateCalculatorService } from '@shared/utilities';
+import { CommonModule } from '@angular/common';
 
 import {
   OverlayService,
@@ -42,13 +42,15 @@ import {
 } from 'primeng/api';
 import { ConnectedOverlayScrollHandler, DomHandler } from 'primeng/dom';
 import { ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primeng/utils';
-import { Subscription } from 'rxjs';
-import { CalendarTypeView, LocaleSettings } from './calendar.interface';
-import { PersianNumberService } from '@shared/services';
-import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
+import { Subscription } from 'rxjs';
+
+import { JDate, JDateCalculatorService } from '@shared/utilities';
+import { PersianNumberService } from '@shared/services';
 import { FaNumPipe } from '@shared/pipes';
+
+import { CalendarTypeView, LocaleSettings } from './calendar.interface';
 
 export const CALENDAR_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,

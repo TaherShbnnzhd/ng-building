@@ -6,10 +6,10 @@ import { Router } from '@angular/router';
 import { ConfirmationService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
+import { StoredRoutesService, ThemeService } from '@core/services';
+import { AuthService } from '@core/authentication';
+
 import { SidemenuService } from '../sidemenu/sidemenu.service';
-import { AuthService } from '../../authentication/auth.service';
-import { StoredRoutesService } from '../../services/route-reuse-strategy/stored-routes.service';
-import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'block-header',

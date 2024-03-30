@@ -3,9 +3,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { AnimationService, fadeInAnimation } from '@shared/animations';
-
 import { PrimeNGConfig } from 'primeng/api';
+
+import { AnimationService, fadeInAnimation } from '@shared/animations';
 
 @Component({
   selector: 'block-root',

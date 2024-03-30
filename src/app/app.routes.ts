@@ -6,8 +6,6 @@ import { MainComponent } from '@core/main';
 import { authGuard } from '@core/authentication';
 import { PageNotFoundComponent } from '@core/layout';
 
-import { AccountModule } from './modules/account/account.module';
-
 export const routes: Routes = [
   {
     path: '',
@@ -18,7 +16,7 @@ export const routes: Routes = [
       {
         path: 'account',
         title: 'بنا | ورود',
-        loadChildren: () => AccountModule,
+        loadChildren: () => import('@feature/account/routes'),
       },
       {
         path: 'home',

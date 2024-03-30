@@ -10,11 +10,11 @@ import {
   Scroll,
 } from '@angular/router';
 
-import { ThemeService } from '@core/services';
-
 import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button';
 import { filter, map } from 'rxjs';
+
+import { ThemeService } from '@core/services';
 
 import {
   RouteStorageObject,

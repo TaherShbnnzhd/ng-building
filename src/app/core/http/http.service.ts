@@ -5,11 +5,12 @@ import { Injectable } from '@angular/core';
 
 import { catchError, Observable } from 'rxjs';
 
-import { BaseResponse } from './http.response';
+import { RETRY_COUNT } from '@core/interceptors';
+import { AppConfigService } from '@core/services';
+
 import { HttpErrorHandlerService } from './http-error-handler/http-error-handler.service';
 import { HandleError } from './http-error-handler/http-error-handler.type';
-import { AppConfigService } from '../services/app-config.service';
-import { RETRY_COUNT } from '../interceptors/retry.interceptor';
+import { BaseResponse } from './http.response';
 
 @Injectable()
 export class HttpService {

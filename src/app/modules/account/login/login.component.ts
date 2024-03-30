@@ -1,16 +1,27 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { NavigationExtras, Router } from '@angular/router';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { NavigationExtras, Router, RouterLink } from '@angular/router';
+
+import { MessageService } from 'primeng/api';
+import { InputTextModule } from 'primeng/inputtext';
+import { PasswordModule } from 'primeng/password';
+import { CheckboxModule } from 'primeng/checkbox';
+import { ButtonModule } from 'primeng/button';
+import { RippleModule } from 'primeng/ripple';
+import { tap } from 'rxjs';
 
 import { AuthService } from '@core/authentication';
 import { SidemenuService } from '@core/layout';
 import { ThemeService } from '@core/services';
 import { PersianNumberService } from '@shared/services';
-
-import { tap } from 'rxjs';
-import { MessageService } from 'primeng/api';
+import { FaNumPipe } from '@shared/pipes';
 
 class LoginModel {
   username = '';
@@ -20,6 +31,17 @@ class LoginModel {
 
 @Component({
   selector: 'block-login',
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    RouterLink,
+    InputTextModule,
+    PasswordModule,
+    CheckboxModule,
+    ButtonModule,
+    RippleModule,
+    FaNumPipe,
+  ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })

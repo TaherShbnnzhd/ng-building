@@ -12,6 +12,8 @@ import {
   RouterOutlet,
 } from '@angular/router';
 
+import { ToastModule } from 'primeng/toast';
+
 import {
   FooterComponent,
   HeaderComponent,
@@ -23,8 +25,6 @@ import {
 import { AnimationService, fadeInAnimation } from '@shared/animations';
 
 import { environment } from 'src/environments/environment';
-
-import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'block-main',

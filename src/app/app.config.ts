@@ -10,6 +10,9 @@ import {
 import { provideHttpClient } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 
+import { MessageService } from 'primeng/api';
+import { tap } from 'rxjs';
+
 import {
   AppConfigService,
   LogService,
@@ -24,9 +27,6 @@ import { AuthService } from '@core/authentication';
 import { SidemenuService } from '@core/layout';
 import { httpInterceptorProviders } from '@core/interceptors';
 import { AnimationService } from '@shared/animations';
-
-import { MessageService } from 'primeng/api';
-import { tap } from 'rxjs';
 
 import { routes } from './app.routes';
 
