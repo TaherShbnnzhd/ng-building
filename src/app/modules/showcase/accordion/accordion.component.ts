@@ -3,9 +3,13 @@
 import { Component } from '@angular/core';
 
 import { MessageService } from 'primeng/api';
+import { AccordionModule } from 'primeng/accordion';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'block-accordion',
+  standalone: true,
+  imports: [AccordionModule, ButtonModule],
   templateUrl: './accordion.component.html',
   styleUrls: ['./accordion.component.scss'],
   providers: [MessageService],

@@ -2,8 +2,13 @@
 
 import { Component } from '@angular/core';
 
+import { ButtonModule } from 'primeng/button';
+import { RippleModule } from 'primeng/ripple';
+
 @Component({
   selector: 'block-buttons',
+  standalone: true,
+  imports: [ButtonModule, RippleModule],
   templateUrl: './buttons.component.html',
   styleUrls: ['./buttons.component.scss'],
 })

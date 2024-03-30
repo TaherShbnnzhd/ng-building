@@ -1,7 +1,6 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Route } from '@angular/router';
 
 import { authGuard } from '@core/authentication';
 
@@ -18,7 +17,7 @@ import { TabComponent } from './tab/tab.component';
 import { DataTableComponent } from './data-table/data-table.component';
 import { UploadComponent } from './upload/upload.component';
 
-const routes: Routes = [
+export default [
   {
     path: '',
     component: ShowcaseComponent,
@@ -90,10 +89,4 @@ const routes: Routes = [
       },
     ],
   },
-];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
-})
-export class ShowcaseRoutingModule {}
+] satisfies Route[];

@@ -3,9 +3,12 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MessageService } from 'primeng/api';
+import { ProgressBarModule } from 'primeng/progressbar';
 
 @Component({
   selector: 'block-progress',
+  standalone: true,
+  imports: [ProgressBarModule],
   templateUrl: './progress.component.html',
   styleUrls: ['./progress.component.scss'],
   providers: [MessageService],

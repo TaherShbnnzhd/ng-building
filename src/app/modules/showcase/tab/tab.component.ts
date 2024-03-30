@@ -2,8 +2,12 @@
 
 import { Component } from '@angular/core';
 
+import { TabViewModule } from 'primeng/tabview';
+
 @Component({
   selector: 'block-tab',
+  standalone: true,
+  imports: [TabViewModule],
   templateUrl: './tab.component.html',
   styleUrls: ['./tab.component.scss'],
 })

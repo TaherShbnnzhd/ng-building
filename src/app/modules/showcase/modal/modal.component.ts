@@ -2,8 +2,13 @@
 
 import { Component } from '@angular/core';
 
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
+
 @Component({
   selector: 'block-modal',
+  standalone: true,
+  imports: [ButtonModule, DialogModule],
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss'],
 })

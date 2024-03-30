@@ -1,14 +1,34 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
-import { HttpService } from '@core/http';
-import { Customer, IRepresentative } from '@shared/models';
+import { TableModule } from 'primeng/table';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { DropdownModule } from 'primeng/dropdown';
+import { SliderModule } from 'primeng/slider';
+import { ProgressBarModule } from 'primeng/progressbar';
 
 import { map, tap } from 'rxjs';
 
+import { HttpService } from '@core/http';
+import { Customer, IRepresentative } from '@shared/models';
+import { FaNumPipe, IRCurrencyPipe, JDatePipe } from '@shared/pipes';
+
 @Component({
   selector: 'block-data-table',
+  standalone: true,
+  imports: [
+    FormsModule,
+    TableModule,
+    MultiSelectModule,
+    DropdownModule,
+    SliderModule,
+    ProgressBarModule,
+    JDatePipe,
+    FaNumPipe,
+    IRCurrencyPipe,
+  ],
   templateUrl: './data-table.component.html',
   styleUrls: ['./data-table.component.scss'],
 })

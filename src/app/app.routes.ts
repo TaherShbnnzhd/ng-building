@@ -16,33 +16,24 @@ export const routes: Routes = [
       {
         path: 'account',
         title: 'بنا | ورود',
-        loadChildren: () => import('@feature/account/routes'),
+        loadChildren: () => import('@feature/account/account.routes'),
       },
       {
         path: 'home',
         title: 'بنا | صفحه اصلی',
-        loadChildren: () =>
-          import('../app/modules/home/home.module').then(
-            module => module.HomeModule
-          ),
+        loadChildren: () => import('@feature/home/home.routes'),
         canMatch: [authGuard],
       },
       {
         path: 'report',
         title: 'بنا | گزارش‌ها',
-        loadChildren: () =>
-          import('../app/modules/report/report.module').then(
-            module => module.ReportModule
-          ),
+        loadChildren: () => import('@feature/report/report.routes'),
         canMatch: [authGuard],
       },
       {
         path: 'showcase',
         title: 'بنا | امکانات',
-        loadChildren: () =>
-          import('../app/modules/showcase/showcase.module').then(
-            module => module.ShowcaseModule
-          ),
+        loadChildren: () => import('@feature/showcase/showcase.routes'),
         canMatch: [authGuard],
       },
       { path: '', redirectTo: '/home/dashboard', pathMatch: 'full' },

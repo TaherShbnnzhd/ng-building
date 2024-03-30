@@ -1,13 +1,18 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+import { SelectItem, SelectItemGroup } from 'primeng/api';
+import { DropdownModule } from 'primeng/dropdown';
+import { SkeletonModule } from 'primeng/skeleton';
 
 import { ICity } from '@shared/models';
 
-import { SelectItem, SelectItemGroup } from 'primeng/api';
-
 @Component({
   selector: 'block-dropdown',
+  standalone: true,
+  imports: [FormsModule, DropdownModule, SkeletonModule],
   templateUrl: './dropdown.component.html',
   styleUrls: ['./dropdown.component.scss'],
 })
