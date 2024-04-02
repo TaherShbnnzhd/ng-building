@@ -1,11 +1,11 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 export enum Gender {
-  Male = 0,
-  Female = 1,
+  MALE = 0,
+  FEMALE = 1,
 }
 
-export interface ICity {
+export interface City {
   name: string;
   code: string;
 }
