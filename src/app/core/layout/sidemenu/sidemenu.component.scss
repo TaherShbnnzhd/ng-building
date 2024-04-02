@@ -75,7 +75,7 @@ a {
     position: relative;
     text-align: center;
     width: 65px;
-    height: var(--header-height);
+    height: var(--toolbar-height);
     float: left;
     padding: 0;
     left: -2px;
@@ -247,14 +247,16 @@ a {
 }
 
 .sidebar-nav .nav-content a::before {
-  content: '\ee05';
+  // mgc_round_line: \f17b
+  content: '\f17b';
   font-family: 'MingCute';
   font-size: 12px;
   margin-right: 13px;
 }
 
 .sidebar-nav .nav-content a.active::before {
-  content: '\ee04';
+  // mgc_round_fill: \f17a
+  content: '\f17a';
 }
 
 .sidebar-nav .nav-content a:hover,
