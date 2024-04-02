@@ -52,7 +52,7 @@ a {
     &:after {
       content: '';
       position: absolute;
-      left: 35px;
+      left: 20px;
       height: 30px;
       width: 30px;
       box-shadow: 0 13px 0 0 var(--sidemenu-main-color);
@@ -93,7 +93,7 @@ a {
         display: flex;
         justify-content: center;
         align-items: center;
-        border-left: 1px solid rgb(13, 13, 13);
+        border-left: 1px solid #ebedf0;
         padding: 0.3rem;
 
         &.no-icon {
