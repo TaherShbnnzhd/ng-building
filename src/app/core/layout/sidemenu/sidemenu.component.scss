@@ -74,24 +74,27 @@ a {
   .toggle-panel {
     position: relative;
     text-align: center;
-    width: 65px;
+    width: 50px;
     height: var(--toolbar-height);
     float: left;
     padding: 0;
-    left: -2px;
+    top: 10px;
+    margin: 0px;
 
     .toggle-panel-button {
       cursor: pointer;
       position: relative;
-      top: 0.95rem;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      height: 100%;
 
       .toggle-panel-button-icon {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: var(--sidemenu-main-color);
-        height: 3rem;
-        border-left: 2px solid var(--main-color);
+        border-left: 1px solid rgb(13, 13, 13);
+        padding: 0.3rem;
 
         &.no-icon {
           display: none;
