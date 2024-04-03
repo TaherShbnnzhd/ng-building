@@ -1,5 +1,7 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
+/* eslint-disable @typescript-eslint/no-duplicate-enum-values */
+
 import { Pipe, PipeTransform } from '@angular/core';
 
 export enum IRCurrencies { // eslint-disable-line no-shadow
@@ -21,6 +23,7 @@ export enum IRCurrencies { // eslint-disable-line no-shadow
  */
 @Pipe({
   name: 'irCurrency',
+  standalone: true,
 })
 export class IRCurrencyPipe implements PipeTransform {
   /**

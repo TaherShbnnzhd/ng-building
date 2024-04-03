@@ -1,10 +1,15 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 import { Component } from '@angular/core';
+
 import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
+import { FileUploadModule } from 'primeng/fileupload';
 
 @Component({
   selector: 'block-upload',
+  standalone: true,
+  imports: [ToastModule, FileUploadModule],
   templateUrl: './upload.component.html',
   styleUrls: ['./upload.component.scss'],
   providers: [MessageService],

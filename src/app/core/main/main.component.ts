@@ -9,17 +9,34 @@ import {
   NavigationError,
   Event,
   RouterEvent,
+  RouterOutlet,
 } from '@angular/router';
 
-import { SidemenuService } from '@core/layout/sidemenu/sidemenu.service';
+import { ToastModule } from 'primeng/toast';
 
-import { fadeInAnimation } from '@shared/animations/transition.animation';
-import { AnimationService } from '@shared/services/animation.service';
+import {
+  FooterComponent,
+  HeaderComponent,
+  LoadingElementComponent,
+  SidemenuComponent,
+  SidemenuService,
+} from '@core/layout';
+
+import { AnimationService, fadeInAnimation } from '@shared/animations';
 
 import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'block-main',
+  standalone: true,
+  imports: [
+    RouterOutlet,
+    ToastModule,
+    HeaderComponent,
+    SidemenuComponent,
+    LoadingElementComponent,
+    FooterComponent,
+  ],
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
   animations: [fadeInAnimation],

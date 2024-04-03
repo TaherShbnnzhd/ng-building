@@ -5,7 +5,7 @@
 /*--------------------------------------------------------------
 # Imports
 --------------------------------------------------------------*/
-@import 'assets/showcase/styles/flags.css';
+@import 'assets/styles/flags.css';
 
 /*--------------------------------------------------------------
 # General
@@ -19,7 +19,7 @@
 
   --header-height: 60px;
   --footer-height: 30px;
-  --toolbar-height: 72px;
+  --toolbar-height: 60px;
 
   --z-index-main-tab-bar: 92;
   --z-index-main-loading: 93;
@@ -50,6 +50,7 @@
 html {
   direction: rtl;
   background-color: var(--main-color);
+  font-size: 0.93em;
 }
 
 /*--------------------------------------------------------------
@@ -63,6 +64,16 @@ html {
 /*--------------------------------------------------------------
 # Custome Global Class
 --------------------------------------------------------------*/
+.field {
+  margin: 0.3rem 0;
+  label {
+    margin-bottom: 0.3rem;
+  }
+}
+.font-medium {
+  font-weight: 500 !important;
+}
+
 .bg-main {
   background-color: var(--main-color);
 }
@@ -149,6 +160,7 @@ html {
 
 /* badge */
 .p-button {
+  // border-radius: 6px;
   .p-button-icon-left {
     margin-right: 0 !important;
     margin-left: 0.5rem !important;
@@ -388,6 +400,10 @@ html {
 }
 
 /* dropdown */
+.p-dropdown-items {
+  padding-right: 0 !important;
+}
+
 .p-dropdown {
   .p-dropdown-label.p-placeholder {
     font-size: 14px;
@@ -414,10 +430,10 @@ html {
         color: #6c757d;
       }
     }
+  }
 
-    .p-dropdown-items {
-      text-align: start;
-    }
+  .p-dropdown-items {
+    text-align: start;
   }
 
   &.p-dropdown-clearable .p-dropdown-label {
@@ -515,7 +531,7 @@ html {
 .card {
   margin-top: 10px;
   margin-bottom: 30px;
-  border-radius: 20px !important;
+  border-radius: 8px !important;
   box-shadow: var(--main-card-shadow);
   background-color: var(--main-card-background) !important;
   color: var(--sidemenu-main-color) !important;
@@ -536,7 +552,8 @@ html {
       padding: 20px 0 13px 0 !important;
       color: var(--main-item-color);
       border-bottom: 1px solid var(--bs-gray-200);
-      font-weight: 500;
+      font-weight: 700;
+      font-size: 1.2em;
     }
 
     .card-text {

@@ -1,8 +1,20 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ThemeService } from 'src/app/core/services/theme.service';
+
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { RouterLink } from '@angular/router';
+
+import { ThemeService } from '@core/services';
+import { ButtonModule } from 'primeng/button';
+import { InputMaskModule } from 'primeng/inputmask';
+import { InputTextModule } from 'primeng/inputtext';
+import { RippleModule } from 'primeng/ripple';
 
 class RegisterModel {
   userName = '';
@@ -22,6 +34,15 @@ class RegisterModel {
 
 @Component({
   selector: 'block-register',
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    RouterLink,
+    InputTextModule,
+    ButtonModule,
+    RippleModule,
+    InputMaskModule,
+  ],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })

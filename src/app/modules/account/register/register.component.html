@@ -23,8 +23,8 @@
               </a>
             </div>
             <!-- light theme sign in -->
+            @if (themeService.theme === 'light-theme') {
             <svg
-              *ngIf="themeService.theme === 'light-theme'"
               class="col-xl-12 d-xl-block d-none rounded mt-4"
               width="315"
               height="210"
@@ -114,10 +114,11 @@
                 transform="rotate(-45 472.17 503.692)"
                 fill="#E1E4E5" />
             </svg>
+            }
             <!-- / light theme sign in -->
             <!-- dark theme sign in -->
+            @if (themeService.theme === 'dark-theme') {
             <svg
-              *ngIf="themeService.theme === 'dark-theme'"
               class="col-xl-12 d-xl-block d-none rounded mt-4"
               width="315"
               height="210"
@@ -207,6 +208,7 @@
                 transform="rotate(-45 472.17 503.692)"
                 fill="#E1E4E5" />
             </svg>
+            }
             <!-- / dark theme sign in -->
           </div>
         </div>
@@ -235,12 +237,11 @@
                   "
                   type="text" />
                 <div id="name-help">
-                  <small
-                    *ngIf="(submitted && name?.pristine) || 
-                (name?.errors?.['required'] && (name?.dirty || name?.touched))"
-                    class="p-error">
-                    لطفا نام را خالی نگذارید
-                  </small>
+                  @if ((submitted && name?.pristine) ||
+                  (name?.errors?.['required'] && (name?.dirty ||
+                  name?.touched))) {
+                  <small class="p-error"> لطفا نام را خالی نگذارید </small>
+                  }
                   <small class="p-error" style="visibility: hidden">
                     error
                   </small>
@@ -265,13 +266,13 @@
                   "
                   type="text" />
                 <div>
-                  <small
-                    *ngIf="(submitted && family?.pristine) || 
-                (family?.errors?.['required'] && (family?.dirty || family?.touched))"
-                    id="family-help"
-                    class="p-error">
+                  @if ((submitted && family?.pristine) ||
+                  (family?.errors?.['required'] && (family?.dirty ||
+                  family?.touched))) {
+                  <small id="family-help" class="p-error">
                     لطفا نام خانوادگی را خالی نگذارید
                   </small>
+                  }
                   <small class="p-error" style="visibility: hidden">
                     error
                   </small>
@@ -297,13 +298,13 @@
                 "
                 type="text" />
               <div>
-                <small
-                  *ngIf="(submitted && nationalId?.pristine) || 
-              (nationalId?.errors?.['required'] && (nationalId?.dirty || nationalId?.touched))"
-                  id="nationalId-help"
-                  class="p-error">
+                @if ((submitted && nationalId?.pristine) ||
+                (nationalId?.errors?.['required'] && (nationalId?.dirty ||
+                nationalId?.touched))) {
+                <small id="nationalId-help" class="p-error">
                   لطفا کد ملی را خالی نگذارید
                 </small>
+                }
                 <small class="p-error" style="visibility: hidden">
                   error
                 </small>
@@ -329,12 +330,13 @@
                   formControlName="phoneNumber"
                   mask="09999999999"></p-inputMask>
                 <div id="phoneNumber-help">
-                  <small
-                    *ngIf="(submitted && phoneNumber?.pristine) || 
-                  (phoneNumber?.errors?.['required'] && (phoneNumber?.dirty || phoneNumber?.touched))"
-                    class="p-error">
+                  @if ((submitted && phoneNumber?.pristine) ||
+                  (phoneNumber?.errors?.['required'] && (phoneNumber?.dirty ||
+                  phoneNumber?.touched))) {
+                  <small class="p-error">
                     لطفا تلفن همراه را خالی نگذارید
                   </small>
+                  }
                   <small class="p-error" style="visibility: hidden">
                     error
                   </small>

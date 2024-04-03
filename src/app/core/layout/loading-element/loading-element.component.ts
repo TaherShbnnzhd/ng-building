@@ -4,6 +4,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'block-loading-element',
+  standalone: true,
   templateUrl: './loading-element.component.html',
   styleUrls: ['./loading-element.component.scss'],
 })

@@ -2,6 +2,7 @@
 
 import { HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { LogService } from './log.service';
 
 export interface RequestCacheEntry {

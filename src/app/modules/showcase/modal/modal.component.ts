@@ -2,8 +2,13 @@
 
 import { Component } from '@angular/core';
 
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
+
 @Component({
   selector: 'block-modal',
+  standalone: true,
+  imports: [ButtonModule, DialogModule],
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss'],
 })
@@ -20,7 +25,16 @@ export class ModalComponent {
 
   public displayPosition!: boolean;
 
-  public position!: string;
+  public position!:
+    | 'center'
+    | 'left'
+    | 'right'
+    | 'top'
+    | 'bottom'
+    | 'topleft'
+    | 'topright'
+    | 'bottomleft'
+    | 'bottomright';
 
   public showModalDialog(): void {
     this.displayModal = true;
@@ -38,7 +52,18 @@ export class ModalComponent {
     this.displayMaximizable = true;
   }
 
-  public showPositionDialog(position: string): void {
+  public showPositionDialog(
+    position:
+      | 'center'
+      | 'left'
+      | 'right'
+      | 'top'
+      | 'bottom'
+      | 'topleft'
+      | 'topright'
+      | 'bottomleft'
+      | 'bottomright'
+  ): void {
     this.position = position;
     this.displayPosition = true;
   }

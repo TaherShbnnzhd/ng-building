@@ -4,8 +4,8 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
-    "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
@@ -18,10 +18,11 @@
     "importHelpers": true,
     "target": "ES2022",
     "module": "es2020",
-    "lib": ["es2020", "dom"],
+    "lib": ["es2022", "dom"],
     "paths": {
       "@shared/*": ["./src/app/shared/*"],
-      "@core/*": ["./src/app/core/*"]
+      "@core/*": ["./src/app/core/*"],
+      "@feature/*": ["./src/app/modules/*"],
     },
     "useDefineForClassFields": false
   },

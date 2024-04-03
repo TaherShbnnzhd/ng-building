@@ -3,7 +3,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 
-/*TIP: 
+/* TIP: 
  One major difference between `type` aliases vs `interfaces`
  are that `interfaces` are open and `type` aliases are closed.
  This means you can extend an `interface` by declaring it a second time.

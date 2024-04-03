@@ -1,12 +1,14 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 import { Component } from '@angular/core';
-import { fadeInAnimation } from '@shared/animations/transition.animation';
+import { RouterOutlet } from '@angular/router';
 
-import { AnimationService } from '@shared/services/animation.service';
+import { AnimationService, fadeInAnimation } from '@shared/animations';
 
 @Component({
   selector: 'block-account',
+  standalone: true,
+  imports: [RouterOutlet],
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.scss'],
   animations: [fadeInAnimation],

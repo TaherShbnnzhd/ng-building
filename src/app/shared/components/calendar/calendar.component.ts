@@ -1,5 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /*  بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import {
   animate,
@@ -9,7 +10,6 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-
 import {
   AfterContentInit,
   AfterViewInit,
@@ -32,9 +32,8 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { PersianNumberService } from '@shared/services/persian-number.service';
-import { JDateCalculatorService } from '@shared/utilities/JDate/calculator/jdate-calculator.service';
-import { JDate } from '@shared/utilities/JDate/jdate';
+import { CommonModule } from '@angular/common';
+
 import {
   OverlayService,
   PrimeNGConfig,
@@ -43,7 +42,15 @@ import {
 } from 'primeng/api';
 import { ConnectedOverlayScrollHandler, DomHandler } from 'primeng/dom';
 import { ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primeng/utils';
+import { ButtonModule } from 'primeng/button';
+import { RippleModule } from 'primeng/ripple';
 import { Subscription } from 'rxjs';
+
+import { JDate, JDateCalculatorService } from '@shared/utilities';
+import { PersianNumberService } from '@shared/services';
+import { FaNumPipe } from '@shared/pipes';
+
+import { CalendarTypeView, LocaleSettings } from './calendar.interface';
 
 export const CALENDAR_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -51,23 +58,10 @@ export const CALENDAR_VALUE_ACCESSOR: any = {
   multi: true,
 };
 
-export interface LocaleSettings {
-  firstDayOfWeek?: number;
-  dayNames?: string[];
-  dayNamesShort?: string[];
-  dayNamesMin?: string[];
-  monthNames?: string[];
-  monthNamesShort?: string[];
-  today?: string;
-  clear?: string;
-  dateFormat?: string;
-  weekHeader?: string;
-}
-
-export type CalendarTypeView = 'date' | 'month' | 'year';
-
 @Component({
   selector: 'block-persian-calendar',
+  standalone: true,
+  imports: [CommonModule, ButtonModule, RippleModule, FaNumPipe],
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss'],
   animations: [

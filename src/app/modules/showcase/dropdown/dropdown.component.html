@@ -115,9 +115,8 @@
                   [virtualScroll]="true"
                   [virtualScrollItemSize]="38">
                   <ng-template pTemplate="selectedItem">
-                    <div
-                      class="d-flex country-item country-item-value"
-                      *ngIf="selectedCountry">
+                    @if (selectedCountry) {
+                    <div class="d-flex country-item country-item-value">
                       <img
                         src="assets/showcase/images/demo/flag/flag_placeholder.png"
                         [class]="
@@ -125,6 +124,7 @@
                         " />
                       <div class="flex-fill">{{ selectedCountry.name }}</div>
                     </div>
+                    }
                   </ng-template>
                   <ng-template let-country pTemplate="item">
                     <div class="d-flex country-item">

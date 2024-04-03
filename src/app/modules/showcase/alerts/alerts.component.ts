@@ -1,10 +1,16 @@
 /* ّبِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 import { Component, OnInit } from '@angular/core';
+
 import { Message, MessageService } from 'primeng/api';
+import { ButtonModule } from 'primeng/button';
+import { MessagesModule } from 'primeng/messages';
+import { RippleModule } from 'primeng/ripple';
 
 @Component({
   selector: 'block-alerts',
+  standalone: true,
+  imports: [MessagesModule, ButtonModule, RippleModule],
   templateUrl: './alerts.component.html',
   styleUrls: ['./alerts.component.scss'],
   providers: [MessageService],

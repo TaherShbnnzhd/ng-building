@@ -3,17 +3,20 @@
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
 
+/** Theme bundle name */
+export type ThemeBundleName = 'light-theme' | 'dark-theme';
+
 @Injectable()
 export class ThemeService {
   /** Theme name */
-  theme: 'light-theme' | 'dark-theme' = 'light-theme';
+  theme: ThemeBundleName = 'light-theme';
   constructor(@Inject(DOCUMENT) private document: Document) {}
 
   /**
    * Switch theme between loaded primeNG themes
    * @param theme theme bundle name
    */
-  switchTheme(theme: 'light-theme' | 'dark-theme') {
+  switchTheme(theme: ThemeBundleName) {
     const themeLink = this.document.getElementById(
       'app-theme'
     ) as HTMLLinkElement;

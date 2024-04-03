@@ -1,25 +1,31 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
-import { ICity } from '@shared/models/catalog.model';
 import { SelectItem, SelectItemGroup } from 'primeng/api';
+import { DropdownModule } from 'primeng/dropdown';
+import { SkeletonModule } from 'primeng/skeleton';
+
+import { City } from '@shared/models';
 
 @Component({
   selector: 'block-dropdown',
+  standalone: true,
+  imports: [FormsModule, DropdownModule, SkeletonModule],
   templateUrl: './dropdown.component.html',
   styleUrls: ['./dropdown.component.scss'],
 })
 export class DropdownComponent {
-  public cities!: ICity[];
+  public cities!: City[];
 
-  public selectedICity1!: ICity;
+  public selectedICity1!: City;
 
-  public selectedICity2!: ICity;
+  public selectedICity2!: City;
 
   public selectedICity3!: string;
 
-  public selectedCountry!: ICity;
+  public selectedCountry!: City;
 
   public countries: Record<string, string>[];
 

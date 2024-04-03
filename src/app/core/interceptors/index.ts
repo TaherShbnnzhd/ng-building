@@ -17,3 +17,9 @@ export const httpInterceptorProviders = [
   { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true },
   { provide: HTTP_INTERCEPTORS, useClass: RetryInterceptor, multi: true },
 ];
+
+export * from './ensure-https.interceptor';
+export * from './auth.interceptor';
+export * from './logging.interceptor';
+export * from './retry.interceptor';
+export * from './caching.interceptor';

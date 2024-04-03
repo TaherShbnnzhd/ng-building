@@ -14,7 +14,7 @@
     <block-active-tabs-bar></block-active-tabs-bar>
   </div>
 
-  <div class="toggle-panel p-2">
+  <div class="toggle-panel">
     <!-- حالت جم شونده -->
     <a
       class="toggle-panel-button"
@@ -47,7 +47,8 @@
   <div class="menu-panel">
     <!-- ایجاد منو -->
     <div class="sidebar-nav flex-shrink-0 p-2">
-      <ul class="list-unstyled ps-0 pb-1 small" *ngFor="let menu of menuList">
+      @for (menu of menuList; track menu.name) {
+      <ul class="list-unstyled ps-0 pb-1 small">
         <li class="nav-item">
           <a
             #menuItem
@@ -59,24 +60,23 @@
             <i
               class="text-start"
               [class]="menu.icon ? menu.icon : 'mgc_question_line'"></i>
-
             <span class="p-2">
               {{ menu.title }}
             </span>
-
-            <i
-              *ngIf="menu.subMenu && menu.subMenu.length > 0"
-              class="p-2 mgc_down_line"></i>
+            @if (menu.subMenu && menu.subMenu.length > 0) {
+            <i class="p-2 mgc_down_line"></i>
+            }
           </a>
-
           <!-- زیر منو -->
-          <div class="show" *ngIf="menu.subMenu && menu.subMenu.length > 0">
+          @if (menu.subMenu && menu.subMenu.length > 0) {
+          <div class="show">
             <ul
               #subMenuItem
               class="nav-content collapse"
               data-bs-parent="#sidebar-nav"
               [id]="'components-nav-' + menu.name">
-              <li class="my-2" *ngFor="let subMenu of menu.subMenu">
+              @for (subMenu of menu.subMenu; track subMenu) {
+              <li class="my-2">
                 <a
                   [routerLink]="'/' + menu.name + '/' + subMenu.name"
                   routerLinkActive="active"
@@ -86,15 +86,17 @@
                   </span>
                 </a>
               </li>
+              }
             </ul>
           </div>
+          }
           <!--/ زیر منو -->
         </li>
         <!--/ منو اصلی -->
-
         <!-- جدا کننده -->
         <hr class="sidebar-divider" />
       </ul>
+      }
     </div>
     <!--/ ایجاد منو -->
   </div>
@@ -129,9 +131,8 @@
 
         <!-- ایجاد منو -->
         <div class="sidebar-nav flex-shrink-0 p-2">
-          <ul
-            class="list-unstyled ps-0 pb-1 small"
-            *ngFor="let menu of menuList">
+          @for (menu of menuList; track menu.name) {
+          <ul class="list-unstyled ps-0 pb-1 small">
             <li class="nav-item">
               <a
                 #menuItemOffcanvas
@@ -143,24 +144,23 @@
                 <i
                   class="text-start"
                   [class]="menu.icon ? menu.icon : 'mgc_question_line'"></i>
-
                 <span class="p-2">
                   {{ menu.title }}
                 </span>
-
-                <i
-                  *ngIf="menu.subMenu && menu.subMenu.length > 0"
-                  class="p-2 mgc_down_line"></i>
+                @if (menu.subMenu && menu.subMenu.length > 0) {
+                <i class="p-2 mgc_down_line"></i>
+                }
               </a>
-
               <!-- زیر منو -->
-              <div *ngIf="menu.subMenu && menu.subMenu.length > 0">
+              @if (menu.subMenu && menu.subMenu.length > 0) {
+              <div>
                 <ul
                   #subMenuItemOffcanvas
                   class="nav-content collapse"
                   data-bs-parent="#sidebar-nav"
                   [id]="'components-nav-' + menu.name">
-                  <li class="my-2" *ngFor="let subMenu of menu.subMenu">
+                  @for (subMenu of menu.subMenu; track subMenu) {
+                  <li class="my-2">
                     <a
                       [routerLink]="'/' + menu.name + '/' + subMenu.name"
                       routerLinkActive="active"
@@ -170,12 +170,15 @@
                       </span>
                     </a>
                   </li>
+                  }
                 </ul>
               </div>
+              }
               <!--/ زیر منو -->
             </li>
             <!--/ منو اصلی -->
           </ul>
+          }
         </div>
         <!--/ ایجاد منو -->
       </div>

@@ -1,0 +1,37 @@
+/* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
+
+/*--------------------------------------------------------------
+# PrimeNG Theme
+--------------------------------------------------------------*/
+@import 'primeng/resources/themes/viva-dark/theme.css';
+
+/*--------------------------------------------------------------
+# Main color palette
+--------------------------------------------------------------*/
+:root {
+  --main-color: #222222;
+  --main-hilight-color: #ffc107;
+  --main-item-color: #a5a5a5;
+
+  --loading-element-color: #ffa435;
+
+  --main-card-background: #303030;
+  --main-card-color: #e1e1e1;
+  --main-card-border-color: #46464d;
+  --main-card-shadow: rgba(8, 13, 20, 0.5) 0px 35px 20px -20px;
+  --main-card-hover-shadow: 0 0 0 1px #686767, 0 0 0 4px transparent,
+    0 2px 12px 0 rgba(37, 37, 52, 0.8);
+
+  --sidemenu-main-color: #3e3e3e;
+  --sidemenu-hilight-color: #ffa435;
+  --sidemenu-item-color: #e2e2e2;
+
+  --main-gradiant: linear-gradient(25deg, #000f3c, #3e3e3e 85%);
+
+  --main-box-shadow: rgba(13, 13, 13, 0.2) 0px -2px 14px 1px,
+    rgba(20, 20, 20, 0.05) 0px 2px 5px 1px;
+}
+
+label {
+  color: #fff;
+}

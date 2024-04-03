@@ -5,6 +5,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'block-report-container',
+  standalone: true,
   templateUrl: './report-container.component.html',
   styleUrls: ['./report-container.component.scss'],
 })

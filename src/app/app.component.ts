@@ -1,18 +1,19 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 import { Component, OnInit } from '@angular/core';
-
-import { fadeInAnimation } from '@shared/animations/transition.animation';
-import { AnimationService } from '@shared/services/animation.service';
+import { RouterOutlet } from '@angular/router';
 
 import { PrimeNGConfig } from 'primeng/api';
 
+import { AnimationService, fadeInAnimation } from '@shared/animations';
+
 @Component({
   selector: 'block-root',
+  standalone: true,
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [fadeInAnimation],
-  providers: [AnimationService],
 })
 export class AppComponent implements OnInit {
   constructor(

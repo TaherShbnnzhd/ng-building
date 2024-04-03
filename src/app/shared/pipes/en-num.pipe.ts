@@ -2,14 +2,14 @@
 
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { PersianNumberService } from '@shared/services/persian-number.service';
+import { PersianNumberService } from '@shared/services';
 
 /**
  * Replaces all persian numbers in the text to the english numbers.
  *
  * @example {{persianTextDigit | enNum}}
  */
-@Pipe({ name: 'enNum' })
+@Pipe({ name: 'enNum', standalone: true })
 export class EnNumPipe implements PipeTransform {
   constructor(private persianNumberService: PersianNumberService) {}
 

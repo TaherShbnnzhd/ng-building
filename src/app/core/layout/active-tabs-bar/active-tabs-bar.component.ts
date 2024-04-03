@@ -10,9 +10,11 @@ import {
   Scroll,
 } from '@angular/router';
 
-import { ThemeService } from '@core/services/theme.service';
-
+import { ToolbarModule } from 'primeng/toolbar';
+import { ButtonModule } from 'primeng/button';
 import { filter, map } from 'rxjs';
+
+import { ThemeService } from '@core/services';
 
 import {
   RouteStorageObject,
@@ -22,6 +24,8 @@ import { StoredRoutesService } from '../../services/route-reuse-strategy/stored-
 
 @Component({
   selector: 'block-active-tabs-bar',
+  standalone: true,
+  imports: [ToolbarModule, ButtonModule],
   templateUrl: './active-tabs-bar.component.html',
   styleUrls: ['./active-tabs-bar.component.scss'],
 })

@@ -1,15 +1,13 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 import { Injectable } from '@angular/core';
+
 import { delay, Observable, of } from 'rxjs';
-import { HttpService } from '../http/http.service';
 
 @Injectable()
 export class AuthService {
   /** Store the URL so we can redirect after logging in */
   public redirectUrl: string | null = null;
-
-  constructor(private httpService: HttpService) {}
 
   /** Return token if exists */
   public getAuthorizationToken(): string {

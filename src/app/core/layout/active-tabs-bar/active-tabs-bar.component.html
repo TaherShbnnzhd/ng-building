@@ -2,7 +2,8 @@
 
 <section class="section">
   <p-toolbar>
-    <div class="navigation-tab" *ngFor="let tab of activeTabs">
+    @for (tab of activeTabs; track tab.storedRoute) {
+    <div class="navigation-tab">
       <span
         class="p-buttonset navigation-tab-wrapper border-bottom w-100"
         [class.border-primary]="
@@ -28,5 +29,6 @@
           (click)="discardRoute(tab.name)"></button>
       </span>
     </div>
+    }
   </p-toolbar>
 </section>

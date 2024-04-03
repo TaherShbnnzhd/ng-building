@@ -1,17 +1,20 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-
-import { AuthService } from '../../authentication/auth.service';
-import { StoredRoutesService } from '../../services/route-reuse-strategy/stored-routes.service';
-import { ThemeService } from '../../services/theme.service';
-import { SidemenuService } from '../sidemenu/sidemenu.service';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 import { ConfirmationService } from 'primeng/api';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+
+import { StoredRoutesService, ThemeService } from '@core/services';
+import { AuthService } from '@core/authentication';
+
+import { SidemenuService } from '../sidemenu/sidemenu.service';
 
 @Component({
   selector: 'block-header',
+  standalone: true,
+  imports: [RouterLink, RouterLinkActive, ConfirmDialogModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   providers: [ConfirmationService],
