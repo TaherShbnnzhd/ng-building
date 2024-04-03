@@ -23,6 +23,7 @@
       "@shared/*": ["./src/app/shared/*"],
       "@core/*": ["./src/app/core/*"],
       "@feature/*": ["./src/app/modules/*"],
+      "block/*": ["./src/app/components/*/public-api"]
     },
     "useDefineForClassFields": false
   },

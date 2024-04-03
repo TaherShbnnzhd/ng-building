@@ -11,9 +11,10 @@ import { ProgressBarModule } from 'primeng/progressbar';
 
 import { map, tap } from 'rxjs';
 
+import { JDatePipe, FaNumPipe, IRCurrencyPipe } from 'block/pipes';
+
 import { HttpService } from '@core/http';
 import { Customer, IRepresentative } from '@shared/models';
-import { FaNumPipe, IRCurrencyPipe, JDatePipe } from '@shared/pipes';
 
 @Component({
   selector: 'block-data-table',

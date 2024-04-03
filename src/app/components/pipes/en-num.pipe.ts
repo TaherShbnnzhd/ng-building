@@ -2,7 +2,7 @@
 
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { PersianNumberService } from '@shared/services';
+import { PersianNumberService } from 'block/api';
 
 /**
  * Replaces all persian numbers in the text to the english numbers.

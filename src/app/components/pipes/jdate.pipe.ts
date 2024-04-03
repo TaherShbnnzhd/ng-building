@@ -4,7 +4,7 @@
 
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { JDate } from '@shared/utilities';
+import { JDate } from 'block/utilities';
 
 /**
  * Pre-defined formats date formats those can use for formatting JDate objects with jdate pipe.

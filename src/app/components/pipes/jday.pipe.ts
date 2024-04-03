@@ -2,7 +2,7 @@
 
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { ISimpleDate, JDateCalculatorService } from '@shared/utilities';
+import { ISimpleDate, JDateCalculatorService } from 'block/utilities';
 
 interface ICalendarDate {
   day: number;

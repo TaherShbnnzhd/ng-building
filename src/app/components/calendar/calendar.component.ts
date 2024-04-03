@@ -46,9 +46,9 @@ import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { Subscription } from 'rxjs';
 
-import { JDate, JDateCalculatorService } from '@shared/utilities';
-import { PersianNumberService } from '@shared/services';
-import { FaNumPipe } from '@shared/pipes';
+import { PersianNumberService } from 'block/api';
+import { FaNumPipe } from 'block/pipes';
+import { JDate, JDateCalculatorService } from 'block/utilities';
 
 import { CalendarTypeView, LocaleSettings } from './calendar.interface';
 

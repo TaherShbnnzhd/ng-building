@@ -4,9 +4,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { JDate } from '@shared/utilities';
-import { CalendarComponent } from '@shared/components';
-import { FaNumPipe } from '@shared/pipes';
+import { CalendarComponent } from 'block/calendar';
+import { FaNumPipe } from 'block/pipes';
+import { JDate } from 'block/utilities';
 
 @Component({
   selector: 'block-calendar-demo',

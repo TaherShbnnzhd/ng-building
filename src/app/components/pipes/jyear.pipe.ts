@@ -2,7 +2,7 @@
 
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { JDateCalculatorService } from '@shared/utilities';
+import { JDateCalculatorService } from 'block/utilities';
 
 @Pipe({
   name: 'jyear',

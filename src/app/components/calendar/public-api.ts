@@ -1,0 +1,3 @@
+/* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
+
+export * from './calendar.component';
