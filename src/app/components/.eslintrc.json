@@ -1,7 +1,7 @@
 /* بِسْمِ اللهِ الرَّحْمنِ الرَّحِیم */
 
 {
-  "extends": "../../.eslintrc.json",
+  "extends": "../../../.eslintrc.json",
   "ignorePatterns": [
     "!**/*"
   ],
@@ -15,7 +15,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "lib",
+            "prefix": "block",
             "style": "camelCase"
           }
         ],
@@ -23,7 +23,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "lib",
+            "prefix": "block",
             "style": "kebab-case"
           }
         ]
