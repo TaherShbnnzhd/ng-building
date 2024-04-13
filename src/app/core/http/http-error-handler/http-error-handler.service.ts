@@ -5,8 +5,7 @@ import { Injectable } from '@angular/core';
 
 import { MessageService } from 'primeng/api';
 import { Observable, of } from 'rxjs';
-
-import { PersianNumberService } from '@shared/services';
+import { PersianNumberService } from 'block/api';
 
 import { LogService } from '../../services/log.service';
 

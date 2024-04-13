@@ -17,11 +17,12 @@ import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { tap } from 'rxjs';
 
+import { FaNumPipe } from 'block/pipes';
+import { PersianNumberService } from 'block/api';
+
 import { AuthService } from '@core/authentication';
 import { SidemenuService } from '@core/layout';
 import { ThemeService } from '@core/services';
-import { PersianNumberService } from '@shared/services';
-import { FaNumPipe } from '@shared/pipes';
 
 class LoginModel {
   username = '';
